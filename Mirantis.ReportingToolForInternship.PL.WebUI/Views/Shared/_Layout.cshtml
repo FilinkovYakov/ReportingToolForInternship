@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporting Tool for Internship</title>
+    <link href="~/Content/libs/reset.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-override.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Add report", "AddReport", "Report")</li>
+                    <li>@Html.ActionLink("Search", "Search", "Report")</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section class="container body-content">
+        @RenderBody()
+        <hr />
+    </section>
+    <footer class="text-center">
+        <p>&copy; @DateTime.Now.Year - Mirantis</p>
+    </footer>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

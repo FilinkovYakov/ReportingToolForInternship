@@ -1,0 +1,146 @@
+﻿@using Mirantis.ReportingToolForInternship.PL.WebUI.Models.Repositories
+@model Mirantis.ReportingToolForInternship.PL.WebUI.Models.ReportVM
+
+@{
+    ViewBag.Title = "Add Report";
+}
+
+<h2>Add report</h2>
+
+<form class="form-horizontal">
+    <hr />
+
+    <div id="MessageAboutStatusReport" class="text-center alert-success">
+    </div>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.MentorName, htmlAttributes: new { @class = "control-label col-xs-2" })
+        <div class="col-xs-10">
+            <select name="MentorName" id="MentorName" class="selectpicker">
+                @foreach (var item in UserRepo.Repo)
+                {
+                    <option value="@item.Name">
+                        @string.Format("{0} - {1}", item.Name, item.Email)
+                    </option>
+                }
+            </select>
+            @Html.ValidationMessageFor(model => model.MentorName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InternName, htmlAttributes: new { @class = "control-label col-xs-2" })
+        <div class="col-xs-10">
+            <select name="InternName" id="InternName" class="selectpicker">
+                @foreach (var item in UserRepo.Repo)
+                {
+                    <option value="@item.Name">
+                        @string.Format("{0} - {1}", item.Name, item.Email)
+                    </option>
+                }
+            </select>
+            @Html.ValidationMessageFor(model => model.InternName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-xs-2" })
+        <div class="col-xs-10">
+            <select name="Type" id="Type" class="selectpicker">
+                @foreach (var item in TypeReportRepo.Repo)
+                {
+                    <option value="@item.Name">
+                        @string.Format("{0}", item.Name)
+                    </option>
+                }
+            </select>
+            @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-xs-2" })
+        <div class="col-xs-10">
+            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.IsDraft, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsDraft)
+                    @Html.ValidationMessageFor(model => model.IsDraft, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        <div class="col-xs-5 col-md-offset-2">
+            <strong>Activities</strong>
+        </div>
+        <div class="col-xs-5">
+            <strong>Questions about activities</strong>
+        </div>
+    </div>
+
+    <div class="form-group form-group-without-margin-bottom" id="WrapperActivityInputAndQuestionInput">
+        <div class="col-xs-5 col-md-offset-2">
+            <input class="form-control text-box single-line" id="ActivityInput" />
+        </div>
+        <div class="col-xs-5">
+            <input class="form-control text-box single-line" id="QuestionInput" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-5 col-md-offset-2">
+            <input type="button" value="Add activity" class="btn btn-default" id="AddActivityButton" />
+        </div>
+        <div class="col-xs-5">
+            <input type="button" value="Add question" class="btn btn-default" id="AddQuestionButton" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-10 col-md-offset-2">
+            <strong>Future plans</strong>
+        </div>
+    </div>
+
+    <div class="form-group" id="WrapperInputFuturePlan">
+        <div class="col-xs-10 col-md-offset-2">
+            <input class="form-control text-box single-line" id="FuturePlanInput" />
+        </div>
+    </div>
+
+    <div class="form-group" id="WrapperInputFuturePlan">
+        <div class="col-xs-10 col-md-offset-2">
+            <input type="button" value="Add future plan" class="btn btn-default" id="AddFuturePlanButton" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-10 col-md-offset-2">
+            <input type="button" value="Save as draft" class="btn btn-default" id="SaveAsDraftButton" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-10 col-md-offset-2">
+            <input type="button" value="Submit" class="btn btn-default" id="SubmitButton" />
+        </div>
+    </div>
+</form>
+
+@section scripts {
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/Custom/addActivityInReport.js"></script>
+    <script src="~/Scripts/Custom/addFuturePlanInReport.js"></script>
+    <script src="~/Scripts/Custom/addQuestionInReport.js"></script>
+    <script src="~/Scripts/Custom/sendingJSONOnServer.js"></script>
+}
