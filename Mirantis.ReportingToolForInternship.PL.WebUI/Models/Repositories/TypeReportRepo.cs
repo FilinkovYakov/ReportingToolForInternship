@@ -7,11 +7,12 @@
 
     public class TypeReportRepo
     {
-        private static List<TypeReportVM> repo;
+        private static List<TypeReportVM> allTypes;
+        private static List<TypeReportVM> reportsTypes;
 
         static TypeReportRepo()
         {
-            repo = new List<TypeReportVM>()
+            reportsTypes = new List<TypeReportVM>()
             {
                 new TypeReportVM()
                 {
@@ -21,16 +22,20 @@
                 {
                     Name = "Weekly"
                 },
-                new TypeReportVM
-                {
-                    Name = "All"
-                }
             };
+
+            allTypes = new List<TypeReportVM>(reportsTypes);
+            allTypes.Add(new TypeReportVM { Name = "All" });
         }
 
-        public static List<TypeReportVM> Repo
+        public static List<TypeReportVM> ReportsTypes
         {
-            get { return repo; }
+            get { return reportsTypes; }
+        }
+
+        public static List<TypeReportVM> AllTypes
+        {
+            get { return allTypes; }
         }
     }
 }

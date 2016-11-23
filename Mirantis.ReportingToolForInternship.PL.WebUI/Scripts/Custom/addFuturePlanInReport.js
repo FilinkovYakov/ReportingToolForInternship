@@ -1,42 +1,34 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
-/// <reference path="addActivityInReport.js" />
 
 
-$(function () {
-    var $futurePlanInput = $("#FuturePlanInput"),
-        $wrapperInputFuturePlan = $("#WrapperInputFuturePlan"),
-        futurePlanValue;
+$(document).ready(function () {
+    var $addFuturePlanButton = $("#AddFuturePlanButton"),
+        $futurePlanInput = $("#FuturePlanInput"),
+        $wrapperInputFuturePlan = $("#WrapperInputFuturePlan");
 
-    $(document).ready(function () {
-        $("#AddFuturePlanButton").click(function () {
-            getResultFromFuturePlanInput();
-            clearFuturePlanInput();
-            constructResultForm();
-        });
-    })
-
-    function getResultFromFuturePlanInput() {
-        futurePlanValue = $futurePlanInput.val();
-    }
+    $addFuturePlanButton.click(function () {
+        constructResultForm();
+        clearFuturePlanInput();
+    });
 
     function clearFuturePlanInput() {
         $futurePlanInput.val("");
     }
 
     function constructResultForm() {
-        //Method "constructWrapperOfRemoverButton" got from "addActivityInReport"
-        var $removerButton = constructWrapperOfRemoverButton();
-        var $outerWrapper = $("<div></div>").addClass("form-group");
-        var $innerWrapper = $("<div></div>")
-            .addClass("col-xs-10");
-        var $newFuturePlanInput = $("<input>")
-            .addClass("form-control")
-            .addClass("input-future-plan")
-            .attr("value", futurePlanValue);
+        var $tempWrapper = $wrapperInputFuturePlan.clone();
 
-        $innerWrapper.append($newFuturePlanInput);
-        $outerWrapper.append($removerButton);
-        $outerWrapper.append($innerWrapper);
-        $wrapperInputFuturePlan.before($outerWrapper);
+        $tempWrapper.find("#AddFuturePlanButton").each(function () {
+            assignmentButtonToAbilityOfRemove($(this));
+            $(this).addClass("btn-remover")
+                .attr("value", "–");
+        });
+
+        $tempWrapper.removeAttr("id");
+        $tempWrapper.find("*").each(function () {
+            $(this).removeAttr("id");
+        });
+
+        $wrapperInputFuturePlan.before($tempWrapper);
     };
 });

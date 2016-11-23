@@ -1,5 +1,6 @@
 ﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.Models
 {
+    using Entities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -24,11 +25,43 @@
 
         public List<FuturePlanVM> FuturePlans { get; set; }
 
-        [DataType(DataType.Date)]
+        [Required(ErrorMessage = "Field 'From' is required")]
         [Display(Name = "Date :")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
 
         [Display(Name = "Is draft :")]
         public bool IsDraft { get; set; }
+
+        public static explicit operator Report(ReportVM reportVM)
+        {
+            return new Report()
+            {
+                Id = reportVM.Id,
+                Activities = reportVM.Activities?.Select(activity => (Activity)activity).ToList(),
+                Date = reportVM.Date,
+                FuturePlans = reportVM.FuturePlans?.Select(futurePlan => (FuturePlan)futurePlan).ToList(),
+                InternName = reportVM.InternName,
+                IsDraft = reportVM.IsDraft,
+                MentorName = reportVM.MentorName,
+                Type = reportVM.Type
+            };
+        }
+
+        public static explicit operator ReportVM(Report report)
+        {
+            return new ReportVM()
+            {
+                Id = report.Id,
+                Activities = report.Activities?.Select(activity => (ActivityVM)activity).ToList(),
+                Date = report.Date,
+                FuturePlans = report.FuturePlans?.Select(futurePlan => (FuturePlanVM)futurePlan).ToList(),
+                InternName = report.InternName,
+                IsDraft = report.IsDraft,
+                MentorName = report.MentorName,
+                Type = report.Type
+            };
+        }
     }
 }

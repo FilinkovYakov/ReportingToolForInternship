@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2DC545D-7E5E-4F1D-95DA-6B949279CD52}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mirantis.ReportingToolForInternship.BLL.Core</RootNamespace>
+    <AssemblyName>Mirantis.ReportingToolForInternship.BLL.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAOS.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportLogic.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.BLL.Contracts\Mirantis.ReportingToolForInternship.BLL.Contracts.csproj">
+      <Project>{a0323582-89bf-4256-8436-25a632086091}</Project>
+      <Name>Mirantis.ReportingToolForInternship.BLL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.Contracts\Mirantis.ReportingToolForInternship.DAL.Contracts.csproj">
+      <Project>{bab02513-c05e-4e79-88c7-63dc7f9421b4}</Project>
+      <Name>Mirantis.ReportingToolForInternship.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\Mirantis.ReportingToolForInternship.DAL.DataAccessEF.csproj">
+      <Project>{4a59aecf-4571-4f7b-82c0-ec3d04c351d6}</Project>
+      <Name>Mirantis.ReportingToolForInternship.DAL.DataAccessEF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
+      <Project>{4fff7831-8d36-48d0-bc0d-40086dad4465}</Project>
+      <Name>Mirantis.ReportingToolForInternship.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

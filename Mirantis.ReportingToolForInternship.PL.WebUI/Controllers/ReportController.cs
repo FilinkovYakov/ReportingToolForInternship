@@ -7,40 +7,80 @@
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
+    using Entities;
 
     public class ReportController : Controller
     {
-        public ActionResult AddReport()
+        public ActionResult AddMentorsReport()
+        {
+            return View();
+        }
+
+        public ActionResult AddInternsReport()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddReportAsDraft(ReportVM report)
+        public ActionResult AddReportAsDraft(ReportVM reportVM)
         {
-            report.IsDraft = true;
+            reportVM.IsDraft = true;
 
             if (ModelState.IsValid)
             {
-                ReportRepo.Repo.Add(report);
-                return Json(new { message = "Report successfully got saved as draft" }, JsonRequestBehavior.AllowGet);
+                DataProvider.ReportLogic.Add((Report)reportVM);
+                return PartialView("_SuccessSaveReportAsDraft");
             }
 
-            return View(report);
+            return View(reportVM);
         }
 
         [HttpPost]
-        public ActionResult SubmitReport(ReportVM report)
+        public ActionResult SubmitReport(ReportVM reportVM)
         {
-            report.IsDraft = false;
+            reportVM.IsDraft = false;
 
             if (ModelState.IsValid)
             {
-                ReportRepo.Repo.Add(report);
-                return Json(new { message = "Report successfully got submitted" }, JsonRequestBehavior.AllowGet);
+                DataProvider.ReportLogic.Add((Report)reportVM);
+                return PartialView("_SuccessSubmitReport");
             }
 
-            return View(report);
+            return View(reportVM);
+        }
+
+        public ActionResult EditInternReport(Guid id)
+        {
+            ReportVM reportVM = (ReportVM)DataProvider.ReportLogic.GetById(id);
+            return View(reportVM);
+        }
+
+        [HttpPost]
+        public ActionResult RemainReportAsDraft(ReportVM reportVM)
+        {
+            reportVM.IsDraft = true;
+
+            if (ModelState.IsValid)
+            {
+                DataProvider.ReportLogic.Edit((Report)reportVM);
+                return PartialView("_SuccessRemainedReport");
+            }
+
+            return View(reportVM);
+        }
+
+        [HttpPost]
+        public ActionResult ChangeReportOnFinalVersion(ReportVM reportVM)
+        {
+            reportVM.IsDraft = false;
+
+            if (ModelState.IsValid)
+            {
+                DataProvider.ReportLogic.Edit((Report)reportVM);
+                return PartialView("_SuccessChangedReportOnFinalVersion");
+            }
+
+            return View(reportVM);
         }
 
         public ActionResult Search()
@@ -52,13 +92,13 @@
         {
             if (ModelState.IsValid)
             {
-                IEnumerable<ReportVM> reports = ReportRepo.Repo
-                    .Where(report => report.MentorName == searchVM.MentorName)
-                    .Where(report => report.InternName == searchVM.InternName)
-                    .Where(report => report.Date > searchVM.DateFrom && report.Date < searchVM.DateTo)
-                    .Where(report => report.Type == searchVM.Type)
-                    .ToList();
-                return PartialView("_ShowSearchResult", reports);
+                IEnumerable<ReportVM> reports = DataProvider.ReportLogic.Search((SearchModel)searchVM).Select(report => (ReportVM)report);
+                if (reports.Any())
+                {
+                    return PartialView("_ShowSearchResult", reports);
+                }
+
+                return PartialView("_ShowNullSearchResult");
             }
 
             return View("Search", searchVM);

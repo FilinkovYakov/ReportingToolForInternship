@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mirantis.ReportingToolForInternship.PL.WebUI</RootNamespace>
     <AssemblyName>Mirantis.ReportingToolForInternship.PL.WebUI</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,16 +52,14 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -102,6 +101,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -170,10 +170,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ActivityVM.cs" />
+    <Compile Include="Models\DataProvider.cs" />
     <Compile Include="Models\FuturePlanVM.cs" />
     <Compile Include="Models\QuestionVM.cs" />
     <Compile Include="Models\ReportVM.cs" />
-    <Compile Include="Models\Repositories\ReportRepo.cs" />
     <Compile Include="Models\Repositories\TypeReportRepo.cs" />
     <Compile Include="Models\Repositories\UserRepo.cs" />
     <Compile Include="Models\SearchVM.cs" />
@@ -186,23 +186,39 @@
     <Content Include="Content\bootstrap-override.css" />
     <Content Include="Content\bootstrap-select.css" />
     <Content Include="Content\bootstrap-select.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\libs\reset.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap-select.js" />
     <Content Include="Scripts\bootstrap-select.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap-select.js.map" />
     <Content Include="Content\bootstrap-select.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\Custom\addActivityInReport.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Custom\addActivityInInternsReport.js" />
+    <Content Include="Scripts\Custom\addActivityInMentorsReport.js" />
     <Content Include="Scripts\Custom\addFuturePlanInReport.js" />
     <Content Include="Scripts\Custom\addQuestionInReport.js" />
-    <Content Include="Scripts\Custom\sendingJSONOnServer.js" />
+    <Content Include="Scripts\Custom\constructors.js" />
+    <Content Include="Scripts\Custom\refreshRemoverButtons.js" />
+    <Content Include="Scripts\Custom\sendInternsReportForAddition.js" />
+    <Content Include="Scripts\Custom\sendInternsReportForEditing.js" />
+    <Content Include="Scripts\Custom\sendMentorsReportForAddition.js" />
     <Content Include="Scripts\i18n\defaults-ar_AR.js" />
     <Content Include="Scripts\i18n\defaults-ar_AR.min.js" />
     <Content Include="Scripts\i18n\defaults-bg_BG.js" />
@@ -278,7 +294,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -288,9 +306,16 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Report\AddReport.cshtml" />
+    <Content Include="Views\Report\AddInternsReport.cshtml" />
     <Content Include="Views\Report\Search.cshtml" />
     <Content Include="Views\Report\_ShowSearchResult.cshtml" />
+    <Content Include="Views\Report\_ShowNullSearchResult.cshtml" />
+    <Content Include="Views\Report\_SuccessSubmitReport.cshtml" />
+    <Content Include="Views\Report\_SuccessSaveReportAsDraft.cshtml" />
+    <Content Include="Views\Report\AddMentorsReport.cshtml" />
+    <Content Include="Views\Report\EditInternReport.cshtml" />
+    <Content Include="Views\Report\_SuccessRemainedReport.cshtml" />
+    <Content Include="Views\Report\_SuccessChangedReportOnFinalVersion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -299,6 +324,20 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.BLL.Contracts\Mirantis.ReportingToolForInternship.BLL.Contracts.csproj">
+      <Project>{a0323582-89bf-4256-8436-25a632086091}</Project>
+      <Name>Mirantis.ReportingToolForInternship.BLL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.BLL.Core\Mirantis.ReportingToolForInternship.BLL.Core.csproj">
+      <Project>{a2dc545d-7e5e-4f1d-95da-6b949279cd52}</Project>
+      <Name>Mirantis.ReportingToolForInternship.BLL.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
+      <Project>{4fff7831-8d36-48d0-bc0d-40086dad4465}</Project>
+      <Name>Mirantis.ReportingToolForInternship.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

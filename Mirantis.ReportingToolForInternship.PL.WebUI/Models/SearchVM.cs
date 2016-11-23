@@ -1,5 +1,6 @@
 ﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.Models
 {
+    using Entities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -17,13 +18,26 @@
         [Display(Name = "Type :")]
         public string Type { get; set; }
 
+        [Required(ErrorMessage = "Field 'From' is required")]
         [Display(Name = "From :")]
         [DataType(DataType.Date)]
         public DateTime DateFrom { get; set; }
 
+        [Required(ErrorMessage = "Field 'To' is required")]
         [Display(Name = "To :")]
         [DataType(DataType.Date)]
         public DateTime DateTo { get; set; }
 
+        public static explicit operator SearchModel(SearchVM searchVM)
+        {
+            return new SearchModel()
+            {
+                InternName = searchVM.InternName,
+                MentorName = searchVM.MentorName,
+                DateFrom = searchVM.DateFrom,
+                DateTo = searchVM.DateTo,
+                Type = searchVM.Type
+            };
+        }
     }
 }
