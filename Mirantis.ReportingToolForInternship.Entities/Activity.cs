@@ -18,6 +18,6 @@
 
         public string Evaluation { get; set; }
              
-        public List<Question> Questions { get; set; }
+        public virtual List<Question> Questions { get; set; }
     }
 }

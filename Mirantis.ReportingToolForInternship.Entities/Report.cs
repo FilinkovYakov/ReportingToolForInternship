@@ -21,9 +21,9 @@
         [Display(Name = "Type occuring :")]
         public string TypeOccuring { get; set; }
 
-        public List<Activity> Activities { get; set; }
+        public virtual List<Activity> Activities { get; set; }
 
-        public List<FuturePlan> FuturePlans { get; set; }
+        public virtual List<FuturePlan> FuturePlans { get; set; }
 
         [DataType(DataType.Date)]
         [Display(Name = "Date :")]

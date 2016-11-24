@@ -28,14 +28,7 @@
 
         public void Edit(Report report)
         {
-            Report tmpReport = GetById(report.Id);
-            tmpReport.InternName = report.InternName;
-            tmpReport.MentorName = report.MentorName;
-            tmpReport.TypeOccuring = report.TypeOccuring;
-            tmpReport.FuturePlans = report.FuturePlans;
-            tmpReport.Date = report.Date;
-            tmpReport.Activities = report.Activities;
-            tmpReport.IsDraft = report.IsDraft;
+            dbContext.Entry<Report>(report).State = EntityState.Modified;
             dbContext.SaveChanges();
         }
 
@@ -74,7 +67,7 @@
                 query = query.Where(report => string.IsNullOrEmpty(report.MentorName));
             }
 
-            return query.ToList();
+            return query.AsNoTracking().ToList();
         }
     }
 }

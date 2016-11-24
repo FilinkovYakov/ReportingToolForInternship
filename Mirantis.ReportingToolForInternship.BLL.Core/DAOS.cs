@@ -1,21 +1,17 @@
 ﻿namespace Mirantis.ReportingToolForInternship.BLL.Core
 {
-    using Contracts;
     using DAL.Contracts;
     using DAL.DataAccessEF;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Microsoft.Practices.Unity;
 
     public class DAOS
     {
-        static DAOS()
+        public static IReportDAO ReportDAO
         {
-            ReportDAO = new ReportDAO();
+            get
+            {
+                return ContainerProvider.Container.Resolve<IReportDAO>();
+            }
         }
-
-        public static IReportDAO ReportDAO { get; private set; }
     }
 }

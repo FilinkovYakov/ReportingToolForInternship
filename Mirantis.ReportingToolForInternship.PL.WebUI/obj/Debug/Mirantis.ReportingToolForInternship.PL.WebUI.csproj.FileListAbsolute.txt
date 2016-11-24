@@ -44,7 +44,6 @@ C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.Reportin
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\System.Web.WebPages.Razor.dll
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\WebGrease.dll
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Mirantis.ReportingToolForInternship.DAL.Contracts.dll
-C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Mirantis.ReportingToolForInternship.DAL.DataAccessEF.dll
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Mirantis.ReportingToolForInternship.BLL.Contracts.pdb
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Mirantis.ReportingToolForInternship.BLL.Core.pdb
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Mirantis.ReportingToolForInternship.Entities.pdb
@@ -73,7 +72,15 @@ C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.Reportin
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Mirantis.ReportingToolForInternship.DAL.Contracts.pdb
-C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Mirantis.ReportingToolForInternship.DAL.DataAccessEF.pdb
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\obj\Debug\Mirantis.ReportingToolForInternship.PL.WebUI.csprojResolveAssemblyReference.cache
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\obj\Debug\Mirantis.ReportingToolForInternship.PL.WebUI.dll
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\obj\Debug\Mirantis.ReportingToolForInternship.PL.WebUI.pdb
+C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Practices.Unity.dll
+C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Practices.Unity.xml
+C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Practices.ServiceLocation.xml
+C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Mirantis.ReportingToolForInternship.DAL.DataAccessEF.dll
+C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Mirantis.ReportingToolForInternship.DAL.DataAccessEF.pdb
