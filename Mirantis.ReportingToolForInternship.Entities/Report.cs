@@ -18,8 +18,8 @@
         [Display(Name = "Intern :")]
         public string InternName { get; set; }
 
-        [Display(Name = "Type :")]
-        public string Type { get; set; }
+        [Display(Name = "Type occuring :")]
+        public string TypeOccuring { get; set; }
 
         public List<Activity> Activities { get; set; }
 

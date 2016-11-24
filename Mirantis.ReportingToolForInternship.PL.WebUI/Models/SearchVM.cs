@@ -15,8 +15,11 @@
         [Display(Name = "Mentor :")]
         public string MentorName { get; set; }
 
-        [Display(Name = "Type :")]
-        public string Type { get; set; }
+        [Display(Name = "Type occuring :")]
+        public string TypeOccuring { get; set; }
+
+        [Display(Name = "Type origin :")]
+        public string TypeOrigin { get; set; }
 
         [Required(ErrorMessage = "Field 'From' is required")]
         [Display(Name = "From :")]
@@ -36,7 +39,8 @@
                 MentorName = searchVM.MentorName,
                 DateFrom = searchVM.DateFrom,
                 DateTo = searchVM.DateTo,
-                Type = searchVM.Type
+                TypeOccuring = searchVM.TypeOccuring,
+                TypeOrigin = searchVM.TypeOrigin
             };
         }
     }

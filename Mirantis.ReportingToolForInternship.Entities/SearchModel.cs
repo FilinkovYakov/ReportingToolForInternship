@@ -12,7 +12,9 @@
 
         public string MentorName { get; set; }
 
-        public string Type { get; set; }
+        public string TypeOccuring { get; set; }
+
+        public string TypeOrigin { get; set; }
 
         public DateTime DateFrom { get; set; }
 

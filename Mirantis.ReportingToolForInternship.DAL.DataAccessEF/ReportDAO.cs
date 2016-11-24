@@ -31,7 +31,7 @@
             Report tmpReport = GetById(report.Id);
             tmpReport.InternName = report.InternName;
             tmpReport.MentorName = report.MentorName;
-            tmpReport.Type = report.Type;
+            tmpReport.TypeOccuring = report.TypeOccuring;
             tmpReport.FuturePlans = report.FuturePlans;
             tmpReport.Date = report.Date;
             tmpReport.Activities = report.Activities;
@@ -48,9 +48,9 @@
         {
             var query = dbContext.Reports.Where(report => report.Date >= searchModel.DateFrom && report.Date <= searchModel.DateTo);
 
-            if (searchModel.Type != "All")
+            if (searchModel.TypeOccuring != "All")
             {
-                query = query.Where(report => report.Type == searchModel.Type);
+                query = query.Where(report => report.TypeOccuring == searchModel.TypeOccuring);
             }
 
             if (searchModel.InternName != "All")
@@ -58,9 +58,20 @@
                 query = query.Where(report => report.InternName == searchModel.InternName);
             }
 
-            if (searchModel.MentorName != "All")
+            if (searchModel.TypeOrigin == "Mentor's")
             {
-                query = query.Where(report => report.MentorName == searchModel.MentorName);
+                if (searchModel.MentorName != "All")
+                {
+                    query = query.Where(report => report.MentorName == searchModel.MentorName);
+                }
+                else
+                {
+                    query = query.Where(report => !string.IsNullOrEmpty(report.MentorName));
+                }
+            }
+            else if (searchModel.TypeOrigin == "Intern's")
+            {
+                query = query.Where(report => string.IsNullOrEmpty(report.MentorName));
             }
 
             return query.ToList();

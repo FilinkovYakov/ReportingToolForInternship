@@ -9,7 +9,7 @@ $(document).ready(function () {
         $addFuturePlanButton = $("#AddFuturePlanButton"),
         $internNameInput = $("#InternName"),
         $messageStatusReport = $("#MessageAboutStatusReport"),
-        $typeInput = $("#Type"),
+        $typeInput = $("#TypeOccuring"),
         $dateInput = $("#Date");
 
     $submitButton.click(function () {
@@ -80,6 +80,7 @@ $(document).ready(function () {
     }
 
     function setConditionDisablingOnButtons(value) {
+        $(".btn-add-question").prop("disabled", value)
         $(".btn-remover").prop("disabled", value)
         $submitButton.prop("disabled", value);
         $saveAsDraftButton.prop("disabled", value);
@@ -111,11 +112,11 @@ $(document).ready(function () {
     function constructReportVM() {
         var mentorName = null;
         var internName = $internNameInput.val();
-        var type = $typeInput.val();
+        var typeOccuring = $typeInput.val();
         var date = $dateInput.val();
         var activities = constructActivities();
         var futurePlans = constructFuturePlans();
-        return new ReportVM(mentorName, internName, type, date, activities, futurePlans);
+        return new ReportVM(mentorName, internName, typeOccuring, date, activities, futurePlans);
     }
 
     function constructFuturePlans() {

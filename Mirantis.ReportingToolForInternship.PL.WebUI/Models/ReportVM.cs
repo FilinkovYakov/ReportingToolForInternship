@@ -18,8 +18,8 @@
         [Display(Name = "Intern :")]
         public string InternName { get; set; }
 
-        [Display(Name = "Type :")]
-        public string Type { get; set; }
+        [Display(Name = "Type occuring :")]
+        public string TypeOccuring { get; set; }
         
         public List<ActivityVM> Activities { get; set; }
 
@@ -45,7 +45,7 @@
                 InternName = reportVM.InternName,
                 IsDraft = reportVM.IsDraft,
                 MentorName = reportVM.MentorName,
-                Type = reportVM.Type
+                TypeOccuring = reportVM.TypeOccuring
             };
         }
 
@@ -60,7 +60,7 @@
                 InternName = report.InternName,
                 IsDraft = report.IsDraft,
                 MentorName = report.MentorName,
-                Type = report.Type
+                TypeOccuring = report.TypeOccuring
             };
         }
     }

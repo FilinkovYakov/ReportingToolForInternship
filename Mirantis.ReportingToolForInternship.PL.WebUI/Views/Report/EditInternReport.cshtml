@@ -38,26 +38,26 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-xs-2" })
+        @Html.LabelFor(model => model.TypeOccuring, htmlAttributes: new { @class = "control-label col-xs-2" })
         <div class="col-xs-10">
-            <select name="Type" id="Type" class="selectpicker">
-                @foreach (var type in TypeReportRepo.ReportsTypes)
+            <select name="TypeOccuring" id="TypeOccuring" class="selectpicker">
+                @foreach (var type in TypeOccuringRepo.ReportsTypes)
                 {
-                    if (Model.Type == type.Name)
+                    if (Model.TypeOccuring == type)
                     {
-                        <option value="@type.Name" selected>
-                            @string.Format("{0}", type.Name)
+                        <option value="@type" selected>
+                            @string.Format("{0}", type)
                         </option>
                     }
                     else
                     {
-                        <option value="@type.Name">
-                            @string.Format("{0}", type.Name)
+                        <option value="@type">
+                            @string.Format("{0}", type)
                         </option>
                     }
                 }
             </select>
-            @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model, "", new { @class = "text-danger" })
         </div>
     </div>
 

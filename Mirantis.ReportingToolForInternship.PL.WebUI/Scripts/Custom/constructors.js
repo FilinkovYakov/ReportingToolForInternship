@@ -1,7 +1,7 @@
-﻿function ReportVM(mentorName, internName, type, date, activities, futurePlans) {
+﻿function ReportVM(mentorName, internName, typeOccuring, date, activities, futurePlans) {
     this.MentorName = mentorName;
     this.InternName = internName;
-    this.Type = type;
+    this.TypeOccuring = typeOccuring;
     this.Date = date;
     this.Activities = activities;
     this.FuturePlans = futurePlans;

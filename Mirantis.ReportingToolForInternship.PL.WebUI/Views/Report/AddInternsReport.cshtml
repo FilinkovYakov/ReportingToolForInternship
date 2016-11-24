@@ -29,17 +29,17 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-xs-2" })
+        @Html.LabelFor(model => model.TypeOccuring, htmlAttributes: new { @class = "control-label col-xs-2" })
         <div class="col-xs-10">
-            <select name="Type" id="Type" class="selectpicker">
-                @foreach (var item in TypeReportRepo.ReportsTypes)
+            <select name="TypeOccuring" id="TypeOccuring" class="selectpicker">
+                @foreach (var item in TypeOccuringRepo.ReportsTypes)
                 {
-                    <option value="@item.Name">
-                        @string.Format("{0}", item.Name)
+                    <option value="@item">
+                        @string.Format("{0}", item)
                     </option>
                 }
             </select>
-            @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.TypeOccuring, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -61,12 +61,12 @@
     </div>
 
     <div class="form-group" id="WrapperOnActivityInputAndQuestionInput">
-        <div class="col-xs-5 col-md-offset-2">
+        <div class="col-xs-5 col-md-offset-2 wrapper-without-padding">
             <div class="col-xs-10" id="WrapperOnActivityInput">
                 <input class="form-control text-box single-line input-activity" id="ActivityInput" /> 
             </div>
             <div class="col-xs-2">
-                <input type="button" value="+" class="btn btn-default btn-add-activity pull-right" id="AddActivityButton" />
+                <input type="button" value="+" class="btn btn-default btn-add-activity" id="AddActivityButton" />
             </div>
         </div>
         <div class="col-xs-5">

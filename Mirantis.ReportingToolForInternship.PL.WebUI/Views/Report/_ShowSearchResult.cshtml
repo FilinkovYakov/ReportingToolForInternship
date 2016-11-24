@@ -9,7 +9,7 @@
             @Html.DisplayNameFor(model => model.InternName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Type)
+            @Html.DisplayNameFor(model => model.TypeOccuring)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Date)
@@ -27,7 +27,7 @@
                 @Html.DisplayFor(modelItem => item.InternName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Type)
+                @Html.DisplayFor(modelItem => item.TypeOccuring)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
@@ -41,6 +41,7 @@
                 {
                     @Html.ActionLink("Edit mentor's report", "EditMentorReport", new { id = item.Id })
                 }
+                <span> | </span>
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>
         </tr>

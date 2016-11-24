@@ -9,7 +9,7 @@ $(document).ready(function () {
         $mentorNameInput = $("#MentorName"),
         $internNameInput = $("#InternName"),
         $messageStatusReport = $("#MessageAboutStatusReport"),
-        $typeInput = $("#Type"),
+        $typeInput = $("#TypeOccuring"),
         $dateInput = $("#Date");
 
 
@@ -110,13 +110,13 @@ $(document).ready(function () {
     }
 
     function constructReportVM() {
-        var mentorName = null;
+        var mentorName = $mentorNameInput.val();
         var internName = $internNameInput.val();
-        var type = $typeInput.val();
+        var typeOccuring = $typeInput.val();
         var date = $dateInput.val();
         var activities = constructActivities();
         var futurePlans = constructFuturePlans();
-        return new ReportVM(mentorName, internName, type, date, activities, futurePlans);
+        return new ReportVM(mentorName, internName, typeOccuring, date, activities, futurePlans);
     }
 
     function constructFuturePlans() {
