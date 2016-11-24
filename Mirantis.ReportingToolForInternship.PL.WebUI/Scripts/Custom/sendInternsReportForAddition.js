@@ -12,6 +12,15 @@ $(document).ready(function () {
         $typeInput = $("#TypeOccuring"),
         $dateInput = $("#Date");
 
+    $.ajaxSetup({
+        beforeSend: function () {
+            $messageStatusReport.show();
+        },
+        complete: function () {
+            $messageStatusReport.hide();
+        }
+    });
+
     $submitButton.click(function () {
         if (isModelValidate()) {
             var reportVM = constructReportVM();

@@ -5,3 +5,7 @@
 .wrapper-without-padding {
     padding-left: 0 !important;
 }
+
+#LoadingStatus {
+    display: none;
+}
