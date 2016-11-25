@@ -50,6 +50,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -299,6 +300,7 @@
     <Content Include="Scripts\Custom\addQuestionInReport.js" />
     <Content Include="Scripts\Custom\changeRulesValidation.js" />
     <Content Include="Scripts\Custom\constructors.js" />
+    <Content Include="Scripts\Custom\disableMentorsDropdown.js" />
     <Content Include="Scripts\Custom\enableDatePicker.js" />
     <Content Include="Scripts\Custom\refreshRemoverButtons.js" />
     <Content Include="Scripts\Custom\sendInternsReportForAddition.js" />

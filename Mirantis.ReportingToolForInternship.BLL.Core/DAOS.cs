@@ -1,7 +1,6 @@
 ﻿namespace Mirantis.ReportingToolForInternship.BLL.Core
 {
     using DAL.Contracts;
-    using DAL.DataAccessEF;
     using Microsoft.Practices.Unity;
 
     public class DAOS

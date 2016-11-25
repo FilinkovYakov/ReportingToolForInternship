@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirantis.ReportingToolForIn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirantis.ReportingToolForInternship.BLL.Core", "Mirantis.ReportingToolForInternship.BLL.Core\Mirantis.ReportingToolForInternship.BLL.Core.csproj", "{A2DC545D-7E5E-4F1D-95DA-6B949279CD52}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{64D3A794-619E-4879-9198-F28DE811926F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirantis.ReportingToolForInternship.UnitTests", "Mirantis.ReportingToolForInternship.UnitTests\Mirantis.ReportingToolForInternship.UnitTests.csproj", "{9D11494C-303E-4B55-9D9F-64DE3159AA50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,10 @@ Global
 		{A2DC545D-7E5E-4F1D-95DA-6B949279CD52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2DC545D-7E5E-4F1D-95DA-6B949279CD52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2DC545D-7E5E-4F1D-95DA-6B949279CD52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D11494C-303E-4B55-9D9F-64DE3159AA50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D11494C-303E-4B55-9D9F-64DE3159AA50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D11494C-303E-4B55-9D9F-64DE3159AA50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D11494C-303E-4B55-9D9F-64DE3159AA50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,5 +72,6 @@ Global
 		{4A59AECF-4571-4F7B-82C0-EC3D04C351D6} = {84071784-8A8F-4798-BF8B-C254AAA458B4}
 		{A0323582-89BF-4256-8436-25A632086091} = {F733D7DB-C399-4391-AB6B-0955C2D0D492}
 		{A2DC545D-7E5E-4F1D-95DA-6B949279CD52} = {F733D7DB-C399-4391-AB6B-0955C2D0D492}
+		{9D11494C-303E-4B55-9D9F-64DE3159AA50} = {64D3A794-619E-4879-9198-F28DE811926F}
 	EndGlobalSection
 EndGlobal

@@ -40,7 +40,7 @@
             @Html.LabelFor(model => model.MentorName, htmlAttributes: new { @class = "control-label col-xs-4" })
             <div class="col-xs-8">
                 <select name="MentorName" id="MentorName" class="selectpicker">
-                    <option value="All">All</option>
+                    <option value="All" id="AllMentors">All</option>
                     @foreach (var item in UserRepo.Repo)
                     {
                         <option value="@item.Name">
@@ -131,4 +131,5 @@
     </script>
     <script src="~/Scripts/Custom/changeRulesValidation.js"></script>
     <script src="~/Scripts/Custom/setSettingDatePickerOnSearchForm.js"></script>
+    <script src="~/Scripts/Custom/disableMentorsDropdown.js"></script>
 }

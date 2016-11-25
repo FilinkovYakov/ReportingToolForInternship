@@ -2,18 +2,16 @@
 {
     using BLL.Contracts;
     using BLL.Core;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
+    using Microsoft.Practices.Unity;
 
     public class DataProvider
     {
-        static DataProvider()
+        public static IReportLogic ReportLogic
         {
-            ReportLogic = new ReportLogic();
+            get
+            {
+                return ContainerProvider.Container.Resolve<IReportLogic>();
+            }
         }
-
-        public static IReportLogic ReportLogic { get; private set; }
     }
 }
