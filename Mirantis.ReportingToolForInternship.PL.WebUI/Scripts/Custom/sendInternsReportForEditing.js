@@ -1,12 +1,10 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
 /// <reference path="constructors.js" />
+/// <reference path="actionsAfterSuccessOfSendingReport.js" />
 
 $(document).ready(function () {
     var $remainButton = $("#RemainAsDraftButton"),
         $changeOnFinalVersionButton = $("#ChangeOnFinalVersionButton"),
-        $addActivityButton = $("#AddActivityButton"),
-        $addQuestionButton = $("#AddQuestionButton"),
-        $addFuturePlanButton = $("#AddFuturePlanButton"),
         $internNameInput = $("#InternName"),
         $messageStatusReport = $("#MessageAboutStatusReport"),
         $typeInput = $("#TypeOccuring"),
@@ -52,62 +50,6 @@ $(document).ready(function () {
         return isValidForm;
     }
 
-    function successFunction(result) {
-        showMessageStatusReport(result);
-        lockAllFunctions();
-        bindingButtonAddReportWithEvent();
-        $("select").prop()
-    }
-
-    function lockAllFunctions() {
-        setConditionReadonlyOnInputs(true);
-        setConditionDisablingOnSelects(true);
-        setConditionDisablingOnButtons(true);
-    }
-
-    function unlockAllFunctions() {
-        setConditionReadonlyOnInputs(false);
-        setConditionDisablingOnSelects(false);
-        setConditionDisablingOnButtons(false);
-    }
-
-    function setConditionReadonlyOnInputs(value) {
-        $("input").attr("readonly", value);
-    }
-
-    function setConditionDisablingOnSelects(value) {
-        $("select").prop("disabled", value);
-    }
-
-    function setConditionDisablingOnButtons(value) {
-        $(".btn-remover").prop("disabled", value)
-        $submitButton.prop("disabled", value);
-        $saveAsDraftButton.prop("disabled", value);
-        $addActivityButton.prop("disabled", value);
-        $addQuestionButton.prop("disabled", value);
-        $addFuturePlanButton.prop("disabled", value);
-    }
-
-    function bindingButtonAddReportWithEvent() {
-        $("#AddReport").click(function () {
-            $messageStatusReport.slideToggle(1000);
-            unlockAllFunctions();
-            $("input").attr("readonly", false);
-            $(".btn-remover").click();
-            clearInputs();
-        });
-
-        $("#SearchReports").click(function () {
-            window.location.replace("/Report/Search");
-        });
-    }
-
-    function showMessageStatusReport(result) {
-        $messageStatusReport.html(result)
-                        .hide()
-                        .slideToggle(1000);
-    }
-
     function constructReportVM() {
         var mentorName = null;
         var internName = $internNameInput.val();
@@ -150,11 +92,5 @@ $(document).ready(function () {
             })
 
         return questions;
-    }
-
-    function clearInputs() {
-        $(".input-activity").val("");
-        $(".input-question").val("");
-        $(".input-future-plan").val("");
     }
 });

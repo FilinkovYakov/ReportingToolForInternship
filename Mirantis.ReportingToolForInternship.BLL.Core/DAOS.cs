@@ -5,18 +5,18 @@
 
     public class DAOS
     {
-        private static IReportDAO reportDAO;
+        //private static IReportDAO reportDAO;
 
         static DAOS()
         {
-            reportDAO = ContainerProvider.Container.Resolve<IReportDAO>();
+            //reportDAO = ContainerProvider.Container.Resolve<IReportDAO>();
         }
 
         public static IReportDAO ReportDAO
         {
             get
             {
-                return reportDAO;
+                return ContainerProvider.Container.Resolve<IReportDAO>();
             }
         }
     }

@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿/// <reference path="disableInputs.js" />
+
+$(document).ready(function () {
     $(".btn-remover").each(function () {
         assignmentButtonToAbilityOfRemoveComposition($(this))
     });
@@ -14,7 +16,11 @@ function removeWrapper(button) {
     var $composition = $(button).closest(".composition");
     var amountRemoverButtons = $composition.find(".btn-remover").size();
     if (amountRemoverButtons > 1) {
-        var $wrapperButton = $(button).closest(".form-group");
-        $wrapperButton.slideUp("slow", function () { $(this).remove(); })
+        var $wrapper = $(button).closest(".form-group");
+        lockAllFunctions();
+        $wrapper.slideUp(500, function () {
+            $(this).remove();
+            unlockAllFunctions();
+        });
     }
 }

@@ -10,7 +10,7 @@
     public class QuestionVM
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
         public Guid ActivityId { get; set; }
 
         public string Description { get; set; }
@@ -19,7 +19,7 @@
         {
             return new Question()
             {
-                Id = questionVM.Id,
+                Id = questionVM.Id ?? (new Guid()),
                 ActivityId = questionVM.ActivityId,
                 Description = questionVM.Description
             };

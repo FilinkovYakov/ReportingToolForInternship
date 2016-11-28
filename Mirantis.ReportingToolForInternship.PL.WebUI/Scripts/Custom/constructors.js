@@ -1,4 +1,5 @@
-﻿function ReportVM(mentorName, internName, typeOccuring, date, activities, futurePlans) {
+﻿function ReportVM(id, mentorName, internName, typeOccuring, date, activities, futurePlans) {
+    this.Id = id,
     this.MentorName = mentorName;
     this.InternName = internName;
     this.TypeOccuring = typeOccuring;
@@ -7,16 +8,19 @@
     this.FuturePlans = futurePlans;
 }
 
-function FuturePlanVM(description) {
+function FuturePlanVM(id, description) {
+    this.Id = id;
     this.Description = description;
 }
 
-function ActivityVM(description, evaluation, questions) {
+function ActivityVM(id, description, evaluation, questions) {
+    this.Id = id;
     this.Description = description;
     this.Evaluation = evaluation;
     this.Questions = questions;
 }
 
-function QuestionVM(description) {
+function QuestionVM(id, description) {
+    this.Id = id;
     this.Description = description;
 }

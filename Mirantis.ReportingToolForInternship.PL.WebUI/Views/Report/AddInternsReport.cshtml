@@ -70,11 +70,17 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-xs-10 col-md-offset-2">
+            @Html.ValidationMessageFor(model => model.Activities, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
     <div class="form-group activity">
         <div class="col-xs-5 col-md-offset-2">
             <div class="row">
                 <div class="col-xs-9">
-                    <input class="form-control text-box single-line input-activity" />
+                    <input type="text" data-val="true" data-val-required="Field 'From' is required" class="form-control text-box single-line input-activity" />
                 </div>
                 <div class="col-xs-3">
                     <input type="button" value="–" class="btn btn-default pull-right btn-remover-activity" />
@@ -88,7 +94,6 @@
                     <input type="text" class="form-control text-box single-line input-question" />
                 </div>
                 <div class="col-xs-3">
-                    @*<input type="button" value="+" class="btn btn-default btn-add-question pull-right" />*@
                     <input type="button" value="–" class="btn btn-default pull-right btn-remover" />
                     <input type="button" value="+" class="btn btn-default pull-right btn-adder" />
                 </div>
@@ -96,7 +101,7 @@
         </div>
     </div>
 
-    <div class="composition">
+    <div class="composition future-plans">
         <div class="form-group">
             <div class="col-xs-10 col-md-offset-2">
                 <strong>Future plans</strong>
@@ -128,12 +133,15 @@
     <script src="~/Scripts/bootstrap-select.min.js"></script>
     <script src="~/Scripts/moment.min.js"></script>
     <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script> 
+    <script src="~/Scripts/Custom/clearInputs.js"></script>
+    <script src="~/Scripts/Custom/disableInputs.js"></script>
+    <script src="~/Scripts/Custom/changeRulesValidation.js"></script>
+    <script src="~/Scripts/Custom/actionsAfterSuccessOfSendingReport.js"></script>
     <script src="~/Scripts/Custom/assignEventsToRemoverButtons.js"></script>
     <script src="~/Scripts/Custom/assignEventsToRemoverActivityButtons.js"></script>
     <script src="~/Scripts/Custom/assignEventsToAdderButtons.js"></script>
     <script src="~/Scripts/Custom/assignEventsToAdderActivityButtons.js"></script>
     <script src="~/Scripts/Custom/constructors.js"></script>
     <script src="~/Scripts/Custom/sendInternsReportForAddition.js"></script>
-    <script src="~/Scripts/Custom/enableDatePicker.js"></script>
-    <script src="~/Scripts/Custom/changeRulesValidation.js"></script>
+    <script src="~/Scripts/Custom/enableDatePicker.js"></script>  
 }

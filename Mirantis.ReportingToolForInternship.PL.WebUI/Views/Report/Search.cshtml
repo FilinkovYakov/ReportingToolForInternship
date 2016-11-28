@@ -7,7 +7,9 @@
     {
         UpdateTargetId = "OutputReports",
         Url = Url.Action("ShowSearchResult"),
-        OnSuccess = "slideDownOutputReports"
+        OnSuccess = "slideDownOutputReports",
+        OnBegin = "lockAllFunctions",
+        OnComplete = "unlockAllFunctions"
     };
 }
 
@@ -122,6 +124,7 @@
     <script src="~/Scripts/bootstrap-select.min.js"></script>
     <script src="~/Scripts/moment.min.js"></script>
     <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/Scripts/Custom/disableInputs.js"></script>
     <script>
         function slideDownOutputReports() {
             $("#OutputReports")

@@ -6,11 +6,12 @@
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Web;
+    using ValidationAttributes;
 
     public class ReportVM
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
 
         [Display(Name = "Mentor :")]
         public string MentorName { get; set; }
@@ -21,6 +22,7 @@
         [Display(Name = "Type occuring :")]
         public string TypeOccuring { get; set; }
         
+        [ActivitiesValidator]
         public List<ActivityVM> Activities { get; set; }
 
         public List<FuturePlanVM> FuturePlans { get; set; }
@@ -38,7 +40,7 @@
         {
             return new Report()
             {
-                Id = reportVM.Id,
+                Id = reportVM.Id ?? (new Guid()),
                 Activities = reportVM.Activities?.Select(activity => (Activity)activity).ToList(),
                 Date = reportVM.Date,
                 FuturePlans = reportVM.FuturePlans?.Select(futurePlan => (FuturePlan)futurePlan).ToList(),

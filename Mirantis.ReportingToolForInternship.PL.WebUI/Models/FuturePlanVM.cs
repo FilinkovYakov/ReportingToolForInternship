@@ -10,7 +10,7 @@
     public class FuturePlanVM
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
 
         public Guid ReportId { get; set; }
 
@@ -20,7 +20,7 @@
         {
             return new FuturePlan()
             {
-                Id = futurePlanVM.Id,
+                Id = futurePlanVM.Id ?? (new Guid()),
                 ReportId = futurePlanVM.ReportId,
                 Description = futurePlanVM.Description
             };

@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿/// <reference path="disableInputs.js" />
+
+$(document).ready(function () {
     $(".btn-remover-activity").each(function () {
         assignmentButtonToAbilityOfRemoveActivity($(this))
     });
@@ -15,6 +17,10 @@ function removeActivity(button) {
     var amountRemoverButtons = $activities.find(".btn-remover-activity").size();
     if (amountRemoverButtons > 1) {
         var $wrapperButton = $(button).closest(".activity");
-        $wrapperButton.slideUp("slow", function () { $(this).remove(); });
+        lockAllFunctions();
+        $wrapperButton.slideUp("slow", function () {
+            $(this).remove();
+            unlockAllFunctions();
+        });
     }
 }

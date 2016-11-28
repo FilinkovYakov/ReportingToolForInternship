@@ -10,7 +10,7 @@
     public class ActivityVM
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
 
         public Guid ReportId { get; set; }
 
@@ -24,7 +24,7 @@
         {
             return new Activity()
             {
-                Id = activityVM.Id,
+                Id = activityVM.Id ?? (new Guid()),
                 ReportId = activityVM.ReportId,
                 Description = activityVM.Description,
                 Evaluation = activityVM.Evaluation,

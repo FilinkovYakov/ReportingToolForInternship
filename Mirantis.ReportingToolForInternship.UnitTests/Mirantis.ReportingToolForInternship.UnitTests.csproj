@@ -66,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +77,10 @@
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.BLL.Core\Mirantis.ReportingToolForInternship.BLL.Core.csproj">
       <Project>{a2dc545d-7e5e-4f1d-95da-6b949279cd52}</Project>
       <Name>Mirantis.ReportingToolForInternship.BLL.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.Contracts\Mirantis.ReportingToolForInternship.DAL.Contracts.csproj">
+      <Project>{BAB02513-C05E-4E79-88C7-63DC7F9421B4}</Project>
+      <Name>Mirantis.ReportingToolForInternship.DAL.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
       <Project>{4fff7831-8d36-48d0-bc0d-40086dad4465}</Project>
