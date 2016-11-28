@@ -82,6 +82,12 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-xs-10 col-md-offset-2">
+            @Html.ValidationMessageFor(model => model.Activities, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
     <div class="form-group activity">
         <div class="col-xs-5 col-md-offset-2">
             <div class="row">
@@ -126,11 +132,10 @@
 </form>
 
 @section scripts {
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script src="~/Scripts/bootstrap-select.min.js"></script>
-    <script src="~/Scripts/moment.min.js"></script>
-    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
     <script src="~/Scripts/Custom/clearInputs.js"></script>
     <script src="~/Scripts/Custom/disableInputs.js"></script>
     <script src="~/Scripts/Custom/actionsAfterSuccessOfSendingReport.js"></script>

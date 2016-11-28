@@ -24,11 +24,13 @@
         [Required(ErrorMessage = "Field 'From' is required")]
         [Display(Name = "From :")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateFrom { get; set; }
 
         [Required(ErrorMessage = "Field 'To' is required")]
         [Display(Name = "To :")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateTo { get; set; }
 
         public static explicit operator SearchModel(SearchVM searchVM)

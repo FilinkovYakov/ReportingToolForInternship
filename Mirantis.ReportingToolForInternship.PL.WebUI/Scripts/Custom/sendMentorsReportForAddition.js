@@ -47,10 +47,11 @@ $(document).ready(function () {
 
     function isModelValidate() {
         var isValidForm = true;
-        isValidForm = isValidForm && $mentorNameInput.valid();
-        isValidForm = isValidForm && $internNameInput.valid();
-        isValidForm = isValidForm && $typeInput.valid();
-        isValidForm = isValidForm && $dateInput.valid();
+        isValidForm = $mentorNameInput.valid() && isValidForm;
+        isValidForm = $internNameInput.valid() && isValidForm;
+        isValidForm = $typeInput.valid() && isValidForm;
+        isValidForm = $dateInput.valid() && isValidForm;
+        isValidForm = validationActivities() && isValidForm;
         return isValidForm;
     }
 
