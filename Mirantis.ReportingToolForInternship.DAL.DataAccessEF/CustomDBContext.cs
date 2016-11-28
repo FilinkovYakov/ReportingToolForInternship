@@ -17,7 +17,7 @@
 
         public CustomDBContext(string connString) : base(connString)
         {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<CustomDBContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<CustomDBContext>());
         }
 
         public DbSet<Activity> Activities { get; set; }

@@ -11,24 +11,26 @@
     <link href="~/Content/bootstrap-override.css" rel="stylesheet" />
 </head>
 <body>
-    <header class="navbar navbar-inverse">
-        <div class="container">
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Add intern's report", "AddInternsReport", "Report")</li>
-                    <li>@Html.ActionLink("Add mentor's report", "AddMentorsReport", "Report")</li>
-                    <li>@Html.ActionLink("Search", "Search", "Report")</li>
-                </ul>
+    <div class="container-fluid">
+        <header class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Add intern's report", "AddInternsReport", "Report")</li>
+                        <li>@Html.ActionLink("Add mentor's report", "AddMentorsReport", "Report")</li>
+                        <li>@Html.ActionLink("Search", "Search", "Report")</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </header>
-    <section class="container body-content">
-        @RenderBody()
-        <hr />
-    </section>
-    <footer class="text-center">
-        <p>&copy; @DateTime.Now.Year - Mirantis</p>
-    </footer>
+        </header>
+        <section class="container body-content">
+            @RenderBody()
+            <hr />
+        </section>
+        <footer class="text-center">
+            <p>&copy; @DateTime.Now.Year - Mirantis</p>
+        </footer>
+    </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>

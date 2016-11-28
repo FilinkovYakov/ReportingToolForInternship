@@ -2,10 +2,10 @@
     width: 100%;
 }
 
-.wrapper-without-padding {
-    padding-left: 0 !important;
-}
-
 #LoadingStatus {
     display: none;
+}
+
+.btn-remover, .btn-remover-activity {
+    margin-left: 10px !important;
 }

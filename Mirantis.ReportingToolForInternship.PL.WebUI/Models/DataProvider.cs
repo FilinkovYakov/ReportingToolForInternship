@@ -6,11 +6,18 @@
 
     public class DataProvider
     {
+        private static IReportLogic reportLogic;
+
+        static DataProvider()
+        {
+            reportLogic = ContainerProvider.Container.Resolve<IReportLogic>();
+        }
+
         public static IReportLogic ReportLogic
         {
             get
             {
-                return ContainerProvider.Container.Resolve<IReportLogic>();
+                return reportLogic;
             }
         }
     }

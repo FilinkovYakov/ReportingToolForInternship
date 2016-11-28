@@ -9,50 +9,82 @@
     {
         public void Add(Report report)
         {
-            report.Id = Guid.NewGuid();
-
-            if (report.Activities != null)
+            try
             {
-                foreach (var activity in report.Activities)
+                report.Id = Guid.NewGuid();
+
+                if (report.Activities != null)
                 {
-                    activity.Id = Guid.NewGuid();
-                    activity.ReportId = report.Id;
-                    if (activity.Questions != null)
+                    foreach (var activity in report.Activities)
                     {
-                        foreach (var question in activity.Questions)
+                        activity.Id = Guid.NewGuid();
+                        activity.ReportId = report.Id;
+                        if (activity.Questions != null)
                         {
-                            question.Id = Guid.NewGuid();
-                            question.ActivityId = activity.Id;
+                            foreach (var question in activity.Questions)
+                            {
+                                question.Id = Guid.NewGuid();
+                                question.ActivityId = activity.Id;
+                            }
                         }
                     }
                 }
-            }
 
-            if (report.FuturePlans != null)
-            {
-                foreach (var futherPlan in report.FuturePlans)
+                if (report.FuturePlans != null)
                 {
-                    futherPlan.Id = Guid.NewGuid();
-                    futherPlan.ReportId = report.Id;
+                    foreach (var futherPlan in report.FuturePlans)
+                    {
+                        futherPlan.Id = Guid.NewGuid();
+                        futherPlan.ReportId = report.Id;
+                    }
                 }
-            }
 
-            DAOS.ReportDAO.Add(report);
+                DAOS.ReportDAO.Add(report);
+            }
+            catch (Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                throw e;
+            }
         }
 
         public void Edit(Report report)
         {
-            DAOS.ReportDAO.Edit(report);
+            try
+            {
+                DAOS.ReportDAO.Edit(report);
+            }
+            catch (Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                throw e;
+            }
         }
 
         public Report GetById(Guid id)
         {
-            return DAOS.ReportDAO.GetById(id);
+            try
+            {
+                return DAOS.ReportDAO.GetById(id);
+            }
+            catch (Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                throw e;
+            }
         }
 
         public IEnumerable<Report> Search(SearchModel searchModel)
         {
-            return DAOS.ReportDAO.Search(searchModel);
+            try
+            {
+                return DAOS.ReportDAO.Search(searchModel);
+            }
+            catch (Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                throw e;
+            }
         }
     }
 }
