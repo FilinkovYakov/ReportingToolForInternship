@@ -2,6 +2,9 @@
 /// <reference path="constructors.js" />
 /// <reference path="actionsAfterSuccessOfSendingReport.js" />
 /// <reference path="changeRulesValidation.js" />
+/// <reference path="validationActivities.js" />
+/// <reference path="validationInternsActivities.js" />
+/// <reference path="validationFuturePlans.js" />
 
 $(document).ready(function () {
     var $submitButton = $("#SubmitButton"),
@@ -15,7 +18,7 @@ $(document).ready(function () {
             var reportVM = constructReportVM();
             $.ajax({
                 type: "POST",
-                url: "/Report/SubmitReport",
+                url: "/Report/SubmitReportAfterAddition",
                 data: JSON.stringify(reportVM),
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'html',
@@ -31,7 +34,7 @@ $(document).ready(function () {
             var reportVM = constructReportVM();
             $.ajax({
                 type: "POST",
-                url: "/Report/AddReportAsDraft",
+                url: "/Report/AddReportAsDraftAfterAddition",
                 data: JSON.stringify(reportVM),
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'html',
@@ -47,7 +50,8 @@ $(document).ready(function () {
         isValidForm = $internNameInput.valid() && isValidForm;
         isValidForm = $typeInput.valid() && isValidForm;
         isValidForm = $dateInput.valid() && isValidForm;
-        isValidForm = validationActivities() && isValidForm;
+        isValidForm = validationActivitiesFromInternsReport() && isValidForm;
+        isValidForm = validationFuturePlans() && isValidForm;
         return isValidForm;
     }
 

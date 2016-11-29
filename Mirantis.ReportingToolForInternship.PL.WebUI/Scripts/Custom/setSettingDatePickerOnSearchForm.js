@@ -1,20 +1,22 @@
-﻿$(document).ready(function () {
-    var $datePickerFrom = $('#DateFrom').parent("div"),
-        $datePickerTo = $('#DateTo').parent("div");
+﻿/// <reference path="../jquery-1.10.2.min.js" />
+/// <reference path="../bootstrap.min.js" />
+/// <reference path="../bootstrap-datepicker.min.js" />
 
-    $datePickerFrom.datetimepicker({
-        format: 'DD.MM.YYYY',
-        ignoreReadonly: true,
-        sideBySide: true
+$(document).ready(function () {
+    var $datePickerFrom = $('#DateFrom').closest("div"),
+        $datePickerTo = $('#DateTo').closest("div");
+
+    $datePickerFrom.datepicker({
+        format: 'dd.mm.yyyy',
+        ignoreReadonly: true
     });
 
-    $datePickerFrom.on('dp.change', function (e) {
-        $datePickerTo.data("DateTimePicker").minDate(e.date)
+    $datePickerTo.datepicker({
+        format: 'dd.mm.yyyy',
+        ignoreReadonly: true
     });
 
-    $datePickerTo.datetimepicker({
-        format: 'DD.MM.YYYY',
-        ignoreReadonly: true,
-        sideBySide: true,
+    $datePickerFrom.on("changeDate", function (e) {
+        $datePickerTo.datepicker('setStartDate', e.date);
     });
 });

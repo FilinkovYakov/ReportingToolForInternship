@@ -8,100 +8,187 @@
     using System.Web;
     using System.Web.Mvc;
     using Entities;
+    using BLL.Core;
 
     public class ReportController : Controller
     {
         public ActionResult AddMentorsReport()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch(Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                return new HttpStatusCodeResult(500);
+            }
         }
 
         public ActionResult AddInternsReport()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch(Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                return new HttpStatusCodeResult(500);
+            }
         }
 
         [HttpPost]
-        public ActionResult AddReportAsDraft(ReportVM reportVM)
+        public ActionResult AddReportAsDraftAfterAddition(ReportVM reportVM)
         {
-            reportVM.IsDraft = true;
-
-            if (ModelState.IsValid)
+            try
             {
-                DataProvider.ReportLogic.Add((Report)reportVM);
-                return PartialView("_SuccessSaveReportAsDraft");
-            }
+                reportVM.IsDraft = true;
 
-            return View(reportVM);
+                if (ModelState.IsValid)
+                {
+                    DataProvider.ReportLogic.Add((Report)reportVM);
+                    return PartialView("_SuccessSaveReportAsDraft");
+                }
+
+                return View(reportVM);
+            }
+            catch (Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                return new HttpStatusCodeResult(500);
+            }
         }
 
         [HttpPost]
-        public ActionResult SubmitReport(ReportVM reportVM)
+        public ActionResult SubmitReportAfterAddition(ReportVM reportVM)
         {
-            reportVM.IsDraft = false;
-
-            if (ModelState.IsValid)
+            try
             {
-                DataProvider.ReportLogic.Add((Report)reportVM);
-                return PartialView("_SuccessSubmitReport");
-            }
+                reportVM.IsDraft = false;
 
-            return View(reportVM);
+                if (ModelState.IsValid)
+                {
+                    DataProvider.ReportLogic.Add((Report)reportVM);
+                    return PartialView("_SuccessSubmitReport");
+                }
+
+                return View(reportVM);
+            }
+            catch (Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                return new HttpStatusCodeResult(500);
+            }
         }
 
-        public ActionResult EditInternReport(Guid id)
+        public ActionResult EditInternsReport(Guid id)
         {
-            ReportVM reportVM = (ReportVM)DataProvider.ReportLogic.GetById(id);
-            return View(reportVM);
+            try
+            {
+                ReportVM reportVM = (ReportVM)DataProvider.ReportLogic.GetById(id);
+                return View(reportVM);
+            }
+            catch (Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                return new HttpStatusCodeResult(500);
+            }
+        }
+
+        public ActionResult EditMentorsReport(Guid id)
+        {
+            try
+            {
+                ReportVM reportVM = (ReportVM)DataProvider.ReportLogic.GetById(id);
+                return View(reportVM);
+            }
+            catch (Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                return new HttpStatusCodeResult(500);
+            }
         }
 
         [HttpPost]
-        public ActionResult RemainReportAsDraft(ReportVM reportVM)
+        public ActionResult SaveReportAsDraftAfterEditing(ReportVM reportVM)
         {
-            reportVM.IsDraft = true;
-
-            if (ModelState.IsValid)
+            try
             {
-                DataProvider.ReportLogic.Edit((Report)reportVM);
-                return PartialView("_SuccessRemainedReport");
-            }
+                reportVM.IsDraft = true;
 
-            return View(reportVM);
+                if (ModelState.IsValid)
+                {
+                    DataProvider.ReportLogic.Edit((Report)reportVM);
+                    return PartialView("_SuccessRemainedReport");
+                }
+
+                return View(reportVM);
+            }
+            catch (Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                return new HttpStatusCodeResult(500);
+            }
         }
 
         [HttpPost]
-        public ActionResult ChangeReportOnFinalVersion(ReportVM reportVM)
+        public ActionResult SubmitReportAfterEditing(ReportVM reportVM)
         {
-            reportVM.IsDraft = false;
-
-            if (ModelState.IsValid)
+            try
             {
-                DataProvider.ReportLogic.Edit((Report)reportVM);
-                return PartialView("_SuccessChangedReportOnFinalVersion");
-            }
+                reportVM.IsDraft = false;
 
-            return View(reportVM);
+                if (ModelState.IsValid)
+                {
+                    DataProvider.ReportLogic.Edit((Report)reportVM);
+                    return PartialView("_SuccessChangedReportOnFinalVersion");
+                }
+
+                return View(reportVM);
+            }
+            catch (Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                return new HttpStatusCodeResult(500);
+            }
         }
 
         public ActionResult Search()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                return new HttpStatusCodeResult(500);
+            }
         }
 
         public ActionResult ShowSearchResult(SearchVM searchVM)
         {
-            if (ModelState.IsValid)
+            try
             {
-                IEnumerable<ReportVM> reports = DataProvider.ReportLogic.Search((SearchModel)searchVM).Select(report => (ReportVM)report);
-                if (reports.Any())
+                if (ModelState.IsValid)
                 {
-                    return PartialView("_ShowSearchResult", reports);
+                    IEnumerable<ReportVM> reports = DataProvider.ReportLogic.Search((SearchModel)searchVM).Select(report => (ReportVM)report);
+                    if (reports.Any())
+                    {
+                        return PartialView("_ShowSearchResult", reports);
+                    }
+
+                    return PartialView("_ShowNullSearchResult");
                 }
 
-                return PartialView("_ShowNullSearchResult");
+                return View("Search", searchVM);
             }
-
-            return View("Search", searchVM);
+            catch (Exception e)
+            {
+                LoggerProvider.Logger.Error(e);
+                return new HttpStatusCodeResult(500);
+            }
         }
     }
 }

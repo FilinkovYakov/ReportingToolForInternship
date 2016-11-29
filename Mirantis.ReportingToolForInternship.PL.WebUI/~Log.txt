@@ -1,0 +1,30 @@
+2016-11-29 12:01:06,608 [55] ERROR CustomLogger - System.InvalidOperationException: Attaching an entity of type 'Mirantis.ReportingToolForInternship.Entities.Report' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessEF.ReportDAO.Edit(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\ReportDAO.cs:line 29
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Edit(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 55
+2016-11-29 12:12:00,916 [10] ERROR CustomLogger - System.InvalidOperationException: Attaching an entity of type 'Mirantis.ReportingToolForInternship.Entities.Report' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessEF.ReportDAO.Edit(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\ReportDAO.cs:line 29
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Edit(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 95
+2016-11-29 12:13:12,061 [10] ERROR CustomLogger - System.InvalidOperationException: Attaching an entity of type 'Mirantis.ReportingToolForInternship.Entities.Report' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessEF.ReportDAO.Edit(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\ReportDAO.cs:line 29
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Edit(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 95

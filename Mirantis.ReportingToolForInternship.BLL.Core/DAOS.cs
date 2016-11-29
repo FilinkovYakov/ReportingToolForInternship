@@ -5,13 +5,6 @@
 
     public class DAOS
     {
-        //private static IReportDAO reportDAO;
-
-        static DAOS()
-        {
-            //reportDAO = ContainerProvider.Container.Resolve<IReportDAO>();
-        }
-
         public static IReportDAO ReportDAO
         {
             get
