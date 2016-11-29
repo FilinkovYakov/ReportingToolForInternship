@@ -39,21 +39,21 @@
 
             var listOriginalFuturePlans = dbContext.FuturePlans.Where(activity => activity.ReportId == report.Id).ToList();
 
-            foreach (var originalActivity in listOriginalActivities)
-            {
-                if (!report.Activities.Any(activity => originalActivity.Id == activity.Id))
-                {
-                    dbContext.Activities.Remove(originalActivity);
-                }
-            }
+            //foreach (var originalActivity in listOriginalActivities)
+            //{
+            //    if (!report.Activities.Any(activity => originalActivity.Id == activity.Id))
+            //    {
+            //        dbContext.Activities.Remove(originalActivity);
+            //    }
+            //}
 
-            foreach (var originalQuestion in listOriginalQuestions)
-            {
-                if (!report.Activities.Any(activity => originalActivity.Id == activity.Id))
-                {
-                    dbContext.Activities.Remove(originalActivity);
-                }
-            }
+            //foreach (var originalQuestion in listOriginalQuestions)
+            //{
+            //    if (!report.Activities.Any(activity => originalActivity.Id == activity.Id))
+            //    {
+            //        dbContext.Activities.Remove(originalActivity);
+            //    }
+            //}
 
             //Edit and add
             dbContext.Entry(originalReport).CurrentValues.SetValues(report);

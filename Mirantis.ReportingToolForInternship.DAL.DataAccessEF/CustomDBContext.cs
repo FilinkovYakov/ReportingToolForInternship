@@ -1,12 +1,7 @@
 ﻿namespace Mirantis.ReportingToolForInternship.DAL.DataAccessEF
 {
     using Entities;
-    using System;
-    using System.Collections.Generic;
     using System.Data.Entity;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class CustomDBContext : DbContext
     {
@@ -17,7 +12,7 @@
 
         public CustomDBContext(string connString) : base(connString)
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<CustomDBContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<CustomDBContext>());
         }
 
         public DbSet<Activity> Activities { get; set; }

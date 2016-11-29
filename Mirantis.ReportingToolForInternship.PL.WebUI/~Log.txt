@@ -28,3 +28,324 @@
    at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
    at Mirantis.ReportingToolForInternship.DAL.DataAccessEF.ReportDAO.Edit(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\ReportDAO.cs:line 29
    at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Edit(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 95
+2016-11-29 20:50:08,806 [24] ERROR CustomLogger - System.Data.SqlClient.SqlException (0x80131904): Ќевозможно удалить базу данных "Mirantis.ReportingToolForInternship", так как она используетс€ в данный момент.
+   в System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   в System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   в System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   в System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   в System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   в System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   в System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   в System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   в System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass30.<DropDatabase>b__2e(DbConnection conn)
+   в System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   в System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   в System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   в System.Data.Entity.SqlServer.SqlProviderServices.DropDatabase(SqlConnection sqlConnection, Nullable`1 commandTimeout, String databaseName)
+   в System.Data.Entity.SqlServer.SqlProviderServices.DbDeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   в System.Data.Entity.Core.Common.DbProviderServices.DeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   в System.Data.Entity.Core.Objects.ObjectContext.DeleteDatabase()
+   в System.Data.Entity.Internal.DatabaseOperations.Delete(ObjectContext objectContext)
+   в System.Data.Entity.Database.Delete()
+   в System.Data.Entity.DropCreateDatabaseAlways`1.InitializeDatabase(TContext context)
+   в System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   в System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   в System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   в System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   в System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   в System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   в System.Data.Entity.DbSet`1.Add(TEntity entity)
+   в Mirantis.ReportingToolForInternship.DAL.DataAccessEF.ReportDAO.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\ReportDAO.cs:строка 23
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 44
+ClientConnectionId:47cbab94-02b5-4029-99a2-5663ccf90af4
+Error Number: 3702, State: 4, Class: 16
+2016-11-29 20:50:09,084 [24] ERROR CustomLogger - System.Data.SqlClient.SqlException (0x80131904): Ќевозможно удалить базу данных "Mirantis.ReportingToolForInternship", так как она используетс€ в данный момент.
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 49
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 50
+ClientConnectionId:47cbab94-02b5-4029-99a2-5663ccf90af4
+Error Number: 3702, State: 4, Class: 16
+2016-11-29 20:51:14,520 [24] ERROR CustomLogger - System.Data.SqlClient.SqlException (0x80131904): Ќевозможно удалить базу данных "Mirantis.ReportingToolForInternship", так как она используетс€ в данный момент.
+   в System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   в System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   в System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   в System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   в System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   в System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   в System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   в System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   в System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass30.<DropDatabase>b__2e(DbConnection conn)
+   в System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   в System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   в System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   в System.Data.Entity.SqlServer.SqlProviderServices.DropDatabase(SqlConnection sqlConnection, Nullable`1 commandTimeout, String databaseName)
+   в System.Data.Entity.SqlServer.SqlProviderServices.DbDeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   в System.Data.Entity.Core.Common.DbProviderServices.DeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   в System.Data.Entity.Core.Objects.ObjectContext.DeleteDatabase()
+   в System.Data.Entity.Internal.DatabaseOperations.Delete(ObjectContext objectContext)
+   в System.Data.Entity.Database.Delete()
+   в System.Data.Entity.DropCreateDatabaseAlways`1.InitializeDatabase(TContext context)
+   в System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   в System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   в System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   в System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   в System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   в System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   в System.Data.Entity.DbSet`1.Add(TEntity entity)
+   в Mirantis.ReportingToolForInternship.DAL.DataAccessEF.ReportDAO.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\ReportDAO.cs:строка 23
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 44
+ClientConnectionId:ce402747-7acc-40e7-9e16-b6de5dfe46ff
+Error Number: 3702, State: 4, Class: 16
+2016-11-29 20:51:14,557 [26] ERROR CustomLogger - System.NullReferenceException: —сылка на объект не указывает на экземпл€р объекта.
+   в System.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   в System.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   в System.Data.SqlClient.SqlInternalTransaction.Rollback()
+   в System.Data.SqlClient.SqlInternalTransaction.Dispose(Boolean disposing)
+   в System.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   в System.Data.Common.DbTransaction.Dispose()
+   в System.Data.Entity.Infrastructure.Interception.DbTransactionDispatcher.<Dispose>b__12(DbTransaction t, DbTransactionInterceptionContext c)
+   в System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   в System.Data.Entity.Infrastructure.Interception.DbTransactionDispatcher.Dispose(DbTransaction transaction, DbInterceptionContext interceptionContext)
+   в System.Data.Entity.Core.EntityClient.EntityTransaction.Dispose(Boolean disposing)
+   в System.Data.Common.DbTransaction.Dispose()
+   в System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   в System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   в System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   в System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   в System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   в System.Data.Entity.Internal.InternalContext.SaveChanges()
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   в System.Data.Entity.DbContext.SaveChanges()
+   в Mirantis.ReportingToolForInternship.DAL.DataAccessEF.ReportDAO.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\ReportDAO.cs:строка 24
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 44
+2016-11-29 20:51:33,302 [24] ERROR CustomLogger - System.Data.SqlClient.SqlException (0x80131904): Ќевозможно удалить базу данных "Mirantis.ReportingToolForInternship", так как она используетс€ в данный момент.
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 49
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 50
+ClientConnectionId:ce402747-7acc-40e7-9e16-b6de5dfe46ff
+Error Number: 3702, State: 4, Class: 16
+2016-11-29 20:51:33,354 [26] ERROR CustomLogger - System.NullReferenceException: —сылка на объект не указывает на экземпл€р объекта.
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 49
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 50
+2016-11-29 20:52:34,118 [26] ERROR CustomLogger - System.Data.SqlClient.SqlException (0x80131904): Ќевозможно удалить базу данных "Mirantis.ReportingToolForInternship", так как она используетс€ в данный момент.
+   в System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   в System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   в System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   в System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   в System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   в System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   в System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   в System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   в System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass30.<DropDatabase>b__2e(DbConnection conn)
+   в System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   в System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   в System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   в System.Data.Entity.SqlServer.SqlProviderServices.DropDatabase(SqlConnection sqlConnection, Nullable`1 commandTimeout, String databaseName)
+   в System.Data.Entity.SqlServer.SqlProviderServices.DbDeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   в System.Data.Entity.Core.Common.DbProviderServices.DeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   в System.Data.Entity.Core.Objects.ObjectContext.DeleteDatabase()
+   в System.Data.Entity.Internal.DatabaseOperations.Delete(ObjectContext objectContext)
+   в System.Data.Entity.Database.Delete()
+   в System.Data.Entity.DropCreateDatabaseAlways`1.InitializeDatabase(TContext context)
+   в System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   в System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   в System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   в System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   в System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   в System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   в System.Data.Entity.DbSet`1.Add(TEntity entity)
+   в Mirantis.ReportingToolForInternship.DAL.DataAccessEF.ReportDAO.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\ReportDAO.cs:строка 23
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 44
+ClientConnectionId:eb30b26f-856a-4512-81fa-feed8ff3a490
+Error Number: 3702, State: 4, Class: 16
+2016-11-29 20:52:34,134 [26] ERROR CustomLogger - System.Data.SqlClient.SqlException (0x80131904): Ќевозможно удалить базу данных "Mirantis.ReportingToolForInternship", так как она используетс€ в данный момент.
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 49
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 50
+ClientConnectionId:eb30b26f-856a-4512-81fa-feed8ff3a490
+Error Number: 3702, State: 4, Class: 16
+2016-11-29 20:53:11,643 [24] ERROR CustomLogger - System.Data.SqlClient.SqlException (0x80131904): Ќевозможно удалить базу данных "Mirantis.ReportingToolForInternship", так как она используетс€ в данный момент.
+   в System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   в System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   в System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   в System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   в System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   в System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   в System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   в System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   в System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass30.<DropDatabase>b__2e(DbConnection conn)
+   в System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   в System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   в System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   в System.Data.Entity.SqlServer.SqlProviderServices.DropDatabase(SqlConnection sqlConnection, Nullable`1 commandTimeout, String databaseName)
+   в System.Data.Entity.SqlServer.SqlProviderServices.DbDeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   в System.Data.Entity.Core.Common.DbProviderServices.DeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   в System.Data.Entity.Core.Objects.ObjectContext.DeleteDatabase()
+   в System.Data.Entity.Internal.DatabaseOperations.Delete(ObjectContext objectContext)
+   в System.Data.Entity.Database.Delete()
+   в System.Data.Entity.DropCreateDatabaseAlways`1.InitializeDatabase(TContext context)
+   в System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   в System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   в System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   в System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   в System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   в System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   в System.Data.Entity.DbSet`1.Add(TEntity entity)
+   в Mirantis.ReportingToolForInternship.DAL.DataAccessEF.ReportDAO.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\ReportDAO.cs:строка 23
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 44
+ClientConnectionId:84a3b57e-b503-40f7-86e4-1f8aad11cae3
+Error Number: 3702, State: 4, Class: 16
+2016-11-29 20:53:36,305 [24] ERROR CustomLogger - System.Data.SqlClient.SqlException (0x80131904): Ќевозможно удалить базу данных "Mirantis.ReportingToolForInternship", так как она используетс€ в данный момент.
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 49
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 50
+ClientConnectionId:84a3b57e-b503-40f7-86e4-1f8aad11cae3
+Error Number: 3702, State: 4, Class: 16
+2016-11-29 20:54:01,130 [23] ERROR CustomLogger - System.Data.SqlClient.SqlException (0x80131904): Ќевозможно удалить базу данных "Mirantis.ReportingToolForInternship", так как она используетс€ в данный момент.
+   в System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   в System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   в System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   в System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   в System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   в System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   в System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   в System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   в System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass30.<DropDatabase>b__2e(DbConnection conn)
+   в System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   в System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   в System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   в System.Data.Entity.SqlServer.SqlProviderServices.DropDatabase(SqlConnection sqlConnection, Nullable`1 commandTimeout, String databaseName)
+   в System.Data.Entity.SqlServer.SqlProviderServices.DbDeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   в System.Data.Entity.Core.Common.DbProviderServices.DeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   в System.Data.Entity.Core.Objects.ObjectContext.DeleteDatabase()
+   в System.Data.Entity.Internal.DatabaseOperations.Delete(ObjectContext objectContext)
+   в System.Data.Entity.Database.Delete()
+   в System.Data.Entity.DropCreateDatabaseAlways`1.InitializeDatabase(TContext context)
+   в System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   в System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   в System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   в System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   в System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   в System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   в System.Data.Entity.DbSet`1.Add(TEntity entity)
+   в Mirantis.ReportingToolForInternship.DAL.DataAccessEF.ReportDAO.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\ReportDAO.cs:строка 23
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 44
+ClientConnectionId:c0260622-75f3-4916-bf4d-c7b2660f0760
+Error Number: 3702, State: 4, Class: 16
+2016-11-29 20:54:01,130 [23] ERROR CustomLogger - System.Data.SqlClient.SqlException (0x80131904): Ќевозможно удалить базу данных "Mirantis.ReportingToolForInternship", так как она используетс€ в данный момент.
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 49
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 50
+ClientConnectionId:c0260622-75f3-4916-bf4d-c7b2660f0760
+Error Number: 3702, State: 4, Class: 16
+2016-11-29 21:00:23,627 [7] ERROR CustomLogger - System.InvalidOperationException: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   в System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   в System.Data.Entity.DbSet`1.Add(TEntity entity)
+   в Mirantis.ReportingToolForInternship.DAL.DataAccessEF.ReportDAO.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\ReportDAO.cs:строка 23
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 44
+2016-11-29 21:00:23,896 [7] ERROR CustomLogger - System.InvalidOperationException: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 49
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 50
+2016-11-29 21:00:49,370 [6] ERROR CustomLogger - System.Data.SqlClient.SqlException (0x80131904): Ќевозможно удалить базу данных "Mirantis.ReportingToolForInternship", так как она используетс€ в данный момент.
+   в System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   в System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   в System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   в System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   в System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   в System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   в System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   в System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   в System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass30.<DropDatabase>b__2e(DbConnection conn)
+   в System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   в System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   в System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   в System.Data.Entity.SqlServer.SqlProviderServices.DropDatabase(SqlConnection sqlConnection, Nullable`1 commandTimeout, String databaseName)
+   в System.Data.Entity.SqlServer.SqlProviderServices.DbDeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   в System.Data.Entity.Core.Common.DbProviderServices.DeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   в System.Data.Entity.Core.Objects.ObjectContext.DeleteDatabase()
+   в System.Data.Entity.Internal.DatabaseOperations.Delete(ObjectContext objectContext)
+   в System.Data.Entity.Database.Delete()
+   в System.Data.Entity.DropCreateDatabaseAlways`1.InitializeDatabase(TContext context)
+   в System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   в System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   в System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   в System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   в System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   в System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   в System.Data.Entity.DbSet`1.Add(TEntity entity)
+   в Mirantis.ReportingToolForInternship.DAL.DataAccessEF.ReportDAO.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\ReportDAO.cs:строка 23
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 44
+ClientConnectionId:0dbfe826-3dc7-4791-89e3-17e15aabea51
+Error Number: 3702, State: 4, Class: 16
+2016-11-29 21:00:49,504 [6] ERROR CustomLogger - System.Data.SqlClient.SqlException (0x80131904): Ќевозможно удалить базу данных "Mirantis.ReportingToolForInternship", так как она используетс€ в данный момент.
+   в Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:строка 49
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 50
+ClientConnectionId:0dbfe826-3dc7-4791-89e3-17e15aabea51
+Error Number: 3702, State: 4, Class: 16

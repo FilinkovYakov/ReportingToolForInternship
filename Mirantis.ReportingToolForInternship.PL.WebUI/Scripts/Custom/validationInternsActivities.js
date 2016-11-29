@@ -34,5 +34,9 @@ function validationActivityFromInternsReport(inputActivity) {
                  .removeClass("field-validation-valid")
                  .addClass("field-validation-error")
                  .text("Enter value of activity or remove questions that belong to it");
+
+        return false;
     }
+
+    return true;
 }
