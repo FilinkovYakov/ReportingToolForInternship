@@ -26,77 +26,20 @@
 
         public void Edit(Report report)
         {
-            var transaction = dbContext.Database.BeginTransaction();
-            var originalReport = dbContext.Reports.Find(report.Id);
+            //var transaction = dbContext.Database.BeginTransaction();
+
             //Remove
-            var listOriginalActivities = dbContext.Activities.Where(activity => activity.ReportId == report.Id).ToList();
-            var listOriginalQuestions = new List<Question>();
-            foreach (var originalActivity in listOriginalActivities)
-            {
-                var listOriginalQuestionsBelongToActivity = dbContext.Questions.Where(question => question.ActivityId == originalActivity.Id).ToList();
-                listOriginalQuestions.AddRange(listOriginalQuestionsBelongToActivity);
-            }
-
-            var listOriginalFuturePlans = dbContext.FuturePlans.Where(activity => activity.ReportId == report.Id).ToList();
-
-            //foreach (var originalActivity in listOriginalActivities)
-            //{
-            //    if (!report.Activities.Any(activity => originalActivity.Id == activity.Id))
-            //    {
-            //        dbContext.Activities.Remove(originalActivity);
-            //    }
-            //}
-
-            //foreach (var originalQuestion in listOriginalQuestions)
-            //{
-            //    if (!report.Activities.Any(activity => originalActivity.Id == activity.Id))
-            //    {
-            //        dbContext.Activities.Remove(originalActivity);
-            //    }
-            //}
-
+            RemoveNonexistentActivities(report);
+            RemoveNonexistentFuturePlans(report);
+            dbContext.SaveChanges();
             //Edit and add
+            var originalReport = dbContext.Reports.Find(report.Id);
             dbContext.Entry(originalReport).CurrentValues.SetValues(report);
-            foreach (var activity in report.Activities)
-            {
-                var originalActivity = dbContext.Activities.Find(activity.Id);
-                if (originalActivity == null)
-                {
-                    dbContext.Activities.Add(activity);
-                }
-                else
-                {
-                    dbContext.Entry(originalActivity).CurrentValues.SetValues(activity);
-                }
-
-                foreach (var question in activity.Questions)
-                {
-                    var originalQuestion = dbContext.Questions.Find(question.Id);
-                    if (originalQuestion == null)
-                    {
-                        dbContext.Questions.Add(question);
-                    }
-                    else
-                    {
-                        dbContext.Entry(originalQuestion).CurrentValues.SetValues(question);
-                    }
-                }
-            }
-
-            foreach (var futurePlan in report.FuturePlans)
-            {
-                var originalFuturePlan = dbContext.Reports.Find(futurePlan.Id);
-                if (originalFuturePlan == null)
-                {
-                    dbContext.FuturePlans.Add(futurePlan);
-                }
-                else
-                {
-                    dbContext.Entry(originalFuturePlan).CurrentValues.SetValues(futurePlan);
-                }
-            }
-
-            transaction.Commit();
+            dbContext.SaveChanges();
+            AddNewAndEditOldActivities(report);
+            dbContext.SaveChanges();
+            AddNewAndEditOldFuturePlans(report);
+            //transaction.Commit();
             dbContext.SaveChanges();
         }
 
@@ -108,6 +51,7 @@
         public IEnumerable<Report> Search(SearchModel searchModel)
         {
             var query = dbContext.Reports.Where(report => report.Date >= searchModel.DateFrom && report.Date <= searchModel.DateTo);
+            query = query.OrderBy(report => report.Date);
 
             if (searchModel.TypeOccuring != "All")
             {
@@ -136,6 +80,112 @@
             }
 
             return query.AsNoTracking().ToList();
+        }
+
+        private void RemoveNonexistentActivities(Report report)
+        {
+            var listOriginalActivities = dbContext.Activities.Where(activity => activity.ReportId == report.Id).ToList();
+
+            foreach (var originalActivity in listOriginalActivities)
+            {
+                Activity newActivity = report.Activities.Where(activity => activity.Id == originalActivity.Id).FirstOrDefault();
+                if (newActivity == null)
+                {
+                    dbContext.Activities.Remove(originalActivity);
+                    //Каскад?
+                }
+                else
+                {
+                    RemoveNonexistentQuestions(newActivity);
+                }
+            }
+        }
+
+        private void RemoveNonexistentQuestions(Activity newActivity)
+        {
+            var listOriginalQuestions = dbContext.Questions.Where(question => question.ActivityId == newActivity.Id).ToList();
+
+            if (listOriginalQuestions.Any())
+            {
+                foreach (var originalQuestion in listOriginalQuestions)
+                {
+                    if (newActivity.Questions == null)
+                    {
+                        dbContext.Questions.Remove(originalQuestion);
+                    }
+                    else
+                    {
+                        Question newQuestion = newActivity.Questions.Where(question => question.Id == originalQuestion.Id).FirstOrDefault();
+                        if (newQuestion == null)
+                        {
+                            dbContext.Questions.Remove(originalQuestion);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void RemoveNonexistentFuturePlans(Report report)
+        {
+            var listOriginalFuturePlans = dbContext.FuturePlans.Where(activity => activity.ReportId == report.Id).ToList();
+
+            foreach (var originalFuturePlan in listOriginalFuturePlans)
+            {
+                if (!report.FuturePlans.Any(futurePlan => futurePlan.Id == originalFuturePlan.Id))
+                {
+                    dbContext.FuturePlans.Remove(originalFuturePlan);
+                }
+            }
+        }
+
+        private void AddNewAndEditOldActivities(Report report)
+        {
+            foreach (var activity in report.Activities)
+            {
+                var originalActivity = dbContext.Activities.Find(activity.Id);
+                if (originalActivity == null)
+                {
+                    dbContext.Activities.Add(activity);
+                }
+                else
+                {
+                    dbContext.Entry(originalActivity).CurrentValues.SetValues(activity);
+                }
+
+                AddNewAndEditOldQuestions(activity);
+            }
+        }
+
+        private void AddNewAndEditOldQuestions(Activity activity)
+        {
+            foreach (var question in activity.Questions)
+            {
+                var originalQuestion = dbContext.Questions.Find(question.Id);
+                if (originalQuestion == null)
+                {
+                    dbContext.Questions.Add(question);
+                }
+                else
+                {
+                    dbContext.Entry(originalQuestion).CurrentValues.SetValues(question);
+                }
+            }
+        }
+
+        private void AddNewAndEditOldFuturePlans(Report report)
+        {
+            foreach (var futurePlan in report.FuturePlans)
+            {
+                var originalFuturePlan = dbContext.FuturePlans.Find(futurePlan.Id);
+                if (originalFuturePlan == null)
+                {
+                    dbContext.FuturePlans.Add(futurePlan);
+                }
+                else
+                {
+                    dbContext.Entry(originalFuturePlan).CurrentValues.SetValues(futurePlan);
+                }
+            }
         }
     }
 }

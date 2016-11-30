@@ -23,8 +23,10 @@
         public string TypeOccuring { get; set; }
         
         [ActivitiesValidator]
+        [ActivityValidator]
         public List<ActivityVM> Activities { get; set; }
 
+        [FuturePlansValidator]
         public List<FuturePlanVM> FuturePlans { get; set; }
 
         [Required(ErrorMessage = "Field 'From' is required")]

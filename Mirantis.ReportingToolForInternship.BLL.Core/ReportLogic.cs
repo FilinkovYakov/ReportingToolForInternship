@@ -4,6 +4,7 @@
     using System;
     using System.Collections.Generic;
     using Entities;
+    using System.Linq;
 
     public class ReportLogic : IReportLogic
     {
@@ -14,33 +15,8 @@
             try
             {
                 report.Id = Guid.NewGuid();
-
-                if (report.Activities != null)
-                {
-                    foreach (var activity in report.Activities)
-                    {
-                        activity.Id = Guid.NewGuid();
-                        activity.ReportId = report.Id;
-                        if (activity.Questions != null)
-                        {
-                            foreach (var question in activity.Questions)
-                            {
-                                question.Id = Guid.NewGuid();
-                                question.ActivityId = activity.Id;
-                            }
-                        }
-                    }
-                }
-
-                if (report.FuturePlans != null)
-                {
-                    foreach (var futherPlan in report.FuturePlans)
-                    {
-                        futherPlan.Id = Guid.NewGuid();
-                        futherPlan.ReportId = report.Id;
-                    }
-                }
-
+                report.Activities = GetCorrectActivities(report).ToList();
+                report.FuturePlans = GetCorrectFuturePlans(report).ToList();
                 DAOS.ReportDAO.Add(report);
             }
             catch (Exception e)
@@ -54,44 +30,8 @@
         {
             try
             {
-                if (report.Activities != null)
-                {
-                    foreach (var activity in report.Activities)
-                    {
-                        if (activity.Id == defaultGuid)
-                        {
-                            activity.Id = Guid.NewGuid();
-                        }
-
-                        activity.ReportId = report.Id;
-                        if (activity.Questions != null)
-                        {
-                            foreach (var question in activity.Questions)
-                            {
-                                if (question.Id == defaultGuid)
-                                {
-                                    question.Id = Guid.NewGuid();
-                                }
-
-                                question.ActivityId = activity.Id;
-                            }
-                        }
-                    }
-                }
-
-                if (report.FuturePlans != null)
-                {
-                    foreach (var futherPlan in report.FuturePlans)
-                    {
-                        if (futherPlan.Id == defaultGuid)
-                        {
-                            futherPlan.Id = Guid.NewGuid();
-                        }
-
-                        futherPlan.ReportId = report.Id;
-                    }
-                }
-
+                report.Activities = GetCorrectActivities(report).ToList();
+                report.FuturePlans = GetCorrectFuturePlans(report).ToList();
                 DAOS.ReportDAO.Edit(report);
             }
             catch (Exception e)
@@ -124,6 +64,75 @@
             {
                 LoggerProvider.Logger.Error(e);
                 throw e;
+            }
+        }
+
+        private IEnumerable<Activity> GetCorrectActivities(Report report)
+        {
+            if (report.Activities != null)
+            {
+                foreach (var activity in report.Activities)
+                {
+                    if (!string.IsNullOrEmpty(activity.Description))
+                    {
+                        if (activity.Id == defaultGuid)
+                        {
+                            activity.Id = Guid.NewGuid();
+                        }
+
+                        activity.ReportId = report.Id;
+                        activity.Questions = GetCorrectQuestions(activity).ToList();
+                        yield return activity;
+                    }
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Report should contain at least one activity");
+            }
+        }
+
+        private IEnumerable<Question> GetCorrectQuestions(Activity activity)
+        {
+            if (activity.Questions != null)
+            {
+                foreach (var question in activity.Questions)
+                {
+                    if (!string.IsNullOrEmpty(question.Description))
+                    {
+                        if (question.Id == defaultGuid)
+                        {
+                            question.Id = Guid.NewGuid();
+                        }
+
+                        question.ActivityId = activity.Id;
+                        yield return question;
+                    }
+                }
+            }
+        }
+
+        private IEnumerable<FuturePlan> GetCorrectFuturePlans(Report report)
+        {
+            if (report.FuturePlans != null)
+            {
+                foreach (var futurePlan in report.FuturePlans)
+                {
+                    if (!string.IsNullOrEmpty(futurePlan.Description))
+                    {
+                        if (futurePlan.Id == defaultGuid)
+                        {
+                            futurePlan.Id = Guid.NewGuid();
+                        }
+
+                        futurePlan.ReportId = report.Id;
+                        yield return futurePlan;
+                    }
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Report should contain at least one future plan");
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
 /// <reference path="assignEventsToRemoverButtons.js" />
+/// <reference path="clearIDs.js" />
 
 $(document).ready(function () {
     var $adderButton = $(".btn-adder");
@@ -23,9 +24,16 @@ function constructAdderButtonInfrastructure(button) {
         });
 
         cleanTextInInputsInnerWrapper($newWrapper);
-
         $wrapper.after($newWrapper);
+
+        cleanHiddenIDs($newWrapper);
     });
+}
+
+function cleanHiddenIDs(wrapper) {
+    $(wrapper).find(".activityId:hidden").remove();
+    $(wrapper).find(".futurePlanId:hidden").remove();
+    $(wrapper).find(".questionId:hidden").remove();
 }
 
 function cleanTextInInputsInnerWrapper(wrapper) {

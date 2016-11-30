@@ -1,6 +1,6 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
 /// <reference path="constructors.js" />
-/// <reference path="actionsAfterSuccessOfSendingReport.js" />
+/// <reference path="actionsAfterSuccessfullAdditionReport.js" />
 /// <reference path="changeRulesValidation.js" />
 /// <reference path="validationActivities.js" />
 /// <reference path="validationMentorsActivities.js" />
@@ -27,7 +27,7 @@ $(document).ready(function () {
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'html',
                 success: function (result) {
-                    successFunction(result);
+                    alertAboutSuccessfullAddition(result);
                 }
             });
         }
@@ -43,7 +43,7 @@ $(document).ready(function () {
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'html',
                 success: function (result) {
-                    successFunction(result);
+                    alertAboutSuccessfullAddition(result);
                 }
             })
         }
@@ -72,36 +72,52 @@ $(document).ready(function () {
     }
 
     function constructFuturePlans() {
-        var futurePlans = [];
-        $(".input-future-plan").each(function (index) {
-            var id = null;
+        var futurePlans = [],
+            indexer = 0;
+
+        $(".input-future-plan").each(function () {
             var description = $(this).val();
-            futurePlans[index] = new FuturePlanVM(id, description);
+            if (description != "") {
+                var id = null;
+                futurePlans[indexer] = new FuturePlanVM(id, description);
+                indexer += 1;
+            }
         });
 
         return futurePlans;
     }
 
     function constructActivities() {
-        var activities = [];
-        $(".input-activity").each(function (index) {
-            var id = null;
+        var activities = [],
+            indexer = 0;
+
+        $(".input-activity").each(function () {
             var description = $(this).val();
-            var evaluation = constructEvaluationByInputActivity($(this));
-            var questions = null;
-            activities[index] = new ActivityVM(id, description, evaluation, questions);
+            if (description != "") {
+                var id = null;
+                var evaluation = constructEvaluationByInputActivity($(this));
+                var questions = null;
+                activities[indexer] = new ActivityVM(id, description, evaluation, questions);
+                indexer += 1;
+            }
         });
 
         return activities;
     }
 
     function constructEvaluationByInputActivity(inputActivity) {
-        var evaluation;
+        var evaluation,
+            indexer = 0;
+
         $(inputActivity).parent().parent().parent().parent()
             .find(".input-evaluation")
-            .each(function (index) {
+            .each(function () {
                 evaluation = $(this).val();
             })
+
+        if (evaluation == "") {
+            return null;
+        }
 
         return evaluation;
     }

@@ -1,6 +1,7 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
 /// <reference path="assignEventsToRemoverActivityButtons.js" />
 /// <reference path="assignEventsToAdderButtons.js" />
+/// <reference path="clearIDs.js" />
 
 $(document).ready(function () {
     var $adderActivityButton = $(".btn-adder-activity");
@@ -33,8 +34,9 @@ function constructAdderActivityButtonInfrastructure(button) {
         });
 
         cleanTextInInputsInnerWrapper($newWrapper);
-
         $wrapper.after($newWrapper);
+
+        cleanHiddenIDs($newWrapper);
 
         $newWrapper.find(".btn-remover:not(:last)").each(function () {
             removeWrapper($(this));

@@ -19,4 +19,8 @@ $(document).ready(function () {
     $datePickerFrom.on("changeDate", function (e) {
         $datePickerTo.datepicker('setStartDate', e.date);
     });
+
+    $datePickerTo.on("changeDate", function (e) {
+        $datePickerFrom.datepicker('setEndDate', e.date);
+    });
 });

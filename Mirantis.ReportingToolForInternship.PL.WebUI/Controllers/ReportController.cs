@@ -48,7 +48,7 @@
                 if (ModelState.IsValid)
                 {
                     DataProvider.ReportLogic.Add((Report)reportVM);
-                    return PartialView("_SuccessSaveReportAsDraft");
+                    return PartialView("_SuccessSaveReportAsDraftAfterAddition");
                 }
 
                 return View(reportVM);
@@ -120,7 +120,7 @@
                 if (ModelState.IsValid)
                 {
                     DataProvider.ReportLogic.Edit((Report)reportVM);
-                    return PartialView("_SuccessRemainedReport");
+                    return PartialView("_SuccessSaveReportAsDraftAfterEditing");
                 }
 
                 return View(reportVM);
@@ -142,7 +142,7 @@
                 if (ModelState.IsValid)
                 {
                     DataProvider.ReportLogic.Edit((Report)reportVM);
-                    return PartialView("_SuccessChangedReportOnFinalVersion");
+                    return PartialView("_SuccessSubmitReport");
                 }
 
                 return View(reportVM);

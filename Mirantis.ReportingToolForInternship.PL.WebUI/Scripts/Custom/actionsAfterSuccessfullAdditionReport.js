@@ -2,13 +2,14 @@
 /// <reference path="clearInputs.js" />
 /// <reference path="disableInputs.js" />
 
-function successFunction(result) {
+function alertAboutSuccessfullAddition(result) {
     lockAllFunctions();
     showMessageStatusReport(result);
-    assignEventToAdderNewReport();
+    assignEventToAdderNewReportButton();
+    assignEventToSearchReportsButton();
 }
 
-function assignEventToAdderNewReport() {
+function assignEventToAdderNewReportButton() {
     $("#AddReport").click(function () {
         $("#MessageAboutStatusReport").slideToggle(1000);
         unlockAllFunctions();
@@ -17,7 +18,9 @@ function assignEventToAdderNewReport() {
         $(".btn-remover-activity:not(:last)").click();
         clearInputs();
     });
+}
 
+function assignEventToSearchReportsButton() {
     $("#SearchReports").click(function () {
         window.location.replace("/Report/Search");
     });

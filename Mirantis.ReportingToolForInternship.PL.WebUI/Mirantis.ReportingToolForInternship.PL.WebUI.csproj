@@ -188,6 +188,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ValidationAttributes\ActivitiesValidator.cs" />
+    <Compile Include="ValidationAttributes\ActivityValidator.cs" />
+    <Compile Include="ValidationAttributes\FuturePlansValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datepicker.css" />
@@ -312,7 +314,8 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\Custom\actionsAfterSuccessOfSendingReport.js" />
+    <Content Include="Scripts\Custom\actionsAfterSuccessfullAdditionReport.js" />
+    <Content Include="Scripts\Custom\actionsAfterSuccessfullEditingReport.js" />
     <Content Include="Scripts\Custom\assignEventsToAdderActivityButtons.js" />
     <Content Include="Scripts\Custom\assignEventsToAdderButtons.js" />
     <Content Include="Scripts\Custom\changeRulesValidation.js" />
@@ -493,11 +496,10 @@
     <Content Include="Views\Report\_ShowSearchResult.cshtml" />
     <Content Include="Views\Report\_ShowNullSearchResult.cshtml" />
     <Content Include="Views\Report\_SuccessSubmitReport.cshtml" />
-    <Content Include="Views\Report\_SuccessSaveReportAsDraft.cshtml" />
+    <Content Include="Views\Report\_SuccessSaveReportAsDraftAfterAddition.cshtml" />
     <Content Include="Views\Report\AddMentorsReport.cshtml" />
     <Content Include="Views\Report\EditInternsReport.cshtml" />
-    <Content Include="Views\Report\_SuccessRemainedReport.cshtml" />
-    <Content Include="Views\Report\_SuccessChangedReportOnFinalVersion.cshtml" />
+    <Content Include="Views\Report\_SuccessSaveReportAsDraftAfterEditing.cshtml" />
     <Content Include="unity.config" />
   </ItemGroup>
   <ItemGroup>

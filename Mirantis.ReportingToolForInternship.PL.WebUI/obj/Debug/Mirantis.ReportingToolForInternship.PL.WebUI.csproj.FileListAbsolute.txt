@@ -169,3 +169,6 @@ C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.Repor
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\log4net.dll
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Practices.ServiceLocation.dll
 C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\log4net.xml
+C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Practices.Unity.xml
+C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Practices.ServiceLocation.xml

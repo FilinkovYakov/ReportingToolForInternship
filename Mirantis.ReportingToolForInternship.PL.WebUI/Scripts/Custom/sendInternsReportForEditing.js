@@ -1,6 +1,6 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
 /// <reference path="constructors.js" />
-/// <reference path="actionsAfterSuccessOfSendingReport.js" />
+/// <reference path="actionsAfterSuccessfullEditingReport.js" />
 /// <reference path="changeRulesValidation.js" />
 /// <reference path="validationActivities.js" />
 /// <reference path="validationInternsActivities.js" />
@@ -14,7 +14,7 @@ $(document).ready(function () {
         $typeInput = $("#TypeOccuring"),
         $dateInput = $("#Date");
 
-    $submitButton.click(function () {
+    $saveAsDraftButton.click(function () {
         if (isModelValidate()) {
             var reportVM = constructReportVM();
             $.ajax({
@@ -24,13 +24,13 @@ $(document).ready(function () {
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'html',
                 success: function (result) {
-                    successFunction(result);
+                    alertAboutSuccessfullEditing(result);
                 }
             });
         }
     });
 
-    $saveAsDraftButton.click(function () {
+    $submitButton.click(function () {
         if (isModelValidate()) {
             var reportVM = constructReportVM();
             $.ajax({
@@ -40,7 +40,7 @@ $(document).ready(function () {
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'html',
                 success: function (result) {
-                    successFunction(result);
+                    alertAboutSuccessfullEditing(result);
                 }
             })
         }
@@ -68,18 +68,23 @@ $(document).ready(function () {
     }
 
     function constructFuturePlans() {
-        var futurePlans = [];
-        $(".input-future-plan").each(function (index) {
-            var id = constructIdByInput($(this), ".futurePlanId");
+        var futurePlans = [],
+            indexer = 0;
+
+        $(".input-future-plan").each(function () {
             var description = $(this).val();
-            futurePlans[index] = new FuturePlanVM(id, description);
+            if (description != "") {
+                var id = constructIdByInput($(this), ".futurePlanId");
+                futurePlans[indexer] = new FuturePlanVM(id, description);
+                indexer += 1;
+            }
         });
 
         return futurePlans;
     }
 
     function constructIdByInput(input, classOfWrapperWithId) {
-        var $wrapperId = $(input).siblings(classOfWrapperWithId);
+        var $wrapperId = $(input).closest("div").find(classOfWrapperWithId);
         if ($wrapperId.length > 0) {
             return $wrapperId.val();
         }
@@ -88,26 +93,36 @@ $(document).ready(function () {
     }
 
     function constructActivities() {
-        var activities = [];
-        $(".input-activity").each(function (index) {
-            var id = constructIdByInput($(this), ".activityId");
+        var activities = [],
+            indexer = 0;
+
+        $(".input-activity").each(function () {
             var description = $(this).val();
-            var evaluation = null;
-            var questions = constructQuestionsByInputActivity($(this));
-            activities[index] = new ActivityVM(id, description, evaluation, questions);
+            if (description != "") {
+                var id = constructIdByInput($(this), ".activityId");
+                var evaluation = null;
+                var questions = constructQuestionsByInputActivity($(this));
+                activities[indexer] = new ActivityVM(id, description, evaluation, questions);
+                indexer += 1;
+            }
         });
 
         return activities;
     }
 
     function constructQuestionsByInputActivity(inputActivity) {
-        var questions = [];
-        $(inputActivity).parent().parent().parent()
+        var questions = [],
+            indexer = 0;
+
+        $(inputActivity).parent().parent().parent().parent()
             .find(".input-question")
-            .each(function (index) {
-                var id = constructIdByInput($(this), ".questionId");
+            .each(function () {
                 var description = $(this).val();
-                questions[index] = new QuestionVM(description);
+                if (description != "") {
+                    var id = constructIdByInput($(this), ".questionId");
+                    questions[indexer] = new QuestionVM(id, description);
+                    indexer += 1;
+                }
             })
 
         return questions;
