@@ -15,7 +15,10 @@
 
         public static IUnityContainer Container
         {
-            get { return container; }
+            get
+            {
+                return container;
+            }
         }
     }
 }

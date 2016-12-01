@@ -329,8 +329,11 @@
     <Content Include="Scripts\Custom\sendInternsReportForAddition.js" />
     <Content Include="Scripts\Custom\sendInternsReportForEditing.js" />
     <Content Include="Scripts\Custom\sendMentorsReportForAddition.js" />
+    <Content Include="Scripts\Custom\constructReportBeforeSending.js" />
+    <Content Include="Scripts\Custom\sendMentorsReportForEditing.js" />
     <Content Include="Scripts\Custom\setSettingDatePickerOnSearchForm.js" />
     <Content Include="Scripts\Custom\validationActivities.js" />
+    <Content Include="Scripts\Custom\validationRecord.js" />
     <Content Include="Scripts\Custom\validationFuturePlans.js" />
     <Content Include="Scripts\Custom\validationInternsActivities.js" />
     <Content Include="Scripts\Custom\validationMentorsActivities.js" />
@@ -501,6 +504,7 @@
     <Content Include="Views\Report\EditInternsReport.cshtml" />
     <Content Include="Views\Report\_SuccessSaveReportAsDraftAfterEditing.cshtml" />
     <Content Include="unity.config" />
+    <Content Include="Views\Report\EditMentorsReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mirantis.ReportingToolForInternship.UnitTests")]
+[assembly: AssemblyTitle("Mirantis.ReportingToolForInternship.UnitTests.NUnit")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("mirantis-it")]
-[assembly: AssemblyProduct("Mirantis.ReportingToolForInternship.UnitTests")]
+[assembly: AssemblyProduct("Mirantis.ReportingToolForInternship.UnitTests.NUnit")]
 [assembly: AssemblyCopyright("Copyright © mirantis-it 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9d11494c-303e-4b55-9d9f-64de3159aa50")]
+[assembly: Guid("e6c3c0e6-aa63-48f2-b191-e58f1f98f5fa")]
 
 // Version information for an assembly consists of the following four values:
 //

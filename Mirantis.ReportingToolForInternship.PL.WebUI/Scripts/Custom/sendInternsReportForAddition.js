@@ -5,6 +5,8 @@
 /// <reference path="validationActivities.js" />
 /// <reference path="validationInternsActivities.js" />
 /// <reference path="validationFuturePlans.js" />
+/// <reference path="validationRecord.js" />
+/// <reference path="constructReportBeforeSending.js" />
 
 $(document).ready(function () {
     var $submitButton = $("#SubmitButton"),
@@ -53,68 +55,5 @@ $(document).ready(function () {
         isValidForm = validationActivitiesFromInternsReport() && isValidForm;
         isValidForm = validationFuturePlans() && isValidForm;
         return isValidForm;
-    }
-
-    function constructReportVM() {
-        var id = null;
-        var mentorName = null;
-        var internName = $internNameInput.val();
-        var typeOccuring = $typeInput.val();
-        var date = $dateInput.val();
-        var activities = constructActivities();
-        var futurePlans = constructFuturePlans();
-        return new ReportVM(id, mentorName, internName, typeOccuring, date, activities, futurePlans);
-    }
-
-    function constructFuturePlans() {
-        var futurePlans = [],
-            indexer = 0;
-
-        $(".input-future-plan").each(function () {
-            var description = $(this).val();
-            if (description != "") {
-                var id = null;
-                futurePlans[indexer] = new FuturePlanVM(id, description);
-                indexer += 1;
-            }
-        });
-
-        return futurePlans;
-    }
-
-    function constructActivities() {
-        var activities = [],
-            indexer = 0;
-
-        $(".input-activity").each(function () {
-            var description = $(this).val();
-            if (description != "") {
-                var id = null;
-                var evaluation = null;
-                var questions = constructQuestionsByInputActivity($(this));
-                activities[indexer] = new ActivityVM(id, description, evaluation, questions);
-                indexer += 1;
-            }
-        });
-
-        return activities;
-    }
-
-    function constructQuestionsByInputActivity(inputActivity) {
-        var questions = [],
-            indexer = 0;
-
-        $(inputActivity).parent().parent().parent().parent()
-            .find(".input-question")
-            .each(function () {
-                var description = $(this).val();
-                if (description != "") {
-                    var id = null;
-                    questions[indexer] = new QuestionVM(id, description);
-                    indexer += 1;
-                }
-            })
-
-        return questions;
     }
 });

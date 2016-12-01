@@ -1,7 +1,6 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
 /// <reference path="assignEventsToRemoverActivityButtons.js" />
 /// <reference path="assignEventsToAdderButtons.js" />
-/// <reference path="clearIDs.js" />
 
 $(document).ready(function () {
     var $adderActivityButton = $(".btn-adder-activity");
@@ -38,8 +37,18 @@ function constructAdderActivityButtonInfrastructure(button) {
 
         cleanHiddenIDs($newWrapper);
 
+        cleanErrors($newWrapper);
+
         $newWrapper.find(".btn-remover:not(:last)").each(function () {
             removeWrapper($(this));
         });
     });
+
+    function cleanErrors(newWrapper) {
+        $(newWrapper).find(".field-validation-error").each(function () {
+            $(this).removeClass("field-validation-error")
+                   .addClass("field-validation-valid")
+                   .text("");
+        });
+    }
 }

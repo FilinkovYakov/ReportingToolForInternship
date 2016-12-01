@@ -1,6 +1,5 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
 /// <reference path="assignEventsToRemoverButtons.js" />
-/// <reference path="clearIDs.js" />
 
 $(document).ready(function () {
     var $adderButton = $(".btn-adder");

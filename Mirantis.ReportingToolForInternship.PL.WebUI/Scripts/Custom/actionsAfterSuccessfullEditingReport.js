@@ -11,8 +11,9 @@ function alertAboutSuccessfullEditing(result) {
 
 function assignEventToReworkReportButton() {
     $("#ReworkReport").click(function () {
-        $("#MessageAboutStatusReport").slideToggle(1000);
-        unlockAllFunctions();
+        //$("#MessageAboutStatusReport").slideToggle(1000);
+        //unlockAllFunctions();
+        location.reload();
     });
 }
 

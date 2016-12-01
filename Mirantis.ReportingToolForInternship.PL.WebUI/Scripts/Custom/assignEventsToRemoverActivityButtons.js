@@ -13,10 +13,11 @@ function assignmentButtonToAbilityOfRemoveActivity(button) {
 }
 
 function removeActivity(button) {
-    var $activities = $(".activity");
-    var amountRemoverButtons = $activities.find(".btn-remover-activity").size();
+    var $wrapperButton = $(button).closest(".activity"),
+         $activities = $(".activity"),
+         amountRemoverButtons = $activities.find(".btn-remover-activity").size();
+
     if (amountRemoverButtons > 1) {
-        var $wrapperButton = $(button).closest(".activity");
         lockAllFunctions();
         $wrapperButton.slideUp("slow", function () {
             $(this).remove();

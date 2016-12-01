@@ -1,4 +1,5 @@
 ﻿/// <reference path="validationActivities.js" />
+/// <reference path="validationRecord.js" />
 
 function validationActivitiesFromMentorsReport() {
     return validationAllActivities() && validationEachActivityFromMentorsReport();
@@ -19,17 +20,17 @@ function validationEachActivityFromMentorsReport() {
 
 function validationActivityFromMentorsReport(inputActivity) {
     var $activity = $(inputActivity).closest(".activity"),
-        countNotEmptyEvaluations = 0,
-        valueActivity = $(inputActivity).val();
+        counterCorrectEvaluations = 0,
+        activitysDescription = $(inputActivity).val();
 
     $activity.find(".input-evaluation").each(function () {
         var evaluation = $(this).val();
-        if (evaluation != "") {
-            countNotEmptyEvaluations++;
+        if (validationRecord(evaluation)) {
+            counterCorrectEvaluations++;
         }
     });
 
-    if (valueActivity == "" && countNotEmptyEvaluations > 0) {
+    if (!validationRecord(activitysDescription) && counterCorrectEvaluations > 0) {
         $activity.find("span[data-valmsg-for='Activity']")
                  .removeClass("field-validation-valid")
                  .addClass("field-validation-error")

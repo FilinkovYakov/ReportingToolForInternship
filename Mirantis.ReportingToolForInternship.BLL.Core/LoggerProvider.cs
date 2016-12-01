@@ -1,19 +1,13 @@
 ﻿namespace Mirantis.ReportingToolForInternship.BLL.Core
 {
     using log4net;
+    using Microsoft.Practices.Unity;
 
     public class LoggerProvider
     {
-        private static ILog logger;
-
-        static LoggerProvider()
-        {
-            logger = LogManager.GetLogger("CustomLogger");
-        }
-
         public static ILog Logger
         {
-            get { return logger; }
+            get { return ContainerProvider.Container.Resolve<ILog>() ?? LogManager.GetLogger("CustomLogger"); }
         }
     }
 }

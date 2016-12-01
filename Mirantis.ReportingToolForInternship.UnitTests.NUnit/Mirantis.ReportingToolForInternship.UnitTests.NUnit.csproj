@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9D11494C-303E-4B55-9D9F-64DE3159AA50}</ProjectGuid>
+    <ProjectGuid>{E6C3C0E6-AA63-48F2-B191-E58F1F98F5FA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mirantis.ReportingToolForInternship.UnitTests</RootNamespace>
-    <AssemblyName>Mirantis.ReportingToolForInternship.UnitTests</AssemblyName>
+    <RootNamespace>Mirantis.ReportingToolForInternship.UnitTests.NUnit</RootNamespace>
+    <AssemblyName>Mirantis.ReportingToolForInternship.UnitTests.NUnit</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -16,7 +16,6 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,14 +39,50 @@
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Practices.Unity">
       <HintPath>..\Mirantis.ReportingToolForInternship.PL.WebUI\bin\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Moq, Version=4.5.28.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.5.28\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -62,11 +97,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ReportProvider.cs" />
+    <Compile Include="ReportControllerTests.cs" />
     <Compile Include="ReportLogicTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScopedLifetimeManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -75,16 +113,24 @@
       <Name>Mirantis.ReportingToolForInternship.BLL.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.BLL.Core\Mirantis.ReportingToolForInternship.BLL.Core.csproj">
-      <Project>{a2dc545d-7e5e-4f1d-95da-6b949279cd52}</Project>
+      <Project>{A2DC545D-7E5E-4F1D-95DA-6B949279CD52}</Project>
       <Name>Mirantis.ReportingToolForInternship.BLL.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.Contracts\Mirantis.ReportingToolForInternship.DAL.Contracts.csproj">
       <Project>{BAB02513-C05E-4E79-88C7-63DC7F9421B4}</Project>
       <Name>Mirantis.ReportingToolForInternship.DAL.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\Mirantis.ReportingToolForInternship.DAL.DataAccessEF.csproj">
+      <Project>{4a59aecf-4571-4f7b-82c0-ec3d04c351d6}</Project>
+      <Name>Mirantis.ReportingToolForInternship.DAL.DataAccessEF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
-      <Project>{4fff7831-8d36-48d0-bc0d-40086dad4465}</Project>
+      <Project>{4FFF7831-8D36-48D0-BC0D-40086DAD4465}</Project>
       <Name>Mirantis.ReportingToolForInternship.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.PL.WebUI\Mirantis.ReportingToolForInternship.PL.WebUI.csproj">
+      <Project>{69D8484B-CCEB-405B-B993-5317D99BD487}</Project>
+      <Name>Mirantis.ReportingToolForInternship.PL.WebUI</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

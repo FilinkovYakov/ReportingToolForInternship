@@ -1,18 +1,21 @@
-﻿function validationAllActivities() {
-    var $errorMessage = $("span[data-valmsg-for='Activities']");
+﻿/// <reference path="validationRecord.js" />
+
+function validationAllActivities() {
+    var $errorMessage = $("span[data-valmsg-for='Activities']"),
+        counterCorrectActivities = 0;
+
     $errorMessage.removeClass("field-validation-error")
                 .addClass("field-validation-valid")
                 .text("");
 
-    var counterNotEmptyStrings = 0;
     $(".input-activity").each(function () {
-        var activity = $(this).val();
-        if (activity != "") {
-            counterNotEmptyStrings++;
+        var activitysDescription = $(this).val();
+        if (validationRecord(activitysDescription)) {
+            counterCorrectActivities++;
         }
     });
 
-    if (counterNotEmptyStrings == 0) {
+    if (counterCorrectActivities == 0) {
         $errorMessage.removeClass("field-validation-valid")
                      .addClass("field-validation-error")
                      .text("Required at least one activity");

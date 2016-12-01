@@ -13,10 +13,12 @@ function assignmentButtonToAbilityOfRemoveComposition(button) {
 }
 
 function removeWrapper(button) {
-    var $composition = $(button).closest(".composition");
-    var amountRemoverButtons = $composition.find(".btn-remover").size();
+    var $wrapper = $(button).closest(".form-group"),
+        $composition = $(button).closest(".composition"),
+        amountRemoverButtons = $composition.find(".btn-remover").size();
+
+    $wrapper.find("input[type='text']").val("");
     if (amountRemoverButtons > 1) {
-        var $wrapper = $(button).closest(".form-group");
         lockAllFunctions();
         $wrapper.slideUp(500, function () {
             $(this).remove();
