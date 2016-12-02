@@ -5,10 +5,8 @@
     using Moq;
     using BLL.Core;
     using Entities;
-    using Microsoft.Practices.Unity;
     using System;
-    using System.Collections.Generic;
-    using log4net;
+    using BLL.Contracts;
 
     [TestFixture]
     public class ReportLogicTests
@@ -19,34 +17,29 @@
             Mock<IReportDAO> mockDAO = new Mock<IReportDAO>();
             mockDAO.Setup(t => t.Add(It.IsAny<Report>())).Verifiable();
 
-            ReportLogic logic = new ReportLogic(mockDAO.Object);
+            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<ICustomLogger>());
             Report correctReport = ReportProvider.GetCorrectReport();
-            
+
             logic.Add(correctReport);
 
             mockDAO.VerifyAll();
         }
 
         [Test]
-        public void ReportLogic_AddReport_ThrowException()
+        public void ReportLogic_ThrowExceptionDuringAdditionReport_ThrowException()
         {
-            using (var lifeTimeLoggerManager = new ScopedLifetimeManager())
-            {
-                Mock<IReportDAO> mockDAO = new Mock<IReportDAO>();
-                mockDAO.Setup(t => t.Add(It.IsAny<Report>())).Throws<Exception>();
+            Mock<IReportDAO> mockDAO = new Mock<IReportDAO>();
+            mockDAO.Setup(t => t.Add(It.IsAny<Report>())).Throws<Exception>();
 
-                Report correctReport = ReportProvider.GetCorrectReport();
-                ReportLogic logic = new ReportLogic(mockDAO.Object);
-                
-                Mock<ILog> logMock = new Mock<ILog>();
-                logMock.Setup(t => t.Error(It.IsAny<object>())).Verifiable();
-                
-                ContainerProvider.Container.RegisterInstance(logMock.Object, lifeTimeLoggerManager);
+            Mock<ICustomLogger> loggerMock = new Mock<ICustomLogger>();
+            loggerMock.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
-                Assert.Throws<Exception>(() => logic.Add(correctReport));
+            Report correctReport = ReportProvider.GetCorrectReport();
+            ReportLogic logic = new ReportLogic(mockDAO.Object, loggerMock.Object);
 
-                logMock.Verify(t => t.Error(It.IsAny<object>()), Times.Once);
-            }
+            Assert.Throws<Exception>(() => logic.Add(correctReport));
+
+            loggerMock.Verify(t => t.RecordError(It.IsAny<Exception>()), Times.Once);
         }
     }
 }

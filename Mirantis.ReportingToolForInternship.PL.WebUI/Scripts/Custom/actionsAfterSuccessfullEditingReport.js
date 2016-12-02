@@ -3,7 +3,6 @@
 /// <reference path="disableInputs.js" />
 
 function alertAboutSuccessfullEditing(result) {
-    lockAllFunctions();
     showMessageStatusReport(result);
     assignEventToReworkReportButton();
     assignEventToSearchReportsButton();

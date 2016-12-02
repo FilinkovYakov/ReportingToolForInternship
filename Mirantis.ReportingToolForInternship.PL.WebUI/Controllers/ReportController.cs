@@ -10,13 +10,17 @@
     using Entities;
     using BLL.Core;
     using BLL.Contracts;
+    using System.Threading;
 
     public class ReportController : Controller
     {
         private readonly IReportLogic _reportLogic;
-        public ReportController(IReportLogic reportLogic)
+        private readonly ICustomLogger _customLogger;
+
+        public ReportController(IReportLogic reportLogic, ICustomLogger customLogger)
         {
             _reportLogic = reportLogic;
+            _customLogger = customLogger;
         }
         public ActionResult AddMentorsReport()
         {
@@ -26,7 +30,7 @@
             }
             catch(Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 return new HttpStatusCodeResult(500);
             }
         }
@@ -39,7 +43,7 @@
             }
             catch(Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 return new HttpStatusCodeResult(500);
             }
         }
@@ -61,7 +65,7 @@
             }
             catch (Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 return new HttpStatusCodeResult(500);
             }
         }
@@ -83,7 +87,7 @@
             }
             catch (Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 return new HttpStatusCodeResult(500);
             }
         }
@@ -97,7 +101,7 @@
             }
             catch (Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 return new HttpStatusCodeResult(500);
             }
         }
@@ -111,7 +115,7 @@
             }
             catch (Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 return new HttpStatusCodeResult(500);
             }
         }
@@ -133,7 +137,7 @@
             }
             catch (Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 return new HttpStatusCodeResult(500);
             }
         }
@@ -155,7 +159,7 @@
             }
             catch (Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 return new HttpStatusCodeResult(500);
             }
         }
@@ -168,7 +172,7 @@
             }
             catch (Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 return new HttpStatusCodeResult(500);
             }
         }
@@ -179,7 +183,8 @@
             {
                 if (ModelState.IsValid)
                 {
-                    IEnumerable<ReportVM> reports = _reportLogic.Search((SearchModel)searchVM).Select(report => (ReportVM)report);
+                    IEnumerable<ReportVM> reports = _reportLogic.Search((SearchModel)searchVM)
+                        .Select(report => (ReportVM)report);
                     if (reports.Any())
                     {
                         return PartialView("_ShowSearchResult", reports);
@@ -192,7 +197,7 @@
             }
             catch (Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 return new HttpStatusCodeResult(500);
             }
         }

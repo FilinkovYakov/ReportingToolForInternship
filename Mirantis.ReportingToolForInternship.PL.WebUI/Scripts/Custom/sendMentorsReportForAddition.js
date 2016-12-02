@@ -7,6 +7,7 @@
 /// <reference path="validationFuturePlans.js" />
 /// <reference path="validationRecord.js" />
 /// <reference path="constructReportBeforeSending.js" />
+/// <reference path="disableInputs.js" />
 
 $(document).ready(function () {
     var $submitButton = $("#SubmitButton"),
@@ -18,6 +19,8 @@ $(document).ready(function () {
 
 
     $submitButton.click(function () {
+        lockAllFunctions();
+        $("body").animate({ scrollTop: 0 }, "slow");
         if (isModelValidate()) {
             var reportVM = constructReportVM();
             $.ajax({
@@ -30,10 +33,14 @@ $(document).ready(function () {
                     alertAboutSuccessfullAddition(result);
                 }
             });
+        } else {
+            unlockAllFunctions();
         }
     });
 
     $saveAsDraftButton.click(function () {
+        lockAllFunctions();
+        $("body").animate({ scrollTop: 0 }, "slow");
         if (isModelValidate()) {
             var reportVM = constructReportVM();
             $.ajax({
@@ -46,6 +53,8 @@ $(document).ready(function () {
                     alertAboutSuccessfullAddition(result);
                 }
             })
+        } else {
+            unlockAllFunctions();
         }
     });
 

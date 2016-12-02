@@ -47,11 +47,14 @@
         {
             using (var dbContext = new CustomDBContext(connectionString))
             {
-                return dbContext.Reports.Where(report => report.Id == id).First();
+                return dbContext.Reports.Where(report => report.Id == id)
+                    .Include(report => report.Activities
+                    .Select(activity => activity.Questions))
+                    .Include(report => report.FuturePlans).First();
             }
         }
 
-        public IEnumerable<Report> Search(SearchModel searchModel)
+        public IList<Report> Search(SearchModel searchModel)
         {
             using (var dbContext = new CustomDBContext(connectionString))
             {
@@ -84,7 +87,10 @@
                     query = query.Where(report => string.IsNullOrEmpty(report.MentorName));
                 }
 
-                return query.AsNoTracking().ToList();
+                return query.Include(report => report.Activities
+                    .Select(activity => activity.Questions))
+                    .Include(report => report.FuturePlans)
+                    .ToList();
             }
         }
 

@@ -11,10 +11,12 @@
     {
         private static Guid defaultGuid = new Guid();
         private readonly IReportDAO _reportDAO;
+        private readonly ICustomLogger _customLogger;
 
-        public ReportLogic(IReportDAO reportDAO)
+        public ReportLogic(IReportDAO reportDAO, ICustomLogger customLogger)
         {
             _reportDAO = reportDAO;
+            _customLogger = customLogger;
         }
 
         public void Add(Report report)
@@ -28,7 +30,7 @@
             }
             catch (Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 throw;
             }
         }
@@ -43,7 +45,7 @@
             }
             catch (Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 throw;
             }
         }
@@ -56,12 +58,12 @@
             }
             catch (Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 throw;
             }
         }
 
-        public IEnumerable<Report> Search(SearchModel searchModel)
+        public IList<Report> Search(SearchModel searchModel)
         {
             try
             {
@@ -69,7 +71,7 @@
             }
             catch (Exception e)
             {
-                LoggerProvider.Logger.Error(e);
+                _customLogger.RecordError(e);
                 throw;
             }
         }

@@ -3,7 +3,6 @@
 /// <reference path="disableInputs.js" />
 
 function alertAboutSuccessfullAddition(result) {
-    lockAllFunctions();
     showMessageStatusReport(result);
     assignEventToAdderNewReportButton();
     assignEventToSearchReportsButton();
@@ -17,6 +16,8 @@ function assignEventToAdderNewReportButton() {
         $(".activity .btn-remover:not(:last)").click();
         $(".btn-remover-activity:not(:last)").click();
         clearInputs();
+
+        $(".date").datepicker("setDate", new Date());
     });
 }
 
