@@ -17,7 +17,7 @@
         [Test]
         public void ReportController_AddInternsReportToController_ReturnViewResult()
         {
-            ReportController reportCrtl = new ReportController();
+            ReportController reportCrtl = new ReportController(Mock.Of<IReportLogic>());
             ActionResult result = reportCrtl.AddInternsReport();
 
             Assert.IsNotNull(result);
@@ -27,22 +27,18 @@
         [Test]
         public void ReportController_AddReportAsDraft_ReturnPartiralView()
         {
-            using (var lifetimeManager = new ScopedLifetimeManager())
-            {
-                ReportVM correctReportVM = ReportProvider.GetCorrectReportVM();
-                ReportController reportCrtl = new ReportController();
+            Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
+            mockLogic.Setup(t => t.Add(It.IsAny<Report>())).Verifiable();
 
-                Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
-                mockLogic.Setup(t => t.Add(It.IsAny<Report>())).Verifiable();
-                ContainerProvider.Container.RegisterInstance(mockLogic.Object, lifetimeManager);
+            ReportVM correctReportVM = ReportProvider.GetCorrectReportVM();
+            ReportController reportCrtl = new ReportController(mockLogic.Object);
 
-                ActionResult result = reportCrtl.AddReportAsDraftAfterAddition(correctReportVM);
+            ActionResult result = reportCrtl.AddReportAsDraftAfterAddition(correctReportVM);
 
-                Assert.IsNotNull(result);
-                Assert.IsAssignableFrom(typeof(PartialViewResult), result);
+            Assert.IsNotNull(result);
+            Assert.IsAssignableFrom(typeof(PartialViewResult), result);
 
-                mockLogic.VerifyAll();
-            }
+            mockLogic.VerifyAll();
         }
     }
 }

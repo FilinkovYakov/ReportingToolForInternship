@@ -2821,3 +2821,14 @@ The statement has been terminated.
    --- End of inner exception stack trace ---
    at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.GetById(Guid id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 53
    at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.EditInternsReport(Guid id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 89
+2016-12-02 10:44:34,661 [5] ERROR CustomLogger - System.ArgumentException: Report should contain at least one future plan
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.<GetCorrectFuturePlans>d__7.MoveNext() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 117
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 19
+2016-12-02 10:44:34,695 [5] ERROR CustomLogger - System.ArgumentException: Report should contain at least one future plan
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.<GetCorrectFuturePlans>d__7.MoveNext() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 117
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Add(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 25
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 50

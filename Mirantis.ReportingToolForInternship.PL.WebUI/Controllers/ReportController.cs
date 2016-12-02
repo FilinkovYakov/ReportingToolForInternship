@@ -9,9 +9,15 @@
     using System.Web.Mvc;
     using Entities;
     using BLL.Core;
+    using BLL.Contracts;
 
     public class ReportController : Controller
     {
+        private readonly IReportLogic _reportLogic;
+        public ReportController(IReportLogic reportLogic)
+        {
+            _reportLogic = reportLogic;
+        }
         public ActionResult AddMentorsReport()
         {
             try
@@ -47,7 +53,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    DataProvider.ReportLogic.Add((Report)reportVM);
+                    _reportLogic.Add((Report)reportVM);
                     return PartialView("_SuccessSaveReportAsDraftAfterAddition");
                 }
 
@@ -69,7 +75,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    DataProvider.ReportLogic.Add((Report)reportVM);
+                    _reportLogic.Add((Report)reportVM);
                     return PartialView("_SuccessSubmitReport");
                 }
 
@@ -86,7 +92,7 @@
         {
             try
             {
-                ReportVM reportVM = (ReportVM)DataProvider.ReportLogic.GetById(id);
+                ReportVM reportVM = (ReportVM)_reportLogic.GetById(id);
                 return View(reportVM);
             }
             catch (Exception e)
@@ -100,7 +106,7 @@
         {
             try
             {
-                ReportVM reportVM = (ReportVM)DataProvider.ReportLogic.GetById(id);
+                ReportVM reportVM = (ReportVM)_reportLogic.GetById(id);
                 return View(reportVM);
             }
             catch (Exception e)
@@ -119,7 +125,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    DataProvider.ReportLogic.Edit((Report)reportVM);
+                    _reportLogic.Edit((Report)reportVM);
                     return PartialView("_SuccessSaveReportAsDraftAfterEditing");
                 }
 
@@ -141,7 +147,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    DataProvider.ReportLogic.Edit((Report)reportVM);
+                    _reportLogic.Edit((Report)reportVM);
                     return PartialView("_SuccessSubmitReport");
                 }
 
@@ -173,7 +179,7 @@
             {
                 if (ModelState.IsValid)
                 {
-                    IEnumerable<ReportVM> reports = DataProvider.ReportLogic.Search((SearchModel)searchVM).Select(report => (ReportVM)report);
+                    IEnumerable<ReportVM> reports = _reportLogic.Search((SearchModel)searchVM).Select(report => (ReportVM)report);
                     if (reports.Any())
                     {
                         return PartialView("_ShowSearchResult", reports);

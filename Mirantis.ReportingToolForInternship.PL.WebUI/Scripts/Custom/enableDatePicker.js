@@ -6,5 +6,7 @@ $(document).ready(function () {
         $(this).datepicker({
             format: 'dd.mm.yyyy', enableOnReadonly: true
         });
+
+        $(this).datepicker("setDate", new Date());
     });
 });

@@ -7,7 +7,12 @@
     {
         public static ILog Logger
         {
-            get { return ContainerProvider.Container.Resolve<ILog>() ?? LogManager.GetLogger("CustomLogger"); }
+            get
+            {
+                return ContainerProvider.Container.IsRegistered<ILog>()
+                  ? ContainerProvider.Container.Resolve<ILog>()
+                  : LogManager.GetLogger("CustomLogger");
+            }
         }
     }
 }

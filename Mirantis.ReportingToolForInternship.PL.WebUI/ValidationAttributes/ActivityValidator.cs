@@ -37,6 +37,7 @@
             return true;
         }
 
+        //LINQ
         private int GetAmountNotEmptyQuestions(List<QuestionVM> questions)
         {
             int amount = 0;

@@ -11,78 +11,84 @@
     public class ReportDAO : IReportDAO
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["localConnection"].ConnectionString;
-        private static CustomDBContext dbContext;
-
-        static ReportDAO()
-        {
-            dbContext = new CustomDBContext(connectionString);
-        }
 
         public void Add(Report report)
         {
-            dbContext.Reports.Add(report);
-            dbContext.SaveChanges();
+            using (var dbContext = new CustomDBContext(connectionString))
+            {
+                dbContext.Reports.Add(report);
+                dbContext.SaveChanges();
+            }
         }
 
         public void Edit(Report report)
         {
-            //var transaction = dbContext.Database.BeginTransaction();
+            using (var dbContext = new CustomDBContext(connectionString))
+            {
+                var transaction = dbContext.Database.BeginTransaction();
 
-            //Remove
-            RemoveNonexistentActivities(report);
-            RemoveNonexistentFuturePlans(report);
-            dbContext.SaveChanges();
-            //Edit and add
-            var originalReport = dbContext.Reports.Find(report.Id);
-            dbContext.Entry(originalReport).CurrentValues.SetValues(report);
-            dbContext.SaveChanges();
-            AddNewAndEditOldActivities(report);
-            dbContext.SaveChanges();
-            AddNewAndEditOldFuturePlans(report);
-            //transaction.Commit();
-            dbContext.SaveChanges();
+                //Remove
+                RemoveNonexistentActivities(report, dbContext);
+                RemoveNonexistentFuturePlans(report, dbContext);
+
+                //Edit and add
+                var originalReport = dbContext.Reports.Find(report.Id);
+                dbContext.Entry(originalReport).CurrentValues.SetValues(report);
+
+                AddNewAndEditOldActivities(report, dbContext);
+                AddNewAndEditOldFuturePlans(report, dbContext);
+
+                transaction.Commit();
+                dbContext.SaveChanges();
+            }
         }
 
         public Report GetById(Guid id)
         {
-            return dbContext.Reports.Where(report => report.Id == id).First();
+            using (var dbContext = new CustomDBContext(connectionString))
+            {
+                return dbContext.Reports.Where(report => report.Id == id).First();
+            }
         }
 
         public IEnumerable<Report> Search(SearchModel searchModel)
         {
-            var query = dbContext.Reports.Where(report => report.Date >= searchModel.DateFrom && report.Date <= searchModel.DateTo);
-            query = query.OrderBy(report => report.Date);
-
-            if (searchModel.TypeOccuring != "All")
+            using (var dbContext = new CustomDBContext(connectionString))
             {
-                query = query.Where(report => report.TypeOccuring == searchModel.TypeOccuring);
-            }
+                var query = dbContext.Reports.Where(report => report.Date >= searchModel.DateFrom && report.Date <= searchModel.DateTo);
+                query = query.OrderBy(report => report.Date);
 
-            if (searchModel.InternName != "All")
-            {
-                query = query.Where(report => report.InternName == searchModel.InternName);
-            }
-
-            if (searchModel.TypeOrigin == "Mentor's")
-            {
-                if (searchModel.MentorName != "All")
+                if (searchModel.TypeOccuring != "All")
                 {
-                    query = query.Where(report => report.MentorName == searchModel.MentorName);
+                    query = query.Where(report => report.TypeOccuring == searchModel.TypeOccuring);
                 }
-                else
-                {
-                    query = query.Where(report => !string.IsNullOrEmpty(report.MentorName));
-                }
-            }
-            else if (searchModel.TypeOrigin == "Intern's")
-            {
-                query = query.Where(report => string.IsNullOrEmpty(report.MentorName));
-            }
 
-            return query.AsNoTracking().ToList();
+                if (searchModel.InternName != "All")
+                {
+                    query = query.Where(report => report.InternName == searchModel.InternName);
+                }
+
+                if (searchModel.TypeOrigin == "Mentor's")
+                {
+                    if (searchModel.MentorName != "All")
+                    {
+                        query = query.Where(report => report.MentorName == searchModel.MentorName);
+                    }
+                    else
+                    {
+                        query = query.Where(report => !string.IsNullOrEmpty(report.MentorName));
+                    }
+                }
+                else if (searchModel.TypeOrigin == "Intern's")
+                {
+                    query = query.Where(report => string.IsNullOrEmpty(report.MentorName));
+                }
+
+                return query.AsNoTracking().ToList();
+            }
         }
 
-        private void RemoveNonexistentActivities(Report report)
+        private void RemoveNonexistentActivities(Report report, CustomDBContext dbContext)
         {
             var listOriginalActivities = dbContext.Activities.Where(activity => activity.ReportId == report.Id).ToList();
 
@@ -96,12 +102,12 @@
                 }
                 else
                 {
-                    RemoveNonexistentQuestions(newActivity);
+                    RemoveNonexistentQuestions(newActivity, dbContext);
                 }
             }
         }
 
-        private void RemoveNonexistentQuestions(Activity newActivity)
+        private void RemoveNonexistentQuestions(Activity newActivity, CustomDBContext dbContext)
         {
             var listOriginalQuestions = dbContext.Questions.Where(question => question.ActivityId == newActivity.Id).ToList();
 
@@ -125,7 +131,7 @@
             }
         }
 
-        private void RemoveNonexistentFuturePlans(Report report)
+        private void RemoveNonexistentFuturePlans(Report report, CustomDBContext dbContext)
         {
             var listOriginalFuturePlans = dbContext.FuturePlans.Where(activity => activity.ReportId == report.Id).ToList();
 
@@ -138,7 +144,7 @@
             }
         }
 
-        private void AddNewAndEditOldActivities(Report report)
+        private void AddNewAndEditOldActivities(Report report, CustomDBContext dbContext)
         {
             foreach (var activity in report.Activities)
             {
@@ -152,11 +158,11 @@
                     dbContext.Entry(originalActivity).CurrentValues.SetValues(activity);
                 }
 
-                AddNewAndEditOldQuestions(activity);
+                AddNewAndEditOldQuestions(activity, dbContext);
             }
         }
 
-        private void AddNewAndEditOldQuestions(Activity activity)
+        private void AddNewAndEditOldQuestions(Activity activity, CustomDBContext dbContext)
         {
             foreach (var question in activity.Questions)
             {
@@ -172,7 +178,7 @@
             }
         }
 
-        private void AddNewAndEditOldFuturePlans(Report report)
+        private void AddNewAndEditOldFuturePlans(Report report, CustomDBContext dbContext)
         {
             foreach (var futurePlan in report.FuturePlans)
             {
