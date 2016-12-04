@@ -22,6 +22,7 @@
             _reportLogic = reportLogic;
             _customLogger = customLogger;
         }
+
         public ActionResult AddMentorsReport()
         {
             try
@@ -66,7 +67,7 @@
             catch (Exception e)
             {
                 _customLogger.RecordError(e);
-                return new HttpStatusCodeResult(500);
+                return PartialView("_ShowFailedResult");
             }
         }
 
@@ -88,7 +89,7 @@
             catch (Exception e)
             {
                 _customLogger.RecordError(e);
-                return new HttpStatusCodeResult(500);
+                return PartialView("_ShowFailedResult");
             }
         }
 
@@ -138,7 +139,7 @@
             catch (Exception e)
             {
                 _customLogger.RecordError(e);
-                return new HttpStatusCodeResult(500);
+                return PartialView("_ShowFailedResult");
             }
         }
 
@@ -160,7 +161,7 @@
             catch (Exception e)
             {
                 _customLogger.RecordError(e);
-                return new HttpStatusCodeResult(500);
+                return PartialView("_ShowFailedResult");
             }
         }
 
@@ -198,7 +199,7 @@
             catch (Exception e)
             {
                 _customLogger.RecordError(e);
-                return new HttpStatusCodeResult(500);
+                return PartialView("_ShowFailedResult");
             }
         }
     }

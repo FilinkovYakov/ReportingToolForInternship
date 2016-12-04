@@ -1,5 +1,6 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
 /// <reference path="constructors.js" />
+/// <reference path="actionsAfterFail.js" />
 /// <reference path="actionsAfterSuccessfullAdditionReport.js" />
 /// <reference path="changeRulesValidation.js" />
 /// <reference path="validationActivities.js" />

@@ -10,7 +10,7 @@ function alertAboutSuccessfullAddition(result) {
 
 function assignEventToAdderNewReportButton() {
     $("#AddReport").click(function () {
-        $("#MessageAboutStatusReport").slideToggle(1000);
+        $("#MessageAboutSuccessOperation").slideToggle(1000);
         unlockAllFunctions();
         $(".future-plans .btn-remover:not(:last)").click();
         $(".activity .btn-remover:not(:last)").click();
@@ -28,7 +28,7 @@ function assignEventToSearchReportsButton() {
 }
 
 function showMessageStatusReport(result) {
-    $("#MessageAboutStatusReport").html(result)
+    $("#MessageAboutSuccessOperation").html(result)
         .hide()
         .slideToggle(1000);
 }

@@ -335,9 +335,13 @@
     <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
     <Content Include="Content\bootstrap-datepicker.min.css.map" />
     <Content Include="Content\bootstrap-datepicker.css.map" />
+    <Content Include="app.manifest">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Custom\actionsAfterFail.js" />
     <Content Include="Scripts\Custom\actionsAfterSuccessfullAdditionReport.js" />
     <Content Include="Scripts\Custom\actionsAfterSuccessfullEditingReport.js" />
     <Content Include="Scripts\Custom\assignEventsToAdderActivityButtons.js" />
@@ -347,7 +351,7 @@
     <Content Include="Scripts\Custom\constructors.js" />
     <Content Include="Scripts\Custom\disableInputs.js" />
     <Content Include="Scripts\Custom\disableMentorsDropdown.js" />
-    <Content Include="Scripts\Custom\enableDatePicker.js" />
+    <Content Include="Scripts\Custom\setSettingsDatePickerOnEditingReportForm.js" />
     <Content Include="Scripts\Custom\assignEventsToRemoverActivityButtons.js" />
     <Content Include="Scripts\Custom\assignEventsToRemoverButtons.js" />
     <Content Include="Scripts\Custom\sendInternsReportForAddition.js" />
@@ -355,7 +359,8 @@
     <Content Include="Scripts\Custom\sendMentorsReportForAddition.js" />
     <Content Include="Scripts\Custom\constructReportBeforeSending.js" />
     <Content Include="Scripts\Custom\sendMentorsReportForEditing.js" />
-    <Content Include="Scripts\Custom\setSettingDatePickerOnSearchForm.js" />
+    <Content Include="Scripts\Custom\setSettingsDatePickerOnSearchForm.js" />
+    <Content Include="Scripts\Custom\setSettingsDatePickerOnAdditionReportForm.js" />
     <Content Include="Scripts\Custom\validationActivities.js" />
     <Content Include="Scripts\Custom\validationRecord.js" />
     <Content Include="Scripts\Custom\validationFuturePlans.js" />
@@ -529,6 +534,7 @@
     <Content Include="Views\Report\_SuccessSaveReportAsDraftAfterEditing.cshtml" />
     <Content Include="unity.config" />
     <Content Include="Views\Report\EditMentorsReport.cshtml" />
+    <Content Include="Views\Report\_ShowFailedResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -562,6 +568,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

@@ -10,7 +10,7 @@
 <form class="form-horizontal">
     <hr />
 
-    <div id="MessageAboutStatusReport">
+    <div id="MessageAboutSuccessOperation">
     </div>
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -148,9 +148,11 @@
     <script src="~/Scripts/Custom/validationRecord.js"></script>
     <script src="~/Scripts/Custom/clearInputs.js"></script>
     <script src="~/Scripts/Custom/disableInputs.js"></script>
+    <script src="~/Scripts/Custom/changeRulesValidation.js"></script>
     <script src="~/Scripts/Custom/validationActivities.js"></script>
     <script src="~/Scripts/Custom/validationMentorsActivities.js"></script>
     <script src="~/Scripts/Custom/validationFuturePlans.js"></script>
+    <script src="~/Scripts/Custom/actionsAfterFail.js"></script>
     <script src="~/Scripts/Custom/actionsAfterSuccessfullAdditionReport.js"></script>
     <script src="~/Scripts/Custom/assignEventsToRemoverButtons.js"></script>
     <script src="~/Scripts/Custom/assignEventsToRemoverActivityButtons.js"></script>
@@ -159,6 +161,5 @@
     <script src="~/Scripts/Custom/constructors.js"></script>
     <script src="~/Scripts/Custom/constructReportBeforeSending.js"></script>
     <script src="~/Scripts/Custom/sendMentorsReportForAddition.js"></script>
-    <script src="~/Scripts/Custom/enableDatePicker.js"></script>
-    <script src="~/Scripts/Custom/changeRulesValidation.js"></script>
+    <script src="~/Scripts/Custom/setSettingsDatePickerOnAdditionReportForm.js"></script>
 }

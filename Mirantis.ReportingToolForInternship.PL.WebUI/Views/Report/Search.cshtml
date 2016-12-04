@@ -9,7 +9,8 @@
         Url = Url.Action("ShowSearchResult"),
         OnSuccess = "slideDownOutputReports",
         OnBegin = "lockAllFunctions",
-        OnComplete = "unlockAllFunctions"
+        OnComplete = "unlockAllFunctions",
+        OnFailure = "alertAboutFail"
     };
 }
 
@@ -21,6 +22,7 @@
 
     <div class="form-horizontal">
         <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="col-xs-12 col-md-6 form-group">
             @Html.LabelFor(model => model.InternName, htmlAttributes: new { @class = "control-label col-xs-4" })
@@ -124,7 +126,8 @@
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/bootstrap-select.min.js"></script>
 
-    <script src="~/Scripts/Custom/setSettingDatePickerOnSearchForm.js"></script>
+    <script src="~/Scripts/Custom/actionsAfterFail.js"></script>
+    <script src="~/Scripts/Custom/setSettingsDatePickerOnSearchForm.js"></script>
     <script src="~/Scripts/Custom/disableInputs.js"></script>
     <script>
         function slideDownOutputReports() {

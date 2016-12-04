@@ -499,3 +499,83 @@ Parameter name: source
    at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
    at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
    at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM)
+2016-12-04 11:41:02,100 [7] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 11:43:24,035 [7] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 11:47:00,841 [7] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 11:54:40,975 [7] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 11:56:20,159 [23] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 11:58:21,818 [5] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 12:00:34,400 [6] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 12:01:01,792 [6] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 12:02:34,813 [12] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 12:03:19,015 [12] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 12:03:44,162 [14] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 12:04:09,368 [15] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 12:10:25,737 [23] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 12:13:49,886 [23] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 12:21:29,369 [23] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 12:22:37,888 [23] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 15:13:04,474 [16] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 15:14:18,215 [66] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 15:41:33,014 [12] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 15:44:06,992 [63] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 15:45:46,886 [66] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 15:47:01,083 [66] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 15:47:21,579 [66] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 15:47:29,275 [66] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 15:47:36,367 [66] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 15:47:40,790 [66] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 15:47:45,322 [66] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 56
+2016-12-04 16:06:30,368 [6] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 185
+2016-12-04 16:06:38,830 [6] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 185
+2016-12-04 16:06:40,155 [7] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 185
+2016-12-04 16:06:40,912 [6] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 185
+2016-12-04 16:08:04,703 [6] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 185
+2016-12-04 16:09:57,594 [6] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 185
+2016-12-04 16:10:04,132 [14] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 185
+2016-12-04 16:10:06,175 [6] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 185
+2016-12-04 16:10:09,199 [6] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 185
+2016-12-04 16:10:16,350 [6] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 185
+2016-12-04 16:10:30,684 [12] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 185
+2016-12-04 16:59:36,472 [5] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.AddReportAsDraftAfterAddition(ReportVM reportVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 57
+2016-12-04 16:59:48,719 [6] ERROR CustomLogger - System.Exception: Выдано исключение типа "System.Exception".
+   в Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) в C:\Users\qwe\Desktop\toolForInternship\ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:строка 186

@@ -10,8 +10,8 @@ function alertAboutSuccessfullEditing(result) {
 
 function assignEventToReworkReportButton() {
     $("#ReworkReport").click(function () {
-        //$("#MessageAboutStatusReport").slideToggle(1000);
-        //unlockAllFunctions();
+        //$("#MessageAboutSuccessOperation").slideToggle(1000);
+        unlockAllFunctions();
         location.reload();
     });
 }
@@ -23,7 +23,7 @@ function assignEventToSearchReportsButton() {
 }
 
 function showMessageStatusReport(result) {
-    $("#MessageAboutStatusReport").html(result)
+    $("#MessageAboutSuccessOperation").html(result)
         .hide()
         .slideToggle(1000);
 }

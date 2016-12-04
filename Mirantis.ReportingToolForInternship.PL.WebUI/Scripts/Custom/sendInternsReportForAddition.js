@@ -1,5 +1,7 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
+/// <reference path="disableInputs.js" />
 /// <reference path="constructors.js" />
+/// <reference path="actionsAfterFail.js" />
 /// <reference path="actionsAfterSuccessfullAdditionReport.js" />
 /// <reference path="changeRulesValidation.js" />
 /// <reference path="validationActivities.js" />
@@ -7,7 +9,6 @@
 /// <reference path="validationFuturePlans.js" />
 /// <reference path="validationRecord.js" />
 /// <reference path="constructReportBeforeSending.js" />
-/// <reference path="disableInputs.js" />
 
 $(document).ready(function () {
     var $submitButton = $("#SubmitButton"),
@@ -29,6 +30,9 @@ $(document).ready(function () {
                 dataType: 'html',
                 success: function (result) {
                     alertAboutSuccessfullAddition(result);
+                },
+                error: function (result) {
+                    alertAboutFailedAddition(result);
                 }
             });
         } else {
@@ -49,6 +53,9 @@ $(document).ready(function () {
                 dataType: 'html',
                 success: function (result) {
                     alertAboutSuccessfullAddition(result);
+                },
+                error: function (result) {
+                    alertAboutFailedAddition(result);
                 }
             })
         } else {
