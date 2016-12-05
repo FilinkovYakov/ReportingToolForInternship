@@ -11,6 +11,7 @@
     using BLL.Core;
     using BLL.Contracts;
     using System.Threading;
+    using AutoMapper;
 
     public class ReportController : Controller
     {
@@ -50,7 +51,7 @@
         }
 
         [HttpPost]
-        public ActionResult AddReportAsDraftAfterAddition(ReportVM reportVM)
+        public ActionResult SaveReportAsDraftAfterAddition(ReportVM reportVM)
         {
             try
             {
@@ -58,7 +59,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    _reportLogic.Add((Report)reportVM);
+                    _reportLogic.Add(Mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSaveReportAsDraftAfterAddition");
                 }
 
@@ -76,11 +77,12 @@
         {
             try
             {
+                Thread.Sleep(5000);
                 reportVM.IsDraft = false;
 
                 if (ModelState.IsValid)
                 {
-                    _reportLogic.Add((Report)reportVM);
+                    _reportLogic.Add(Mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSubmitReport");
                 }
 
@@ -97,7 +99,7 @@
         {
             try
             {
-                ReportVM reportVM = (ReportVM)_reportLogic.GetById(id);
+                ReportVM reportVM = Mapper.Map<ReportVM>(_reportLogic.GetById(id));
                 return View(reportVM);
             }
             catch (Exception e)
@@ -111,7 +113,7 @@
         {
             try
             {
-                ReportVM reportVM = (ReportVM)_reportLogic.GetById(id);
+                ReportVM reportVM = Mapper.Map<ReportVM>(_reportLogic.GetById(id));
                 return View(reportVM);
             }
             catch (Exception e)
@@ -130,7 +132,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    _reportLogic.Edit((Report)reportVM);
+                    _reportLogic.Edit(Mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSaveReportAsDraftAfterEditing");
                 }
 
@@ -152,7 +154,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    _reportLogic.Edit((Report)reportVM);
+                    _reportLogic.Edit(Mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSubmitReport");
                 }
 
@@ -184,8 +186,8 @@
             {
                 if (ModelState.IsValid)
                 {
-                    IEnumerable<ReportVM> reports = _reportLogic.Search((SearchModel)searchVM)
-                        .Select(report => (ReportVM)report);
+                    IEnumerable<ReportVM> reports = _reportLogic.Search(Mapper.Map<SearchModel>(searchVM))
+                        .Select(report => Mapper.Map<ReportVM>(report));
                     if (reports.Any())
                     {
                         return PartialView("_ShowSearchResult", reports);

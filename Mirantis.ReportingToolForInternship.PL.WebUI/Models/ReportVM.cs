@@ -38,35 +38,5 @@
 
         [Display(Name = "Is draft :")]
         public bool IsDraft { get; set; }
-
-        public static explicit operator Report(ReportVM reportVM)
-        {
-            return new Report()
-            {
-                Id = reportVM.Id ?? (new Guid()),
-                Activities = reportVM.Activities?.Select(activity => (Activity)activity).ToList(),
-                Date = reportVM.Date,
-                FuturePlans = reportVM.FuturePlans?.Select(futurePlan => (FuturePlan)futurePlan).ToList(),
-                InternName = reportVM.InternName,
-                IsDraft = reportVM.IsDraft,
-                MentorName = reportVM.MentorName,
-                TypeOccuring = reportVM.TypeOccuring
-            };
-        }
-
-        public static explicit operator ReportVM(Report report)
-        {
-            return new ReportVM()
-            {
-                Id = report.Id,
-                Activities = report.Activities?.Select(activity => (ActivityVM)activity).ToList(),
-                Date = report.Date,
-                FuturePlans = report.FuturePlans?.Select(futurePlan => (FuturePlanVM)futurePlan).ToList(),
-                InternName = report.InternName,
-                IsDraft = report.IsDraft,
-                MentorName = report.MentorName,
-                TypeOccuring = report.TypeOccuring
-            };
-        }
     }
 }

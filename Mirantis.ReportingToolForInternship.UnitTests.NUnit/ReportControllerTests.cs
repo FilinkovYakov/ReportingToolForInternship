@@ -23,15 +23,30 @@
         }
 
         [Test]
-        public void ReportController_AddReportAsDraft_ReturnPartiralView()
+        public void ReportController_SaveReportAsDraft_ReturnPartiralView()
         {
+            AutoMapper.Mapper.Initialize(c =>
+            {
+                c.CreateMap<QuestionVM, Question>();
+                c.CreateMap<Question, QuestionVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
+
+                c.CreateMap<ActivityVM, Activity>();
+                c.CreateMap<Activity, ActivityVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
+
+                c.CreateMap<FuturePlanVM, FuturePlan>();
+                c.CreateMap<FuturePlan, FuturePlanVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
+
+                c.CreateMap<ReportVM, Report>();
+                c.CreateMap<Report, ReportVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
+            });
+
             Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
             mockLogic.Setup(t => t.Add(It.IsAny<Report>())).Verifiable();
 
             ReportVM correctReportVM = ReportProvider.GetCorrectReportVM();
             ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<ICustomLogger>());
 
-            ActionResult result = reportCrtl.AddReportAsDraftAfterAddition(correctReportVM);
+            ActionResult result = reportCrtl.SaveReportAsDraftAfterAddition(correctReportVM);
 
             Assert.IsNotNull(result);
             Assert.IsAssignableFrom(typeof(PartialViewResult), result);
@@ -51,10 +66,10 @@
             ReportVM correctReportVM = ReportProvider.GetCorrectReportVM();
             ReportController reportCrtl = new ReportController(mockLogic.Object, mockLogger.Object);
 
-            ActionResult result = reportCrtl.AddReportAsDraftAfterAddition(correctReportVM);
+            ActionResult result = reportCrtl.SaveReportAsDraftAfterAddition(correctReportVM);
 
             Assert.IsNotNull(result);
-            Assert.IsAssignableFrom(typeof(HttpStatusCodeResult), result);
+            Assert.IsAssignableFrom(typeof(PartialViewResult), result);
 
             mockLogger.VerifyAll();
         }

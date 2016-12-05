@@ -58,8 +58,16 @@
         {
             using (var dbContext = new CustomDBContext(connectionString))
             {
-                var query = dbContext.Reports.Where(report => report.Date >= searchModel.DateFrom && report.Date <= searchModel.DateTo);
-                query = query.OrderBy(report => report.Date);
+                var query = dbContext.Reports.Select(report => report);
+                if (searchModel.DateTo != null)
+                {
+                    query = query.Where(report => report.Date <= searchModel.DateTo);
+                } 
+
+                if (searchModel.DateFrom != null)
+                {
+                    query = query.Where(report => report.Date >= searchModel.DateFrom);
+                }
 
                 if (searchModel.TypeOccuring != "All")
                 {
@@ -86,6 +94,8 @@
                 {
                     query = query.Where(report => string.IsNullOrEmpty(report.MentorName));
                 }
+
+                query = query.OrderBy(report => report.Date);
 
                 return query.Include(report => report.Activities
                     .Select(activity => activity.Questions))

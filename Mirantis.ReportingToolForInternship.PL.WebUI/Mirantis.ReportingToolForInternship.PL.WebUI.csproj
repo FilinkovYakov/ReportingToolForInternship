@@ -46,6 +46,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -346,11 +350,13 @@
     <Content Include="Scripts\Custom\actionsAfterSuccessfullEditingReport.js" />
     <Content Include="Scripts\Custom\assignEventsToAdderActivityButtons.js" />
     <Content Include="Scripts\Custom\assignEventsToAdderButtons.js" />
+    <Content Include="Scripts\Custom\descriptionFunctionsOnSearchsEvents.js" />
     <Content Include="Scripts\Custom\changeRulesValidation.js" />
     <Content Include="Scripts\Custom\clearInputs.js" />
     <Content Include="Scripts\Custom\constructors.js" />
     <Content Include="Scripts\Custom\disableInputs.js" />
     <Content Include="Scripts\Custom\disableMentorsDropdown.js" />
+    <Content Include="Scripts\Custom\sendReport.js" />
     <Content Include="Scripts\Custom\setSettingsDatePickerOnEditingReportForm.js" />
     <Content Include="Scripts\Custom\assignEventsToRemoverActivityButtons.js" />
     <Content Include="Scripts\Custom\assignEventsToRemoverButtons.js" />
@@ -361,6 +367,8 @@
     <Content Include="Scripts\Custom\sendMentorsReportForEditing.js" />
     <Content Include="Scripts\Custom\setSettingsDatePickerOnSearchForm.js" />
     <Content Include="Scripts\Custom\setSettingsDatePickerOnAdditionReportForm.js" />
+    <Content Include="Scripts\Custom\changeStatusLoadingIcon.js" />
+    <Content Include="Scripts\Custom\unloadFromPage.js" />
     <Content Include="Scripts\Custom\validationActivities.js" />
     <Content Include="Scripts\Custom\validationRecord.js" />
     <Content Include="Scripts\Custom\validationFuturePlans.js" />

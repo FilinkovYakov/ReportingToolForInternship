@@ -8,9 +8,9 @@
         UpdateTargetId = "OutputReports",
         Url = Url.Action("ShowSearchResult"),
         OnSuccess = "slideDownOutputReports",
-        OnBegin = "lockAllFunctions",
-        OnComplete = "unlockAllFunctions",
-        OnFailure = "alertAboutFail"
+        OnBegin = "beginSearch",
+        OnComplete = "completeSearch",
+        OnFailure = "alertAboutFail",
     };
 }
 
@@ -18,6 +18,7 @@
 
 @using (Ajax.BeginForm(ajaxOpts))
 {
+
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
@@ -115,6 +116,10 @@
         </div>
     </div>
 
+    <div id="LoadingStatus" class="text-center">
+        <img src="~/Images/loading.gif" />
+    </div>
+
     <div id="OutputReports">
     </div>
 }
@@ -126,9 +131,11 @@
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/bootstrap-select.min.js"></script>
 
+    <script src="~/Scripts/Custom/changeStatusLoadingIcon.js"></script>
     <script src="~/Scripts/Custom/actionsAfterFail.js"></script>
     <script src="~/Scripts/Custom/setSettingsDatePickerOnSearchForm.js"></script>
     <script src="~/Scripts/Custom/disableInputs.js"></script>
+    <script src="~/Scripts/Custom/descriptionFunctionsOnSearchsEvents.js"></script>
     <script>
         function slideDownOutputReports() {
             $("#OutputReports")

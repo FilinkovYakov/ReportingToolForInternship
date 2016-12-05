@@ -6,6 +6,10 @@
     display: none;
 }
 
+img {
+    width: 200px;
+}
+
 .btn-remover, .btn-remover-activity {
     margin-left: 10px !important;
 }

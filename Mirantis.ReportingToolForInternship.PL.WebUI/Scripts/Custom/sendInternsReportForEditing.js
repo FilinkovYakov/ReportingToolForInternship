@@ -9,58 +9,48 @@
 /// <reference path="validationRecord.js" />
 /// <reference path="constructReportBeforeSending.js" />
 /// <reference path="disableInputs.js" />
+/// <reference path="changeStatusLoadingIcon.js" />
+/// <reference path="sendReport.js" />
 
 $(document).ready(function () {
     var $submitButton = $("#SubmitButton"),
         $saveAsDraftButton = $("#SaveAsDraftButton"),
         $internNameInput = $("#InternName"),
         $typeInput = $("#TypeOccuring"),
-        $dateInput = $("#Date");
-
-    $saveAsDraftButton.click(function () {
-        lockAllFunctions();
-        $("body").animate({ scrollTop: 0 }, "slow");
-        if (isModelValidate()) {
-            var reportVM = constructReportVM();
-            $.ajax({
-                type: "POST",
-                url: "/Report/SaveReportAsDraftAfterEditing",
-                data: JSON.stringify(reportVM),
-                contentType: 'application/json; charset=utf-8',
-                dataType: 'html',
-                success: function (result) {
-                    alertAboutSuccessfullEditing(result);
-                },
-                error: function (result) {
-                    alertAboutFailedAddition(result);
-                }
-            });
-        } else {
-            unlockAllFunctions();
-        }
-    });
+        $dateInput = $("#Date"),
+        ajaxSettingsSaveReport = {
+            type: "POST",
+            url: "/Report/SaveReportAsDraftAfterEditing",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'html',
+            success: function (result) {
+                hideLoadingIcon();
+                alertAboutSuccessfullEditing(result);
+            },
+            error: function (result) {
+                alertAboutFailedAddition(result);
+            }
+        },
+        ajaxSettingsSubmitReport = {
+            type: "POST",
+            url: "/Report/SubmitReportAfterEditing",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'html',
+            success: function (result) {
+                hideLoadingIcon();
+                alertAboutSuccessfullEditing(result);
+            },
+            error: function (result) {
+                alertAboutFailedAddition(result);
+            }
+        };
 
     $submitButton.click(function () {
-        lockAllFunctions();
-        $("body").animate({ scrollTop: 0 }, "slow");
-        if (isModelValidate()) {
-            var reportVM = constructReportVM();
-            $.ajax({
-                type: "POST",
-                url: "/Report/SubmitReportAfterEditing",
-                data: JSON.stringify(reportVM),
-                contentType: 'application/json; charset=utf-8',
-                dataType: 'html',
-                success: function (result) {
-                    alertAboutSuccessfullEditing(result);
-                },
-                error: function (result) {
-                    alertAboutFailedAddition(result);
-                }
-            })
-        } else {
-            unlockAllFunctions();
-        }
+        sendReport(isModelValidate, ajaxSettingsSubmitReport);
+    });
+
+    $saveAsDraftButton.click(function () {
+        sendReport(isModelValidate, ajaxSettingsSaveReport);
     });
 
     function isModelValidate() {

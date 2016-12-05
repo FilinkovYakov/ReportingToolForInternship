@@ -4,7 +4,9 @@
 $(document).ready(function () {
     $('.date').each(function () {
         $(this).datepicker({
-            format: 'dd.mm.yyyy', enableOnReadonly: true
+            format: 'dd.mm.yyyy',
+            enableOnReadonly: true,
+            autoclose: true
         });
     });
 });

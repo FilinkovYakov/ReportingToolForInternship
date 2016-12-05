@@ -8,12 +8,16 @@ $(document).ready(function () {
 
     $datePickerFrom.datepicker({
         format: 'dd.mm.yyyy',
-        ignoreReadonly: true
+        enableOnReadonly: true,
+        autoclose: true,
+        clearBtn: true
     });
 
     $datePickerTo.datepicker({
         format: 'dd.mm.yyyy',
-        ignoreReadonly: true
+        enableOnReadonly: true,
+        autoclose: true,
+        clearBtn: true
     });
 
     $datePickerFrom.on("changeDate", function (e) {

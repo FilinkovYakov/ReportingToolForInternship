@@ -14,25 +14,5 @@
         public Guid ActivityId { get; set; }
 
         public string Description { get; set; }
-
-        public static explicit operator Question(QuestionVM questionVM)
-        {
-            return new Question()
-            {
-                Id = questionVM.Id ?? (new Guid()),
-                ActivityId = questionVM.ActivityId,
-                Description = questionVM.Description
-            };
-        }
-
-        public static explicit operator QuestionVM(Question question)
-        {
-            return new QuestionVM()
-            {
-                Id = question.Id,
-                ActivityId = question.ActivityId,
-                Description = question.Description
-            };
-        }
     }
 }

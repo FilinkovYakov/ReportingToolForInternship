@@ -13,6 +13,10 @@
     <div id="MessageAboutSuccessOperation">
     </div>
 
+    <div id="LoadingStatus" class="text-center">
+        <img src="~/Images/loading.gif" />
+    </div>
+
     <input type="hidden" value="@Model.Id" class="reportId">
 
     <div class="form-group">
@@ -179,12 +183,28 @@
     </div>
 </form>
 
+<div id="MessageAboutUpload" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Are you sure that you want go out from this page?</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <button type="button" id="ConfirmRedirect" class="btn btn-primary">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section scripts {
     <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script src="~/Scripts/bootstrap-select.min.js"></script>
 
+    <script src="~/Scripts/Custom/unloadFromPage.js"></script>
+    <script src="~/Scripts/Custom/changeStatusLoadingIcon.js"></script>
     <script src="~/Scripts/Custom/validationRecord.js"></script>
     <script src="~/Scripts/Custom/clearInputs.js"></script>
     <script src="~/Scripts/Custom/disableInputs.js"></script>
@@ -200,6 +220,7 @@
     <script src="~/Scripts/Custom/assignEventsToAdderActivityButtons.js"></script>
     <script src="~/Scripts/Custom/constructors.js"></script>
     <script src="~/Scripts/Custom/constructReportBeforeSending.js"></script>
+    <script src="~/Scripts/Custom/sendReport.js"></script>
     <script src="~/Scripts/Custom/sendInternsReportForEditing.js"></script>
     <script src="~/Scripts/Custom/setSettingsDatePickerOnEditingReportForm.js"></script>
 }

@@ -16,8 +16,8 @@
 
         public string TypeOrigin { get; set; }
 
-        public DateTime DateFrom { get; set; }
+        public DateTime? DateFrom { get; set; }
 
-        public DateTime DateTo { get; set; }
+        public DateTime? DateTo { get; set; }
     }
 }
