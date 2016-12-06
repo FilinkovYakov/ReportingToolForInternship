@@ -543,6 +543,8 @@
     <Content Include="unity.config" />
     <Content Include="Views\Report\EditMentorsReport.cshtml" />
     <Content Include="Views\Report\_ShowFailedResult.cshtml" />
+    <Content Include="Views\Report\DetailsInternsReport.cshtml" />
+    <Content Include="Views\Report\DetailsMentorsReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -204,5 +204,33 @@
                 return PartialView("_ShowFailedResult");
             }
         }
+
+        public ActionResult DetailsInternsReport(Guid id)
+        {
+            try
+            {
+                ReportVM reportVM = Mapper.Map<ReportVM>(_reportLogic.GetById(id));
+                return View(reportVM);
+            }
+            catch (Exception e)
+            {
+                _customLogger.RecordError(e);
+                return new HttpStatusCodeResult(500);
+            }
+        }
+
+        public ActionResult DetailsMentorsReport(Guid id)
+        {
+            try
+            {
+                ReportVM reportVM = Mapper.Map<ReportVM>(_reportLogic.GetById(id));
+                return View(reportVM);
+            }
+            catch (Exception e)
+            {
+                _customLogger.RecordError(e);
+                return new HttpStatusCodeResult(500);
+            }
+        }
     }
 }
