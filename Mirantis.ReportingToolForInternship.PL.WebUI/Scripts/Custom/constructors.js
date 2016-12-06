@@ -1,7 +1,7 @@
-﻿function ReportVM(id, mentorName, internName, typeOccuring, date, activities, futurePlans) {
+﻿function ReportVM(id, mentorsId, internsId, typeOccuring, date, activities, futurePlans) {
     this.Id = id,
-    this.MentorName = mentorName;
-    this.InternName = internName;
+    this.MentorsId = mentorsId;
+    this.InternsId = internsId;
     this.TypeOccuring = typeOccuring;
     this.Date = date;
     this.Activities = activities;

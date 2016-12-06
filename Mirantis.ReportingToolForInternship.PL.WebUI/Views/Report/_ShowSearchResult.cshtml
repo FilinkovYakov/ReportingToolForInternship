@@ -3,10 +3,10 @@
 <table class="table table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MentorName)
+            @Html.DisplayNameFor(model => model.MentorsId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.InternName)
+            @Html.DisplayNameFor(model => model.InternsId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TypeOccuring)
@@ -21,10 +21,10 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.MentorName)
+                @Html.DisplayFor(modelItem => item.MentorsId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.InternName)
+                @Html.DisplayFor(modelItem => item.InternsId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TypeOccuring)
@@ -33,7 +33,7 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @if (string.IsNullOrEmpty(item.MentorName))
+                @if (item.MentorsId == null)
                 {
                     @Html.ActionLink("Edit intern's report", "EditInternsReport", new { id = item.Id })
                     <span> | </span>
@@ -45,8 +45,6 @@
                     <span> | </span>
                     @Html.ActionLink("Details mentor's report", "DetailsMentorsReport", new { id = item.Id })
                 }
-                <span> | </span>
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>
         </tr>
     }

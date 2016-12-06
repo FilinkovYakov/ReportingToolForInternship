@@ -5,15 +5,14 @@
 
     public class CustomDBContext : DbContext
     {
-        public CustomDBContext()
+        static CustomDBContext()
         {
             //Database.SetInitializer(new DropCreateDatabaseAlways<CustomDBContext>());
         }
 
-        public CustomDBContext(string connString) : base(connString)
-        {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<CustomDBContext>());
-        }
+        public CustomDBContext() { }
+
+        public CustomDBContext(string connString) : base(connString) { }
 
         public DbSet<Activity> Activities { get; set; }
         public DbSet<FuturePlan> FuturePlans { get; set; }

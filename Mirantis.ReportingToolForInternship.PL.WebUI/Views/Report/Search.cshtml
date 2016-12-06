@@ -26,34 +26,34 @@
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="col-xs-12 col-md-6 form-group">
-            @Html.LabelFor(model => model.InternName, htmlAttributes: new { @class = "control-label col-xs-4" })
+            @Html.LabelFor(model => model.InternsId, htmlAttributes: new { @class = "control-label col-xs-4" })
             <div class="col-xs-8">
-                <select name="InternName" id="InternName" class="selectpicker">
-                    <option value="All">All</option>
+                <select name="InternsId" id="InternsId" class="selectpicker">
+                    <option value="">All</option>
                     @foreach (var item in UserRepo.Repo)
                     {
-                        <option value="@item.Name">
-                            @string.Format("{0} - {1}", item.Name, item.Email)
+                        <option value="@item.Id">
+                            @string.Format("{0} - {1}", item.Name, item.Login)
                         </option>
                     }
                 </select>
-                @Html.ValidationMessageFor(model => model.InternName, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.InternsId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="col-xs-12 col-md-6 form-group">
-            @Html.LabelFor(model => model.MentorName, htmlAttributes: new { @class = "control-label col-xs-4" })
+            @Html.LabelFor(model => model.MentorsId, htmlAttributes: new { @class = "control-label col-xs-4" })
             <div class="col-xs-8">
-                <select name="MentorName" id="MentorName" class="selectpicker">
-                    <option value="All" id="AllMentors">All</option>
+                <select name="MentorsId" id="MentorsId" class="selectpicker">
+                    <option value="">All</option>
                     @foreach (var item in UserRepo.Repo)
                     {
-                        <option value="@item.Name">
-                            @string.Format("{0} - {1}", item.Name, item.Email)
+                        <option value="@item.Id">
+                            @string.Format("{0} - {1}", item.Name, item.Login)
                         </option>
                     }
                 </select>
-                @Html.ValidationMessageFor(model => model.MentorName, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.MentorsId, "", new { @class = "text-danger" })
             </div>
         </div>
 

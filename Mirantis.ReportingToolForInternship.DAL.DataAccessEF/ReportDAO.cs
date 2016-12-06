@@ -74,25 +74,25 @@
                     query = query.Where(report => report.TypeOccuring == searchModel.TypeOccuring);
                 }
 
-                if (searchModel.InternName != "All")
+                if (searchModel.InternsId != null)
                 {
-                    query = query.Where(report => report.InternName == searchModel.InternName);
+                    query = query.Where(report => report.InternsId == searchModel.InternsId);
                 }
 
                 if (searchModel.TypeOrigin == "Mentor's")
                 {
-                    if (searchModel.MentorName != "All")
+                    if (searchModel.MentorsId != null)
                     {
-                        query = query.Where(report => report.MentorName == searchModel.MentorName);
+                        query = query.Where(report => report.MentorsId == searchModel.MentorsId);
                     }
                     else
                     {
-                        query = query.Where(report => !string.IsNullOrEmpty(report.MentorName));
+                        query = query.Where(report => report.MentorsId != null);
                     }
                 }
                 else if (searchModel.TypeOrigin == "Intern's")
                 {
-                    query = query.Where(report => string.IsNullOrEmpty(report.MentorName));
+                    query = query.Where(report => report.MentorsId == null);
                 }
 
                 query = query.OrderBy(report => report.Date);

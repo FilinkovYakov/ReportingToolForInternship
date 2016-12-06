@@ -2,6 +2,10 @@
     width: 100%;
 }
 
+.bootstrap-select>.dropdown-toggle.bs-placeholder, .bootstrap-select.btn-group .dropdown-toggle .filter-option {
+    color: black;
+}
+
 #LoadingStatus {
     display: none;
 }

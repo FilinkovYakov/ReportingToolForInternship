@@ -15,18 +15,21 @@
             {
                 new UserVM()
                 {
+                    Id = 0,
                     Name = "Alex",
-                    Email = "alex@mail.ru"
+                    Login = "alex@mail.ru"
                 },
                 new UserVM()
                 {
+                    Id = 1,
                     Name = "Max",
-                    Email = "max@mail.ru"
+                    Login = "max@mail.ru"
                 },
                 new UserVM()
                 {
+                    Id = 2,
                     Name = "Anton",
-                    Email = "anton@mail.ru"
+                    Login = "anton@mail.ru"
                 }
             };
         }

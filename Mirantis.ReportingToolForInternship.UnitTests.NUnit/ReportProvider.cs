@@ -15,7 +15,7 @@
             return new Report()
             {
                 Id = new Guid(),
-                InternName = "name",
+                InternsId = 1,
                 Date = DateTime.Now,
                 TypeOccuring = "Daily",
                 IsDraft = false,
@@ -44,7 +44,7 @@
             return new ReportVM()
             {
                 Id = new Guid(),
-                InternName = "name",
+                InternsId = 1,
                 Date = DateTime.Now,
                 TypeOccuring = "Daily",
                 IsDraft = false,

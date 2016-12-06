@@ -7,14 +7,14 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Report
+    public class RepresentingReport
     {
         [Key]
         public Guid Id { get; set; }
 
-        public int? MentorsId { get; set; }
+        public string MentorsFullName { get; set; }
 
-        public int? InternsId { get; set; }
+        public string InternsFullName { get; set; }
 
         public string TypeOccuring { get; set; }
 

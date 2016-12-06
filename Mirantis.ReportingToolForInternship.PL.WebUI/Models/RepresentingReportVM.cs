@@ -1,19 +1,18 @@
 ﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.Models
 {
-    using Entities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Web;
 
-    public class SearchVM
+    public class RepresentingReportVM
     {
         [Display(Name = "Intern :")]
-        public int? InternsId { get; set; }
+        public string InternsFullName { get; set; }
 
         [Display(Name = "Mentor :")]
-        public int? MentorsId { get; set; }
+        public string MentorsFullName { get; set; }
 
         [Display(Name = "Type occuring :")]
         public string TypeOccuring { get; set; }

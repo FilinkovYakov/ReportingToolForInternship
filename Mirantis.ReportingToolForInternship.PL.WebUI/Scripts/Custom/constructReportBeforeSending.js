@@ -31,14 +31,14 @@ function constructIdByInput(input, classOfWrapperWithId) {
 }
 
 function constructReportVM() {
-    var id = constructRecordByJquery($(".reportId"));
-    var mentorName = constructRecordByJquery($("#MentorName"));
-    var internName = constructRecordByJquery($("#InternName"));
-    var typeOccuring = constructRecordByJquery($("#TypeOccuring"));
-    var date = constructRecordByJquery($("#Date"));
-    var activities = constructActivities();
-    var futurePlans = constructFuturePlans();
-    return new ReportVM(id, mentorName, internName, typeOccuring, date, activities, futurePlans);
+    var id = constructRecordByJquery($(".reportId")),
+        mentorsId = constructRecordByJquery($("#MentorsId")),
+        internsId = constructRecordByJquery($("#InternsId")),
+        typeOccuring = constructRecordByJquery($("#TypeOccuring")),
+        date = constructRecordByJquery($("#Date")),
+        activities = constructActivities(),
+        futurePlans = constructFuturePlans();
+    return new ReportVM(id, mentorsId, internsId, typeOccuring, date, activities, futurePlans);
 }
 
 function constructFuturePlans() {

@@ -201,16 +201,20 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ActivityVM.cs" />
+    <Compile Include="Models\CustomRoleProvider.cs" />
     <Compile Include="Models\FuturePlanVM.cs" />
     <Compile Include="Models\QuestionVM.cs" />
     <Compile Include="Models\ReportVM.cs" />
     <Compile Include="Models\Repositories\TypeOccuringRepo.cs" />
     <Compile Include="Models\Repositories\TypeOriginRepo.cs" />
     <Compile Include="Models\Repositories\UserRepo.cs" />
+    <Compile Include="Models\RepresentingReportVM.cs" />
+    <Compile Include="Models\RoleVM.cs" />
     <Compile Include="Models\SearchVM.cs" />
     <Compile Include="Models\UserVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -548,6 +552,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

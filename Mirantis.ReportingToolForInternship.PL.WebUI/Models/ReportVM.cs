@@ -15,10 +15,10 @@
         public Guid? Id { get; set; }
 
         [Display(Name = "Mentor :")]
-        public string MentorName { get; set; }
+        public int? MentorsId { get; set; }
 
         [Display(Name = "Intern :")]
-        public string InternName { get; set; }
+        public int? InternsId { get; set; }
 
         [Display(Name = "Type occuring :")]
         public string TypeOccuring { get; set; }

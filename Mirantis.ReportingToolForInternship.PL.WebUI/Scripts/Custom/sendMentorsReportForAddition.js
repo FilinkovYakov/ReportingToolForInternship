@@ -15,8 +15,8 @@
 $(document).ready(function () {
     var $submitButton = $("#SubmitButton"),
         $saveAsDraftButton = $("#SaveAsDraftButton"),
-        $mentorNameInput = $("#MentorName"),
-        $internNameInput = $("#InternName"),
+        $mentorsIdInput = $("#MentorsId"),
+        $internsIdInput = $("#InternsId"),
         $typeInput = $("#TypeOccuring"),
         $dateInput = $("#Date"),
         ajaxSettingsSaveReport = {
@@ -57,8 +57,8 @@ $(document).ready(function () {
 
     function isModelValidate() {
         var isValidForm = true;
-        isValidForm = $mentorNameInput.valid() && isValidForm;
-        isValidForm = $internNameInput.valid() && isValidForm;
+        isValidForm = $mentorsIdInput.valid() && isValidForm;
+        isValidForm = $internsIdInput.valid() && isValidForm;
         isValidForm = $typeInput.valid() && isValidForm;
         isValidForm = $dateInput.valid() && isValidForm;
         isValidForm = validationActivitiesFromMentorsReport() && isValidForm;

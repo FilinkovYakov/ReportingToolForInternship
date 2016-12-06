@@ -19,32 +19,32 @@
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(model => model.MentorName, htmlAttributes: new { @class = "control-label col-xs-2" })
+        @Html.LabelFor(model => model.MentorsId, htmlAttributes: new { @class = "control-label col-xs-2" })
         <div class="col-xs-10">
-            <select name="MentorName" id="MentorName" class="selectpicker">
+            <select name="MentorsId" id="MentorsId" class="selectpicker">
                 @foreach (var item in UserRepo.Repo)
                 {
-                    <option value="@item.Name">
-                        @string.Format("{0} - {1}", item.Name, item.Email)
+                    <option value="@item.Id">
+                        @string.Format("{0} - {1}", item.Name, item.Login)
                     </option>
                 }
             </select>
-            @Html.ValidationMessageFor(model => model.MentorName, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.MentorsId, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.InternName, htmlAttributes: new { @class = "control-label col-xs-2" })
+        @Html.LabelFor(model => model.InternsId, htmlAttributes: new { @class = "control-label col-xs-2" })
         <div class="col-xs-10">
-            <select name="InternName" id="InternName" class="selectpicker">
+            <select name="InternsId" id="InternsId" class="selectpicker">
                 @foreach (var item in UserRepo.Repo)
                 {
-                    <option value="@item.Name">
-                        @string.Format("{0} - {1}", item.Name, item.Email)
+                    <option value="@item.Id">
+                        @string.Format("{0} - {1}", item.Name, item.Login)
                     </option>
                 }
             </select>
-            @Html.ValidationMessageFor(model => model.InternName, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.InternsId, "", new { @class = "text-danger" })
         </div>
     </div>
 

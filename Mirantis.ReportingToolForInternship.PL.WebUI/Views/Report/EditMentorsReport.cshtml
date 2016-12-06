@@ -20,50 +20,50 @@
     <input type="hidden" value="@Model.Id" class="reportId">
 
     <div class="form-group">
-        @Html.LabelFor(model => model.MentorName, htmlAttributes: new { @class = "control-label col-xs-2" })
+        @Html.LabelFor(model => model.MentorsId, htmlAttributes: new { @class = "control-label col-xs-2" })
         <div class="col-xs-10">
-            <select name="MentorName" id="MentorName" class="selectpicker">
+            <select name="MentorsId" id="MentorsId" class="selectpicker">
                 @foreach (var user in UserRepo.Repo)
                 {
-                    if (Model.InternName == user.Name)
+                    if (Model.InternsId == user.Id)
                     {
                         <option value="@user.Name" selected>
-                            @string.Format("{0} - {1}", user.Name, user.Email)
+                            @string.Format("{0} - {1}", user.Name, user.Login)
                         </option>
                     }
                     else
                     {
                         <option value="@user.Name">
-                            @string.Format("{0} - {1}", user.Name, user.Email)
+                            @string.Format("{0} - {1}", user.Name, user.Login)
                         </option>
                     }
                 }
             </select>
-            @Html.ValidationMessageFor(model => model.InternName, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.InternsId, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.InternName, htmlAttributes: new { @class = "control-label col-xs-2" })
+        @Html.LabelFor(model => model.InternsId, htmlAttributes: new { @class = "control-label col-xs-2" })
         <div class="col-xs-10">
-            <select name="InternName" id="InternName" class="selectpicker">
+            <select name="InternsId" id="InternsId" class="selectpicker">
                 @foreach (var user in UserRepo.Repo)
                 {
-                    if (Model.InternName == user.Name)
+                    if (Model.InternsId == user.Id)
                     {
-                        <option value="@user.Name" selected>
-                            @string.Format("{0} - {1}", user.Name, user.Email)
+                        <option value="@user.Id" selected>
+                            @string.Format("{0} - {1}", user.Name, user.Login)
                         </option>
                     }
                     else
                     {
-                        <option value="@user.Name">
-                            @string.Format("{0} - {1}", user.Name, user.Email)
+                        <option value="@user.Id">
+                            @string.Format("{0} - {1}", user.Name, user.Login)
                         </option>
                     }
                 }
             </select>
-            @Html.ValidationMessageFor(model => model.InternName, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.InternsId, "", new { @class = "text-danger" })
         </div>
     </div>
 

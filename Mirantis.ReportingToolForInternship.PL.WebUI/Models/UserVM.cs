@@ -8,9 +8,15 @@
 
     public class UserVM
     {
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
+        [Key]
+        public int Id { get; set; }
+
+        public string Login { get; set; }
+
+        public string FullName { get; set; }
 
         public string Name { get; set; }
+
+        public List<RoleVM> Roles { get; set; }
     }
 }

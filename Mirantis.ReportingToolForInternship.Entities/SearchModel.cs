@@ -8,9 +8,9 @@
 
     public class SearchModel
     {
-        public string InternName { get; set; }
+        public int? InternsId { get; set; }
 
-        public string MentorName { get; set; }
+        public int? MentorsId { get; set; }
 
         public string TypeOccuring { get; set; }
 
