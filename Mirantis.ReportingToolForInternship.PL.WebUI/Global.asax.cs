@@ -1,10 +1,16 @@
 ﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI
 {
+    using Entities;
+    using Models;
+    using Newtonsoft.Json;
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Web;
     using System.Web.Mvc;
     using System.Web.Optimization;
     using System.Web.Routing;
+    using System.Web.Security;
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -38,6 +44,18 @@
 
                 //c.CreateMap<Entities.RepresentingReport, Models.RepresentingReportVM>();
             });
+        }
+
+        protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
+        {
+            var authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
+            if (authCookie == null || string.IsNullOrEmpty(authCookie.Value))
+                return;
+
+            var user = JsonConvert.DeserializeObject<AuthenticationUserVM>(FormsAuthentication.Decrypt(authCookie.Value).UserData);
+            //HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName].Value).UserData);
+            if (user != null)
+                HttpContext.Current.User = new UserPrincipal(user.Login, new List<Role> { new Role { RoleName = "Mentor" } });
         }
     }
 }

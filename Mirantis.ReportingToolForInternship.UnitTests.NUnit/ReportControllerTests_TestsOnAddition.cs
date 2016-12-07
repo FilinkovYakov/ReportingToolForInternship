@@ -10,7 +10,7 @@
     using System.Web.Mvc;
 
     [TestFixture]
-    public class ReportControllerTests
+    public class ReportControllerTests_TestsOnAddition
     {
         [Test]
         public void ReportController_AdditionInternsReportInController_ReturnViewResult()
@@ -35,21 +35,6 @@
         [Test]
         public void ReportController_SaveReportAsDraftAfterAddition_ReturnPartiralView()
         {
-            AutoMapper.Mapper.Initialize(c =>
-            {
-                c.CreateMap<QuestionVM, Question>();
-                c.CreateMap<Question, QuestionVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
-
-                c.CreateMap<ActivityVM, Activity>();
-                c.CreateMap<Activity, ActivityVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
-
-                c.CreateMap<FuturePlanVM, FuturePlan>();
-                c.CreateMap<FuturePlan, FuturePlanVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
-
-                c.CreateMap<ReportVM, Report>();
-                c.CreateMap<Report, ReportVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
-            });
-
             Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
             mockLogic.Setup(t => t.Add(It.IsAny<Report>())).Verifiable();
 
@@ -65,7 +50,7 @@
         }
 
         [Test]
-        public void ReportController_ThrowExceptionDuringSavingReport_ReturnHttpStatus()
+        public void ReportController_ThrowExceptionDuringSavingReportAfterAddition_ReturnHttpStatus()
         {
             Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
             mockLogic.Setup(t => t.Add(It.IsAny<Report>())).Throws<Exception>();
@@ -87,21 +72,6 @@
         [Test]
         public void ReportController_SubmitReportAfterAddition_ReturnPartiralView()
         {
-            AutoMapper.Mapper.Initialize(c =>
-            {
-                c.CreateMap<QuestionVM, Question>();
-                c.CreateMap<Question, QuestionVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
-
-                c.CreateMap<ActivityVM, Activity>();
-                c.CreateMap<Activity, ActivityVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
-
-                c.CreateMap<FuturePlanVM, FuturePlan>();
-                c.CreateMap<FuturePlan, FuturePlanVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
-
-                c.CreateMap<ReportVM, Report>();
-                c.CreateMap<Report, ReportVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
-            });
-
             Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
             mockLogic.Setup(t => t.Add(It.IsAny<Report>())).Verifiable();
 
@@ -117,7 +87,7 @@
         }
 
         [Test]
-        public void ReportController_ThrowExceptionDuringSubmittingReport_ReturnPartialView()
+        public void ReportController_ThrowExceptionDuringSubmittingReportAfterAddition_ReturnPartialView()
         {
             Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
             mockLogic.Setup(t => t.Add(It.IsAny<Report>())).Throws<Exception>();
@@ -134,6 +104,28 @@
             Assert.IsAssignableFrom(typeof(PartialViewResult), result);
 
             mockLogger.VerifyAll();
+        }
+
+        [OneTimeSetUp]
+        public void InitializeMapper()
+        {
+            AutoMapper.Mapper.Initialize(c =>
+            {
+                c.CreateMap<SearchVM, SearchModel>();
+                c.CreateMap<SearchModel, SearchVM>();
+
+                c.CreateMap<QuestionVM, Question>();
+                c.CreateMap<Question, QuestionVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
+
+                c.CreateMap<ActivityVM, Activity>();
+                c.CreateMap<Activity, ActivityVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
+
+                c.CreateMap<FuturePlanVM, FuturePlan>();
+                c.CreateMap<FuturePlan, FuturePlanVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
+
+                c.CreateMap<ReportVM, Report>();
+                c.CreateMap<Report, ReportVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
+            });
         }
     }
 }

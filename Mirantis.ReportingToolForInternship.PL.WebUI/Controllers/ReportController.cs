@@ -24,6 +24,7 @@
             _customLogger = customLogger;
         }
 
+        [Authorize(Roles = "Mentor")]
         public ActionResult AddMentorsReport()
         {
             try
@@ -167,6 +168,7 @@
             }
         }
 
+        [AllowAnonymous]
         public ActionResult Search()
         {
             try
@@ -180,6 +182,7 @@
             }
         }
 
+        [AllowAnonymous]
         public ActionResult ShowSearchResult(SearchVM searchVM)
         {
             try

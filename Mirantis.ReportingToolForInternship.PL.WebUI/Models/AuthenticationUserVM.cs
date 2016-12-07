@@ -1,23 +1,19 @@
 ﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.Models
 {
-    using Entities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Web;
 
-    public class UserVM
+    [Serializable]
+    public class AuthenticationUserVM
     {
-        [Key]
-        public int Id { get; set; }
-
+        [Required]
         public string Login { get; set; }
 
-        public string FullName { get; set; }
-
-        public string Name { get; set; }
-
-        public List<Role> Roles { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
     }
 }
