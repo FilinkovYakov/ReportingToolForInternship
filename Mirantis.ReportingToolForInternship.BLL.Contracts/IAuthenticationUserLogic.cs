@@ -7,10 +7,10 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public interface IUserLogic
+    public interface IAuthenticationUserLogic
     {
-        bool Add(User user);
-        User GetById(int id);
-        List<User> GetUsersByRole(string role);
+        IList<Role> GetRolesByUsersLogin(string login);
+        bool TryAuthentication(string login, string password);
+        bool IsRoleValid(string role);
     }
 }

@@ -1,5 +1,6 @@
 ﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.Models
 {
+    using Entities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -15,5 +16,7 @@
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        public List<Role> Roles { get; set; }
     }
 }

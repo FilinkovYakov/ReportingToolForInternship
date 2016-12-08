@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BAB02513-C05E-4E79-88C7-63DC7F9421B4}</ProjectGuid>
+    <ProjectGuid>{1C796185-116C-462D-8A18-9F1F9E8F1246}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mirantis.ReportingToolForInternship.DAL.Contracts</RootNamespace>
-    <AssemblyName>Mirantis.ReportingToolForInternship.DAL.Contracts</AssemblyName>
+    <RootNamespace>Mirantis.ReportingToolForInternship.DAL.DataAccessService</RootNamespace>
+    <AssemblyName>Mirantis.ReportingToolForInternship.DAL.DataAccessService</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,16 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAuthenticationUserDAO.cs" />
-    <Compile Include="IReportDAO.cs" />
-    <Compile Include="IUserDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
-      <Project>{4fff7831-8d36-48d0-bc0d-40086dad4465}</Project>
-      <Name>Mirantis.ReportingToolForInternship.Entities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

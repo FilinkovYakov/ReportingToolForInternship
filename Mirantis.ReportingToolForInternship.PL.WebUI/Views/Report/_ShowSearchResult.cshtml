@@ -35,13 +35,19 @@
             <td>
                 @if (item.MentorsId == null)
                 {
-                    @Html.ActionLink("Edit intern's report", "EditInternsReport", new { id = item.Id })
+                    if (User.IsInRole("Intern"))
+                    {
+                        @Html.ActionLink("Edit intern's report", "EditInternsReport", new { id = item.Id })
+                    }
                     <span> | </span>
                     @Html.ActionLink("Details intern's report", "DetailsInternsReport", new { id = item.Id })
                 }
                 else
                 {
-                    @Html.ActionLink("Edit mentor's report", "EditMentorsReport", new { id = item.Id })
+                    if (User.IsInRole("Mentor"))
+                    {
+                        @Html.ActionLink("Edit mentor's report", "EditMentorsReport", new { id = item.Id })
+                    }
                     <span> | </span>
                     @Html.ActionLink("Details mentor's report", "DetailsMentorsReport", new { id = item.Id })
                 }

@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.BLL.Contracts
+﻿namespace Mirantis.ReportingToolForInternship.DAL.Contracts
 {
     using Entities;
     using System;
@@ -7,7 +7,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public interface IUserLogic
+    public interface IUserDAO
     {
         bool Add(User user);
         User GetById(int id);

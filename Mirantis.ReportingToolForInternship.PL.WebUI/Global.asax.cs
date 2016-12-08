@@ -53,9 +53,10 @@
                 return;
 
             var user = JsonConvert.DeserializeObject<AuthenticationUserVM>(FormsAuthentication.Decrypt(authCookie.Value).UserData);
-            //HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName].Value).UserData);
             if (user != null)
-                HttpContext.Current.User = new UserPrincipal(user.Login, new List<Role> { new Role { RoleName = "Mentor" } });
+            {
+                HttpContext.Current.User = new UserPrincipal(user.Login, user.Roles);
+            }
         }
     }
 }

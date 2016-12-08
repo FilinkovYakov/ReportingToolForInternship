@@ -1,5 +1,6 @@
 ﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.Controllers
 {
+    using AuthorizeAttributes;
     using Entities;
     using Models;
     using Newtonsoft.Json;
@@ -12,18 +13,23 @@
 
     public class AuthenticationUserController : Controller
     {
+        [AnonymousOnly]
         public ActionResult SignIn()
         {
             return View();
         }
 
+        [AnonymousOnly]
         [HttpPost]
         public ActionResult SignIn(AuthenticationUserVM authUserVM)
         {
             if (ModelState.IsValid)
             {
-                //check on Alex service authorize
-                                
+                //Check on Alex service authorize
+
+                //Get roles from Alex
+                authUserVM.Roles = new List<Role> { new Role { RoleName = "Mentor" }, new Role { RoleName = "Intern" } };
+
                 var encTicket = FormsAuthentication.Encrypt(
                         new FormsAuthenticationTicket(
                             1,
@@ -36,27 +42,17 @@
                 HttpCookie faCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
                 Response.Cookies.Add(faCookie);
 
-                HttpContext.User = new UserPrincipal(authUserVM.Login, new List<Role>()
-                {
-                    new Role()
-                    {
-                        RoleName="Mentor"
-                    },
-                    new Role()
-                    {
-                        RoleName="Intern"
-                    }
-                });
-
                 return RedirectToAction("Search", "Report");
             }
 
             return View(authUserVM);
         }
 
+        [Authorize]
         public ActionResult SignOut()
         {
-            return View();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Search", "Report");
         }
     }
 }

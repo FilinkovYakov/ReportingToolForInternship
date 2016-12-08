@@ -3,7 +3,7 @@
 /// <reference path="constructReportBeforeSending.js" />
 
 $("a").click(function (event) {
-    if (isModelContainSomethingElements()) {
+    if (IsHideMessageAboutSuccessOperation() && isModelContainSomethingElements()) {
         event.preventDefault();
         var targetLink = event.target.href;
         $("#MessageAboutUpload").modal("show");
@@ -46,4 +46,9 @@ function isModelContainSomethingElements() {
     }
 
     return isContain;
+}
+
+function IsHideMessageAboutSuccessOperation() {
+    var innerHtml = $("#MessageAboutSuccessOperation").html().trim();
+    return innerHtml == "";
 }

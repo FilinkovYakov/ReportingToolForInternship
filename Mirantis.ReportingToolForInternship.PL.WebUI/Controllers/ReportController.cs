@@ -38,6 +38,7 @@
             }
         }
 
+        [Authorize(Roles = "Intern")]
         public ActionResult AddInternsReport()
         {
             try
@@ -51,6 +52,7 @@
             }
         }
 
+        [Authorize(Roles = "Mentor,Intern")]
         [HttpPost]
         public ActionResult SaveReportAsDraftAfterAddition(ReportVM reportVM)
         {
@@ -73,12 +75,12 @@
             }
         }
 
+        [Authorize(Roles = "Mentor,Intern")]
         [HttpPost]
         public ActionResult SubmitReportAfterAddition(ReportVM reportVM)
         {
             try
             {
-                Thread.Sleep(5000);
                 reportVM.IsDraft = false;
 
                 if (ModelState.IsValid)
@@ -96,6 +98,7 @@
             }
         }
 
+        [Authorize(Roles = "Intern")]
         public ActionResult EditInternsReport(Guid id)
         {
             try
@@ -110,6 +113,7 @@
             }
         }
 
+        [Authorize(Roles = "Mentor")]
         public ActionResult EditMentorsReport(Guid id)
         {
             try
@@ -124,6 +128,7 @@
             }
         }
 
+        [Authorize(Roles = "Mentor,Intern")]
         [HttpPost]
         public ActionResult SaveReportAsDraftAfterEditing(ReportVM reportVM)
         {
@@ -146,6 +151,7 @@
             }
         }
 
+        [Authorize(Roles = "Mentor,Intern")]
         [HttpPost]
         public ActionResult SubmitReportAfterEditing(ReportVM reportVM)
         {
@@ -208,6 +214,7 @@
             }
         }
 
+        [Authorize]
         public ActionResult DetailsInternsReport(Guid id)
         {
             try
@@ -222,6 +229,7 @@
             }
         }
 
+        [Authorize]
         public ActionResult DetailsMentorsReport(Guid id)
         {
             try

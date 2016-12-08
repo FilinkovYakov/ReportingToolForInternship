@@ -200,6 +200,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="AuthorizeAttributes\AnonymousOnly.cs" />
     <Compile Include="Controllers\AuthenticationUserController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -568,14 +569,6 @@
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.BLL.Core\Mirantis.ReportingToolForInternship.BLL.Core.csproj">
       <Project>{a2dc545d-7e5e-4f1d-95da-6b949279cd52}</Project>
       <Name>Mirantis.ReportingToolForInternship.BLL.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.Contracts\Mirantis.ReportingToolForInternship.DAL.Contracts.csproj">
-      <Project>{bab02513-c05e-4e79-88c7-63dc7f9421b4}</Project>
-      <Name>Mirantis.ReportingToolForInternship.DAL.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\Mirantis.ReportingToolForInternship.DAL.DataAccessEF.csproj">
-      <Project>{4a59aecf-4571-4f7b-82c0-ec3d04c351d6}</Project>
-      <Name>Mirantis.ReportingToolForInternship.DAL.DataAccessEF</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
       <Project>{4fff7831-8d36-48d0-bc0d-40086dad4465}</Project>

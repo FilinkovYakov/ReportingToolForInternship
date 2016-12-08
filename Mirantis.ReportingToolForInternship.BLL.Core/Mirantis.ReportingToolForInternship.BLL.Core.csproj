@@ -88,9 +88,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthenticationUserLogic.cs" />
+    <Compile Include="BLLInitializer.cs" />
     <Compile Include="CustomLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportLogic.cs" />
+    <Compile Include="UserLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.BLL.Contracts\Mirantis.ReportingToolForInternship.BLL.Contracts.csproj">

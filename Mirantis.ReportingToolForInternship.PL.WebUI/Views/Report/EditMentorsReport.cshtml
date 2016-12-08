@@ -27,13 +27,13 @@
                 {
                     if (Model.InternsId == user.Id)
                     {
-                        <option value="@user.Name" selected>
+                        <option value="@user.Id" selected>
                             @string.Format("{0} - {1}", user.Name, user.Login)
                         </option>
                     }
                     else
                     {
-                        <option value="@user.Name">
+                        <option value="@user.Id">
                             @string.Format("{0} - {1}", user.Name, user.Login)
                         </option>
                     }
