@@ -11,6 +11,6 @@
     {
         bool Add(User user);
         User GetById(int id);
-        List<User> GetUsersByRole(string role);
+        IList<User> GetUsersByRole(string role);
     }
 }

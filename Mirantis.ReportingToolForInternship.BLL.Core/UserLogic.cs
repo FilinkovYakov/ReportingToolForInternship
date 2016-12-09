@@ -22,7 +22,7 @@
             throw new NotImplementedException();
         }
 
-        public List<User> GetUsersByRole(string role)
+        public IList<User> GetUsersByRole(string role)
         {
             //service?
             throw new NotImplementedException();

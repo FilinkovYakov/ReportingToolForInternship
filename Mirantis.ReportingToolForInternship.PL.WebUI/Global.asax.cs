@@ -2,6 +2,7 @@
 {
     using BLL.Core;
     using Entities;
+    using Initializers;
     using Models;
     using Newtonsoft.Json;
     using System;
@@ -22,7 +23,7 @@
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            BLLAutomapperInitializer automapperInitializer = new BLLAutomapperInitializer();
+            PLAutomapperInitializer automapperInitializer = new PLAutomapperInitializer();
             automapperInitializer.Initialize();
         }
 
