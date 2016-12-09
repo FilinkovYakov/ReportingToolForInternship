@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -89,7 +93,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenticationUserLogic.cs" />
-    <Compile Include="BLLInitializer.cs" />
+    <Compile Include="BLLAutomapperInitializer.cs" />
+    <Compile Include="BLLContainerInitializer.cs" />
     <Compile Include="CustomLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportLogic.cs" />
@@ -107,6 +112,10 @@
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\Mirantis.ReportingToolForInternship.DAL.DataAccessEF.csproj">
       <Project>{4a59aecf-4571-4f7b-82c0-ec3d04c351d6}</Project>
       <Name>Mirantis.ReportingToolForInternship.DAL.DataAccessEF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Mirantis.ReportingToolForInternship.DAL.DataAccessService.csproj">
+      <Project>{1C796185-116C-462D-8A18-9F1F9E8F1246}</Project>
+      <Name>Mirantis.ReportingToolForInternship.DAL.DataAccessService</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
       <Project>{4fff7831-8d36-48d0-bc0d-40086dad4465}</Project>

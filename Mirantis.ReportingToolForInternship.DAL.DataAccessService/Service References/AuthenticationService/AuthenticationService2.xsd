@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/InternshipAuthenticationService.Models.OperationResult" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/InternshipAuthenticationService.Models.OperationResult" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49695/AuthenticationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/InternshipAuthenticationService.Models.ServiceModels" />
+  <xs:complexType name="OperationResultOfUser">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="OperationResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/InternshipAuthenticationService.Models.OperationResult" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="User" Namespace="http://schemas.datacontract.org/2004/07/InternshipAuthenticationService.Models.ServiceModels" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/InternshipAuthenticationService.Models.ServiceModels" minOccurs="0" name="Result" nillable="true" type="q1:User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OperationResultOfUser" nillable="true" type="tns:OperationResultOfUser" />
+  <xs:complexType name="OperationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfOperationErrors" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperationResult" nillable="true" type="tns:OperationResult" />
+  <xs:complexType name="ArrayOfOperationErrors">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OperationErrors" type="tns:OperationErrors" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOperationErrors" nillable="true" type="tns:ArrayOfOperationErrors" />
+  <xs:simpleType name="OperationErrors">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AutorizationFiledErr" />
+      <xs:enumeration value="NullErr" />
+      <xs:enumeration value="LoginErr" />
+      <xs:enumeration value="FullNameErr" />
+      <xs:enumeration value="RoleErr" />
+      <xs:enumeration value="PassErr" />
+      <xs:enumeration value="UserExistErr" />
+      <xs:enumeration value="UserNotExistErr" />
+      <xs:enumeration value="UsersNotExistErr" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OperationErrors" nillable="true" type="tns:OperationErrors" />
+</xs:schema>

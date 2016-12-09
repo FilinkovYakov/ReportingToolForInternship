@@ -39,5 +39,10 @@
             get { return repo; }
         }
 
+
+        public static UserVM GetById (int? id)
+        {
+            return Repo.FirstOrDefault(user => user.Id == id) ?? new UserVM() { Name = "" };
+        }
     }
 }

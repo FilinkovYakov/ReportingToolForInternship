@@ -3,7 +3,7 @@
     using Microsoft.Practices.Unity;
     using Microsoft.Practices.Unity.Configuration;
 
-    public class DataAccessEFInitializer
+    public class DataEFContainerInitializer
     {
         public void Initialize(IUnityContainer container)
         {

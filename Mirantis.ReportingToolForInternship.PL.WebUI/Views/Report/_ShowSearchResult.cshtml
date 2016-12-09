@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Mirantis.ReportingToolForInternship.PL.WebUI.Models.ReportVM>
+﻿@using Mirantis.ReportingToolForInternship.PL.WebUI.Models.Repositories;
+
+@model IEnumerable<Mirantis.ReportingToolForInternship.PL.WebUI.Models.ReportVM>
 
 <table class="table table-striped">
     <tr>
@@ -21,10 +23,12 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.MentorsId)
+                @UserRepo.GetById(item.MentorsId).Name
+                @*@Html.DisplayFor(modelItem => item.MentorsId)*@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.InternsId)
+                @UserRepo.GetById(item.InternsId).Name
+                @*@Html.DisplayFor(modelItem => item.InternsId)*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TypeOccuring)
@@ -35,19 +39,18 @@
             <td>
                 @if (item.MentorsId == null)
                 {
-                    if (User.IsInRole("Intern"))
-                    {
+                    @*if (User.IsInRole("Intern"))
+                    {*@
                         @Html.ActionLink("Edit intern's report", "EditInternsReport", new { id = item.Id })
-                    }
+                    @*}*@
                     <span> | </span>
                     @Html.ActionLink("Details intern's report", "DetailsInternsReport", new { id = item.Id })
                 }
                 else
                 {
-                    if (User.IsInRole("Mentor"))
-                    {
+                    @*if (User.IsInRole("Mentor")){*@
                         @Html.ActionLink("Edit mentor's report", "EditMentorsReport", new { id = item.Id })
-                    }
+                    @*}*@
                     <span> | </span>
                     @Html.ActionLink("Details mentor's report", "DetailsMentorsReport", new { id = item.Id })
                 }

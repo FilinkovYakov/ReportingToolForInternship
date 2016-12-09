@@ -25,7 +25,7 @@
             <select name="MentorsId" id="MentorsId" class="selectpicker">
                 @foreach (var user in UserRepo.Repo)
                 {
-                    if (Model.InternsId == user.Id)
+                    if (Model.MentorsId == user.Id)
                     {
                         <option value="@user.Id" selected>
                             @string.Format("{0} - {1}", user.Name, user.Login)

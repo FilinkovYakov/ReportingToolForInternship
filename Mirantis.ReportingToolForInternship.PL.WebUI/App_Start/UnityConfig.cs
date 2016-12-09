@@ -34,7 +34,7 @@ namespace Mirantis.ReportingToolForInternship.PL.WebUI.App_Start
         public static void RegisterTypes(IUnityContainer container)
         {
             //container.LoadConfiguration();
-            BLLInitializer init = new BLLInitializer();
+            BLLContainerInitializer init = new BLLContainerInitializer();
             init.Initialize(container);
         }
     }

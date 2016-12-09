@@ -17,25 +17,25 @@
             <div class="container">
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        @if (User.IsInRole("Intern"))
-                        {
+                        @*@if (User.IsInRole("Intern"))
+                        {*@
                             <li>@Html.ActionLink("Add intern's report", "AddInternsReport", "Report")</li>
-                        }
+                        @*}
                         @if (User.IsInRole("Mentor"))
-                        {
+                        {*@
                             <li>@Html.ActionLink("Add mentor's report", "AddMentorsReport", "Report")</li>
-                        }
+                        @*}*@
                         <li>@Html.ActionLink("Search", "Search", "Report")</li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        @if (User.Identity.IsAuthenticated)
+                        @*@if (User.Identity.IsAuthenticated)
                         {
                             <li>@Html.ActionLink("Sign Out", "SignOut", "AuthenticationUser")</li>
                         }
                         else
                         {
                             <li>@Html.ActionLink("Sign In", "SignIn", "AuthenticationUser")</li>
-                        }
+                        }*@
                     </ul>
                 </div>
             </div>

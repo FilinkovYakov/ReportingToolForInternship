@@ -24,7 +24,7 @@
             _customLogger = customLogger;
         }
 
-        [Authorize(Roles = "Mentor")]
+        //[Authorize(Roles = "Mentor")]
         public ActionResult AddMentorsReport()
         {
             try
@@ -38,7 +38,7 @@
             }
         }
 
-        [Authorize(Roles = "Intern")]
+        //[Authorize(Roles = "Intern")]
         public ActionResult AddInternsReport()
         {
             try
@@ -52,7 +52,7 @@
             }
         }
 
-        [Authorize(Roles = "Mentor,Intern")]
+        //[Authorize(Roles = "Mentor,Intern")]
         [HttpPost]
         public ActionResult SaveReportAsDraftAfterAddition(ReportVM reportVM)
         {
@@ -75,7 +75,7 @@
             }
         }
 
-        [Authorize(Roles = "Mentor,Intern")]
+        //[Authorize(Roles = "Mentor,Intern")]
         [HttpPost]
         public ActionResult SubmitReportAfterAddition(ReportVM reportVM)
         {
@@ -98,7 +98,7 @@
             }
         }
 
-        [Authorize(Roles = "Intern")]
+        //[Authorize(Roles = "Intern")]
         public ActionResult EditInternsReport(Guid id)
         {
             try
@@ -113,7 +113,7 @@
             }
         }
 
-        [Authorize(Roles = "Mentor")]
+        //[Authorize(Roles = "Mentor")]
         public ActionResult EditMentorsReport(Guid id)
         {
             try
@@ -128,7 +128,7 @@
             }
         }
 
-        [Authorize(Roles = "Mentor,Intern")]
+        //[Authorize(Roles = "Mentor,Intern")]
         [HttpPost]
         public ActionResult SaveReportAsDraftAfterEditing(ReportVM reportVM)
         {
@@ -151,7 +151,7 @@
             }
         }
 
-        [Authorize(Roles = "Mentor,Intern")]
+        //[Authorize(Roles = "Mentor,Intern")]
         [HttpPost]
         public ActionResult SubmitReportAfterEditing(ReportVM reportVM)
         {
@@ -174,7 +174,7 @@
             }
         }
 
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public ActionResult Search()
         {
             try
@@ -188,7 +188,7 @@
             }
         }
 
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public ActionResult ShowSearchResult(SearchVM searchVM)
         {
             try
@@ -214,7 +214,7 @@
             }
         }
 
-        [Authorize]
+        //[Authorize]
         public ActionResult DetailsInternsReport(Guid id)
         {
             try
@@ -229,7 +229,7 @@
             }
         }
 
-        [Authorize]
+        //[Authorize]
         public ActionResult DetailsMentorsReport(Guid id)
         {
             try
