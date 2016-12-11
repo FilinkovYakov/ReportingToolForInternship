@@ -14,6 +14,24 @@ img {
     width: 200px;
 }
 
+.form-control {
+    color: black;
+}
+
+form .form-control[readonly] {
+    background-color: white;
+}
+
+.btn-grey {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    color: #555;
+}
+
+input[readonly].input-grey {
+    background-color: #eee;
+}
+
 .btn-remover, .btn-remover-activity {
     margin-left: 10px !important;
 }

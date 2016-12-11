@@ -18,6 +18,5 @@
         public DbSet<FuturePlan> FuturePlans { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Report> Reports { get; set; }
-        public DbSet<User> Users { get; set; }
     }
 }

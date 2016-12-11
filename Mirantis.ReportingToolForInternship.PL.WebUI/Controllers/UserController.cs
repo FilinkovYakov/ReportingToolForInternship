@@ -8,19 +8,5 @@
 
     public class UserController : Controller
     {
-        public ActionResult SignUp()
-        {
-            return View();
-        }
-
-        public ActionResult SignIn()
-        {
-            return View();
-        }
-
-        public ActionResult SignOut()
-        {
-            return View();
-        }
     }
 }

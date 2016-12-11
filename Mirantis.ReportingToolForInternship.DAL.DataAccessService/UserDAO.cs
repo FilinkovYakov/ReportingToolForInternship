@@ -1,6 +1,6 @@
 ﻿namespace Mirantis.ReportingToolForInternship.DAL.DataAccessService
 {
-    using Mirantis.ReportingToolForInternship.DAL.Contracts;
+    using Contracts;
     using System;
     using System.Collections.Generic;
     using System.Linq;

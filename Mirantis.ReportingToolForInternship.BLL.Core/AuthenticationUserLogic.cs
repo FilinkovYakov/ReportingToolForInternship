@@ -3,29 +3,44 @@
     using Contracts;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Entities;
+    using DAL.Contracts;
 
     public class AuthenticationUserLogic : IAuthenticationUserLogic
     {
-        public IList<Role> GetRolesByUsersLogin(string login)
+        private readonly IAuthenticationUserDAO _authUserDAO;
+        private readonly ICustomLogger _customLogger;
+
+        public AuthenticationUserLogic(IAuthenticationUserDAO authUserDAO, ICustomLogger customLogger)
         {
-            //service
-            throw new NotImplementedException();
+            _authUserDAO = authUserDAO;
+            _customLogger = customLogger;
         }
 
-        public bool IsRoleValid(string role)
+        public IList<Role> GetRolesByUsersLogin(string login)
         {
-            //service
-            throw new NotImplementedException();
+            try
+            {
+                return _authUserDAO.GetRolesByUsersLogin(login);
+            }
+            catch (Exception e)
+            {
+                _customLogger.RecordError(e);
+                throw;
+            }
         }
 
         public bool TryAuthentication(string login, string password)
         {
-            //service
-            throw new NotImplementedException();
+            try
+            {
+                return _authUserDAO.TryAuthentication(login, password);
+            }
+            catch (Exception e)
+            {
+                _customLogger.RecordError(e);
+                throw;
+            }
         }
     }
 }

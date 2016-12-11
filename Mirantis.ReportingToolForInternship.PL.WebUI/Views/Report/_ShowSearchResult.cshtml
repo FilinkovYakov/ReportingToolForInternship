@@ -39,19 +39,20 @@
             <td>
                 @if (item.MentorsId == null)
                 {
-                    @*if (User.IsInRole("Intern"))
-                    {*@
+                    if (User.IsInRole("Intern") && item.IsDraft)
+                    {
                         @Html.ActionLink("Edit intern's report", "EditInternsReport", new { id = item.Id })
-                    @*}*@
-                    <span> | </span>
+                        <span> | </span>
+                    }
                     @Html.ActionLink("Details intern's report", "DetailsInternsReport", new { id = item.Id })
                 }
                 else
                 {
-                    @*if (User.IsInRole("Mentor")){*@
+                    if (User.IsInRole("Mentor") && item.IsDraft)
+                    {
                         @Html.ActionLink("Edit mentor's report", "EditMentorsReport", new { id = item.Id })
-                    @*}*@
-                    <span> | </span>
+                        <span> | </span>
+                    }
                     @Html.ActionLink("Details mentor's report", "DetailsMentorsReport", new { id = item.Id })
                 }
             </td>

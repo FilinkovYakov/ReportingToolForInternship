@@ -7,25 +7,43 @@
     using System.Text;
     using System.Threading.Tasks;
     using Entities;
+    using DAL.Contracts;
 
     public class UserLogic : IUserLogic
     {
-        public bool Add(User user)
+        private readonly IUserDAO _userDAO;
+        private readonly ICustomLogger _customLogger;
+
+        public UserLogic(IUserDAO userDAO, ICustomLogger customLogger)
         {
-            //local db
-            throw new NotImplementedException();
+            _userDAO = userDAO;
+            _customLogger = customLogger;
         }
 
         public User GetById(int id)
         {
-            //local db + service
-            throw new NotImplementedException();
+            try
+            {
+                return _userDAO.GetById(id);
+            }
+            catch (Exception e)
+            {
+                _customLogger.RecordError(e);
+                throw;
+            }
         }
 
         public IList<User> GetUsersByRole(string role)
         {
-            //service?
-            throw new NotImplementedException();
+            try
+            {
+                return _userDAO.GetUsersByRole(role);
+            }
+            catch (Exception e)
+            {
+                _customLogger.RecordError(e);
+                throw;
+            }
         }
     }
 }

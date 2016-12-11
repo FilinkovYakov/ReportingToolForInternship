@@ -1,8 +1,12 @@
-﻿function lockAllFunctions() {
+﻿/// <reference path="../jquery-1.10.2.min.js" />
+
+function lockAllFunctions() {
     setConditionReadonlyOnInputs(true);
     setConditionDisablingOnSelects(true);
     setConditionDisablingOnButtons(true);
 }
+
+unlockAllFunctions();
 
 function unlockAllFunctions() {
     setConditionReadonlyOnInputs(false);
@@ -11,7 +15,14 @@ function unlockAllFunctions() {
 }
 
 function setConditionReadonlyOnInputs(value) {
-    $("input").prop("disabled", value);
+    var $inputs = $("input");
+    $inputs.prop("disabled", value);
+
+    if (value) {
+        $inputs.addClass("input-grey");
+    } else {
+        $inputs.removeClass("input-grey");
+    }
 }
 
 function setConditionDisablingOnSelects(value) {
@@ -19,5 +30,14 @@ function setConditionDisablingOnSelects(value) {
 }
 
 function setConditionDisablingOnButtons(value) {
-    $(".btn").prop("disabled", value);
+    var $buttons = $(".btn");
+    $buttons.prop("disabled", value);
+
+    if (value) {
+        $buttons.removeClass("btn-default");
+        $buttons.addClass("btn-grey");
+    } else {
+        $buttons.removeClass("btn-grey");
+        $buttons.addClass("btn-default");
+    }
 }

@@ -2,8 +2,10 @@
 /// <reference path="constructors.js" />
 /// <reference path="constructReportBeforeSending.js" />
 
+var isInputChanged = false;
+
 $("a").click(function (event) {
-    if (IsHideMessageAboutSuccessOperation() && isModelContainSomethingElements()) {
+    if (IsHideMessageAboutSuccessOperation() && isInputChanged) {
         event.preventDefault();
         var targetLink = event.target.href;
         $("#MessageAboutUpload").modal("show");
@@ -13,40 +15,44 @@ $("a").click(function (event) {
     }
 });
 
-function isModelContainSomethingElements() {
-    var isContain = false;
-    $(".input-activity").each(function () {
-        if ($(this).val() != "") {
-             isContain = true;
-        }
-    });
+$("input").change(function () {
+    isInputChanged = true;
+});
 
-    if (!isContain) {
-        $(".input-evaluation").each(function () {
-            if ($(this).val() != "") {
-                isContain = true;
-            }
-        });
-    }
+//function isModelContainSomethingElements() {
+//    var isContain = false;
+//    $(".input-activity").each(function () {
+//        if ($(this).val() != "") {
+//             isContain = true;
+//        }
+//    });
 
-    if (!isContain) {
-        $(".input-question").each(function () {
-            if ($(this).val() != "") {
-                isContain = true;
-            }
-        });
-    }
+//    if (!isContain) {
+//        $(".input-evaluation").each(function () {
+//            if ($(this).val() != "") {
+//                isContain = true;
+//            }
+//        });
+//    }
 
-    if (!isContain) {
-        $(".input-future-plan").each(function () {
-            if ($(this).val() != "") {
-                isContain = true;
-            }
-        });
-    }
+//    if (!isContain) {
+//        $(".input-question").each(function () {
+//            if ($(this).val() != "") {
+//                isContain = true;
+//            }
+//        });
+//    }
 
-    return isContain;
-}
+//    if (!isContain) {
+//        $(".input-future-plan").each(function () {
+//            if ($(this).val() != "") {
+//                isContain = true;
+//            }
+//        });
+//    }
+
+//    return isContain;
+//}
 
 function IsHideMessageAboutSuccessOperation() {
     var innerHtml = $("#MessageAboutSuccessOperation").html().trim();
