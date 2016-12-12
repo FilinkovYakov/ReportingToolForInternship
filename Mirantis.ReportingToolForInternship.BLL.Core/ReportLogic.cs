@@ -12,10 +12,12 @@
         private static Guid defaultGuid = new Guid();
         private readonly IReportDAO _reportDAO;
         private readonly ICustomLogger _customLogger;
+        private readonly IUserDAO _userDAO;
 
-        public ReportLogic(IReportDAO reportDAO, ICustomLogger customLogger)
+        public ReportLogic(IReportDAO reportDAO, IUserDAO userDAO, ICustomLogger customLogger)
         {
             _reportDAO = reportDAO;
+            _userDAO = userDAO;
             _customLogger = customLogger;
         }
 
@@ -63,17 +65,75 @@
             }
         }
 
-        public IList<Report> Search(SearchModel searchModel)
+        public RepresentingReport GetRepresentReportById(Guid id)
         {
             try
             {
-                return _reportDAO.Search(searchModel);
+                Report report = _reportDAO.GetById(id);
+                return ConstructRepresentingReportByReport(report);
             }
             catch (Exception e)
             {
                 _customLogger.RecordError(e);
                 throw;
             }
+        }
+
+        public IList<RepresentingReport> Search(SearchModel searchModel)
+        {
+            try
+            {   
+                IList<Report> reports = _reportDAO.Search(searchModel);
+                IList<RepresentingReport> represReports = null;
+                if (reports != null && reports.Any())
+                {
+                    represReports = new List<RepresentingReport>();
+                    foreach (var report in reports)
+                    {
+                        RepresentingReport representingReport = ConstructRepresentingReportByReport(report);
+                        if (represReports != null)
+                        {
+                            represReports.Add(representingReport);
+                        }
+                    }
+                }
+
+                return represReports;
+            }
+            catch (Exception e)
+            {
+                _customLogger.RecordError(e);
+                throw;
+            }
+        }
+
+        private RepresentingReport ConstructRepresentingReportByReport(Report report)
+        {
+            if (report == null)
+            {
+                return null;
+            }
+
+            RepresentingReport representingReport = BLLAutomapper.Mapper.Map<RepresentingReport>(report);
+            if (report.InternsId.HasValue)
+            {
+                representingReport.InternsFullName = _userDAO.GetById(report.InternsId.Value).FullName;
+            }
+            else
+            {
+                representingReport.InternsFullName = "";
+            }
+
+            if (report.MentorsId.HasValue)
+            {
+                representingReport.MentorsFullName = _userDAO.GetById(report.MentorsId.Value).FullName;
+            }
+            else
+            {
+                representingReport.MentorsFullName = "";
+            }
+
+            return representingReport;
         }
 
         private IEnumerable<Activity> GetCorrectActivities(Report report)

@@ -20,11 +20,17 @@
             _customLogger = customLogger;
         }
 
-        public User GetById(int id)
+        public User GetById(int? id)
         {
             try
             {
-                return _userDAO.GetById(id);
+                if (id.HasValue)
+                {
+                    int valueId = id.Value;
+                    return _userDAO.GetById(valueId);
+                }
+
+                return null;
             }
             catch (Exception e)
             {
@@ -38,6 +44,24 @@
             try
             {
                 return _userDAO.GetUsersByRole(role);
+            }
+            catch (Exception e)
+            {
+                _customLogger.RecordError(e);
+                throw;
+            }
+        }
+
+        public User GetByLogin(string login)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(login))
+                {
+                    return _userDAO.GetByLogin(login);
+                }
+
+                return null;
             }
             catch (Exception e)
             {

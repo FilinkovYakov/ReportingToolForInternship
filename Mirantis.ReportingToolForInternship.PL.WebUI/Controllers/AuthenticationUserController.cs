@@ -15,11 +15,13 @@
     public class AuthenticationUserController : Controller
     {
         private readonly IAuthenticationUserLogic _authUserLogic;
+        private readonly IUserLogic _userLogic;
         private readonly ICustomLogger _customLogger;
 
-        public AuthenticationUserController(IAuthenticationUserLogic authUserLogic, ICustomLogger customLogger)
+        public AuthenticationUserController(IAuthenticationUserLogic authUserLogic, IUserLogic userLogic, ICustomLogger customLogger)
         {
             _authUserLogic = authUserLogic;
+            _userLogic = userLogic;
             _customLogger = customLogger;
         }
 
@@ -45,10 +47,11 @@
             {
                 if (ModelState.IsValid)
                 {
-                    //if (_authUserLogic.TryAuthentication(authUserVM.Login, authUserVM.Password))
-                    //{
-                        //authUserVM.Roles = _authUserLogic.GetRolesByUsersLogin(authUserVM.Login).ToList();
-                        authUserVM.Roles = new List<Role> { new Role { RoleName = "Mentor" }, new Role { RoleName = "Intern" } };
+                    if (_authUserLogic.TryAuthentication(authUserVM.Login, authUserVM.Password))
+                    {
+                        CookieUser cookieUser = new CookieUser();
+                        cookieUser.Login = authUserVM.Login;
+                        cookieUser.Roles = _authUserLogic.GetRolesByUsersLogin(authUserVM.Login).ToList();
 
                         var encTicket = FormsAuthentication.Encrypt(
                                 new FormsAuthenticationTicket(
@@ -57,7 +60,7 @@
                                     DateTime.Now,
                                     DateTime.Now.Add(FormsAuthentication.Timeout),
                                     false,
-                                    JsonConvert.SerializeObject(authUserVM))
+                                    JsonConvert.SerializeObject(cookieUser))
                             );
                         HttpCookie faCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
                         Response.Cookies.Add(faCookie);
@@ -66,7 +69,7 @@
                     }
 
                     ModelState.AddModelError("Login", "You entered uncorrect passord or login doesn't exist");
-                //}
+                }
 
                 return View(authUserVM);
             }

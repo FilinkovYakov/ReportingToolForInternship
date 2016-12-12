@@ -1,24 +1,19 @@
-﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.Initializers
+﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.Automapper
 {
+    using AutoMapper;
     using BLL.Core;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
 
-    public class PLAutomapperInitializer
+    public class PLAutomapper
     {
-        BLLAutomapperInitializer bllInitializer;
+        private static IMapper mapper;
 
-        public PLAutomapperInitializer()
+        static PLAutomapper()
         {
-            bllInitializer = new BLLAutomapperInitializer();
-        }
-
-        public void Initialize()
-        {
-            bllInitializer.Initialize();
-            AutoMapper.Mapper.Initialize(c =>
+            var config = new MapperConfiguration(c =>
             {
                 c.CreateMap<Models.SearchVM, Entities.SearchModel>();
                 c.CreateMap<Entities.SearchModel, Models.SearchVM>();
@@ -35,12 +30,15 @@
                 c.CreateMap<Models.ReportVM, Entities.Report>();
                 c.CreateMap<Entities.Report, Models.ReportVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
 
-                //c.CreateMap<Entities.Report, Entities.RepresentingReport>()
-                //.ForMember(x => x.MentorsFullName, x => x.UseValue(string.Empty))
-                //.ForMember(x => x.InternsFullName, x => x.UseValue(string.Empty));
-
-                //c.CreateMap<Entities.RepresentingReport, Models.RepresentingReportVM>();
+                c.CreateMap<Entities.RepresentingReport, Models.RepresentingReportVM>();
             });
+
+            mapper = config.CreateMapper();
+        }
+
+        public static IMapper Mapper
+        {
+            get { return mapper; }
         }
     }
 }

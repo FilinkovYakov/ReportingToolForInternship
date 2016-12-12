@@ -93,7 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenticationUserLogic.cs" />
-    <Compile Include="BLLAutomapperInitializer.cs" />
+    <Compile Include="BLLAutomapper.cs" />
     <Compile Include="BLLContainerInitializer.cs" />
     <Compile Include="CustomLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

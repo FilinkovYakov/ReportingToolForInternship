@@ -12,16 +12,18 @@
     using BLL.Contracts;
     using System.Threading;
     using AutoMapper;
+    using Automapper;
 
     public class ReportController : Controller
     {
         private readonly IReportLogic _reportLogic;
         private readonly ICustomLogger _customLogger;
 
-        public ReportController(IReportLogic reportLogic, ICustomLogger customLogger)
+        public ReportController(IReportLogic reportLogic, IUserLogic userLogic, ICustomLogger customLogger)
         {
             _reportLogic = reportLogic;
             _customLogger = customLogger;
+            UserLogicProvider.UserLogic = userLogic;
         }
 
         [Authorize(Roles = "Mentor")]
@@ -31,7 +33,7 @@
             {
                 return View();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 _customLogger.RecordError(e);
                 return new HttpStatusCodeResult(500);
@@ -45,7 +47,7 @@
             {
                 return View();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 _customLogger.RecordError(e);
                 return new HttpStatusCodeResult(500);
@@ -62,7 +64,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    _reportLogic.Add(Mapper.Map<Report>(reportVM));
+                    _reportLogic.Add(PLAutomapper.Mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSaveReportAsDraftAfterAddition");
                 }
 
@@ -85,7 +87,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    _reportLogic.Add(Mapper.Map<Report>(reportVM));
+                    _reportLogic.Add(PLAutomapper.Mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSubmitReport");
                 }
 
@@ -103,7 +105,7 @@
         {
             try
             {
-                ReportVM reportVM = Mapper.Map<ReportVM>(_reportLogic.GetById(id));
+                ReportVM reportVM = PLAutomapper.Mapper.Map<ReportVM>(_reportLogic.GetById(id));
                 if (!reportVM.IsDraft)
                 {
                     return new HttpStatusCodeResult(404);
@@ -123,7 +125,7 @@
         {
             try
             {
-                ReportVM reportVM = Mapper.Map<ReportVM>(_reportLogic.GetById(id));
+                ReportVM reportVM = PLAutomapper.Mapper.Map<ReportVM>(_reportLogic.GetById(id));
                 if (!reportVM.IsDraft)
                 {
                     return new HttpStatusCodeResult(404);
@@ -148,7 +150,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    _reportLogic.Edit(Mapper.Map<Report>(reportVM));
+                    _reportLogic.Edit(PLAutomapper.Mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSaveReportAsDraftAfterEditing");
                 }
 
@@ -171,7 +173,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    _reportLogic.Edit(Mapper.Map<Report>(reportVM));
+                    _reportLogic.Edit(PLAutomapper.Mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSubmitReport");
                 }
 
@@ -205,9 +207,9 @@
             {
                 if (ModelState.IsValid)
                 {
-                    IEnumerable<ReportVM> reports = _reportLogic.Search(Mapper.Map<SearchModel>(searchVM))
-                        .Select(report => Mapper.Map<ReportVM>(report));
-                    if (reports.Any())
+                    IList<RepresentingReportVM> reports = _reportLogic.Search(PLAutomapper.Mapper.Map<SearchModel>(searchVM))
+                        ?.Select(report => PLAutomapper.Mapper.Map<RepresentingReportVM>(report)).ToList();
+                    if (reports != null && reports.Any())
                     {
                         return PartialView("_ShowSearchResult", reports);
                     }
@@ -229,7 +231,7 @@
         {
             try
             {
-                ReportVM reportVM = Mapper.Map<ReportVM>(_reportLogic.GetById(id));
+                RepresentingReportVM reportVM = PLAutomapper.Mapper.Map<RepresentingReportVM>(_reportLogic.GetRepresentReportById(id));
                 return View(reportVM);
             }
             catch (Exception e)
@@ -244,7 +246,7 @@
         {
             try
             {
-                ReportVM reportVM = Mapper.Map<ReportVM>(_reportLogic.GetById(id));
+                RepresentingReportVM reportVM = PLAutomapper.Mapper.Map<RepresentingReportVM>(_reportLogic.GetRepresentReportById(id));
                 return View(reportVM);
             }
             catch (Exception e)

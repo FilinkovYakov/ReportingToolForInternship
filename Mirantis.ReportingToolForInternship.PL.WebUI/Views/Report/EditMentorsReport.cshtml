@@ -23,18 +23,18 @@
         @Html.LabelFor(model => model.MentorsId, htmlAttributes: new { @class = "control-label col-xs-2" })
         <div class="col-xs-10">
             <select name="MentorsId" id="MentorsId" class="selectpicker">
-                @foreach (var user in UserRepo.Repo)
+                @foreach (var user in UserLogicProvider.UserLogic.GetUsersByRole("Mentor"))
                 {
                     if (Model.MentorsId == user.Id)
                     {
                         <option value="@user.Id" selected>
-                            @string.Format("{0} - {1}", user.Name, user.Login)
+                            @string.Format("{0} - {1}", user.FullName, user.Login)
                         </option>
                     }
                     else
                     {
                         <option value="@user.Id">
-                            @string.Format("{0} - {1}", user.Name, user.Login)
+                            @string.Format("{0} - {1}", user.FullName, user.Login)
                         </option>
                     }
                 }
@@ -47,18 +47,18 @@
         @Html.LabelFor(model => model.InternsId, htmlAttributes: new { @class = "control-label col-xs-2" })
         <div class="col-xs-10">
             <select name="InternsId" id="InternsId" class="selectpicker">
-                @foreach (var user in UserRepo.Repo)
+                @foreach (var user in UserLogicProvider.UserLogic.GetUsersByRole("Intern"))
                 {
                     if (Model.InternsId == user.Id)
                     {
                         <option value="@user.Id" selected>
-                            @string.Format("{0} - {1}", user.Name, user.Login)
+                            @string.Format("{0} - {1}", user.FullName, user.Login)
                         </option>
                     }
                     else
                     {
                         <option value="@user.Id">
-                            @string.Format("{0} - {1}", user.Name, user.Login)
+                            @string.Format("{0} - {1}", user.FullName, user.Login)
                         </option>
                     }
                 }

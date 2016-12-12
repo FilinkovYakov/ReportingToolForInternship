@@ -2,7 +2,6 @@
 {
     using BLL.Core;
     using Entities;
-    using Initializers;
     using Models;
     using Newtonsoft.Json;
     using System;
@@ -22,9 +21,6 @@
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            PLAutomapperInitializer automapperInitializer = new PLAutomapperInitializer();
-            automapperInitializer.Initialize();
         }
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
@@ -33,7 +29,7 @@
             if (authCookie == null || string.IsNullOrEmpty(authCookie.Value))
                 return;
 
-            var user = JsonConvert.DeserializeObject<AuthenticationUserVM>(FormsAuthentication.Decrypt(authCookie.Value).UserData);
+            var user = JsonConvert.DeserializeObject<CookieUser>(FormsAuthentication.Decrypt(authCookie.Value).UserData);
             if (user != null)
             {
                 HttpContext.Current.User = new UserPrincipal(user.Login, user.Roles);

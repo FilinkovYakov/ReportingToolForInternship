@@ -16,7 +16,16 @@
             using (var client = new AuthenticationServiceClient())
             {
                 AuthenticationService.User user = client.GetAll().Where(authUser => authUser.Id == id).FirstOrDefault();
-                return AutoMapper.Mapper.Map<Entities.User>(user);
+                return ServiceMapper.Mapper.Map<Entities.User>(user);
+            }
+        }
+
+        public Entities.User GetByLogin(string login)
+        {
+            using (var client = new AuthenticationServiceClient())
+            {
+                AuthenticationService.User user = client.GetAll().Where(authUser => authUser.Login == login).FirstOrDefault();
+                return ServiceMapper.Mapper.Map<Entities.User>(user);
             }
         }
 
@@ -31,7 +40,7 @@
                     users = new List<Entities.User>();
                     foreach (var authUser in authUsers)
                     {
-                        users.Add(AutoMapper.Mapper.Map<Entities.User>(authUser));
+                        users.Add(ServiceMapper.Mapper.Map<Entities.User>(authUser));
                     }
                 }
             }

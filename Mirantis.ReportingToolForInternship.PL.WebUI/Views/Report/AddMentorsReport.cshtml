@@ -22,10 +22,10 @@
         @Html.LabelFor(model => model.MentorsId, htmlAttributes: new { @class = "control-label col-xs-2" })
         <div class="col-xs-10">
             <select name="MentorsId" id="MentorsId" class="selectpicker">
-                @foreach (var item in UserRepo.Repo)
+                @foreach (var mentor in UserLogicProvider.UserLogic.GetUsersByRole("Mentor"))
                 {
-                    <option value="@item.Id">
-                        @string.Format("{0} - {1}", item.Name, item.Login)
+                    <option value="@mentor.Id">
+                        @string.Format("{0} - {1}", mentor.FullName, mentor.Login)
                     </option>
                 }
             </select>
@@ -37,10 +37,10 @@
         @Html.LabelFor(model => model.InternsId, htmlAttributes: new { @class = "control-label col-xs-2" })
         <div class="col-xs-10">
             <select name="InternsId" id="InternsId" class="selectpicker">
-                @foreach (var item in UserRepo.Repo)
+                @foreach (var intern in UserLogicProvider.UserLogic.GetUsersByRole("Intern"))
                 {
-                    <option value="@item.Id">
-                        @string.Format("{0} - {1}", item.Name, item.Login)
+                    <option value="@intern.Id">
+                        @string.Format("{0} - {1}", intern.FullName, intern.Login)
                     </option>
                 }
             </select>

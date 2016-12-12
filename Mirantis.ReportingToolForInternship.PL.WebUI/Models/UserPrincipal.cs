@@ -15,7 +15,7 @@
 
         public UserPrincipal(string login, IList<Role> roles)
         {
-            _login = login;
+            _login = login ?? string.Empty;
             _roles = roles;
             _identity = new GenericIdentity(_login);
         }

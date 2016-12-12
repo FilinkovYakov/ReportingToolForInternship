@@ -64,7 +64,7 @@
   <ItemGroup>
     <Compile Include="AuthenticationUserDAO.cs" />
     <Compile Include="DataServiceContainerInitializer.cs" />
-    <Compile Include="DataServiceMapperInitializer.cs" />
+    <Compile Include="ServiceMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\AuthenticationService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -119,6 +119,12 @@
     <None Include="Service References\AuthenticationService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\AuthenticationService\Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.Role.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AuthenticationService\Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\AuthenticationService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

@@ -14,7 +14,7 @@
 
             using (var client = new AuthenticationServiceClient())
             {
-                User user = client.SearchUser(login, "", "").First();
+                AuthenticationService.User user = client.SearchUser(login, "", "").First();
 
                 if (user == null)
                 {
@@ -26,7 +26,7 @@
                     roles = new List<Entities.Role>();
                     foreach (var item in user.Roles)
                     {
-                        roles.Add(AutoMapper.Mapper.Map<Entities.Role>(item));
+                        roles.Add(ServiceMapper.Mapper.Map<Entities.Role>(item));
                     }
                 }
             }
@@ -43,9 +43,9 @@
                 {
                     return false;
                 }
-            }
 
-            return true;
+                return true;
+            }
         }
     }
 }

@@ -207,15 +207,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Initializers\PLAutomapperInitializer.cs" />
+    <Compile Include="Automapper\PLAutomapper.cs" />
     <Compile Include="Models\ActivityVM.cs" />
     <Compile Include="Models\AuthenticationUserVM.cs" />
+    <Compile Include="Models\CookieUser.cs" />
     <Compile Include="Models\FuturePlanVM.cs" />
     <Compile Include="Models\QuestionVM.cs" />
     <Compile Include="Models\ReportVM.cs" />
     <Compile Include="Models\Repositories\TypeOccuringRepo.cs" />
     <Compile Include="Models\Repositories\TypeOriginRepo.cs" />
-    <Compile Include="Models\Repositories\UserRepo.cs" />
+    <Compile Include="Models\Repositories\UserLogicProvider.cs" />
     <Compile Include="Models\RepresentingReportVM.cs" />
     <Compile Include="Models\SearchVM.cs" />
     <Compile Include="Models\UserPrincipal.cs" />

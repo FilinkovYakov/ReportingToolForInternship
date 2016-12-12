@@ -1,14 +1,14 @@
 ﻿@using Mirantis.ReportingToolForInternship.PL.WebUI.Models.Repositories;
 
-@model IEnumerable<Mirantis.ReportingToolForInternship.PL.WebUI.Models.ReportVM>
+@model IEnumerable<Mirantis.ReportingToolForInternship.PL.WebUI.Models.RepresentingReportVM>
 
 <table class="table table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MentorsId)
+            @Html.DisplayNameFor(model => model.MentorsFullName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.InternsId)
+            @Html.DisplayNameFor(model => model.InternsFullName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TypeOccuring)
@@ -23,12 +23,10 @@
     {
         <tr>
             <td>
-                @UserRepo.GetById(item.MentorsId).Name
-                @*@Html.DisplayFor(modelItem => item.MentorsId)*@
+                @Html.DisplayFor(modelItem => item.MentorsFullName)
             </td>
             <td>
-                @UserRepo.GetById(item.InternsId).Name
-                @*@Html.DisplayFor(modelItem => item.InternsId)*@
+                @Html.DisplayFor(modelItem => item.InternsFullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TypeOccuring)
@@ -37,7 +35,7 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @if (item.MentorsId == null)
+                @if (string.IsNullOrEmpty(item.MentorsFullName))
                 {
                     if (User.IsInRole("Intern") && item.IsDraft)
                     {

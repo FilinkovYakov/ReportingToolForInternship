@@ -23,13 +23,6 @@
         [Display(Name = "Type occuring :")]
         public string TypeOccuring { get; set; }
         
-        [ActivitiesValidator]
-        [ActivityValidator]
-        public List<ActivityVM> Activities { get; set; }
-
-        [FuturePlansValidator]
-        public List<FuturePlanVM> FuturePlans { get; set; }
-
         [Required(ErrorMessage = "Field 'From' is required")]
         [Display(Name = "Date :")]
         [DataType(DataType.Date)]
@@ -38,5 +31,12 @@
 
         [Display(Name = "Is draft :")]
         public bool IsDraft { get; set; }
+
+        [ActivitiesValidator]
+        [ActivityValidator]
+        public List<ActivityVM> Activities { get; set; }
+
+        [FuturePlansValidator]
+        public List<FuturePlanVM> FuturePlans { get; set; }
     }
 }

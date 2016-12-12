@@ -1232,3 +1232,202 @@ Error Number:3702,State:4,Class:16
    at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
    at Mirantis.ReportingToolForInternship.DAL.DataAccessEF.ReportDAO.Search(SearchModel searchModel) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\ReportDAO.cs:line 61
    at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.Search(SearchModel searchModel) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 70
+2016-12-12 11:27:59,408 [10] ERROR CustomLogger - System.InvalidOperationException: Could not find default endpoint element that references contract 'AuthenticationService.IAuthenticationService' in the ServiceModel client configuration section. This might be because no configuration file was found for your application, or because no endpoint element matching this contract could be found in the client element.
+   at System.ServiceModel.Description.ConfigLoader.LoadChannelBehaviors(ServiceEndpoint serviceEndpoint, String configurationName)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName, Configuration configuration)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName)
+   at System.ServiceModel.ChannelFactory.InitializeEndpoint(String configurationName, EndpointAddress address)
+   at System.ServiceModel.ChannelFactory`1..ctor(String endpointConfigurationName, EndpointAddress remoteAddress)
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateSimplexFactory()
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateChannelFactory()
+   at System.ServiceModel.ClientBase`1.CreateChannelFactoryRef(EndpointTrait`1 endpointTrait)
+   at System.ServiceModel.ClientBase`1.InitializeChannelFactoryRef()
+   at System.ServiceModel.ClientBase`1..ctor()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient..ctor() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 391
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 39
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 37
+2016-12-12 11:27:59,450 [10] ERROR CustomLogger - System.InvalidOperationException: Could not find default endpoint element that references contract 'AuthenticationService.IAuthenticationService' in the ServiceModel client configuration section. This might be because no configuration file was found for your application, or because no endpoint element matching this contract could be found in the client element.
+   at System.ServiceModel.Description.ConfigLoader.LoadChannelBehaviors(ServiceEndpoint serviceEndpoint, String configurationName)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName, Configuration configuration)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName)
+   at System.ServiceModel.ChannelFactory.InitializeEndpoint(String configurationName, EndpointAddress address)
+   at System.ServiceModel.ChannelFactory`1..ctor(String endpointConfigurationName, EndpointAddress remoteAddress)
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateSimplexFactory()
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateChannelFactory()
+   at System.ServiceModel.ClientBase`1.CreateChannelFactoryRef(EndpointTrait`1 endpointTrait)
+   at System.ServiceModel.ClientBase`1.InitializeChannelFactoryRef()
+   at System.ServiceModel.ClientBase`1..ctor()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient..ctor() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 391
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 39
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 42
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.AuthenticationUserController.SignIn(AuthenticationUserVM authUserVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\AuthenticationUserController.cs:line 48
+2016-12-12 11:28:06,809 [8] ERROR CustomLogger - System.InvalidOperationException: Could not find default endpoint element that references contract 'AuthenticationService.IAuthenticationService' in the ServiceModel client configuration section. This might be because no configuration file was found for your application, or because no endpoint element matching this contract could be found in the client element.
+   at System.ServiceModel.Description.ConfigLoader.LoadChannelBehaviors(ServiceEndpoint serviceEndpoint, String configurationName)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName, Configuration configuration)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName)
+   at System.ServiceModel.ChannelFactory.InitializeEndpoint(String configurationName, EndpointAddress address)
+   at System.ServiceModel.ChannelFactory`1..ctor(String endpointConfigurationName, EndpointAddress remoteAddress)
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateSimplexFactory()
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateChannelFactory()
+   at System.ServiceModel.ClientBase`1.CreateChannelFactoryRef(EndpointTrait`1 endpointTrait)
+   at System.ServiceModel.ClientBase`1.InitializeChannelFactoryRef()
+   at System.ServiceModel.ClientBase`1..ctor()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient..ctor() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 391
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 39
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 37
+2016-12-12 11:28:09,630 [8] ERROR CustomLogger - System.InvalidOperationException: Could not find default endpoint element that references contract 'AuthenticationService.IAuthenticationService' in the ServiceModel client configuration section. This might be because no configuration file was found for your application, or because no endpoint element matching this contract could be found in the client element.
+   at System.ServiceModel.Description.ConfigLoader.LoadChannelBehaviors(ServiceEndpoint serviceEndpoint, String configurationName)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName, Configuration configuration)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName)
+   at System.ServiceModel.ChannelFactory.InitializeEndpoint(String configurationName, EndpointAddress address)
+   at System.ServiceModel.ChannelFactory`1..ctor(String endpointConfigurationName, EndpointAddress remoteAddress)
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateSimplexFactory()
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateChannelFactory()
+   at System.ServiceModel.ClientBase`1.CreateChannelFactoryRef(EndpointTrait`1 endpointTrait)
+   at System.ServiceModel.ClientBase`1.InitializeChannelFactoryRef()
+   at System.ServiceModel.ClientBase`1..ctor()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient..ctor() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 391
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 39
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 42
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.AuthenticationUserController.SignIn(AuthenticationUserVM authUserVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\AuthenticationUserController.cs:line 48
+2016-12-12 11:28:37,921 [8] ERROR CustomLogger - System.InvalidOperationException: Could not find default endpoint element that references contract 'AuthenticationService.IAuthenticationService' in the ServiceModel client configuration section. This might be because no configuration file was found for your application, or because no endpoint element matching this contract could be found in the client element.
+   at System.ServiceModel.Description.ConfigLoader.LoadChannelBehaviors(ServiceEndpoint serviceEndpoint, String configurationName)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName, Configuration configuration)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName)
+   at System.ServiceModel.ChannelFactory.InitializeEndpoint(String configurationName, EndpointAddress address)
+   at System.ServiceModel.ChannelFactory`1..ctor(String endpointConfigurationName, EndpointAddress remoteAddress)
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateSimplexFactory()
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateChannelFactory()
+   at System.ServiceModel.ClientBase`1.CreateChannelFactoryRef(EndpointTrait`1 endpointTrait)
+   at System.ServiceModel.ClientBase`1.InitializeChannelFactoryRef()
+   at System.ServiceModel.ClientBase`1..ctor()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient..ctor() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 391
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 39
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 37
+2016-12-12 11:28:47,810 [8] ERROR CustomLogger - System.InvalidOperationException: Could not find default endpoint element that references contract 'AuthenticationService.IAuthenticationService' in the ServiceModel client configuration section. This might be because no configuration file was found for your application, or because no endpoint element matching this contract could be found in the client element.
+   at System.ServiceModel.Description.ConfigLoader.LoadChannelBehaviors(ServiceEndpoint serviceEndpoint, String configurationName)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName, Configuration configuration)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName)
+   at System.ServiceModel.ChannelFactory.InitializeEndpoint(String configurationName, EndpointAddress address)
+   at System.ServiceModel.ChannelFactory`1..ctor(String endpointConfigurationName, EndpointAddress remoteAddress)
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateSimplexFactory()
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateChannelFactory()
+   at System.ServiceModel.ClientBase`1.CreateChannelFactoryRef(EndpointTrait`1 endpointTrait)
+   at System.ServiceModel.ClientBase`1.InitializeChannelFactoryRef()
+   at System.ServiceModel.ClientBase`1..ctor()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient..ctor() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 391
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 39
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 42
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.AuthenticationUserController.SignIn(AuthenticationUserVM authUserVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\AuthenticationUserController.cs:line 48
+2016-12-12 11:32:53,480 [10] ERROR CustomLogger - System.InvalidOperationException: Could not find default endpoint element that references contract 'AuthenticationService.IAuthenticationService' in the ServiceModel client configuration section. This might be because no configuration file was found for your application, or because no endpoint element matching this contract could be found in the client element.
+   at System.ServiceModel.Description.ConfigLoader.LoadChannelBehaviors(ServiceEndpoint serviceEndpoint, String configurationName)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName, Configuration configuration)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName)
+   at System.ServiceModel.ChannelFactory.InitializeEndpoint(String configurationName, EndpointAddress address)
+   at System.ServiceModel.ChannelFactory`1..ctor(String endpointConfigurationName, EndpointAddress remoteAddress)
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateSimplexFactory()
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateChannelFactory()
+   at System.ServiceModel.ClientBase`1.CreateChannelFactoryRef(EndpointTrait`1 endpointTrait)
+   at System.ServiceModel.ClientBase`1.InitializeChannelFactoryRef()
+   at System.ServiceModel.ClientBase`1..ctor()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient..ctor() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 391
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 39
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 37
+2016-12-12 11:32:53,511 [10] ERROR CustomLogger - System.InvalidOperationException: Could not find default endpoint element that references contract 'AuthenticationService.IAuthenticationService' in the ServiceModel client configuration section. This might be because no configuration file was found for your application, or because no endpoint element matching this contract could be found in the client element.
+   at System.ServiceModel.Description.ConfigLoader.LoadChannelBehaviors(ServiceEndpoint serviceEndpoint, String configurationName)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName, Configuration configuration)
+   at System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName)
+   at System.ServiceModel.ChannelFactory.InitializeEndpoint(String configurationName, EndpointAddress address)
+   at System.ServiceModel.ChannelFactory`1..ctor(String endpointConfigurationName, EndpointAddress remoteAddress)
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateSimplexFactory()
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateChannelFactory()
+   at System.ServiceModel.ClientBase`1.CreateChannelFactoryRef(EndpointTrait`1 endpointTrait)
+   at System.ServiceModel.ClientBase`1.InitializeChannelFactoryRef()
+   at System.ServiceModel.ClientBase`1..ctor()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient..ctor() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 391
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 39
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 42
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.AuthenticationUserController.SignIn(AuthenticationUserVM authUserVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\AuthenticationUserController.cs:line 48
+2016-12-12 11:54:56,222 [10] ERROR CustomLogger - AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Role -> Role
+Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.Role -> Mirantis.ReportingToolForInternship.Entities.Role
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.GetRolesByUsersLogin(String login)
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.GetRolesByUsersLogin(String login) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 24
+2016-12-12 11:54:56,258 [10] ERROR CustomLogger - AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Role -> Role
+Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.Role -> Mirantis.ReportingToolForInternship.Entities.Role
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.GetRolesByUsersLogin(String login)
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.GetRolesByUsersLogin(String login) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 29
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.AuthenticationUserController.SignIn(AuthenticationUserVM authUserVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\AuthenticationUserController.cs:line 50
+2016-12-12 11:55:12,479 [11] ERROR CustomLogger - AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Role -> Role
+Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.Role -> Mirantis.ReportingToolForInternship.Entities.Role
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.GetRolesByUsersLogin(String login)
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.GetRolesByUsersLogin(String login) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 24
+2016-12-12 11:56:45,138 [11] ERROR CustomLogger - AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Role -> Role
+Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.Role -> Mirantis.ReportingToolForInternship.Entities.Role
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.GetRolesByUsersLogin(String login) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 29
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.GetRolesByUsersLogin(String login) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 24
+2016-12-12 11:56:51,982 [11] ERROR CustomLogger - AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Role -> Role
+Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.Role -> Mirantis.ReportingToolForInternship.Entities.Role
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.GetRolesByUsersLogin(String login) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 29
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.GetRolesByUsersLogin(String login) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 29
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.AuthenticationUserController.SignIn(AuthenticationUserVM authUserVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\AuthenticationUserController.cs:line 50
+2016-12-12 12:06:33,161 [10] ERROR CustomLogger - AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Role -> Role
+Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.Role -> Mirantis.ReportingToolForInternship.Entities.Role
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.GetRolesByUsersLogin(String login) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 29
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.GetRolesByUsersLogin(String login) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 24
+2016-12-12 12:06:33,189 [10] ERROR CustomLogger - AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Role -> Role
+Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.Role -> Mirantis.ReportingToolForInternship.Entities.Role
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.GetRolesByUsersLogin(String login) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 29
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.GetRolesByUsersLogin(String login) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 29
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.AuthenticationUserController.SignIn(AuthenticationUserVM authUserVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\AuthenticationUserController.cs:line 50
+2016-12-12 12:44:47,652 [12] ERROR CustomLogger - System.NullReferenceException: Object reference not set to an instance of an object.
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 209
+2016-12-12 15:56:14,386 [10] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: source
+   at System.Linq.Enumerable.Select[TSource,TResult](IEnumerable`1 source, Func`2 selector)
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 210
+2016-12-12 16:00:55,623 [9] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: source
+   at System.Linq.Enumerable.Select[TSource,TResult](IEnumerable`1 source, Func`2 selector)
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 210
