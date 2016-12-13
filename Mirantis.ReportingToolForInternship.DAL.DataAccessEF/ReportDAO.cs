@@ -62,7 +62,7 @@
                 if (searchModel.DateTo != null)
                 {
                     query = query.Where(report => report.Date <= searchModel.DateTo);
-                } 
+                }
 
                 if (searchModel.DateFrom != null)
                 {
@@ -93,6 +93,17 @@
                 else if (searchModel.TypeOrigin == "Intern's")
                 {
                     query = query.Where(report => report.MentorsId == null);
+                }
+
+                if (searchModel.RequesterUserId != null)
+                {
+                    query = query.Where(report => !report.IsDraft 
+                || report.IsDraft && report.MentorsId == null && report.InternsId == searchModel.RequesterUserId
+                || report.IsDraft && report.MentorsId != null && report.MentorsId == searchModel.RequesterUserId);
+                }
+                else
+                {
+                    query = query.Where(report => !report.IsDraft);
                 }
 
                 query = query.OrderBy(report => report.Date);

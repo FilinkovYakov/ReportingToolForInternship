@@ -11,6 +11,7 @@
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Security;
+    using Automapper;
 
     public class AuthenticationUserController : Controller
     {
@@ -47,11 +48,10 @@
             {
                 if (ModelState.IsValid)
                 {
-                    if (_authUserLogic.TryAuthentication(authUserVM.Login, authUserVM.Password))
+                    User user = _authUserLogic.TryAuthentication(authUserVM.Login, authUserVM.Password);
+                    if (user != null)
                     {
-                        CookieUser cookieUser = new CookieUser();
-                        cookieUser.Login = authUserVM.Login;
-                        cookieUser.Roles = _authUserLogic.GetRolesByUsersLogin(authUserVM.Login).ToList();
+                        CookieUser cookieUser = PLAutomapper.Mapper.Map<CookieUser>(user);
 
                         var encTicket = FormsAuthentication.Encrypt(
                                 new FormsAuthenticationTicket(

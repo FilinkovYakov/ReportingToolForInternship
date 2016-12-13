@@ -35,7 +35,7 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @if (string.IsNullOrEmpty(item.MentorsFullName))
+                @if (item.IsInternsReport())
                 {
                     if (User.IsInRole("Intern") && item.IsDraft)
                     {

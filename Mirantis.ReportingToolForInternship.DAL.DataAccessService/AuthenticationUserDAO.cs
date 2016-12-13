@@ -8,43 +8,12 @@
 
     class AuthenticationUserDAO : IAuthenticationUserDAO
     {
-        public IList<Entities.Role> GetRolesByUsersLogin(string login)
-        {
-            IList<Entities.Role> roles = null;
-
-            using (var client = new AuthenticationServiceClient())
-            {
-                AuthenticationService.User user = client.SearchUser(login, "", "").First();
-
-                if (user == null)
-                {
-                    throw new ArgumentException("User with current login doesn't exist");
-                }
-
-                if (user.Roles != null && user.Roles.Any())
-                {
-                    roles = new List<Entities.Role>();
-                    foreach (var item in user.Roles)
-                    {
-                        roles.Add(ServiceMapper.Mapper.Map<Entities.Role>(item));
-                    }
-                }
-            }
-
-            return roles;
-        }
-
-        public bool TryAuthentication(string login, string password)
+        public Entities.User TryAuthentication(string login, string password)
         {
             using (var client = new AuthenticationServiceClient())
             {
-                OperationResult qwe = client.AuthorizationUser(login, password);
-                if (qwe.Errors == null || qwe.Errors.Any())
-                {
-                    return false;
-                }
-
-                return true;
+                OperationResultOfUser result = client.AuthorizationUser(login, password);
+                return ServiceMapper.Mapper.Map<Entities.User>(result.Result);
             }
         }
     }

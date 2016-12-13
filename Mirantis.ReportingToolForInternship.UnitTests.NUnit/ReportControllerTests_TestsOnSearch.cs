@@ -18,7 +18,7 @@
             Mock<IReportLogic> reportLogic = new Mock<IReportLogic>();
             reportLogic.Setup(t => t.Search(It.IsAny<SearchModel>())).Verifiable();
 
-            ReportController reportCtrl = new ReportController(reportLogic.Object, Mock.Of<ICustomLogger>());
+            ReportController reportCtrl = new ReportController(reportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
             SearchVM searhVM = SearchModelProvider.GetSearchVM();
 
             ActionResult result = reportCtrl.ShowSearchResult(searhVM);

@@ -30,6 +30,8 @@
                 c.CreateMap<Models.ReportVM, Entities.Report>();
                 c.CreateMap<Entities.Report, Models.ReportVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
 
+                c.CreateMap<Entities.User, Models.CookieUser>();
+
                 c.CreateMap<Entities.RepresentingReport, Models.RepresentingReportVM>();
             });
 

@@ -2,7 +2,7 @@
 /// <reference path="disableInputs.js" />
 /// <reference path="constructors.js" />
 /// <reference path="actionsAfterFail.js" />
-/// <reference path="actionsAfterSuccessfullAdditionReport.js" />
+/// <reference path="actionsAfterSuccessfullChangeReport.js" />
 /// <reference path="changeRulesValidation.js" />
 /// <reference path="validationActivities.js" />
 /// <reference path="validationInternsActivities.js" />
@@ -15,7 +15,6 @@
 $(document).ready(function () {
     var $submitButton = $("#SubmitButton"),
         $saveAsDraftButton = $("#SaveAsDraftButton"),
-        $internsIdInput = $("#InternsId"),
         $typeInput = $("#TypeOccuring"),
         $dateInput = $("#Date"),
         ajaxSettingsSubmitReport = {
@@ -25,10 +24,10 @@ $(document).ready(function () {
             dataType: 'html',
             success: function (result) {
                 hideLoadingIcon();
-                alertAboutSuccessfullAddition(result);
+                alertAboutSuccessfullChange(result);
             },
             error: function (result) {
-                alertAboutFailedAddition(result);
+                alertAboutFail(result);
             }
         },
         ajaxSettingsSaveReport = {
@@ -38,10 +37,10 @@ $(document).ready(function () {
             dataType: 'html',
             success: function (result) {
                 hideLoadingIcon();
-                alertAboutSuccessfullAddition(result);
+                alertAboutSuccessfullChange(result);
             },
             error: function (result) {
-                alertAboutFailedAddition(result);
+                alertAboutFail(result);
             }
         };
 
@@ -55,7 +54,6 @@ $(document).ready(function () {
 
     function isModelValidate() {
         var isValidForm = true;
-        isValidForm = $internsIdInput.valid() && isValidForm;
         isValidForm = $typeInput.valid() && isValidForm;
         isValidForm = $dateInput.valid() && isValidForm;
         isValidForm = validationActivitiesFromInternsReport() && isValidForm;

@@ -31,7 +31,7 @@ function setConditionDisablingOnSelects(value) {
 
 function setConditionDisablingOnButtons(value) {
     var $buttons = $(".btn");
-    $buttons.prop("disabled", value);
+    $buttons.prop("readonly", value);
 
     if (value) {
         $buttons.removeClass("btn-default");

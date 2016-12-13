@@ -8,6 +8,8 @@
 
     public class SearchModel
     {
+        public int? RequesterUserId { get; set; }
+
         public int? InternsId { get; set; }
 
         public int? MentorsId { get; set; }

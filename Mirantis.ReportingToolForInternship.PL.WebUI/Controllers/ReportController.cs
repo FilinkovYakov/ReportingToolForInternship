@@ -18,11 +18,14 @@
     {
         private readonly IReportLogic _reportLogic;
         private readonly ICustomLogger _customLogger;
+        private readonly IUserLogic _userLogic;
 
         public ReportController(IReportLogic reportLogic, IUserLogic userLogic, ICustomLogger customLogger)
         {
             _reportLogic = reportLogic;
             _customLogger = customLogger;
+            _userLogic = userLogic;
+
             UserLogicProvider.UserLogic = userLogic;
         }
 
@@ -60,6 +63,25 @@
         {
             try
             {
+                if (reportVM.InternsId.HasValue)
+                {
+                    if (!User.IsInRole("Mentor"))
+                    {
+                        return new HttpStatusCodeResult(403);
+                    }
+
+                    reportVM.MentorsId = int.Parse(User.Identity.Name);
+                }
+                else
+                {
+                    if (!User.IsInRole("Intern"))
+                    {
+                        return new HttpStatusCodeResult(403);
+                    }
+
+                    reportVM.InternsId = int.Parse(User.Identity.Name);
+                }
+
                 reportVM.IsDraft = true;
 
                 if (ModelState.IsValid)
@@ -83,6 +105,25 @@
         {
             try
             {
+                if (reportVM.InternsId.HasValue)
+                {
+                    if (!User.IsInRole("Mentor"))
+                    {
+                        return new HttpStatusCodeResult(403);
+                    }
+
+                    reportVM.MentorsId = int.Parse(User.Identity.Name);
+                }
+                else
+                {
+                    if (!User.IsInRole("Intern"))
+                    {
+                        return new HttpStatusCodeResult(403);
+                    }
+
+                    reportVM.InternsId = int.Parse(User.Identity.Name);
+                }
+
                 reportVM.IsDraft = false;
 
                 if (ModelState.IsValid)
@@ -106,6 +147,17 @@
             try
             {
                 ReportVM reportVM = PLAutomapper.Mapper.Map<ReportVM>(_reportLogic.GetById(id));
+                if(reportVM.MentorsId.HasValue)
+                {
+                    return new HttpStatusCodeResult(403);
+                }
+
+                int requestersId = int.Parse(User.Identity.Name);
+                if (reportVM.InternsId != requestersId)
+                {
+                    return new HttpStatusCodeResult(403);
+                }
+
                 if (!reportVM.IsDraft)
                 {
                     return new HttpStatusCodeResult(404);
@@ -126,6 +178,17 @@
             try
             {
                 ReportVM reportVM = PLAutomapper.Mapper.Map<ReportVM>(_reportLogic.GetById(id));
+                if (!reportVM.MentorsId.HasValue)
+                {
+                    return new HttpStatusCodeResult(403);
+                }
+
+                int requestersId = int.Parse(User.Identity.Name);
+                if (reportVM.MentorsId != requestersId)
+                {
+                    return new HttpStatusCodeResult(403);
+                }
+
                 if (!reportVM.IsDraft)
                 {
                     return new HttpStatusCodeResult(404);
@@ -146,6 +209,25 @@
         {
             try
             {
+                if (reportVM.MentorsId.HasValue)
+                {
+                    if (!User.IsInRole("Mentor"))
+                    {
+                        return new HttpStatusCodeResult(403);
+                    }
+
+                    reportVM.MentorsId = int.Parse(User.Identity.Name);
+                }
+                else
+                {
+                    if (!User.IsInRole("Intern"))
+                    {
+                        return new HttpStatusCodeResult(403);
+                    }
+
+                    reportVM.InternsId = int.Parse(User.Identity.Name);
+                }
+
                 reportVM.IsDraft = true;
 
                 if (ModelState.IsValid)
@@ -169,6 +251,25 @@
         {
             try
             {
+                if (reportVM.MentorsId.HasValue)
+                {
+                    if (!User.IsInRole("Mentor"))
+                    {
+                        return new HttpStatusCodeResult(403);
+                    }
+
+                    reportVM.MentorsId = int.Parse(User.Identity.Name);
+                }
+                else
+                {
+                    if (!User.IsInRole("Intern"))
+                    {
+                        return new HttpStatusCodeResult(403);
+                    }
+
+                    reportVM.InternsId = int.Parse(User.Identity.Name);
+                }
+
                 reportVM.IsDraft = false;
 
                 if (ModelState.IsValid)
@@ -207,6 +308,13 @@
             {
                 if (ModelState.IsValid)
                 {
+                    int? requesterId = null;
+                    if (!string.IsNullOrEmpty(User.Identity.Name))
+                    {
+                        requesterId = int.Parse(User.Identity.Name);
+                    }
+
+                    searchVM.RequesterUserId = requesterId;
                     IList<RepresentingReportVM> reports = _reportLogic.Search(PLAutomapper.Mapper.Map<SearchModel>(searchVM))
                         ?.Select(report => PLAutomapper.Mapper.Map<RepresentingReportVM>(report)).ToList();
                     if (reports != null && reports.Any())
@@ -232,6 +340,18 @@
             try
             {
                 RepresentingReportVM reportVM = PLAutomapper.Mapper.Map<RepresentingReportVM>(_reportLogic.GetRepresentReportById(id));
+                if (!reportVM.IsInternsReport())
+                {
+                    return new HttpStatusCodeResult(403);
+                }
+
+                int requesterId = int.Parse(User.Identity.Name);
+                User requesterUser = _userLogic.GetById(requesterId);
+                if (requesterUser.FullName != reportVM.InternsFullName && reportVM.IsDraft)
+                {
+                    return new HttpStatusCodeResult(403);
+                }
+
                 return View(reportVM);
             }
             catch (Exception e)
@@ -247,6 +367,18 @@
             try
             {
                 RepresentingReportVM reportVM = PLAutomapper.Mapper.Map<RepresentingReportVM>(_reportLogic.GetRepresentReportById(id));
+                if (reportVM.IsInternsReport())
+                {
+                    return new HttpStatusCodeResult(403);
+                }
+
+                int requesterId = int.Parse(User.Identity.Name);
+                User requesterUser = _userLogic.GetById(requesterId);
+                if (requesterUser.FullName != reportVM.MentorsFullName && reportVM.IsDraft)
+                {
+                    return new HttpStatusCodeResult(403);
+                }
+
                 return View(reportVM);
             }
             catch (Exception e)

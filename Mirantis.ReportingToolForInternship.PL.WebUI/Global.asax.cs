@@ -32,7 +32,7 @@
             var user = JsonConvert.DeserializeObject<CookieUser>(FormsAuthentication.Decrypt(authCookie.Value).UserData);
             if (user != null)
             {
-                HttpContext.Current.User = new UserPrincipal(user.Login, user.Roles);
+                HttpContext.Current.User = new UserPrincipal(user.Id, user.Roles);
             }
         }
     }

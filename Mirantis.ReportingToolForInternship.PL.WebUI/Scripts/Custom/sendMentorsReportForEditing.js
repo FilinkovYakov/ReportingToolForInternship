@@ -1,7 +1,7 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
 /// <reference path="constructors.js" />
 /// <reference path="actionsAfterFail.js" />
-/// <reference path="actionsAfterSuccessfullAdditionReport.js" />
+/// <reference path="actionsAfterSuccessfullChangeReport.js" />
 /// <reference path="changeRulesValidation.js" />
 /// <reference path="validationActivities.js" />
 /// <reference path="validationMentorsActivities.js" />
@@ -15,7 +15,6 @@
 $(document).ready(function () {
     var $submitButton = $("#SubmitButton"),
         $saveAsDraftButton = $("#SaveAsDraftButton"),
-        $mentorsIdInput = $("#MentorsId"),
         $internsIdInput = $("#InternsId"),
         $typeInput = $("#TypeOccuring"),
         $dateInput = $("#Date"),
@@ -26,10 +25,10 @@ $(document).ready(function () {
             dataType: 'html',
             success: function (result) {
                 hideLoadingIcon();
-                alertAboutSuccessfullEditing(result);
+                alertAboutSuccessfullChange(result);
             },
             error: function (result) {
-                alertAboutFailedAddition(result);
+                alertAboutFail(result);
             }
         },
         ajaxSettingsSubmitReport = {
@@ -39,10 +38,10 @@ $(document).ready(function () {
             dataType: 'html',
             success: function (result) {
                 hideLoadingIcon();
-                alertAboutSuccessfullEditing(result);
+                alertAboutSuccessfullChange(result);
             },
             error: function (result) {
-                alertAboutFailedAddition(result);
+                alertAboutFail(result);
             }
         };
 
@@ -56,7 +55,6 @@ $(document).ready(function () {
 
     function isModelValidate() {
         var isValidForm = true;
-        isValidForm = $mentorsIdInput.valid() && isValidForm;
         isValidForm = $internsIdInput.valid() && isValidForm;
         isValidForm = $typeInput.valid() && isValidForm;
         isValidForm = $dateInput.valid() && isValidForm;

@@ -2,9 +2,10 @@
 /// <reference path="clearInputs.js" />
 /// <reference path="disableInputs.js" />
 
-function alertAboutSuccessfullAddition(result) {
+function alertAboutSuccessfullChange(result) {
     showMessageStatusReport(result);
     assignEventToAdderNewReportButton();
+    assignEventToReworkReportButton();
     assignEventToSearchReportsButton();
 }
 
@@ -18,6 +19,14 @@ function assignEventToAdderNewReportButton() {
         clearInputs();
 
         $(".date").datepicker("setDate", new Date());
+    });
+}
+
+function assignEventToReworkReportButton() {
+    $("#ReworkReport").click(function () {
+        //$("#MessageAboutSuccessOperation").slideToggle(1000);
+        unlockAllFunctions();
+        location.reload();
     });
 }
 

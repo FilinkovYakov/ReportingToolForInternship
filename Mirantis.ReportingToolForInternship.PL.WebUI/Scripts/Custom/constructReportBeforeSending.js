@@ -31,7 +31,7 @@ function constructIdByInput(input, classOfWrapperWithId) {
 }
 
 function constructReportVM() {
-    var id = constructRecordByJquery($(".reportId")),
+    var id = constructRecordByJquery($("#ReportId")),
         mentorsId = constructRecordByJquery($("#MentorsId")),
         internsId = constructRecordByJquery($("#InternsId")),
         typeOccuring = constructRecordByJquery($("#TypeOccuring")),

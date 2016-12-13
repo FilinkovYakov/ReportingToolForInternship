@@ -39,5 +39,10 @@
 
         [FuturePlansValidator]
         public List<FuturePlanVM> FuturePlans { get; set; }
+
+        public bool IsInternsReport()
+        {
+            return string.IsNullOrEmpty(MentorsFullName);
+        }
     }
 }

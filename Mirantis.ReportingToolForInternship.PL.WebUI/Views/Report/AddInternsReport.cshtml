@@ -18,21 +18,6 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.InternsId, htmlAttributes: new { @class = "control-label col-xs-2" })
-        <div class="col-xs-10">
-            <select name="InternsId" id="InternsId" class="selectpicker">
-                @foreach (var user in UserLogicProvider.UserLogic.GetUsersByRole("Intern"))
-                {
-                    <option value="@user.Id">
-                        @string.Format("{0} - {1}", user.FullName, user.Login)
-                    </option>
-                }
-            </select>
-            @Html.ValidationMessageFor(model => model.InternsId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
         @Html.LabelFor(model => model.TypeOccuring, htmlAttributes: new { @class = "control-label col-xs-2" })
         <div class="col-xs-10">
             <select name="TypeOccuring" id="TypeOccuring" class="selectpicker">
@@ -165,7 +150,7 @@
     <script src="~/Scripts/Custom/validationInternsActivities.js"></script>
     <script src="~/Scripts/Custom/validationFuturePlans.js"></script>
     <script src="~/Scripts/Custom/actionsAfterFail.js"></script>
-    <script src="~/Scripts/Custom/actionsAfterSuccessfullAdditionReport.js"></script>
+    <script src="~/Scripts/Custom/actionsAfterSuccessfullChangeReport.js"></script>
     <script src="~/Scripts/Custom/assignEventsToRemoverButtons.js"></script>
     <script src="~/Scripts/Custom/assignEventsToRemoverActivityButtons.js"></script>
     <script src="~/Scripts/Custom/assignEventsToAdderButtons.js"></script>

@@ -5,7 +5,6 @@
 
     public interface IAuthenticationUserLogic
     {
-        IList<Role> GetRolesByUsersLogin(string login);
-        bool TryAuthentication(string login, string password);
+        User TryAuthentication(string login, string password);
     }
 }

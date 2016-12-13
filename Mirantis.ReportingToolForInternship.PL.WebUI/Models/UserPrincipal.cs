@@ -10,14 +10,14 @@
     public class UserPrincipal : IPrincipal
     {
         private IList<Role> _roles;
-        private string _login = string.Empty;
+        private int _id;
         private IIdentity _identity;
 
-        public UserPrincipal(string login, IList<Role> roles)
+        public UserPrincipal(int id, IList<Role> roles)
         {
-            _login = login ?? string.Empty;
+            _id = id;
             _roles = roles;
-            _identity = new GenericIdentity(_login);
+            _identity = new GenericIdentity(_id.ToString());
         }
 
         public IIdentity Identity

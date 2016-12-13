@@ -15,7 +15,7 @@
         [Test]
         public void ReportController_AdditionInternsReportInController_ReturnViewResult()
         {
-            ReportController reportCrtl = new ReportController(Mock.Of<IReportLogic>(), Mock.Of<ICustomLogger>());
+            ReportController reportCrtl = new ReportController(Mock.Of<IReportLogic>(), Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
             ActionResult result = reportCrtl.AddInternsReport();
 
             Assert.IsNotNull(result);
@@ -25,7 +25,7 @@
         [Test]
         public void ReportController_AdditionMentorsReportInController_ReturnViewResult()
         {
-            ReportController reportCrtl = new ReportController(Mock.Of<IReportLogic>(), Mock.Of<ICustomLogger>());
+            ReportController reportCrtl = new ReportController(Mock.Of<IReportLogic>(), Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
             ActionResult result = reportCrtl.AddMentorsReport();
 
             Assert.IsNotNull(result);
@@ -39,7 +39,7 @@
             mockLogic.Setup(t => t.Add(It.IsAny<Report>())).Verifiable();
 
             ReportVM correctReportVM = ReportProvider.GetCorrectReportVM();
-            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<ICustomLogger>());
+            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
 
             ActionResult result = reportCrtl.SaveReportAsDraftAfterAddition(correctReportVM);
 
@@ -59,7 +59,7 @@
             mockLogger.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
             ReportVM correctReportVM = ReportProvider.GetCorrectReportVM();
-            ReportController reportCrtl = new ReportController(mockLogic.Object, mockLogger.Object);
+            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), mockLogger.Object);
 
             ActionResult result = reportCrtl.SaveReportAsDraftAfterAddition(correctReportVM);
 
@@ -76,7 +76,7 @@
             mockLogic.Setup(t => t.Add(It.IsAny<Report>())).Verifiable();
 
             ReportVM correctReportVM = ReportProvider.GetCorrectReportVM();
-            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<ICustomLogger>());
+            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
 
             ActionResult result = reportCrtl.SubmitReportAfterAddition(correctReportVM);
 
@@ -96,7 +96,7 @@
             mockLogger.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
             ReportVM correctReportVM = ReportProvider.GetCorrectReportVM();
-            ReportController reportCrtl = new ReportController(mockLogic.Object, mockLogger.Object);
+            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), mockLogger.Object);
 
             ActionResult result = reportCrtl.SubmitReportAfterAddition(correctReportVM);
 

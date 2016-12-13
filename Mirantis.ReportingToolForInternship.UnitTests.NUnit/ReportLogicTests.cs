@@ -18,7 +18,7 @@
             Mock<IReportDAO> mockDAO = new Mock<IReportDAO>();
             mockDAO.Setup(t => t.Add(It.IsAny<Report>())).Verifiable();
 
-            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<ICustomLogger>());
+            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<ICustomLogger>());
             Report correctReport = ReportProvider.GetCorrectReport();
 
             logic.Add(correctReport);
@@ -32,7 +32,7 @@
             Mock<IReportDAO> mockDAO = new Mock<IReportDAO>();
             mockDAO.Setup(t => t.Edit(It.IsAny<Report>())).Verifiable();
 
-            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<ICustomLogger>());
+            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<ICustomLogger>());
             Report correctReport = ReportProvider.GetCorrectReport();
 
             logic.Edit(correctReport);
@@ -46,10 +46,10 @@
             Mock<IReportDAO> mockDAO = new Mock<IReportDAO>();
             mockDAO.Setup(t => t.Search(It.IsAny<SearchModel>())).Verifiable();
 
-            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<ICustomLogger>());
+            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<ICustomLogger>());
             SearchModel searchModel = SearchModelProvider.GetSearchModel();
 
-            IList<Report> foundReports =  logic.Search(searchModel);
+            IList<RepresentingReport> foundReports = logic.Search(searchModel);
 
             Assert.AreEqual(foundReports, null);
             mockDAO.VerifyAll();
@@ -61,7 +61,7 @@
             Mock<IReportDAO> mockDAO = new Mock<IReportDAO>();
             mockDAO.Setup(t => t.GetById(It.IsAny<Guid>())).Verifiable();
 
-            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<ICustomLogger>());
+            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<ICustomLogger>());
             Guid idOfReportThatNotExist = new Guid();
 
             Report foundReport = logic.GetById(idOfReportThatNotExist);
@@ -80,7 +80,7 @@
             loggerMock.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
             Report correctReport = ReportProvider.GetCorrectReport();
-            ReportLogic logic = new ReportLogic(mockDAO.Object, loggerMock.Object);
+            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), loggerMock.Object);
 
             Assert.Throws<Exception>(() => logic.Add(correctReport));
 

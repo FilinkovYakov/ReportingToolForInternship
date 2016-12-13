@@ -15,11 +15,11 @@
         {
             var config = new MapperConfiguration(c =>
             {
-                c.CreateMap<AuthenticationService.User, Entities.User>();
-                c.CreateMap<Entities.User, AuthenticationService.User>();
-
                 c.CreateMap<AuthenticationService.Role, Entities.Role>();
                 c.CreateMap<Entities.Role, AuthenticationService.Role>();
+
+                c.CreateMap<AuthenticationService.User, Entities.User>();
+                c.CreateMap<Entities.User, AuthenticationService.User>();
             });
         
             mapper = config.CreateMapper();

@@ -9,6 +9,8 @@
 
     public class SearchVM
     {
+        public int? RequesterUserId { get; set; }
+
         [Display(Name = "Intern :")]
         public int? InternsId { get; set; }
 

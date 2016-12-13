@@ -19,21 +19,6 @@
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(model => model.MentorsId, htmlAttributes: new { @class = "control-label col-xs-2" })
-        <div class="col-xs-10">
-            <select name="MentorsId" id="MentorsId" class="selectpicker">
-                @foreach (var mentor in UserLogicProvider.UserLogic.GetUsersByRole("Mentor"))
-                {
-                    <option value="@mentor.Id">
-                        @string.Format("{0} - {1}", mentor.FullName, mentor.Login)
-                    </option>
-                }
-            </select>
-            @Html.ValidationMessageFor(model => model.MentorsId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
         @Html.LabelFor(model => model.InternsId, htmlAttributes: new { @class = "control-label col-xs-2" })
         <div class="col-xs-10">
             <select name="InternsId" id="InternsId" class="selectpicker">
@@ -173,7 +158,7 @@
     <script src="~/Scripts/Custom/validationMentorsActivities.js"></script>
     <script src="~/Scripts/Custom/validationFuturePlans.js"></script>
     <script src="~/Scripts/Custom/actionsAfterFail.js"></script>
-    <script src="~/Scripts/Custom/actionsAfterSuccessfullAdditionReport.js"></script>
+    <script src="~/Scripts/Custom/actionsAfterSuccessfullChangeReport.js"></script>
     <script src="~/Scripts/Custom/assignEventsToRemoverButtons.js"></script>
     <script src="~/Scripts/Custom/assignEventsToRemoverActivityButtons.js"></script>
     <script src="~/Scripts/Custom/assignEventsToAdderButtons.js"></script>

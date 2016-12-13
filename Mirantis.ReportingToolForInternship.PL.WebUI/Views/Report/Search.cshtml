@@ -28,7 +28,7 @@
         <div class="col-xs-12 col-md-6 form-group">
             @Html.LabelFor(model => model.InternsId, htmlAttributes: new { @class = "control-label col-xs-4" })
             <div class="col-xs-8">
-                <select name="InternsId" id="InternsId" class="selectpicker">
+                <select name="InternsId" id="InternsId" class="selectpicker" data-live-search="true" data-size="5">
                     <option value="">All</option>
                     @foreach (var item in UserLogicProvider.UserLogic.GetUsersByRole("Intern"))
                     {
@@ -44,7 +44,7 @@
         <div class="col-xs-12 col-md-6 form-group">
             @Html.LabelFor(model => model.MentorsId, htmlAttributes: new { @class = "control-label col-xs-4" })
             <div class="col-xs-8">
-                <select name="MentorsId" id="MentorsId" class="selectpicker">
+                <select name="MentorsId" id="MentorsId" class="selectpicker" data-live-search="true" data-size="5">
                     <option value="">All</option>
                     @foreach (var item in UserLogicProvider.UserLogic.GetUsersByRole("Mentor"))
                     {

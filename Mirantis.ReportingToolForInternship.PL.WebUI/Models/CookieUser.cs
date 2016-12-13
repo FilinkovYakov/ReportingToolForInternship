@@ -8,7 +8,7 @@
 
     public class CookieUser
     {
-        public string Login { get; set; }
+        public int Id { get; set; }
         public List<Role> Roles { get; set; }
     }
 }

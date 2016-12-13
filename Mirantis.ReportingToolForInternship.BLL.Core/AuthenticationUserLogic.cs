@@ -17,20 +17,7 @@
             _customLogger = customLogger;
         }
 
-        public IList<Role> GetRolesByUsersLogin(string login)
-        {
-            try
-            {
-                return _authUserDAO.GetRolesByUsersLogin(login);
-            }
-            catch (Exception e)
-            {
-                _customLogger.RecordError(e);
-                throw;
-            }
-        }
-
-        public bool TryAuthentication(string login, string password)
+        public User TryAuthentication(string login, string password)
         {
             try
             {

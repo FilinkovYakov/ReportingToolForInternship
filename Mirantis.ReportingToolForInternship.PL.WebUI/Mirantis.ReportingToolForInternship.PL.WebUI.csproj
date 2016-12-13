@@ -203,7 +203,6 @@
     <Compile Include="AuthorizeAttributes\AnonymousOnly.cs" />
     <Compile Include="Controllers\AuthenticationUserController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -354,8 +353,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Custom\actionsAfterFail.js" />
-    <Content Include="Scripts\Custom\actionsAfterSuccessfullAdditionReport.js" />
-    <Content Include="Scripts\Custom\actionsAfterSuccessfullEditingReport.js" />
+    <Content Include="Scripts\Custom\actionsAfterSuccessfullChangeReport.js" />
     <Content Include="Scripts\Custom\assignEventsToAdderActivityButtons.js" />
     <Content Include="Scripts\Custom\assignEventsToAdderButtons.js" />
     <Content Include="Scripts\Custom\descriptionFunctionsOnSearchsEvents.js" />
@@ -557,7 +555,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
