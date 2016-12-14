@@ -13,6 +13,7 @@
     using System.Threading;
     using AutoMapper;
     using Automapper;
+    using AuthorizeAttributes;
 
     public class ReportController : Controller
     {
@@ -22,6 +23,13 @@
 
         public ReportController(IReportLogic reportLogic, IUserLogic userLogic, ICustomLogger customLogger)
         {
+            if (reportLogic == null)
+                throw new ArgumentNullException("report's logic");
+            if (userLogic == null)
+                throw new ArgumentNullException("user's logic");
+            if (customLogger == null)
+                throw new ArgumentNullException("logger");
+
             _reportLogic = reportLogic;
             _customLogger = customLogger;
             _userLogic = userLogic;
@@ -29,7 +37,7 @@
             UserLogicProvider.UserLogic = userLogic;
         }
 
-        [Authorize(Roles = "Mentor")]
+        [CustomAuthorize(Roles = "Mentor")]
         public ActionResult AddMentorsReport()
         {
             try
@@ -57,7 +65,7 @@
             }
         }
 
-        [Authorize(Roles = "Mentor,Intern")]
+        [CustomAuthorize(Roles = "Mentor,Intern")]
         [HttpPost]
         public ActionResult SaveReportAsDraftAfterAddition(ReportVM reportVM)
         {
@@ -99,7 +107,7 @@
             }
         }
 
-        [Authorize(Roles = "Mentor,Intern")]
+        [CustomAuthorize(Roles = "Mentor,Intern")]
         [HttpPost]
         public ActionResult SubmitReportAfterAddition(ReportVM reportVM)
         {
@@ -141,7 +149,7 @@
             }
         }
 
-        [Authorize(Roles = "Intern")]
+        [CustomAuthorize(Roles = "Intern")]
         public ActionResult EditInternsReport(Guid id)
         {
             try
@@ -172,7 +180,7 @@
             }
         }
 
-        [Authorize(Roles = "Mentor")]
+        [CustomAuthorize(Roles = "Mentor")]
         public ActionResult EditMentorsReport(Guid id)
         {
             try
@@ -203,7 +211,7 @@
             }
         }
 
-        [Authorize(Roles = "Mentor,Intern")]
+        [CustomAuthorize(Roles = "Mentor,Intern")]
         [HttpPost]
         public ActionResult SaveReportAsDraftAfterEditing(ReportVM reportVM)
         {
@@ -245,7 +253,7 @@
             }
         }
 
-        [Authorize(Roles = "Mentor,Intern")]
+        [CustomAuthorize(Roles = "Mentor,Intern")]
         [HttpPost]
         public ActionResult SubmitReportAfterEditing(ReportVM reportVM)
         {
@@ -287,7 +295,7 @@
             }
         }
 
-        [AllowAnonymous]
+        [CustomAuthorize]
         public ActionResult Search()
         {
             try
@@ -301,7 +309,7 @@
             }
         }
 
-        [AllowAnonymous]
+        [CustomAuthorize]
         public ActionResult ShowSearchResult(SearchVM searchVM)
         {
             try
@@ -334,7 +342,7 @@
             }
         }
 
-        [Authorize]
+        [CustomAuthorize]
         public ActionResult DetailsInternsReport(Guid id)
         {
             try
@@ -361,7 +369,7 @@
             }
         }
 
-        [Authorize]
+        [CustomAuthorize]
         public ActionResult DetailsMentorsReport(Guid id)
         {
             try

@@ -19,7 +19,7 @@
             mockDAO.Setup(t => t.Add(It.IsAny<Report>())).Verifiable();
 
             ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<ICustomLogger>());
-            Report correctReport = ReportProvider.GetCorrectReport();
+            Report correctReport = ReportProvider.GetCorrectInternsReport();
 
             logic.Add(correctReport);
 
@@ -33,7 +33,7 @@
             mockDAO.Setup(t => t.Edit(It.IsAny<Report>())).Verifiable();
 
             ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<ICustomLogger>());
-            Report correctReport = ReportProvider.GetCorrectReport();
+            Report correctReport = ReportProvider.GetCorrectInternsReport();
 
             logic.Edit(correctReport);
 
@@ -79,7 +79,7 @@
             Mock<ICustomLogger> loggerMock = new Mock<ICustomLogger>();
             loggerMock.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
-            Report correctReport = ReportProvider.GetCorrectReport();
+            Report correctReport = ReportProvider.GetCorrectInternsReport();
             ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), loggerMock.Object);
 
             Assert.Throws<Exception>(() => logic.Add(correctReport));

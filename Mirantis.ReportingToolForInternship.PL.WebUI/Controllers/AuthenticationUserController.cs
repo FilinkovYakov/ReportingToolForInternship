@@ -16,13 +16,16 @@
     public class AuthenticationUserController : Controller
     {
         private readonly IAuthenticationUserLogic _authUserLogic;
-        private readonly IUserLogic _userLogic;
         private readonly ICustomLogger _customLogger;
 
-        public AuthenticationUserController(IAuthenticationUserLogic authUserLogic, IUserLogic userLogic, ICustomLogger customLogger)
+        public AuthenticationUserController(IAuthenticationUserLogic authUserLogic, ICustomLogger customLogger)
         {
+            if (authUserLogic == null)
+                throw new ArgumentNullException("user's authentication logic");
+            if (customLogger == null)
+                throw new ArgumentNullException("logger");
+
             _authUserLogic = authUserLogic;
-            _userLogic = userLogic;
             _customLogger = customLogger;
         }
 
@@ -80,7 +83,7 @@
             }
         }
 
-        [Authorize]
+        [CustomAuthorize]
         public ActionResult SignOut()
         {
             try

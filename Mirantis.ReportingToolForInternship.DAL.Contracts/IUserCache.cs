@@ -7,9 +7,11 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public interface IUserDAO
+    public interface IUserCache
     {
-        User GetById(int id);
-        IList<User> GetUsersByRole(string role);
+        IEnumerable<User> GetUsersByRole(string role);
+        User GetUserById(int id);
+        void Set(string role, IEnumerable<User> users);
+        void Set(User user);
     }
 }

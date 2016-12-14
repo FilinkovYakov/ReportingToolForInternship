@@ -201,6 +201,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="AuthorizeAttributes\AnonymousOnly.cs" />
+    <Compile Include="AuthorizeAttributes\CustomAuthorize.cs" />
     <Compile Include="Controllers\AuthenticationUserController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Global.asax.cs">
@@ -362,6 +363,7 @@
     <Content Include="Scripts\Custom\constructors.js" />
     <Content Include="Scripts\Custom\disableInputs.js" />
     <Content Include="Scripts\Custom\disableMentorsDropdown.js" />
+    <Content Include="Scripts\Custom\setSettingsTooltips.js" />
     <Content Include="Scripts\Custom\sendReport.js" />
     <Content Include="Scripts\Custom\setSettingsDatePickerOnEditingReportForm.js" />
     <Content Include="Scripts\Custom\assignEventsToRemoverActivityButtons.js" />

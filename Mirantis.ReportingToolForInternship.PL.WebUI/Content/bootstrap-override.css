@@ -2,7 +2,7 @@
     width: 100%;
 }
 
-.bootstrap-select>.dropdown-toggle.bs-placeholder, .bootstrap-select.btn-group .dropdown-toggle .filter-option {
+.bootstrap-select > .dropdown-toggle.bs-placeholder, .bootstrap-select.btn-group .dropdown-toggle .filter-option {
     color: black;
 }
 
@@ -34,4 +34,8 @@ input[readonly].input-grey {
 
 .btn-remover, .btn-remover-activity {
     margin-left: 10px !important;
+}
+
+.tooltip-inner {
+    word-break: break-all;
 }

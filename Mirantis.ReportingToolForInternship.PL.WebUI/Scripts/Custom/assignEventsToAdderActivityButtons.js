@@ -1,6 +1,7 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
 /// <reference path="assignEventsToRemoverActivityButtons.js" />
 /// <reference path="assignEventsToAdderButtons.js" />
+/// <reference path="setSettingsTooltips.js" />
 
 $(document).ready(function () {
     var $adderActivityButton = $(".btn-adder-activity");
@@ -28,8 +29,8 @@ function constructAdderActivityButtonInfrastructure(button) {
             constructAdderButtonInfrastructure($(this));
         });
 
-        $newWrapper.find(".btn-remover").each(function () {
-            assignmentButtonToAbilityOfRemoveComposition($(this));
+        $newWrapper.find('input[data-toggle="tooltip"]').each(function () {
+            refreshInputsTooltip($(this));
         });
 
         cleanTextInInputsInnerWrapper($newWrapper);

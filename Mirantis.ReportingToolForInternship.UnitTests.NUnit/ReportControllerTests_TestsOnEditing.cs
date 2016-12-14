@@ -17,56 +17,59 @@
         [Test]
         public void ReportController_EditingExistingInternsDraftReportInController_ReturnViewResult()
         {
-            var fakeHttpContext = new Mock<HttpContextBase>();
-            var fakeUserId = 0;
-            var fakeIdentity = new GenericIdentity(fakeUserId.ToString());
-            var principal = new GenericPrincipal(fakeIdentity, null);
+            int userId = 0;
+            string[] usersRoles = { "Intern" };
 
-            fakeHttpContext.Setup(t => t.User).Returns(principal);
-            var controllerContext = new Mock<ControllerContext>();
-            controllerContext.Setup(t => t.HttpContext).Returns(fakeHttpContext.Object);
+            Guid reportId = new Guid();
+            Mock<IReportLogic> mockReportLogic = new Mock<IReportLogic>();
+            mockReportLogic.Setup(t => t.GetById(It.IsAny<Guid>()))
+                .Returns(new Report() { InternsId = userId, IsDraft = true }).Verifiable();
 
-            Guid id = new Guid();
-            Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
-            mockLogic.Setup(t => t.GetById(It.IsAny<Guid>()))
-                .Returns(new Report() { InternsId = fakeUserId, IsDraft = true }).Verifiable();
-
-            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
-            reportCrtl.ControllerContext = controllerContext.Object;
-            ActionResult result = reportCrtl.EditInternsReport(id);
+            ReportController reportCrtl = new ReportController(mockReportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
+            reportCrtl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, usersRoles).Object;
+            ActionResult result = reportCrtl.EditInternsReport(reportId);
 
             Assert.IsNotNull(result);
             Assert.IsAssignableFrom(typeof(ViewResult), result);
 
-            mockLogic.Verify(t => t.GetById(id), Times.Once);
+            mockReportLogic.Verify(t => t.GetById(reportId), Times.Once);
         }
 
         [Test]
         public void ReportController_EditingExistingMentorsDraftReportInController_ReturnViewResult()
         {
-            Guid id = Guid.NewGuid();
-            Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
-            mockLogic.Setup(t => t.GetById(id)).Verifiable();
+            int userId = 0;
+            string[] usersRoles = { "Mentor" };
 
-            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
-            ActionResult result = reportCrtl.EditMentorsReport(id);
+            Guid reportId = Guid.NewGuid();
+            Mock<IReportLogic> mockReportLogic = new Mock<IReportLogic>();
+            mockReportLogic.Setup(t => t.GetById(It.IsAny<Guid>()))
+                .Returns(new Report() { MentorsId = userId, IsDraft = true }).Verifiable();
+
+            ReportController reportCrtl = new ReportController(mockReportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
+            reportCrtl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, usersRoles).Object;
+            ActionResult result = reportCrtl.EditMentorsReport(reportId);
 
             Assert.IsNotNull(result);
             Assert.IsAssignableFrom(typeof(ViewResult), result);
 
-            mockLogic.Verify(t => t.GetById(id), Times.Once);
+            mockReportLogic.Verify(t => t.GetById(reportId), Times.Once);
         }
 
         [Test]
-        public void ReportController_SaveReportAsDraftAfterEditing_ReturnPartiralView()
+        public void ReportController_SaveMentorsReportAsDraftAfterEditing_ReturnPartiralView()
         {
+            int userId = 0;
+            string[] usersRoles = { "Mentor" };
+
             Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
             mockLogic.Setup(t => t.Edit(It.IsAny<Report>())).Verifiable();
 
-            ReportVM correctReportVM = ReportProvider.GetCorrectReportVM();
+            ReportVM mentorsReportVM = ReportProvider.GetCorrectMentorsReportVM();
             ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
+            reportCrtl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, usersRoles).Object;
 
-            ActionResult result = reportCrtl.SaveReportAsDraftAfterEditing(correctReportVM);
+            ActionResult result = reportCrtl.SaveReportAsDraftAfterEditing(mentorsReportVM);
 
             Assert.IsNotNull(result);
             Assert.IsAssignableFrom(typeof(PartialViewResult), result);
@@ -75,7 +78,7 @@
         }
 
         [Test]
-        public void ReportController_ThrowExceptionDuringSavingReportAfterEditing_ReturnHttpStatus()
+        public void ReportController_ThrowExceptionDuringSavingInternsReportAfterEditing_ReturnHttpStatus()
         {
             Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
             mockLogic.Setup(t => t.Edit(It.IsAny<Report>())).Throws<Exception>();
@@ -83,10 +86,10 @@
             Mock<ICustomLogger> mockLogger = new Mock<ICustomLogger>();
             mockLogger.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
-            ReportVM correctReportVM = ReportProvider.GetCorrectReportVM();
+            ReportVM internsReportVM = ReportProvider.GetCorrectInternsReportVM();
             ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), mockLogger.Object);
 
-            ActionResult result = reportCrtl.SaveReportAsDraftAfterEditing(correctReportVM);
+            ActionResult result = reportCrtl.SaveReportAsDraftAfterEditing(internsReportVM);
 
             Assert.IsNotNull(result);
             Assert.IsAssignableFrom(typeof(PartialViewResult), result);
@@ -95,15 +98,19 @@
         }
 
         [Test]
-        public void ReportController_SubmitReportAfterEditing_ReturnPartiralView()
+        public void ReportController_SubmitMentorsReportAfterEditing_ReturnPartiralView()
         {
+            int userId = 0;
+            string[] usersRoles = { "Mentor" };
+
             Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
             mockLogic.Setup(t => t.Edit(It.IsAny<Report>())).Verifiable();
 
-            ReportVM correctReportVM = ReportProvider.GetCorrectReportVM();
+            ReportVM mentorsReportVM = ReportProvider.GetCorrectMentorsReportVM();
             ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
+            reportCrtl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, usersRoles).Object;
 
-            ActionResult result = reportCrtl.SubmitReportAfterEditing(correctReportVM);
+            ActionResult result = reportCrtl.SubmitReportAfterEditing(mentorsReportVM);
 
             Assert.IsNotNull(result);
             Assert.IsAssignableFrom(typeof(PartialViewResult), result);
@@ -112,7 +119,7 @@
         }
 
         [Test]
-        public void ReportController_ThrowExceptionDuringSubmittingReportAfterEditing_ReturnPartialView()
+        public void ReportController_ThrowExceptionDuringSubmittingInternsReportAfterEditing_ReturnPartialView()
         {
             Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
             mockLogic.Setup(t => t.Edit(It.IsAny<Report>())).Throws<Exception>();
@@ -120,10 +127,10 @@
             Mock<ICustomLogger> mockLogger = new Mock<ICustomLogger>();
             mockLogger.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
-            ReportVM correctReportVM = ReportProvider.GetCorrectReportVM();
+            ReportVM internsReportVM = ReportProvider.GetCorrectInternsReportVM();
             ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), mockLogger.Object);
 
-            ActionResult result = reportCrtl.SubmitReportAfterEditing(correctReportVM);
+            ActionResult result = reportCrtl.SubmitReportAfterEditing(internsReportVM);
 
             Assert.IsNotNull(result);
             Assert.IsAssignableFrom(typeof(PartialViewResult), result);

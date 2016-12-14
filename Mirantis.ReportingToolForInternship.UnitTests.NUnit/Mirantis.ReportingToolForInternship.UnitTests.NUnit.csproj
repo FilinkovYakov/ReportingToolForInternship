@@ -102,6 +102,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ControllerContextProvider.cs" />
     <Compile Include="ReportControllerTests_TestsOnEditing.cs" />
     <Compile Include="ReportControllerTests_TestsOnSearch.cs" />
     <Compile Include="ReportProvider.cs" />

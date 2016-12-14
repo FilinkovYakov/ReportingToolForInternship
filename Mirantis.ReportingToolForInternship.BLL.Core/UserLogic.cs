@@ -16,6 +16,11 @@
 
         public UserLogic(IUserDAO userDAO, ICustomLogger customLogger)
         {
+            if (userDAO == null)
+                throw new ArgumentNullException("userDAO");
+            if (customLogger == null)
+                throw new ArgumentNullException("logger");
+
             _userDAO = userDAO;
             _customLogger = customLogger;
         }
@@ -44,24 +49,6 @@
             try
             {
                 return _userDAO.GetUsersByRole(role);
-            }
-            catch (Exception e)
-            {
-                _customLogger.RecordError(e);
-                throw;
-            }
-        }
-
-        public User GetByLogin(string login)
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(login))
-                {
-                    return _userDAO.GetByLogin(login);
-                }
-
-                return null;
             }
             catch (Exception e)
             {

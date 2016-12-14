@@ -10,7 +10,7 @@
 
     class ReportProvider
     {
-        public static Report GetCorrectReport()
+        public static Report GetCorrectInternsReport()
         {
             return new Report()
             {
@@ -39,7 +39,14 @@
             };
         }
 
-        public static ReportVM GetCorrectReportVM()
+        public static Report GetCorrectMentorsReport()
+        {
+            Report report = GetCorrectInternsReport();
+            report.MentorsId = 2;
+            return report;
+        }
+
+        public static ReportVM GetCorrectInternsReportVM()
         {
             return new ReportVM()
             {
@@ -66,6 +73,13 @@
                         }
                     }
             };
+        }
+
+        public static ReportVM GetCorrectMentorsReportVM()
+        {
+            ReportVM report = GetCorrectInternsReportVM();
+            report.MentorsId = 2;
+            return report;
         }
     }
 }

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A2DC545D-7E5E-4F1D-95DA-6B949279CD52}</ProjectGuid>
+    <ProjectGuid>{0664784E-474F-4656-ABEF-CB18ACE7CC0C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mirantis.ReportingToolForInternship.BLL.Core</RootNamespace>
-    <AssemblyName>Mirantis.ReportingToolForInternship.BLL.Core</AssemblyName>
+    <RootNamespace>Mirantis.ReportingToolForInternship.DAL.DataAccess</RootNamespace>
+    <AssemblyName>Mirantis.ReportingToolForInternship.DAL.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,14 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
@@ -54,36 +46,8 @@
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,38 +56,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthenticationUserLogic.cs" />
-    <Compile Include="BLLAutomapper.cs" />
-    <Compile Include="BLLContainerInitializer.cs" />
-    <Compile Include="CustomLogger.cs" />
+    <Compile Include="CachedUserDAO.cs" />
+    <Compile Include="DataContainerInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportLogic.cs" />
-    <Compile Include="UserLogic.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.BLL.Contracts\Mirantis.ReportingToolForInternship.BLL.Contracts.csproj">
-      <Project>{a0323582-89bf-4256-8436-25a632086091}</Project>
-      <Name>Mirantis.ReportingToolForInternship.BLL.Contracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.Contracts\Mirantis.ReportingToolForInternship.DAL.Contracts.csproj">
-      <Project>{bab02513-c05e-4e79-88c7-63dc7f9421b4}</Project>
+      <Project>{BAB02513-C05E-4E79-88C7-63DC7F9421B4}</Project>
       <Name>Mirantis.ReportingToolForInternship.DAL.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\Mirantis.ReportingToolForInternship.DAL.DataAccessCache.csproj">
-      <Project>{F3993DD6-C76F-4FC4-808C-B1A47E44E493}</Project>
+      <Project>{f3993dd6-c76f-4fc4-808c-b1a47e44e493}</Project>
       <Name>Mirantis.ReportingToolForInternship.DAL.DataAccessCache</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\Mirantis.ReportingToolForInternship.DAL.DataAccessEF.csproj">
-      <Project>{4a59aecf-4571-4f7b-82c0-ec3d04c351d6}</Project>
-      <Name>Mirantis.ReportingToolForInternship.DAL.DataAccessEF</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Mirantis.ReportingToolForInternship.DAL.DataAccessService.csproj">
-      <Project>{1C796185-116C-462D-8A18-9F1F9E8F1246}</Project>
+      <Project>{1c796185-116c-462d-8a18-9f1f9e8f1246}</Project>
       <Name>Mirantis.ReportingToolForInternship.DAL.DataAccessService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccess\Mirantis.ReportingToolForInternship.DAL.DataAccess.csproj">
-      <Project>{0664784E-474F-4656-ABEF-CB18ACE7CC0C}</Project>
-      <Name>Mirantis.ReportingToolForInternship.DAL.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
       <Project>{4fff7831-8d36-48d0-bc0d-40086dad4465}</Project>

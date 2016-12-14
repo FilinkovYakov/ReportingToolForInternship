@@ -50,7 +50,9 @@
     {
         <div class="form-group activity">
             <div class="col-xs-5 col-md-offset-2">
-                <input type="text" readonly class="form-control text-box single-line input-activity" value="@activity.Description" />
+                <input type="text" readonly class="form-control text-box single-line input-activity" 
+                       data-toggle="tooltip" data-placement="bottom" 
+                       title="@activity.Description" value="@activity.Description" />
             </div>
             <div class="col-xs-5 composition">
                 @if (activity.Questions.Any())
@@ -58,7 +60,9 @@
                     foreach (var question in activity.Questions)
                     {
                         <div class="form-group">
-                            <input type="text" readonly class="form-control text-box single-line input-question" value="@question.Description" />
+                            <input type="text" readonly class="form-control text-box single-line input-question" 
+                                   data-toggle="tooltip" data-placement="bottom" 
+                                   title="@question.Description" value="@question.Description" />
                         </div>
                     }
                 }
@@ -84,9 +88,15 @@
         {
             <div class="form-group">
                 <div class="col-xs-10 col-md-offset-2">
-                    <input type="text" class="form-control text-box single-line input-future-plan" readonly value="@futurePlan.Description" />
+                    <input type="text" readonly class="form-control text-box single-line input-future-plan" 
+                           data-toggle="tooltip" data-placement="bottom" 
+                           title="@futurePlan.Description" value="@futurePlan.Description" />
                 </div>
             </div>
         }
     </div>
 </div>
+
+@section scripts { 
+    <script src="~/Scripts/Custom/setSettingsTooltips.js"></script>
+}

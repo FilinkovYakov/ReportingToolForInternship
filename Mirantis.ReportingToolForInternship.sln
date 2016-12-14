@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirantis.ReportingToolForIn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirantis.ReportingToolForInternship.DAL.DataAccessService", "Mirantis.ReportingToolForInternship.DAL.DataAccessService\Mirantis.ReportingToolForInternship.DAL.DataAccessService.csproj", "{1C796185-116C-462D-8A18-9F1F9E8F1246}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirantis.ReportingToolForInternship.DAL.DataAccess", "Mirantis.ReportingToolForInternship.DAL.DataAccess\Mirantis.ReportingToolForInternship.DAL.DataAccess.csproj", "{0664784E-474F-4656-ABEF-CB18ACE7CC0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirantis.ReportingToolForInternship.DAL.DataAccessCache", "Mirantis.ReportingToolForInternship.DAL.DataAccessCache\Mirantis.ReportingToolForInternship.DAL.DataAccessCache.csproj", "{F3993DD6-C76F-4FC4-808C-B1A47E44E493}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +71,14 @@ Global
 		{1C796185-116C-462D-8A18-9F1F9E8F1246}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C796185-116C-462D-8A18-9F1F9E8F1246}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C796185-116C-462D-8A18-9F1F9E8F1246}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0664784E-474F-4656-ABEF-CB18ACE7CC0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0664784E-474F-4656-ABEF-CB18ACE7CC0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0664784E-474F-4656-ABEF-CB18ACE7CC0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0664784E-474F-4656-ABEF-CB18ACE7CC0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3993DD6-C76F-4FC4-808C-B1A47E44E493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3993DD6-C76F-4FC4-808C-B1A47E44E493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3993DD6-C76F-4FC4-808C-B1A47E44E493}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3993DD6-C76F-4FC4-808C-B1A47E44E493}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +92,7 @@ Global
 		{A2DC545D-7E5E-4F1D-95DA-6B949279CD52} = {F733D7DB-C399-4391-AB6B-0955C2D0D492}
 		{E6C3C0E6-AA63-48F2-B191-E58F1F98F5FA} = {64D3A794-619E-4879-9198-F28DE811926F}
 		{1C796185-116C-462D-8A18-9F1F9E8F1246} = {84071784-8A8F-4798-BF8B-C254AAA458B4}
+		{0664784E-474F-4656-ABEF-CB18ACE7CC0C} = {84071784-8A8F-4798-BF8B-C254AAA458B4}
+		{F3993DD6-C76F-4FC4-808C-B1A47E44E493} = {84071784-8A8F-4798-BF8B-C254AAA458B4}
 	EndGlobalSection
 EndGlobal

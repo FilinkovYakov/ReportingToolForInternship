@@ -20,15 +20,6 @@
             }
         }
 
-        public Entities.User GetByLogin(string login)
-        {
-            using (var client = new AuthenticationServiceClient())
-            {
-                AuthenticationService.User user = client.GetAll().Where(authUser => authUser.Login == login).FirstOrDefault();
-                return ServiceMapper.Mapper.Map<Entities.User>(user);
-            }
-        }
-
         public IList<Entities.User> GetUsersByRole(string role)
         {
             IList<Entities.User> users = null;
