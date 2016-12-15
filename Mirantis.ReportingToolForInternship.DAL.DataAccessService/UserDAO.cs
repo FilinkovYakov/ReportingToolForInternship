@@ -15,7 +15,7 @@
         {
             using (var client = new AuthenticationServiceClient())
             {
-                AuthenticationService.User user = client.GetAll().Where(authUser => authUser.Id == id).FirstOrDefault();
+                AuthenticationService.User user = client.GetAll().FirstOrDefault(authUser => authUser.Id == id);
                 return ServiceMapper.Mapper.Map<Entities.User>(user);
             }
         }

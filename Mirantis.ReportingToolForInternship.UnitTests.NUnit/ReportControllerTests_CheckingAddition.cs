@@ -11,7 +11,7 @@
     using System.Web.Mvc;
 
     [TestFixture]
-    public class ReportControllerTests_TestsOnAddition
+    public class ReportControllerTests_CheckingAddition
     {
         [Test]
         public void ReportController_AdditionInternsReportInController_ReturnViewResult()

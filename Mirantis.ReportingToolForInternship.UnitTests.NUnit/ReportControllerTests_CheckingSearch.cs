@@ -10,7 +10,7 @@
     using System.Web.Mvc;
 
     [TestFixture]
-    public class ReportControllerTests_TestsOnSearch
+    public class ReportControllerTests_CheckingSearch
     {
         [Test]
         public void ReportController_ShowSearchReport_ReturnPartialView()

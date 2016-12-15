@@ -29,6 +29,10 @@ function constructAdderActivityButtonInfrastructure(button) {
             constructAdderButtonInfrastructure($(this));
         });
 
+        $newWrapper.find(".btn-remover").each(function () {
+            assignmentButtonToAbilityOfRemoveComposition($(this));
+        });
+
         $newWrapper.find('input[data-toggle="tooltip"]').each(function () {
             refreshInputsTooltip($(this));
         });

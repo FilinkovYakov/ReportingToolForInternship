@@ -102,14 +102,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AuthenticationUserControllerTests.cs" />
+    <Compile Include="AuthenticationUserLogicTests.cs" />
     <Compile Include="ControllerContextProvider.cs" />
-    <Compile Include="ReportControllerTests_TestsOnEditing.cs" />
-    <Compile Include="ReportControllerTests_TestsOnSearch.cs" />
+    <Compile Include="ReportControllerTests_CheckingEditing.cs" />
+    <Compile Include="ReportControllerTests_CheckingSearch.cs" />
     <Compile Include="ReportProvider.cs" />
-    <Compile Include="ReportControllerTests_TestsOnAddition.cs" />
+    <Compile Include="ReportControllerTests_CheckingAddition.cs" />
     <Compile Include="ReportLogicTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchModelProvider.cs" />
+    <Compile Include="UserCacheTests.cs" />
+    <Compile Include="UserLogicTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -131,6 +135,10 @@
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccessEF\Mirantis.ReportingToolForInternship.DAL.DataAccessEF.csproj">
       <Project>{4a59aecf-4571-4f7b-82c0-ec3d04c351d6}</Project>
       <Name>Mirantis.ReportingToolForInternship.DAL.DataAccessEF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccess\Mirantis.ReportingToolForInternship.DAL.DataAccess.csproj">
+      <Project>{0664784E-474F-4656-ABEF-CB18ACE7CC0C}</Project>
+      <Name>Mirantis.ReportingToolForInternship.DAL.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
       <Project>{4FFF7831-8D36-48D0-BC0D-40086DAD4465}</Project>

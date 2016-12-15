@@ -12,7 +12,7 @@
     using System.Web.Mvc;
 
     [TestFixture]
-    public class ReportControllerTests_TestsOnEditing
+    public class ReportControllerTests_CheckingEditing
     {
         [Test]
         public void ReportController_EditingExistingInternsDraftReportInController_ReturnViewResult()

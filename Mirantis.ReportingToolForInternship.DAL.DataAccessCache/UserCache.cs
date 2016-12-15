@@ -12,15 +12,17 @@
 
     public class UserCache : IUserCache
     {
-        private static readonly IDictionary<int, Tuple<User, DateTime>> _userLookup = 
+        private readonly IDictionary<int, Tuple<User, DateTime>> _userLookup = 
             new ConcurrentDictionary<int, Tuple<User, DateTime>>();
-        private static readonly IDictionary<string, Tuple<ISet<User>, DateTime>> _userByRoleLookup = 
+        private readonly IDictionary<string, Tuple<ISet<User>, DateTime>> _userByRoleLookup = 
             new ConcurrentDictionary<string, Tuple<ISet<User>, DateTime>>();
-        private readonly TimeSpan _timeout = 
-            TimeSpan.FromMinutes(int.Parse(ConfigurationManager.AppSettings["TimeToLiveObjectInCacheInMinutes"]));
+        private readonly TimeSpan _timeout;
 
         public UserCache()
-        { }
+        {
+            _timeout =
+           TimeSpan.FromMinutes(int.Parse(ConfigurationManager.AppSettings["TimeToLiveObjectInCacheInMinutes"]));
+        }
 
         public User GetUserById(int id)
         {
@@ -74,23 +76,6 @@
             {
                 value.Item1.Remove(user);
                 value.Item1.Add(user);
-            }
-        }
-
-        private static class ApplicationConfiguration
-        {
-            internal static TimeSpan GetSettingAsTimeSpan(string settingName)
-            {
-                return GetSettingAsType(settingName, value => TimeSpan.Parse(value));
-            }
-
-            private static T GetSettingAsType<T>(string settingName, Func<string, T> converter)
-            {
-                string value = ConfigurationManager.AppSettings[settingName];
-                if (string.IsNullOrEmpty(value))
-                    return default(T);
-
-                return converter(value);
             }
         }
 
