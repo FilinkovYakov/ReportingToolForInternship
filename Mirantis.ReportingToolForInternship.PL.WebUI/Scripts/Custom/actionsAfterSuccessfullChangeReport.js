@@ -1,33 +1,8 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
-/// <reference path="clearInputs.js" />
-/// <reference path="disableInputs.js" />
 
 function alertAboutSuccessfullChange(result) {
     showMessageStatusReport(result);
-    assignEventToAdderNewReportButton();
-    assignEventToReworkReportButton();
     assignEventToSearchReportsButton();
-}
-
-function assignEventToAdderNewReportButton() {
-    $("#AddReport").click(function () {
-        $("#MessageAboutSuccessOperation").slideToggle(1000);
-        unlockAllFunctions();
-        $(".future-plans .btn-remover:not(:last)").click();
-        $(".activity .btn-remover:not(:last)").click();
-        $(".btn-remover-activity:not(:last)").click();
-        clearInputs();
-
-        $(".date").datepicker("setDate", new Date());
-    });
-}
-
-function assignEventToReworkReportButton() {
-    $("#ReworkReport").click(function () {
-        //$("#MessageAboutSuccessOperation").slideToggle(1000);
-        unlockAllFunctions();
-        location.reload();
-    });
 }
 
 function assignEventToSearchReportsButton() {

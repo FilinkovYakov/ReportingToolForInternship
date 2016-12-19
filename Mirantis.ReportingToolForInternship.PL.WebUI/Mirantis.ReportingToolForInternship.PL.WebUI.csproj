@@ -203,6 +203,7 @@
     <Compile Include="AuthorizeAttributes\AnonymousOnly.cs" />
     <Compile Include="AuthorizeAttributes\CustomAuthorize.cs" />
     <Compile Include="Controllers\AuthenticationUserController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -249,6 +250,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\error401.jpg" />
+    <Content Include="Images\error403.jpg" />
+    <Content Include="Images\error404.jpg" />
+    <Content Include="Images\error500.jpg" />
     <Content Include="Images\loading.gif" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
@@ -554,6 +559,10 @@
     <Content Include="Views\Report\DetailsInternsReport.cshtml" />
     <Content Include="Views\Report\DetailsMentorsReport.cshtml" />
     <Content Include="Views\AuthenticationUser\SignIn.cshtml" />
+    <Content Include="Views\Error\_Error403.cshtml" />
+    <Content Include="Views\Error\_Error404.cshtml" />
+    <Content Include="Views\Error\_Error500.cshtml" />
+    <Content Include="Views\Error\_Error401.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

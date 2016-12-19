@@ -1,4 +1,6 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
+/// <reference path="clearInputs.js" />
+/// <reference path="disableInputs.js" />
 /// <reference path="constructors.js" />
 /// <reference path="actionsAfterFail.js" />
 /// <reference path="actionsAfterSuccessfullChangeReport.js" />
@@ -8,7 +10,6 @@
 /// <reference path="validationFuturePlans.js" />
 /// <reference path="validationRecord.js" />
 /// <reference path="constructReportBeforeSending.js" />
-/// <reference path="disableInputs.js" />
 /// <reference path="changeStatusLoadingIcon.js" />
 /// <reference path="sendReport.js" />
 
@@ -26,6 +27,7 @@ $(document).ready(function () {
             success: function (result) {
                 hideLoadingIcon();
                 alertAboutSuccessfullChange(result);
+                assignEventToReworkReportButton();
             },
             error: function (result) {
                 alertAboutFail(result);
@@ -39,6 +41,7 @@ $(document).ready(function () {
             success: function (result) {
                 hideLoadingIcon();
                 alertAboutSuccessfullChange(result);
+                assignEventToAdderNewReportButton();
             },
             error: function (result) {
                 alertAboutFail(result);
@@ -62,5 +65,18 @@ $(document).ready(function () {
         isValidForm = validationFuturePlans() && isValidForm;
 
         return isValidForm;
+    }
+
+    function assignEventToAdderNewReportButton() {
+        $("#AddReport").click(function () {
+            location.href = "/Report/AddMentorsReport";
+        });
+    }
+
+    function assignEventToReworkReportButton() {
+        $("#ReworkReport").click(function () {
+            unlockAllFunctions();
+            location.reload();
+        });
     }
 });

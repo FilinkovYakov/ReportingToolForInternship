@@ -20,8 +20,7 @@
 
         public UserCache()
         {
-            _timeout =
-           TimeSpan.FromMinutes(int.Parse(ConfigurationManager.AppSettings["TimeToLiveObjectInCacheInMinutes"]));
+            _timeout = ApplicationConfiguration.GetSettingAsTimeSpan("TimeToLiveObjectInCache");
         }
 
         public User GetUserById(int id)
@@ -76,6 +75,23 @@
             {
                 value.Item1.Remove(user);
                 value.Item1.Add(user);
+            }
+        }
+
+        private static class ApplicationConfiguration
+        {
+            internal static TimeSpan GetSettingAsTimeSpan(string settingName)
+            {
+                return GetSettingAsType(settingName, value => TimeSpan.Parse(value));
+            }
+
+            private static T GetSettingAsType<T>(string settingName, Func<string, T> converter)
+            {
+                string value = ConfigurationManager.AppSettings[settingName];
+                if (string.IsNullOrEmpty(value))
+                    return default(T);
+
+                return converter(value);
             }
         }
 

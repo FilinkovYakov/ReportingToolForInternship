@@ -1,4 +1,5 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
+/// <reference path="clearInputs.js" />
 /// <reference path="disableInputs.js" />
 /// <reference path="constructors.js" />
 /// <reference path="actionsAfterFail.js" />
@@ -10,7 +11,6 @@
 /// <reference path="validationRecord.js" />
 /// <reference path="constructReportBeforeSending.js" />
 /// <reference path="sendReport.js" />
-
 
 $(document).ready(function () {
     var $submitButton = $("#SubmitButton"),
@@ -25,6 +25,7 @@ $(document).ready(function () {
             success: function (result) {
                 hideLoadingIcon();
                 alertAboutSuccessfullChange(result);
+                assignEventToAdderNewReportButton();
             },
             error: function (result) {
                 alertAboutFail(result);
@@ -38,6 +39,7 @@ $(document).ready(function () {
             success: function (result) {
                 hideLoadingIcon();
                 alertAboutSuccessfullChange(result);
+                assignEventToAdderNewReportButton();
             },
             error: function (result) {
                 alertAboutFail(result);
@@ -59,5 +61,11 @@ $(document).ready(function () {
         isValidForm = validationActivitiesFromInternsReport() && isValidForm;
         isValidForm = validationFuturePlans() && isValidForm;
         return isValidForm;
+    }
+
+    function assignEventToAdderNewReportButton() {
+        $("#AddReport").click(function () {
+            location.href = "/Report/AddInternsReport";
+        });
     }
 });
