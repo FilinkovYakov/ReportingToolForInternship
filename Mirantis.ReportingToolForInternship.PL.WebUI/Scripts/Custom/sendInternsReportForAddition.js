@@ -65,7 +65,7 @@ $(document).ready(function () {
 
     function assignEventToAdderNewReportButton() {
         $("#AddReport").click(function () {
-            location.href = "/Report/AddInternsReport";
+            window.location.replace("/Report/AddInternsReport");
         });
     }
 });

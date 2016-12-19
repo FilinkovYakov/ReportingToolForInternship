@@ -12,6 +12,27 @@
 
 img {
     width: 200px;
+    margin: 0 auto;
+}
+
+.img-error401 {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.img-error403 {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.img-error404 {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.img-error500 {
+    width: 600px;
+    margin: 0 auto;
 }
 
 .form-control {

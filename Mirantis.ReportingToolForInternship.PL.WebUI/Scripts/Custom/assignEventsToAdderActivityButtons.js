@@ -47,6 +47,8 @@ function constructAdderActivityButtonInfrastructure(button) {
         $newWrapper.find(".btn-remover:not(:last)").each(function () {
             removeWrapper($(this));
         });
+
+        $newWrapper.find(".input-activity").focus();
     });
 
     function cleanErrors(newWrapper) {

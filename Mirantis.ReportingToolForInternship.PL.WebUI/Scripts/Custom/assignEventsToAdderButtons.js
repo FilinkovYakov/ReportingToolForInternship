@@ -31,6 +31,8 @@ function constructAdderButtonInfrastructure(button) {
         $wrapper.after($newWrapper);
 
         cleanHiddenIDs($newWrapper);
+
+        $newWrapper.find("input[type='text']").focus();
     });
 }
 

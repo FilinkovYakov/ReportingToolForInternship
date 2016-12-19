@@ -69,7 +69,7 @@ $(document).ready(function () {
 
     function assignEventToAdderNewReportButton() {
         $("#AddReport").click(function () {
-            location.href = "/Report/AddMentorsReport";
+            window.location.replace("/Report/AddMentorsReport");
         });
     }
 
