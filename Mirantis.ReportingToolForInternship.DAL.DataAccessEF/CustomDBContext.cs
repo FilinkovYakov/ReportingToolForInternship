@@ -7,7 +7,7 @@
     {
         static CustomDBContext()
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<CustomDBContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<CustomDBContext>());
         }
 
         public CustomDBContext() { }

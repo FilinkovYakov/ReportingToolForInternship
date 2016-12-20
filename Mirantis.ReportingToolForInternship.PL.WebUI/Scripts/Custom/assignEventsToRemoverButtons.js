@@ -20,9 +20,7 @@ function removeWrapper(button) {
     $wrapper.find("input[type='text']").val("");
     if (amountRemoverButtons > 1) {
         lockAllFunctions();
-        $wrapper.slideUp(500, function () {
-            $(this).remove();
-            unlockAllFunctions();
-        });
+        $wrapper.remove();
+        unlockAllFunctions();
     }
 }

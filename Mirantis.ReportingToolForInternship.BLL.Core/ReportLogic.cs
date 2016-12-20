@@ -117,7 +117,7 @@
             RepresentingReport representingReport = BLLAutomapper.Mapper.Map<RepresentingReport>(report);
             if (report.InternsId.HasValue)
             {
-                representingReport.InternsFullName = _userDAO.GetById(report.InternsId.Value).FullName;
+                representingReport.InternsFullName = _userDAO.GetById(report.InternsId.Value)?.FullName ?? string.Empty;
             }
             else
             {
@@ -126,7 +126,7 @@
 
             if (report.MentorsId.HasValue)
             {
-                representingReport.MentorsFullName = _userDAO.GetById(report.MentorsId.Value).FullName;
+                representingReport.MentorsFullName = _userDAO.GetById(report.MentorsId.Value)?.FullName ?? string.Empty;
             }
             else
             {

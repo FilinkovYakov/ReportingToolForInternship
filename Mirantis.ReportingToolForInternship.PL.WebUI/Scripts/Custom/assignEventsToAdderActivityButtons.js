@@ -44,11 +44,11 @@ function constructAdderActivityButtonInfrastructure(button) {
 
         cleanErrors($newWrapper);
 
+        $newWrapper.find(".input-activity").focus();
+
         $newWrapper.find(".btn-remover:not(:last)").each(function () {
             removeWrapper($(this));
         });
-
-        $newWrapper.find(".input-activity").focus();
     });
 
     function cleanErrors(newWrapper) {
