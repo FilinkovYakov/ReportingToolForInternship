@@ -1,0 +1,229 @@
+2016-12-22 11:03:40,120 [19] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: user
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessCache.UserCache.Set(User user) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\UserCache.cs:line 70
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 35
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetById(Nullable`1 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 35
+2016-12-22 11:03:40,149 [19] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: user
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessCache.UserCache.Set(User user) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\UserCache.cs:line 70
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 35
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetById(Nullable`1 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 43
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.DetailsInternsReport(Guid id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 357
+2016-12-22 11:03:56,366 [20] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: user
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessCache.UserCache.Set(User user) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\UserCache.cs:line 70
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 35
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetById(Nullable`1 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 35
+2016-12-22 11:03:56,387 [20] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: user
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessCache.UserCache.Set(User user) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\UserCache.cs:line 70
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 35
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetById(Nullable`1 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 43
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.DetailsInternsReport(Guid id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 357
+2016-12-22 11:06:41,695 [16] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: user
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessCache.UserCache.Set(User user) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\UserCache.cs:line 70
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 35
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetById(Nullable`1 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 35
+2016-12-22 11:06:41,731 [16] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: user
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessCache.UserCache.Set(User user) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\UserCache.cs:line 70
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 35
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetById(Nullable`1 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 43
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.DetailsInternsReport(Guid id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 357
+2016-12-22 11:07:12,320 [14] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: user
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessCache.UserCache.Set(User user) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\UserCache.cs:line 70
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 35
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetById(Nullable`1 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 35
+2016-12-22 11:07:57,536 [14] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: user
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessCache.UserCache.Set(User user) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\UserCache.cs:line 70
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 35
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetById(Nullable`1 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 43
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.DetailsInternsReport(Guid id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 357
+2016-12-22 11:09:48,001 [14] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: user
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessCache.UserCache.Set(User user) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\UserCache.cs:line 70
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 35
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetById(Nullable`1 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 35
+2016-12-22 11:09:50,569 [14] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: user
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessCache.UserCache.Set(User user) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\UserCache.cs:line 70
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 35
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetById(Nullable`1 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 43
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.DetailsInternsReport(Guid id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 357
+2016-12-23 14:32:45,693 [8] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: users
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessCache.UserCache.Set(String role, IEnumerable`1 users) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\UserCache.cs:line 56
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetUsersByRole(String role) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 49
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetUsersByRole(String role) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 51
+2016-12-23 14:33:17,474 [9] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: users
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessCache.UserCache.Set(String role, IEnumerable`1 users) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\UserCache.cs:line 56
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetUsersByRole(String role) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 49
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetUsersByRole(String role) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 51
+2016-12-23 14:35:16,375 [10] ERROR CustomLogger - System.ArgumentNullException: Value cannot be null.
+Parameter name: users
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessCache.UserCache.Set(String role, IEnumerable`1 users) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\UserCache.cs:line 56
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetUsersByRole(String role) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 49
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetUsersByRole(String role) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 51
+2016-12-23 15:59:25,466 [10] ERROR CustomLogger - System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://172.18.68.160:7741/AuthenticationService.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 172.18.68.160:7741
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.AuthorizationUser(String login, String password)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.AuthorizationUser(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 411
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 15
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 24
+2016-12-23 15:59:25,499 [10] ERROR CustomLogger - System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://172.18.68.160:7741/AuthenticationService.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 172.18.68.160:7741
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.AuthorizationUser(String login, String password)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.AuthorizationUser(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 411
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 15
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 29
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.AuthenticationUserController.SignIn(AuthenticationUserVM authUserVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\AuthenticationUserController.cs:line 54
+2016-12-23 15:59:58,930 [7] ERROR CustomLogger - System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://172.18.68.160:7741/AuthenticationService.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 172.18.68.160:7741
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.AuthorizationUser(String login, String password)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.AuthorizationUser(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 411
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 15
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 24
+2016-12-23 15:59:58,951 [7] ERROR CustomLogger - System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://172.18.68.160:7741/AuthenticationService.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 172.18.68.160:7741
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.AuthorizationUser(String login, String password)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.AuthorizationUser(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 411
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 15
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 29
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.AuthenticationUserController.SignIn(AuthenticationUserVM authUserVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\AuthenticationUserController.cs:line 54
+2016-12-23 16:01:40,086 [9] ERROR CustomLogger - System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://172.18.68.160:7741/AuthenticationService.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 172.18.68.160:7741
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.AuthorizationUser(String login, String password)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.AuthorizationUser(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 411
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 15
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 24
+2016-12-23 16:01:40,112 [9] ERROR CustomLogger - System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://172.18.68.160:7741/AuthenticationService.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 172.18.68.160:7741
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.AuthorizationUser(String login, String password)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.AuthorizationUser(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 411
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationUserDAO.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\AuthenticationUserDAO.cs:line 15
+   at Mirantis.ReportingToolForInternship.BLL.Core.AuthenticationUserLogic.TryAuthentication(String login, String password) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\AuthenticationUserLogic.cs:line 29
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.AuthenticationUserController.SignIn(AuthenticationUserVM authUserVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\AuthenticationUserController.cs:line 54

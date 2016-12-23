@@ -22,13 +22,12 @@
 
         public IList<Entities.User> GetUsersByRole(string role)
         {
-            IList<Entities.User> users = null;
+            IList<Entities.User> users = new List<Entities.User>();
             using (var client = new AuthenticationServiceClient())
             {
                 IList<AuthenticationService.User> authUsers = client.SearchUser("", "", role).ToList();
                 if (authUsers != null && authUsers.Any())
                 {
-                    users = new List<Entities.User>();
                     foreach (var authUser in authUsers)
                     {
                         users.Add(ServiceMapper.Mapper.Map<Entities.User>(authUser));
