@@ -11,6 +11,9 @@
     {
         public int? RequesterUserId { get; set; }
 
+        [Display(Name = "Title :")]
+        public string Title { get; set; }
+
         [Display(Name = "Intern :")]
         public int? InternsId { get; set; }
 

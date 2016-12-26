@@ -71,7 +71,7 @@
                         return RedirectToAction("Search", "Report");
                     }
 
-                    ModelState.AddModelError("Login", "You entered uncorrect passord or login doesn't exist");
+                    ModelState.AddModelError("Login", "You entered incorrect passord or login doesn't exist");
                 }
 
                 return View(authUserVM);

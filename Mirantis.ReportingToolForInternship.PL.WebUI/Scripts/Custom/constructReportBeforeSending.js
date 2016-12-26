@@ -32,13 +32,14 @@ function constructIdByInput(input, classOfWrapperWithId) {
 
 function constructReportVM() {
     var id = constructRecordByJquery($("#ReportId")),
+        title = constructRecordByJquery($("#Title")),
         mentorsId = constructRecordByJquery($("#MentorsId")),
         internsId = constructRecordByJquery($("#InternsId")),
         typeOccuring = constructRecordByJquery($("#TypeOccuring")),
         date = constructRecordByJquery($("#Date")),
         activities = constructActivities(),
         futurePlans = constructFuturePlans();
-    return new ReportVM(id, mentorsId, internsId, typeOccuring, date, activities, futurePlans);
+    return new ReportVM(id, title, mentorsId, internsId, typeOccuring, date, activities, futurePlans);
 }
 
 function constructFuturePlans() {

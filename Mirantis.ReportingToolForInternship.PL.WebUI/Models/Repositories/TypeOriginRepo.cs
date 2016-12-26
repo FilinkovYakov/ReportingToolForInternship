@@ -12,13 +12,14 @@ namespace Mirantis.ReportingToolForInternship.PL.WebUI.Models.Repositories
 
         static TypeOriginRepo()
         {
+            allTypes = new List<string> { "All" };
+
             reportsTypes = new List<string>()
             {
                 "Mentor's", "Intern's"
             };
 
-            allTypes = new List<string>(reportsTypes);
-            allTypes.Add("All");
+            allTypes.AddRange(reportsTypes);
         }
 
         public static List<string> AllTypes

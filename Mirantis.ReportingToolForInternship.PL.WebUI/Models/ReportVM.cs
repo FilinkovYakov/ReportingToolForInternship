@@ -20,6 +20,10 @@
         [Display(Name = "Intern :")]
         public int? InternsId { get; set; }
 
+        [Required(ErrorMessage = "Field 'Title' is required")]
+        [Display(Name = "Title :")]
+        public string Title { get; set; }
+
         [Display(Name = "Type occuring :")]
         public string TypeOccuring { get; set; }
         

@@ -14,6 +14,8 @@
 
         public int? MentorsId { get; set; }
 
+        public string Title { get; set; }
+
         public string TypeOccuring { get; set; }
 
         public string TypeOrigin { get; set; }

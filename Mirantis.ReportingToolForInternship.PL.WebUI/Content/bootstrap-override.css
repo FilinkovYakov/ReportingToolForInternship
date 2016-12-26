@@ -1,4 +1,13 @@
-﻿.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+﻿body {
+    background-color: #e8e8e8;
+}
+
+section.container  {
+    background-color: white;
+    border-radius: 4px;
+}
+
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
     width: 100%;
 }
 
@@ -8,6 +17,18 @@
 
 #LoadingStatus {
     display: none;
+}
+
+label {
+    white-space: nowrap;
+}
+
+table { 
+    table-layout: fixed; 
+}
+
+table th, table td { 
+    word-break: break-all;
 }
 
 img {
@@ -59,4 +80,17 @@ input[readonly].input-grey {
 
 .tooltip-inner {
     word-break: break-all;
+}
+
+.navbar {
+    border-radius: 4px;
+}
+
+.composite {
+    margin-bottom: 10px;
+}
+
+.row.alert {
+    margin-left: 0;
+    margin-right: 0;
 }

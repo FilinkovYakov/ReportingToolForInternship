@@ -1,6 +1,4 @@
-﻿@using Mirantis.ReportingToolForInternship.PL.WebUI.Models.Repositories
-
-@model Mirantis.ReportingToolForInternship.PL.WebUI.Models.RepresentingReportVM
+﻿@model Mirantis.ReportingToolForInternship.PL.WebUI.Models.RepresentingReportVM
 
 @{
     ViewBag.Title = "Details mentor's Report";
@@ -10,6 +8,14 @@
 
 <div class="form-horizontal">
     <hr />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-xs-2" })
+        <div class="col-xs-10">
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @type = "text", @readonly = "true",
+           @value = Model.Title, @data_toggle = "tooltip", @data_placement = "bottom", @title = Model.Title } })
+        </div>
+    </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.MentorsFullName, htmlAttributes: new { @class = "control-label col-xs-2" })
@@ -49,7 +55,7 @@
             <strong>Activities :</strong>
         </div>
         <div class="col-xs-5">
-            <strong class="strong-question">Evaluations :</strong>
+            <strong>Evaluations :</strong>
         </div>
     </div>
 

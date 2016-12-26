@@ -12,6 +12,8 @@
         [Key]
         public Guid Id { get; set; }
 
+        public string Title { get; set; }
+
         public string MentorsFullName { get; set; }
 
         public string InternsFullName { get; set; }

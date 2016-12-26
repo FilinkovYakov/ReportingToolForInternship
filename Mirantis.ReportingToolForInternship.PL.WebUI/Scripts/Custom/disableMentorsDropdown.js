@@ -3,15 +3,15 @@
 
 $(document).ready(function () {
     var $typeOriginDrodown = $("#TypeOrigin"),
-        $mentorsNameDropdown = $("#MentorName");
+        $mentorsIdDropdown = $("#MentorsId");
 
     $typeOriginDrodown.change(function () {
         if ($typeOriginDrodown.val() == "Intern's") {
-            $mentorsNameDropdown.val("All");
-            $mentorsNameDropdown.selectpicker("refresh");
-            $mentorsNameDropdown.prop("disabled", true);
+            $mentorsIdDropdown.val("");
+            $mentorsIdDropdown.selectpicker("refresh");
+            $mentorsIdDropdown.prop("disabled", true);
         } else {
-            $mentorsNameDropdown.prop("disabled", false);
+            $mentorsIdDropdown.prop("disabled", false);
         }
     });
 });

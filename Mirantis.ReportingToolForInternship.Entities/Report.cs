@@ -16,6 +16,8 @@
 
         public int? InternsId { get; set; }
 
+        public string Title { get; set; }
+
         public string TypeOccuring { get; set; }
 
         public virtual List<Activity> Activities { get; set; }

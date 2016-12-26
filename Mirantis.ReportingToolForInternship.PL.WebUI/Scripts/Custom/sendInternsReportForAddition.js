@@ -1,4 +1,7 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
+/// <reference path="../jquery.validate.min.js" />
+/// <reference path="../jquery.validate.unobtrusive.min.js" />
+
 /// <reference path="clearInputs.js" />
 /// <reference path="disableInputs.js" />
 /// <reference path="constructors.js" />
@@ -15,6 +18,7 @@
 $(document).ready(function () {
     var $submitButton = $("#SubmitButton"),
         $saveAsDraftButton = $("#SaveAsDraftButton"),
+        $titleInput = $("#Title"),
         $typeInput = $("#TypeOccuring"),
         $dateInput = $("#Date"),
         ajaxSettingsSubmitReport = {
@@ -56,6 +60,7 @@ $(document).ready(function () {
 
     function isModelValidate() {
         var isValidForm = true;
+        isValidForm = $titleInput.valid() && isValidForm;
         isValidForm = $typeInput.valid() && isValidForm;
         isValidForm = $dateInput.valid() && isValidForm;
         isValidForm = validationActivitiesFromInternsReport() && isValidForm;

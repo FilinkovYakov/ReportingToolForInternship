@@ -69,6 +69,11 @@
                     query = query.Where(report => report.Date >= searchModel.DateFrom);
                 }
 
+                if (!string.IsNullOrEmpty(searchModel.Title))
+                {
+                    query = query.Where(report => report.Title.Contains(searchModel.Title));
+                }
+
                 if (searchModel.TypeOccuring != "All")
                 {
                     query = query.Where(report => report.TypeOccuring == searchModel.TypeOccuring);
@@ -79,16 +84,14 @@
                     query = query.Where(report => report.InternsId == searchModel.InternsId);
                 }
 
+                if (searchModel.MentorsId != null)
+                {
+                    query = query.Where(report => report.MentorsId == searchModel.MentorsId);
+                }
+
                 if (searchModel.TypeOrigin == "Mentor's")
                 {
-                    if (searchModel.MentorsId != null)
-                    {
-                        query = query.Where(report => report.MentorsId == searchModel.MentorsId);
-                    }
-                    else
-                    {
-                        query = query.Where(report => report.MentorsId != null);
-                    }
+                    query = query.Where(report => report.MentorsId != null);
                 }
                 else if (searchModel.TypeOrigin == "Intern's")
                 {

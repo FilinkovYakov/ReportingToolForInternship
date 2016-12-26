@@ -12,6 +12,9 @@
         [Key]
         public Guid Id { get; set; }
 
+        [Display(Name = "Title :")]
+        public string Title { get; set; }
+
         [Display(Name = "Intern :")]
         public string InternsFullName { get; set; }
 
