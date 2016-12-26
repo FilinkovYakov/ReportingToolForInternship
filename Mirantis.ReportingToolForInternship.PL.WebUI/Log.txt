@@ -1,0 +1,2 @@
+2016-12-26 14:21:50,217 [7] ERROR CustomLogger - System.Exception: Exception of type 'System.Exception' was thrown.
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.Search() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 303

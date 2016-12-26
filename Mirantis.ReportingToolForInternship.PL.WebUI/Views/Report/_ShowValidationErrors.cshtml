@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Mirantis.ReportingToolForInternship.PL.WebUI.Models.ErrorVM>
+
+<div class="row text-center alert alert-success">
+    <ul>
+        @foreach (var error in Model)
+        {
+            <li>
+                @error.Description
+            </li>
+        }
+    </ul>
+</div>
+
+<script>
+    hideLoadingIcon();
+    unlockAllFunctions();
+</script>

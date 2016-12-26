@@ -39,11 +39,12 @@
         protected void Application_BeginRequest()
         {
             //NOTE: Stopping IE from being a caching whore
-            HttpContext.Current.Response.Cache.SetAllowResponseInBrowserHistory(false);
-            HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            HttpContext.Current.Response.Cache.SetNoStore();
-            Response.Cache.SetExpires(DateTime.Now);
-            Response.Cache.SetValidUntilExpires(true);
+            Response.Cache.SetAllowResponseInBrowserHistory(false);
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
+            Response.Cache.SetRevalidation(HttpCacheRevalidation.AllCaches);
+            Response.Cache.SetExpires(DateTime.Now.AddDays(-1));
+            Response.Cache.SetValidUntilExpires(false);
         }
     }
 }

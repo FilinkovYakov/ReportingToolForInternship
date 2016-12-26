@@ -9,6 +9,7 @@
     using System.Web;
     using ValidationAttributes;
 
+    [ReportValidator]
     public class ReportVM
     {
         [Key]

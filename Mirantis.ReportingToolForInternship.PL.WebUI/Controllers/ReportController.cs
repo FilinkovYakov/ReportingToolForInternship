@@ -5,15 +5,12 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
     using Entities;
-    using BLL.Core;
     using BLL.Contracts;
-    using System.Threading;
-    using AutoMapper;
     using Automapper;
     using AuthorizeAttributes;
+    using Converter;
 
     public class ReportController : Controller
     {
@@ -98,7 +95,7 @@
                     return PartialView("_SuccessSaveReportAsDraftAfterAddition");
                 }
 
-                return View(reportVM);
+                return PartialView("_ShowValidationErrors", Converter.GetErrorList(ModelState));
             }
             catch (Exception e)
             {

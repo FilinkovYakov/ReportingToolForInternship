@@ -205,6 +205,7 @@
     <Compile Include="Controllers\AuthenticationUserController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Converter\Converter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,6 +213,7 @@
     <Compile Include="Models\ActivityVM.cs" />
     <Compile Include="Models\AuthenticationUserVM.cs" />
     <Compile Include="Models\CookieUser.cs" />
+    <Compile Include="Models\ErrorVM.cs" />
     <Compile Include="Models\FuturePlanVM.cs" />
     <Compile Include="Models\QuestionVM.cs" />
     <Compile Include="Models\ReportVM.cs" />
@@ -227,6 +229,7 @@
     <Compile Include="ValidationAttributes\ActivitiesValidator.cs" />
     <Compile Include="ValidationAttributes\ActivityValidator.cs" />
     <Compile Include="ValidationAttributes\FuturePlansValidator.cs" />
+    <Compile Include="ValidationAttributes\ReportValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datepicker.css" />
@@ -564,6 +567,7 @@
     <Content Include="Views\Error\_Error404.cshtml" />
     <Content Include="Views\Error\_Error500.cshtml" />
     <Content Include="Views\Error\_Error401.cshtml" />
+    <Content Include="Views\Report\_ShowValidationErrors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

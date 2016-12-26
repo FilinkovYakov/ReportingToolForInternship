@@ -2,7 +2,7 @@
     background-color: #e8e8e8;
 }
 
-section.container  {
+section.container {
     background-color: white;
     border-radius: 4px;
 }
@@ -23,13 +23,17 @@ label {
     white-space: nowrap;
 }
 
-table { 
-    table-layout: fixed; 
+table {
+    table-layout: fixed;
 }
 
-table th, table td { 
-    word-break: break-all;
-}
+    table th {
+        white-space: nowrap;
+    }
+
+    table td {
+        word-break: break-all;
+    }
 
 img {
     width: 200px;
@@ -90,7 +94,6 @@ input[readonly].input-grey {
     margin-bottom: 10px;
 }
 
-.row.alert {
-    margin-left: 0;
-    margin-right: 0;
+.alert {
+    margin: 15px 0;
 }
