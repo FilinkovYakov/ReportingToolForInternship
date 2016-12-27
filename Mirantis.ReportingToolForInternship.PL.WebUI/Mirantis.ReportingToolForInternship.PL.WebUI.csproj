@@ -228,8 +228,9 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ValidationAttributes\ActivitiesValidator.cs" />
     <Compile Include="ValidationAttributes\ActivityValidator.cs" />
+    <Compile Include="ValidationAttributes\EditingReportValidator.cs" />
     <Compile Include="ValidationAttributes\FuturePlansValidator.cs" />
-    <Compile Include="ValidationAttributes\ReportValidator.cs" />
+    <Compile Include="ValidationAttributes\AdditionReportValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datepicker.css" />

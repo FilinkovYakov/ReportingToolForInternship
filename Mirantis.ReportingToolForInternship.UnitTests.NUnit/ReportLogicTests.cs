@@ -44,12 +44,12 @@
         public void ReportLogic_SearchReport_ReturnNull()
         {
             Mock<IReportDAO> mockDAO = new Mock<IReportDAO>();
-            mockDAO.Setup(t => t.Search(It.IsAny<SearchModel>())).Verifiable();
+            mockDAO.Setup(t => t.SearchForUser(It.IsAny<SearchModel>())).Verifiable();
 
             ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<ICustomLogger>());
             SearchModel searchModel = SearchModelProvider.GetSearchModel();
 
-            IList<RepresentingReport> foundReports = logic.Search(searchModel);
+            IList<RepresentingReport> foundReports = logic.SearchForUser(searchModel);
 
             Assert.AreEqual(foundReports, null);
             mockDAO.VerifyAll();

@@ -18,7 +18,7 @@
             int userId = 0;
 
             Mock<IReportLogic> reportLogic = new Mock<IReportLogic>();
-            reportLogic.Setup(t => t.Search(It.IsAny<SearchModel>())).Verifiable();
+            reportLogic.Setup(t => t.SearchForUser(It.IsAny<SearchModel>())).Verifiable();
 
             ReportController reportCtrl = new ReportController(reportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
             reportCtrl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, null).Object;

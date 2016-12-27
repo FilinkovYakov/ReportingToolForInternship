@@ -79,15 +79,14 @@
             }
         }
 
-        public IList<RepresentingReport> Search(SearchModel searchModel)
+        public IList<RepresentingReport> SearchForUser(SearchModel searchModel)
         {
             try
             {   
-                IList<Report> reports = _reportDAO.Search(searchModel);
-                IList<RepresentingReport> represReports = null;
+                IList<Report> reports = _reportDAO.SearchForUser(searchModel);
+                IList<RepresentingReport> represReports = new List<RepresentingReport>();
                 if (reports != null && reports.Any())
                 {
-                    represReports = new List<RepresentingReport>();
                     foreach (var report in reports)
                     {
                         RepresentingReport representingReport = ConstructRepresentingReportByReport(report);
@@ -198,6 +197,19 @@
                     futurePlan.ReportId = report.Id;
                     yield return futurePlan;
                 }
+            }
+        }
+
+        public IList<Report> SearchForValidation(SearchModel searchModel)
+        {
+            try
+            {
+                return _reportDAO.SearchForValidation(searchModel);
+            }
+            catch (Exception e)
+            {
+                _customLogger.RecordError(e);
+                throw;
             }
         }
     }

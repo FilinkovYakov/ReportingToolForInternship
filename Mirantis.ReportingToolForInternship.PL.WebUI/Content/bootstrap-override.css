@@ -23,6 +23,10 @@ label {
     white-space: nowrap;
 }
 
+ul {
+    list-style-type: none;
+}
+
 table {
     table-layout: fixed;
 }

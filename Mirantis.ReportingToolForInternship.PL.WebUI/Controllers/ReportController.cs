@@ -11,6 +11,7 @@
     using Automapper;
     using AuthorizeAttributes;
     using Converter;
+    using ValidationAttributes;
 
     public class ReportController : Controller
     {
@@ -89,6 +90,11 @@
 
                 reportVM.IsDraft = true;
 
+                if (AdditionReportValidator.IsExistWithSameTitleAndSameDate(reportVM))
+                {
+                    ModelState.AddModelError("Title", "Current title already used with current date");
+                }
+
                 if (ModelState.IsValid)
                 {
                     _reportLogic.Add(PLAutomapper.Mapper.Map<Report>(reportVM));
@@ -131,13 +137,18 @@
 
                 reportVM.IsDraft = false;
 
+                if (AdditionReportValidator.IsExistWithSameTitleAndSameDate(reportVM))
+                {
+                    ModelState.AddModelError("Title", "Current title already used with current date");
+                }
+
                 if (ModelState.IsValid)
                 {
                     _reportLogic.Add(PLAutomapper.Mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSubmitReport");
                 }
 
-                return View(reportVM);
+                return PartialView("_ShowValidationErrors", Converter.GetErrorList(ModelState));
             }
             catch (Exception e)
             {
@@ -235,13 +246,18 @@
 
                 reportVM.IsDraft = true;
 
+                if (EditingReportValidator.IsExistWithSameTitleAndSameDate(reportVM))
+                {
+                    ModelState.AddModelError("Title", "Current title already used with current date");
+                }
+
                 if (ModelState.IsValid)
                 {
                     _reportLogic.Edit(PLAutomapper.Mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSaveReportAsDraftAfterEditing");
                 }
 
-                return View(reportVM);
+                return PartialView("_ShowValidationErrors", Converter.GetErrorList(ModelState));
             }
             catch (Exception e)
             {
@@ -277,13 +293,18 @@
 
                 reportVM.IsDraft = false;
 
+                if (EditingReportValidator.IsExistWithSameTitleAndSameDate(reportVM))
+                {
+                    ModelState.AddModelError("Title", "Current title already used with current date");
+                }
+
                 if (ModelState.IsValid)
                 {
                     _reportLogic.Edit(PLAutomapper.Mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSubmitReport");
                 }
 
-                return View(reportVM);
+                return PartialView("_ShowValidationErrors", Converter.GetErrorList(ModelState));
             }
             catch (Exception e)
             {
@@ -320,7 +341,7 @@
                     }
 
                     searchVM.RequesterUserId = requesterId;
-                    IList<RepresentingReportVM> reports = _reportLogic.Search(PLAutomapper.Mapper.Map<SearchModel>(searchVM))
+                    IList<RepresentingReportVM> reports = _reportLogic.SearchForUser(PLAutomapper.Mapper.Map<SearchModel>(searchVM))
                         ?.Select(report => PLAutomapper.Mapper.Map<RepresentingReportVM>(report)).ToList();
                     if (reports != null && reports.Any())
                     {

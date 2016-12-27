@@ -7,7 +7,8 @@
     public interface IReportLogic
     {
         void Add(Report report);
-        IList<RepresentingReport> Search(SearchModel searchModel);
+        IList<RepresentingReport> SearchForUser(SearchModel searchModel);
+        IList<Report> SearchForValidation(SearchModel searchModel);
         Report GetById(Guid id);
         RepresentingReport GetRepresentReportById(Guid id);
         void Edit(Report report);

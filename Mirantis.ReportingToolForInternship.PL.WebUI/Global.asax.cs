@@ -25,14 +25,21 @@
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
         {
-            var authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
-            if (authCookie == null || string.IsNullOrEmpty(authCookie.Value))
-                return;
-
-            var user = JsonConvert.DeserializeObject<CookieUser>(FormsAuthentication.Decrypt(authCookie.Value).UserData);
-            if (user != null)
+            try
             {
-                HttpContext.Current.User = new UserPrincipal(user.Id, user.Roles);
+                var authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
+                if (authCookie == null || string.IsNullOrEmpty(authCookie.Value))
+                    return;
+
+                var user = JsonConvert.DeserializeObject<CookieUser>(FormsAuthentication.Decrypt(authCookie.Value).UserData);
+                if (user != null)
+                {
+                    HttpContext.Current.User = new UserPrincipal(user.Id, user.Roles);
+                }
+            }
+            catch
+            {
+                FormsAuthentication.SignOut();
             }
         }
 

@@ -9,7 +9,6 @@
     using System.Web;
     using ValidationAttributes;
 
-    [ReportValidator]
     public class ReportVM
     {
         [Key]
@@ -22,6 +21,7 @@
         public int? InternsId { get; set; }
 
         [Required(ErrorMessage = "Field 'Title' is required")]
+        [MaxLength(300, ErrorMessage = "Title should consist at maximum 300 characters")]
         [Display(Name = "Title :")]
         public string Title { get; set; }
 

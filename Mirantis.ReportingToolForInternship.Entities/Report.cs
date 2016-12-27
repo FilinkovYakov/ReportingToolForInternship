@@ -16,6 +16,7 @@
 
         public int? InternsId { get; set; }
 
+        [MaxLength(300)]
         public string Title { get; set; }
 
         public string TypeOccuring { get; set; }

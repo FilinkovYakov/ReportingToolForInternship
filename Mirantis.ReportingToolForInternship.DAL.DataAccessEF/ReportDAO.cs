@@ -54,7 +54,7 @@
             }
         }
 
-        public IList<Report> Search(SearchModel searchModel)
+        public IList<Report> SearchForUser(SearchModel searchModel)
         {
             using (var dbContext = new CustomDBContext(connectionString))
             {
@@ -221,6 +221,43 @@
                 {
                     dbContext.Entry(originalFuturePlan).CurrentValues.SetValues(futurePlan);
                 }
+            }
+        }
+
+        public IList<Report> SearchForValidation(SearchModel searchModel)
+        {
+            using (var dbContext = new CustomDBContext(connectionString))
+            {
+                var query = dbContext.Reports.Select(report => report);
+                if (searchModel.DateTo != null)
+                {
+                    query = query.Where(report => report.Date <= searchModel.DateTo);
+                }
+
+                if (searchModel.DateFrom != null)
+                {
+                    query = query.Where(report => report.Date >= searchModel.DateFrom);
+                }
+
+                if (!string.IsNullOrEmpty(searchModel.Title))
+                {
+                    query = query.Where(report => report.Title == searchModel.Title);
+                }
+
+                if (searchModel.InternsId != null)
+                {
+                    query = query.Where(report => report.InternsId == searchModel.InternsId);
+                }
+
+                if (searchModel.MentorsId != null)
+                {
+                    query = query.Where(report => report.MentorsId == searchModel.MentorsId);
+                }
+
+                return query.Include(report => report.Activities
+                    .Select(activity => activity.Questions))
+                    .Include(report => report.FuturePlans)
+                    .ToList();
             }
         }
     }
