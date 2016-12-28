@@ -83,7 +83,7 @@ input[readonly].input-grey {
 }
 
 .btn-remover, .btn-remover-activity {
-    margin-left: 10px !important;
+    margin-left: 3px !important;
 }
 
 .tooltip-inner {
@@ -100,4 +100,8 @@ input[readonly].input-grey {
 
 .alert {
     margin: 15px 0;
+}
+
+.row div {
+    margin-bottom: 5px;
 }

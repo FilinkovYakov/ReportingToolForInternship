@@ -69,11 +69,11 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <div class="col-xs-5 col-md-offset-2">
+    <div class="row">
+        <div class="col-xs-6 col-md-5 col-md-offset-2">
             <strong>Activities :</strong>
         </div>
-        <div class="col-xs-5">
+        <div class="col-xs-6 col-md-5">
             <strong>Evaluations :</strong>
         </div>
     </div>
@@ -85,19 +85,19 @@
     </div>
 
     <div class="form-group activity">
-        <div class="col-xs-5 col-md-offset-2">
+        <div class="col-xs-6 col-md-5 col-md-offset-2">
             <div class="row">
-                <div class="col-xs-9">
+                <div class="col-xs-7 col-sm-8 col-lg-9">
                     <input type="text" class="form-control text-box single-line input-activity" 
                            data-toggle="tooltip" data-placement="bottom"/>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-xs-5 col-sm-4 col-lg-3">
                     <input type="button" value="–" class="btn btn-default pull-right btn-remover-activity" />
                     <input type="button" value="+" class="btn btn-default pull-right btn-adder-activity" />
                 </div>
             </div>
         </div>
-        <div class="col-xs-5">
+        <div class="col-xs-6 col-md-5">
             <input type="text" class="form-control text-box single-line input-evaluation" 
                    data-toggle="tooltip" data-placement="bottom"/>
         </div>
@@ -107,24 +107,24 @@
     </div>
 
     <div class="composition future-plans">
-        <div class="form-group">
+        <div class="row">
             <div class="col-xs-10 col-md-offset-2">
                 <strong>Future plans :</strong>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-xs-10 col-md-offset-2">
+            <div class="col-xs-12 col-md-10 col-md-offset-2">
                 @Html.ValidationMessageFor(model => model.FuturePlans, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-xs-8 col-md-offset-2">
+            <div class="col-xs-9 col-sm-10 col-md-8 col-md-offset-2">
                 <input type="text" class="form-control text-box single-line input-future-plan" 
                        data-toggle="tooltip" data-placement="bottom"/>
             </div>
-            <div class="col-xs-2">
+            <div class="col-xs-3 col-sm-2">
                 <input type="button" value="–" class="btn btn-default pull-right btn-remover" />
                 <input type="button" value="+" class="btn btn-default pull-right btn-adder" />
             </div>

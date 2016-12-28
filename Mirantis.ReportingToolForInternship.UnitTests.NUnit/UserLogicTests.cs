@@ -33,7 +33,7 @@
         public void UserLogic_GetUsersByRole_ReturnListUsers()
         {
 
-            string role = "Menor";
+            string role = "Mentor";
             IList<User> mentors = new List<User>
             {
                     new User() { Id = 1 },
