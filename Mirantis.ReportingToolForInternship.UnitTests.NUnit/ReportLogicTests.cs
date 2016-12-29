@@ -41,7 +41,7 @@
         }
 
         [Test]
-        public void ReportLogic_SearchReport_ReturnNull()
+        public void ReportLogic_SearchReport_ReturnEmptyList()
         {
             Mock<IReportDAO> mockDAO = new Mock<IReportDAO>();
             mockDAO.Setup(t => t.SearchForUser(It.IsAny<SearchModel>())).Verifiable();
@@ -51,7 +51,7 @@
 
             IList<RepresentingReport> foundReports = logic.SearchForUser(searchModel);
 
-            Assert.AreEqual(foundReports, null);
+            Assert.AreEqual(foundReports.Count, 0);
             mockDAO.VerifyAll();
         }
 

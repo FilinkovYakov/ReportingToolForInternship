@@ -105,3 +105,7 @@ input[readonly].input-grey {
 .row div {
     margin-bottom: 5px;
 }
+
+.btn.pull-left {
+    margin-right: 3px;
+}

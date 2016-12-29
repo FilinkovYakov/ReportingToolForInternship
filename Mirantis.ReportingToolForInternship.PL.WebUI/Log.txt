@@ -1134,3 +1134,151 @@ Exception rethrown at [0]:
    at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.ConstructRepresentingReportByReport(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 119
    at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.SearchForUser(SearchModel searchModel) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 105
    at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 344
+2016-12-29 15:37:21,510 [21] ERROR CustomLogger - System.ServiceModel.FaultException: The creator of this fault did not specify a Reason.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.GetAll()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.GetAll() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 459
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.UserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\UserDAO.cs:line 18
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.ConstructRepresentingReportByReport(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 119
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.SearchForUser(SearchModel searchModel) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 92
+2016-12-29 15:37:21,591 [21] ERROR CustomLogger - System.ServiceModel.FaultException: The creator of this fault did not specify a Reason.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.GetAll()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.GetAll() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 459
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.UserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\UserDAO.cs:line 18
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.ConstructRepresentingReportByReport(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 119
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.SearchForUser(SearchModel searchModel) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 105
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 344
+2016-12-29 15:37:39,268 [21] ERROR CustomLogger - System.ServiceModel.FaultException: The creator of this fault did not specify a Reason.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.GetAll()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.GetAll() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 459
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.UserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\UserDAO.cs:line 18
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.ConstructRepresentingReportByReport(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 119
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.SearchForUser(SearchModel searchModel) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 92
+2016-12-29 15:37:39,278 [21] ERROR CustomLogger - System.ServiceModel.FaultException: The creator of this fault did not specify a Reason.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.GetAll()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.GetAll() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 459
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.UserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\UserDAO.cs:line 18
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.ConstructRepresentingReportByReport(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 119
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.SearchForUser(SearchModel searchModel) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 105
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 344
+2016-12-29 15:41:07,417 [11] ERROR CustomLogger - System.ServiceModel.FaultException: The creator of this fault did not specify a Reason.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.GetAll()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.GetAll() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 459
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.UserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\UserDAO.cs:line 18
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.ConstructRepresentingReportByReport(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 119
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.SearchForUser(SearchModel searchModel) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 92
+2016-12-29 15:41:07,453 [11] ERROR CustomLogger - System.ServiceModel.FaultException: The creator of this fault did not specify a Reason.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.GetAll()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.GetAll() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 459
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.UserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\UserDAO.cs:line 18
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.ConstructRepresentingReportByReport(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 119
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.SearchForUser(SearchModel searchModel) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 105
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 344
+2016-12-29 15:41:31,041 [17] ERROR CustomLogger - System.ServiceModel.FaultException: The creator of this fault did not specify a Reason.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.GetAll()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.GetAll() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 459
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.UserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\UserDAO.cs:line 18
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.ConstructRepresentingReportByReport(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 119
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.SearchForUser(SearchModel searchModel) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 92
+2016-12-29 15:41:31,058 [17] ERROR CustomLogger - System.ServiceModel.FaultException: The creator of this fault did not specify a Reason.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.GetAll()
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.GetAll() in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 459
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.UserDAO.GetById(Int32 id) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\UserDAO.cs:line 18
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.ConstructRepresentingReportByReport(Report report) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 119
+   at Mirantis.ReportingToolForInternship.BLL.Core.ReportLogic.SearchForUser(SearchModel searchModel) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\ReportLogic.cs:line 105
+   at Mirantis.ReportingToolForInternship.PL.WebUI.Controllers.ReportController.ShowSearchResult(SearchVM searchVM) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.PL.WebUI\Controllers\ReportController.cs:line 344
+2016-12-29 15:41:33,685 [12] ERROR CustomLogger - System.ServiceModel.FaultException: The creator of this fault did not specify a Reason.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.IAuthenticationService.SearchUser(String login, String fullName, String role)
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.AuthenticationService.AuthenticationServiceClient.SearchUser(String login, String fullName, String role) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Service References\AuthenticationService\Reference.cs:line 451
+   at Mirantis.ReportingToolForInternship.DAL.DataAccessService.UserDAO.GetUsersByRole(String role) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccessService\UserDAO.cs:line 28
+   at Mirantis.ReportingToolForInternship.DAL.DataAccess.CachedUserDAO.GetUsersByRole(String role) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.DAL.DataAccess\CachedUserDAO.cs:line 48
+   at Mirantis.ReportingToolForInternship.BLL.Core.UserLogic.GetUsersByRole(String role) in C:\Users\yfilinkov\Desktop\Mirantis.ReportingToolForInternship\Mirantis.ReportingToolForInternship.BLL.Core\UserLogic.cs:line 51
