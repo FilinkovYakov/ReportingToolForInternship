@@ -33,27 +33,6 @@
             Assert.IsAssignableFrom(typeof(ViewResult), result);
         }
 
-        //[Test]
-        //public void ReportController_SaveMentorsReportAsDraftAfterAddition_ReturnPartiralView()
-        //{
-        //    int userId = 0;
-        //    string[] usersRoles = { "Mentor" };
-
-        //    Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
-        //    mockLogic.Setup(t => t.Add(It.IsAny<Report>())).Verifiable();
-
-        //    ReportVM mentorsReportVM = ReportProvider.GetCorrectMentorsReportVM();
-        //    ReportController reportCtrl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
-        //    reportCtrl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, usersRoles).Object;
-
-        //    ActionResult result = reportCtrl.SaveReportAsDraftAfterAddition(mentorsReportVM);
-
-        //    Assert.IsNotNull(result);
-        //    Assert.IsAssignableFrom(typeof(PartialViewResult), result);
-
-        //    mockLogic.Verify(t => t.Add(It.IsAny<Report>()), Times.Once);
-        //}
-
         [Test]
         public void ReportController_ThrowExceptionDuringSavingInternsReportAfterAddition_ReturnHttpStatus()
         {
@@ -73,27 +52,6 @@
 
             mockLogger.VerifyAll();
         }
-
-        //[Test]
-        //public void ReportController_SubmitMentorsReportAfterAddition_ReturnPartiralView()
-        //{
-        //    int userId = 0;
-        //    string[] usersRoles = { "Mentor" };
-
-        //    Mock<IReportLogic> mockLogic = new Mock<IReportLogic>();
-        //    mockLogic.Setup(t => t.Add(It.IsAny<Report>())).Verifiable();
-
-        //    ReportVM mentorsReportVM = ReportProvider.GetCorrectMentorsReportVM();
-        //    ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
-        //    reportCrtl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, usersRoles).Object;
-
-        //    ActionResult result = reportCrtl.SubmitReportAfterAddition(mentorsReportVM);
-
-        //    Assert.IsNotNull(result);
-        //    Assert.IsAssignableFrom(typeof(PartialViewResult), result);
-
-        //    mockLogic.Verify(t => t.Add(It.IsAny<Report>()), Times.Once);
-        //}
 
         [Test]
         public void ReportController_ThrowExceptionDuringSubmittingInternsReportAfterAddition_ReturnPartialView()

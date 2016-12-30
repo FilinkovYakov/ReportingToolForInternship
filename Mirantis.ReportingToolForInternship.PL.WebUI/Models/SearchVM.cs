@@ -20,7 +20,7 @@
         [Display(Name = "Mentor :")]
         public int? MentorsId { get; set; }
 
-        [Display(Name = "Type occuring :")]
+        [Display(Name = "Type occurring :")]
         public string TypeOccuring { get; set; }
 
         [Display(Name = "Type origin :")]

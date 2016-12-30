@@ -23,7 +23,7 @@
             ReportController reportCtrl = new ReportController(reportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
             reportCtrl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, null).Object;
             
-SearchVM searhVM = SearchModelProvider.GetSearchVM();
+            SearchVM searhVM = SearchModelProvider.GetSearchVM();
 
             ActionResult result = reportCtrl.ShowSearchResult(searhVM);
 

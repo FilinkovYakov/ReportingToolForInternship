@@ -21,7 +21,7 @@
         [Display(Name = "Mentor :")]
         public string MentorsFullName { get; set; }
 
-        [Display(Name = "Type occuring :")]
+        [Display(Name = "Type occurring :")]
         public string TypeOccuring { get; set; }
 
         [Display(Name = "Type origin :")]

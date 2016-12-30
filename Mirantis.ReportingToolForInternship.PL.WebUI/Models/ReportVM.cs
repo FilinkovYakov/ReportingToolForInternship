@@ -25,7 +25,7 @@
         [Display(Name = "Title :")]
         public string Title { get; set; }
 
-        [Display(Name = "Type occuring :")]
+        [Display(Name = "Type occurring :")]
         public string TypeOccuring { get; set; }
         
         [Required(ErrorMessage = "Field 'From' is required")]
