@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.DAL.DataAccessCache
+﻿namespace Mirantis.ReportingTool.DAL.DataAccessCache
 {
     using Microsoft.Practices.Unity;
     using Microsoft.Practices.Unity.Configuration;

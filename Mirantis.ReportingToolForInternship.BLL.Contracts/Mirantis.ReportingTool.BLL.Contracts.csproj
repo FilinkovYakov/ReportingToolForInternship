@@ -7,10 +7,11 @@
     <ProjectGuid>{A0323582-89BF-4256-8436-25A632086091}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mirantis.ReportingToolForInternship.BLL.Contracts</RootNamespace>
-    <AssemblyName>Mirantis.ReportingToolForInternship.BLL.Contracts</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>Mirantis.ReportingTool.BLL.Contracts</RootNamespace>
+    <AssemblyName>Mirantis.ReportingTool.BLL.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,9 +48,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingTool.Entities.csproj">
       <Project>{4fff7831-8d36-48d0-bc0d-40086dad4465}</Project>
-      <Name>Mirantis.ReportingToolForInternship.Entities</Name>
+      <Name>Mirantis.ReportingTool.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

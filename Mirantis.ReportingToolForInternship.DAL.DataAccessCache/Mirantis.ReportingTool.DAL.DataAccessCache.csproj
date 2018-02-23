@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1C796185-116C-462D-8A18-9F1F9E8F1246}</ProjectGuid>
+    <ProjectGuid>{F3993DD6-C76F-4FC4-808C-B1A47E44E493}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mirantis.ReportingToolForInternship.DAL.DataAccessService</RootNamespace>
-    <AssemblyName>Mirantis.ReportingToolForInternship.DAL.DataAccessService</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>Mirantis.ReportingTool.DAL.DataAccessCache</RootNamespace>
+    <AssemblyName>Mirantis.ReportingTool.DAL.DataAccessCache</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
@@ -51,9 +48,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,67 +58,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthenticationUserDAO.cs" />
-    <Compile Include="DataServiceContainerInitializer.cs" />
-    <Compile Include="Service References\AuthenticationService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="ServiceMapper.cs" />
+    <Compile Include="DataCacheContainerInitializer.cs" />
+    <Compile Include="UserCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserDAO.cs" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.Contracts\Mirantis.ReportingTool.DAL.Contracts.csproj">
+      <Project>{BAB02513-C05E-4E79-88C7-63DC7F9421B4}</Project>
+      <Name>Mirantis.ReportingTool.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingTool.Entities.csproj">
+      <Project>{4FFF7831-8D36-48D0-BC0D-40086DAD4465}</Project>
+      <Name>Mirantis.ReportingTool.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="Service References\AuthenticationService\AuthenticationService.wsdl" />
-    <None Include="Service References\AuthenticationService\AuthenticationService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AuthenticationService\AuthenticationService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AuthenticationService\AuthenticationService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AuthenticationService\AuthenticationService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AuthenticationService\AuthenticationService4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.Contracts\Mirantis.ReportingToolForInternship.DAL.Contracts.csproj">
-      <Project>{bab02513-c05e-4e79-88c7-63dc7f9421b4}</Project>
-      <Name>Mirantis.ReportingToolForInternship.DAL.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
-      <Project>{4fff7831-8d36-48d0-bc0d-40086dad4465}</Project>
-      <Name>Mirantis.ReportingToolForInternship.Entities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\AuthenticationService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AuthenticationService\AuthenticationService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AuthenticationService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AuthenticationService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AuthenticationService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

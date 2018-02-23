@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.BLL.Contracts
+﻿namespace Mirantis.ReportingTool.BLL.Contracts
 {
     using Entities;
     using System;

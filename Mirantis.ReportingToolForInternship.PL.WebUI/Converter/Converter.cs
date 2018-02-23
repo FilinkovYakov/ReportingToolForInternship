@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.Converter
+﻿namespace Mirantis.ReportingTool.PL.WebUI.Converter
 {
     using Models;
     using System;

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(Mirantis.ReportingToolForInternship.PL.WebUI.Startup))]
-namespace Mirantis.ReportingToolForInternship.PL.WebUI
+[assembly: OwinStartup(typeof(Mirantis.ReportingTool.PL.WebUI.Startup))]
+namespace Mirantis.ReportingTool.PL.WebUI
 {
     public partial class Startup
     {

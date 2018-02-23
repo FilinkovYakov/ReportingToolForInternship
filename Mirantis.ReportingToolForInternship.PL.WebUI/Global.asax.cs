@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI
+﻿namespace Mirantis.ReportingTool.PL.WebUI
 {
     using BLL.Core;
     using Entities;

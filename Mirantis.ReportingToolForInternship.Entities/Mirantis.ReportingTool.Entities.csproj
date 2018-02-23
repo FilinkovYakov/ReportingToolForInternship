@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BAB02513-C05E-4E79-88C7-63DC7F9421B4}</ProjectGuid>
+    <ProjectGuid>{4FFF7831-8D36-48D0-BC0D-40086DAD4465}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mirantis.ReportingToolForInternship.DAL.Contracts</RootNamespace>
-    <AssemblyName>Mirantis.ReportingToolForInternship.DAL.Contracts</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>Mirantis.ReportingTool.Entities</RootNamespace>
+    <AssemblyName>Mirantis.ReportingTool.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,17 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAuthenticationUserDAO.cs" />
-    <Compile Include="IReportDAO.cs" />
-    <Compile Include="IUserCache.cs" />
-    <Compile Include="IUserDAO.cs" />
+    <Compile Include="Activity.cs" />
+    <Compile Include="FuturePlan.cs" />
+    <Compile Include="Question.cs" />
+    <Compile Include="Report.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
-      <Project>{4fff7831-8d36-48d0-bc0d-40086dad4465}</Project>
-      <Name>Mirantis.ReportingToolForInternship.Entities</Name>
-    </ProjectReference>
+    <Compile Include="RepresentingReport.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="SearchModel.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

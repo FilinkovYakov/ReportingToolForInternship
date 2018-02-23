@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Mirantis.ReportingToolForInternship.PL.WebUI.Models.Repositories
+namespace Mirantis.ReportingTool.PL.WebUI.Models.Repositories
 {
     public class TypeOriginRepo
     {

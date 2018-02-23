@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.DAL.DataAccess
+﻿namespace Mirantis.ReportingTool.DAL.DataAccess
 {
     using Microsoft.Practices.Unity;
     using Microsoft.Practices.Unity.Configuration;

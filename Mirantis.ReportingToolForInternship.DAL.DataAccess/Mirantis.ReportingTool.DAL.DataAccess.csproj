@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F3993DD6-C76F-4FC4-808C-B1A47E44E493}</ProjectGuid>
+    <ProjectGuid>{0664784E-474F-4656-ABEF-CB18ACE7CC0C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mirantis.ReportingToolForInternship.DAL.DataAccessCache</RootNamespace>
-    <AssemblyName>Mirantis.ReportingToolForInternship.DAL.DataAccessCache</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>Mirantis.ReportingTool.DAL.DataAccess</RootNamespace>
+    <AssemblyName>Mirantis.ReportingTool.DAL.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +48,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,18 +57,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataCacheContainerInitializer.cs" />
-    <Compile Include="UserCache.cs" />
+    <Compile Include="CachedUserDAO.cs" />
+    <Compile Include="DataContainerInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.Contracts\Mirantis.ReportingToolForInternship.DAL.Contracts.csproj">
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.Contracts\Mirantis.ReportingTool.DAL.Contracts.csproj">
       <Project>{BAB02513-C05E-4E79-88C7-63DC7F9421B4}</Project>
-      <Name>Mirantis.ReportingToolForInternship.DAL.Contracts</Name>
+      <Name>Mirantis.ReportingTool.DAL.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
-      <Project>{4FFF7831-8D36-48D0-BC0D-40086DAD4465}</Project>
-      <Name>Mirantis.ReportingToolForInternship.Entities</Name>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\Mirantis.ReportingTool.DAL.DataAccessCache.csproj">
+      <Project>{f3993dd6-c76f-4fc4-808c-b1a47e44e493}</Project>
+      <Name>Mirantis.ReportingTool.DAL.DataAccessCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Mirantis.ReportingTool.DAL.DataAccessService.csproj">
+      <Project>{1c796185-116c-462d-8a18-9f1f9e8f1246}</Project>
+      <Name>Mirantis.ReportingTool.DAL.DataAccessService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingTool.Entities.csproj">
+      <Project>{4fff7831-8d36-48d0-bc0d-40086dad4465}</Project>
+      <Name>Mirantis.ReportingTool.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

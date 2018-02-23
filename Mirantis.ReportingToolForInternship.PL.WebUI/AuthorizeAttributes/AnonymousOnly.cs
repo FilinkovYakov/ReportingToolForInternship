@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.AuthorizeAttributes
+﻿namespace Mirantis.ReportingTool.PL.WebUI.AuthorizeAttributes
 {
     using System;
     using System.Collections.Generic;

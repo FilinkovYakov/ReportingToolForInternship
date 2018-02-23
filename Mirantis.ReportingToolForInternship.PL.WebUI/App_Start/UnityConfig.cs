@@ -1,9 +1,9 @@
 using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
-using Mirantis.ReportingToolForInternship.BLL.Core;
+using Mirantis.ReportingTool.BLL.Core;
 
-namespace Mirantis.ReportingToolForInternship.PL.WebUI.App_Start
+namespace Mirantis.ReportingTool.PL.WebUI.App_Start
 {
     /// <summary>
     /// Specifies the Unity configuration for the main container.

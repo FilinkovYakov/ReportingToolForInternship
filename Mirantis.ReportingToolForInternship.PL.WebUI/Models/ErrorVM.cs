@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.Models
+﻿namespace Mirantis.ReportingTool.PL.WebUI.Models
 {
     using System;
     using System.Collections.Generic;

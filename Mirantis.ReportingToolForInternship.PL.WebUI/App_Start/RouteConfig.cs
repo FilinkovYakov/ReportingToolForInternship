@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Mirantis.ReportingToolForInternship.PL.WebUI
+namespace Mirantis.ReportingTool.PL.WebUI
 {
     public class RouteConfig
     {

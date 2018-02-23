@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mirantis.ReportingToolForInternship.BLL.Contracts")]
+[assembly: AssemblyTitle("Mirantis.ReportingTool.BLL.Contracts")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("mirantis-it")]
-[assembly: AssemblyProduct("Mirantis.ReportingToolForInternship.BLL.Contracts")]
+[assembly: AssemblyProduct("Mirantis.ReportingTool.BLL.Contracts")]
 [assembly: AssemblyCopyright("Copyright © mirantis-it 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

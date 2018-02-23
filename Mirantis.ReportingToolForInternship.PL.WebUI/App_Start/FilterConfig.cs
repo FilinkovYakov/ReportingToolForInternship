@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Mirantis.ReportingToolForInternship.PL.WebUI
+namespace Mirantis.ReportingTool.PL.WebUI
 {
     public class FilterConfig
     {

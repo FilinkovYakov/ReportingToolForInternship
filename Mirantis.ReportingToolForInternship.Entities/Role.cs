@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.Entities
+﻿namespace Mirantis.ReportingTool.Entities
 {
     using System;
     using System.Collections.Generic;

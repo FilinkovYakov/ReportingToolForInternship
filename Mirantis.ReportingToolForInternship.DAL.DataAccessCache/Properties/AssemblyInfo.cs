@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mirantis.ReportingToolForInternship.DAL.DataAccessCache")]
+[assembly: AssemblyTitle("Mirantis.ReportingTool.DAL.DataAccessCache")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("mirantis-it")]
-[assembly: AssemblyProduct("Mirantis.ReportingToolForInternship.DAL.DataAccessCache")]
+[assembly: AssemblyProduct("Mirantis.ReportingTool.DAL.DataAccessCache")]
 [assembly: AssemblyCopyright("Copyright © mirantis-it 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

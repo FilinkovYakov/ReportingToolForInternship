@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.DAL.DataAccessCache
+﻿namespace Mirantis.ReportingTool.DAL.DataAccessCache
 {
     using Contracts;
     using Entities;

@@ -30,6 +30,9 @@
   <wsdl:message name="IAuthenticationService_UpdateUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IAuthenticationService_UpdateUser_InvalidRoleFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/InternshipAuthenticationService.Models.Faults" name="detail" element="q2:InvalidRoleFault" />
+  </wsdl:message>
   <wsdl:message name="IAuthenticationService_ChangePassword_InputMessage">
     <wsdl:part name="parameters" element="tns:ChangePassword" />
   </wsdl:message>
@@ -79,6 +82,7 @@
     <wsdl:operation name="UpdateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/UpdateUser" message="tns:IAuthenticationService_UpdateUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticationService/UpdateUserResponse" message="tns:IAuthenticationService_UpdateUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAuthenticationService/UpdateUserInvalidRoleFaultFault" name="InvalidRoleFaultFault" message="tns:IAuthenticationService_UpdateUser_InvalidRoleFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="ChangePassword">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationService/ChangePassword" message="tns:IAuthenticationService_ChangePassword_InputMessage" />
@@ -136,6 +140,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="InvalidRoleFaultFault">
+        <soap:fault use="literal" name="InvalidRoleFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="ChangePassword">
       <soap:operation soapAction="http://tempuri.org/IAuthenticationService/ChangePassword" style="document" />

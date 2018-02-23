@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.DAL.DataAccessService
+﻿namespace Mirantis.ReportingTool.DAL.DataAccessService
 {
     using AutoMapper;
     using System;

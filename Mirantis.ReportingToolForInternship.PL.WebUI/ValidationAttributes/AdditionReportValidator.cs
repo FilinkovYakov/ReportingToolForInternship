@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.ValidationAttributes
+﻿namespace Mirantis.ReportingTool.PL.WebUI.ValidationAttributes
 {
     using App_Start;
     using BLL.Contracts;

@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.Automapper
+﻿namespace Mirantis.ReportingTool.PL.WebUI.Automapper
 {
     using AutoMapper;
     using BLL.Core;

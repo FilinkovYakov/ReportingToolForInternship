@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.UnitTests.NUnit
+﻿namespace Mirantis.ReportingTool.UnitTests.NUnit
 {
     using global::NUnit.Framework;
     using DAL.Contracts;

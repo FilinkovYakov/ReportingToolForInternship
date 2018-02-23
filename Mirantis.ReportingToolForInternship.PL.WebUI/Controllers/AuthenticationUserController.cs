@@ -1,32 +1,25 @@
-﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.Controllers
+﻿namespace Mirantis.ReportingTool.PL.WebUI.Controllers
 {
-    using AuthorizeAttributes;
-    using Entities;
-    using BLL.Contracts;
-    using Models;
-    using Newtonsoft.Json;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
-    using System.Web.Security;
-    using Automapper;
+	using AuthorizeAttributes;
+	using Entities;
+	using BLL.Contracts;
+	using Models;
+	using Newtonsoft.Json;
+	using System;
+	using System.Web;
+	using System.Web.Mvc;
+	using System.Web.Security;
+	using Automapper;
 
-    public class AuthenticationUserController : Controller
+	public class AuthenticationUserController : Controller
     {
         private readonly IAuthenticationUserLogic _authUserLogic;
         private readonly ICustomLogger _customLogger;
 
         public AuthenticationUserController(IAuthenticationUserLogic authUserLogic, ICustomLogger customLogger)
         {
-            if (authUserLogic == null)
-                throw new ArgumentNullException("user's authentication logic");
-            if (customLogger == null)
-                throw new ArgumentNullException("logger");
-
-            _authUserLogic = authUserLogic;
-            _customLogger = customLogger;
+			_authUserLogic = authUserLogic ?? throw new ArgumentNullException("user's authentication logic");
+            _customLogger = customLogger ?? throw new ArgumentNullException("logger");
         }
 
         [AnonymousOnly]

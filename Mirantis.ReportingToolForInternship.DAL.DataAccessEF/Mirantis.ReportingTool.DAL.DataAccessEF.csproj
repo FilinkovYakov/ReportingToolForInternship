@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0664784E-474F-4656-ABEF-CB18ACE7CC0C}</ProjectGuid>
+    <ProjectGuid>{4A59AECF-4571-4F7B-82C0-EC3D04C351D6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mirantis.ReportingToolForInternship.DAL.DataAccess</RootNamespace>
-    <AssemblyName>Mirantis.ReportingToolForInternship.DAL.DataAccess</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>Mirantis.ReportingTool.DAL.DataAccessEF</RootNamespace>
+    <AssemblyName>Mirantis.ReportingTool.DAL.DataAccessEF</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
@@ -47,6 +58,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,30 +69,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CachedUserDAO.cs" />
-    <Compile Include="DataContainerInitializer.cs" />
+    <Compile Include="CustomDBContext.cs" />
+    <Compile Include="DataEFContainerInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportDAO.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.Contracts\Mirantis.ReportingToolForInternship.DAL.Contracts.csproj">
-      <Project>{BAB02513-C05E-4E79-88C7-63DC7F9421B4}</Project>
-      <Name>Mirantis.ReportingToolForInternship.DAL.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccessCache\Mirantis.ReportingToolForInternship.DAL.DataAccessCache.csproj">
-      <Project>{f3993dd6-c76f-4fc4-808c-b1a47e44e493}</Project>
-      <Name>Mirantis.ReportingToolForInternship.DAL.DataAccessCache</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.DataAccessService\Mirantis.ReportingToolForInternship.DAL.DataAccessService.csproj">
-      <Project>{1c796185-116c-462d-8a18-9f1f9e8f1246}</Project>
-      <Name>Mirantis.ReportingToolForInternship.DAL.DataAccessService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingToolForInternship.Entities.csproj">
-      <Project>{4fff7831-8d36-48d0-bc0d-40086dad4465}</Project>
-      <Name>Mirantis.ReportingToolForInternship.Entities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.DAL.Contracts\Mirantis.ReportingTool.DAL.Contracts.csproj">
+      <Project>{BAB02513-C05E-4E79-88C7-63DC7F9421B4}</Project>
+      <Name>Mirantis.ReportingTool.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mirantis.ReportingToolForInternship.Entities\Mirantis.ReportingTool.Entities.csproj">
+      <Project>{4FFF7831-8D36-48D0-BC0D-40086DAD4465}</Project>
+      <Name>Mirantis.ReportingTool.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

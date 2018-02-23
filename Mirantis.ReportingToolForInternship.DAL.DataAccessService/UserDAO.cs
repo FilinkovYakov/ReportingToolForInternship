@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.DAL.DataAccessService
+﻿namespace Mirantis.ReportingTool.DAL.DataAccessService
 {
     using Contracts;
     using System;
@@ -6,7 +6,7 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using Mirantis.ReportingToolForInternship.Entities;
+    using Mirantis.ReportingTool.Entities;
     using AuthenticationService;
 
     public class UserDAO : IUserDAO

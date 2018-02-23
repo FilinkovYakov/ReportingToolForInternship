@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.PL.WebUI.Controllers
+﻿namespace Mirantis.ReportingTool.PL.WebUI.Controllers
 {
     using Models.Repositories;
     using Models;
@@ -21,16 +21,9 @@
 
         public ReportController(IReportLogic reportLogic, IUserLogic userLogic, ICustomLogger customLogger)
         {
-            if (reportLogic == null)
-                throw new ArgumentNullException("report's logic");
-            if (userLogic == null)
-                throw new ArgumentNullException("user's logic");
-            if (customLogger == null)
-                throw new ArgumentNullException("logger");
-
-            _reportLogic = reportLogic;
-            _customLogger = customLogger;
-            _userLogic = userLogic;
+			_reportLogic = reportLogic ?? throw new ArgumentNullException("report's logic");
+            _customLogger = customLogger ?? throw new ArgumentNullException("logger");
+            _userLogic = userLogic ?? throw new ArgumentNullException("user's logic");
 
             UserLogicProvider.UserLogic = userLogic;
         }

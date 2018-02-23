@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.DAL.DataAccessEF
+﻿namespace Mirantis.ReportingTool.DAL.DataAccessEF
 {
     using Entities;
     using System.ComponentModel.DataAnnotations.Schema;

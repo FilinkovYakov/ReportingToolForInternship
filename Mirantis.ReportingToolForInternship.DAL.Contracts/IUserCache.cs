@@ -1,4 +1,4 @@
-﻿namespace Mirantis.ReportingToolForInternship.DAL.Contracts
+﻿namespace Mirantis.ReportingTool.DAL.Contracts
 {
     using Entities;
     using System;
