@@ -16,8 +16,8 @@ namespace Mirantis.ReportingTool.PL.WebUI.Models.Repositories
 
             reportsTypes = new List<string>()
             {
-                "Mentor's", "Intern's"
-            };
+                "Manager's", "Engineer's"
+			};
 
             allTypes.AddRange(reportsTypes);
         }

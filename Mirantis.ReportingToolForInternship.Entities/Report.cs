@@ -12,9 +12,9 @@
         [Key]
         public Guid Id { get; set; }
 
-        public int? MentorsId { get; set; }
+        public int? ManagerId { get; set; }
 
-        public int? InternsId { get; set; }
+        public int? EngineerId { get; set; }
 
         [MaxLength(300)]
         public string Title { get; set; }

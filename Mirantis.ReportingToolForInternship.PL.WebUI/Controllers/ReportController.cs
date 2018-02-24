@@ -12,8 +12,9 @@
     using AuthorizeAttributes;
     using Converter;
     using ValidationAttributes;
+	using Mirantis.ReportingTool.PL.WebUI.Constants;
 
-    public class ReportController : Controller
+	public class ReportController : Controller
     {
         private readonly IReportLogic _reportLogic;
         private readonly ICustomLogger _customLogger;
@@ -28,8 +29,8 @@
             UserLogicProvider.UserLogic = userLogic;
         }
 
-        [CustomAuthorize(Roles = "Mentor")]
-        public ActionResult AddMentorsReport()
+        [CustomAuthorize(Roles = AppRoles.Manager)]
+        public ActionResult AddManagerReport()
         {
             try
             {
@@ -42,8 +43,8 @@
             }
         }
 
-        [Authorize(Roles = "Intern")]
-        public ActionResult AddInternsReport()
+        [Authorize(Roles = AppRoles.Engineer)]
+        public ActionResult AddEngineerReport()
         {
             try
             {
@@ -56,29 +57,29 @@
             }
         }
 
-        [CustomAuthorize(Roles = "Mentor,Intern")]
+        [CustomAuthorize(Roles = AppRoles.ManagerOrEngineer)]
         [HttpPost]
         public ActionResult SaveReportAsDraftAfterAddition(ReportVM reportVM)
         {
             try
             {
-                if (reportVM.InternsId.HasValue)
+                if (reportVM.EngineerId.HasValue)
                 {
-                    if (!User.IsInRole("Mentor"))
+                    if (!User.IsInRole(AppRoles.Manager))
                     {
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.MentorsId = int.Parse(User.Identity.Name);
+                    reportVM.ManagerId = int.Parse(User.Identity.Name);
                 }
                 else
                 {
-                    if (!User.IsInRole("Intern"))
+                    if (!User.IsInRole(AppRoles.Engineer))
                     {
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.InternsId = int.Parse(User.Identity.Name);
+                    reportVM.EngineerId = int.Parse(User.Identity.Name);
                 }
 
                 reportVM.IsDraft = true;
@@ -103,29 +104,29 @@
             }
         }
 
-        [CustomAuthorize(Roles = "Mentor,Intern")]
+        [CustomAuthorize(Roles = AppRoles.ManagerOrEngineer)]
         [HttpPost]
         public ActionResult SubmitReportAfterAddition(ReportVM reportVM)
         {
             try
             {
-                if (reportVM.InternsId.HasValue)
+                if (reportVM.EngineerId.HasValue)
                 {
-                    if (!User.IsInRole("Mentor"))
+                    if (!User.IsInRole(AppRoles.Manager))
                     {
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.MentorsId = int.Parse(User.Identity.Name);
+                    reportVM.ManagerId = int.Parse(User.Identity.Name);
                 }
                 else
                 {
-                    if (!User.IsInRole("Intern"))
+                    if (!User.IsInRole(AppRoles.Engineer))
                     {
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.InternsId = int.Parse(User.Identity.Name);
+                    reportVM.EngineerId = int.Parse(User.Identity.Name);
                 }
 
                 reportVM.IsDraft = false;
@@ -150,19 +151,19 @@
             }
         }
 
-        [CustomAuthorize(Roles = "Intern")]
-        public ActionResult EditInternsReport(Guid id)
+        [CustomAuthorize(Roles = AppRoles.Engineer)]
+        public ActionResult EditEngineerReport(Guid id)
         {
             try
             {
                 ReportVM reportVM = PLAutomapper.Mapper.Map<ReportVM>(_reportLogic.GetById(id));
-                if(reportVM.MentorsId.HasValue)
+                if(reportVM.ManagerId.HasValue)
                 {
                     return new HttpStatusCodeResult(403);
                 }
 
                 int requestersId = int.Parse(User.Identity.Name);
-                if (reportVM.InternsId != requestersId)
+                if (reportVM.EngineerId != requestersId)
                 {
                     return new HttpStatusCodeResult(403);
                 }
@@ -181,19 +182,19 @@
             }
         }
 
-        [CustomAuthorize(Roles = "Mentor")]
-        public ActionResult EditMentorsReport(Guid id)
+        [CustomAuthorize(Roles = AppRoles.Manager)]
+        public ActionResult EditManagerReport(Guid id)
         {
             try
             {
                 ReportVM reportVM = PLAutomapper.Mapper.Map<ReportVM>(_reportLogic.GetById(id));
-                if (!reportVM.MentorsId.HasValue)
+                if (!reportVM.ManagerId.HasValue)
                 {
                     return new HttpStatusCodeResult(403);
                 }
 
                 int requestersId = int.Parse(User.Identity.Name);
-                if (reportVM.MentorsId != requestersId)
+                if (reportVM.ManagerId != requestersId)
                 {
                     return new HttpStatusCodeResult(403);
                 }
@@ -212,29 +213,29 @@
             }
         }
 
-        [CustomAuthorize(Roles = "Mentor,Intern")]
+        [CustomAuthorize(Roles = AppRoles.ManagerOrEngineer)]
         [HttpPost]
         public ActionResult SaveReportAsDraftAfterEditing(ReportVM reportVM)
         {
             try
             {
-                if (reportVM.MentorsId.HasValue)
+                if (reportVM.ManagerId.HasValue)
                 {
-                    if (!User.IsInRole("Mentor"))
+                    if (!User.IsInRole(AppRoles.Manager))
                     {
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.MentorsId = int.Parse(User.Identity.Name);
+                    reportVM.ManagerId = int.Parse(User.Identity.Name);
                 }
                 else
                 {
-                    if (!User.IsInRole("Intern"))
+                    if (!User.IsInRole(AppRoles.Engineer))
                     {
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.InternsId = int.Parse(User.Identity.Name);
+                    reportVM.EngineerId = int.Parse(User.Identity.Name);
                 }
 
                 reportVM.IsDraft = true;
@@ -259,29 +260,29 @@
             }
         }
 
-        [CustomAuthorize(Roles = "Mentor,Intern")]
+        [CustomAuthorize(Roles = AppRoles.ManagerOrEngineer)]
         [HttpPost]
         public ActionResult SubmitReportAfterEditing(ReportVM reportVM)
         {
             try
             {
-                if (reportVM.MentorsId.HasValue)
+                if (reportVM.ManagerId.HasValue)
                 {
-                    if (!User.IsInRole("Mentor"))
+                    if (!User.IsInRole(AppRoles.Manager))
                     {
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.MentorsId = int.Parse(User.Identity.Name);
+                    reportVM.ManagerId = int.Parse(User.Identity.Name);
                 }
                 else
                 {
-                    if (!User.IsInRole("Intern"))
+                    if (!User.IsInRole(AppRoles.Engineer))
                     {
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.InternsId = int.Parse(User.Identity.Name);
+                    reportVM.EngineerId = int.Parse(User.Identity.Name);
                 }
 
                 reportVM.IsDraft = false;
@@ -354,19 +355,19 @@
         }
 
         [CustomAuthorize]
-        public ActionResult DetailsInternsReport(Guid id)
+        public ActionResult DetailsEngineerReport(Guid id)
         {
             try
             {
                 RepresentingReportVM reportVM = PLAutomapper.Mapper.Map<RepresentingReportVM>(_reportLogic.GetRepresentReportById(id));
-                if (!reportVM.IsInternsReport())
+                if (!reportVM.IsEngineerReport())
                 {
                     return new HttpStatusCodeResult(403);
                 }
 
                 int requesterId = int.Parse(User.Identity.Name);
                 User requesterUser = _userLogic.GetById(requesterId);
-                if (requesterUser.FullName != reportVM.InternsFullName && reportVM.IsDraft)
+                if (requesterUser.FullName != reportVM.EngineerFullName && reportVM.IsDraft)
                 {
                     return new HttpStatusCodeResult(403);
                 }
@@ -381,19 +382,19 @@
         }
 
         [CustomAuthorize]
-        public ActionResult DetailsMentorsReport(Guid id)
+        public ActionResult DetailsManagerReport(Guid id)
         {
             try
             {
                 RepresentingReportVM reportVM = PLAutomapper.Mapper.Map<RepresentingReportVM>(_reportLogic.GetRepresentReportById(id));
-                if (reportVM.IsInternsReport())
+                if (reportVM.IsEngineerReport())
                 {
                     return new HttpStatusCodeResult(403);
                 }
 
                 int requesterId = int.Parse(User.Identity.Name);
                 User requesterUser = _userLogic.GetById(requesterId);
-                if (requesterUser.FullName != reportVM.MentorsFullName && reportVM.IsDraft)
+                if (requesterUser.FullName != reportVM.ManagerFullName && reportVM.IsDraft)
                 {
                     return new HttpStatusCodeResult(403);
                 }

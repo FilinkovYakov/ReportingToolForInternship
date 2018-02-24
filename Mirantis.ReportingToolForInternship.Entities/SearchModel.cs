@@ -10,9 +10,9 @@
     {
         public int? RequesterUserId { get; set; }
 
-        public int? InternsId { get; set; }
+        public int? EngineerId { get; set; }
 
-        public int? MentorsId { get; set; }
+        public int? ManagerId { get; set; }
 
         public string Title { get; set; }
 

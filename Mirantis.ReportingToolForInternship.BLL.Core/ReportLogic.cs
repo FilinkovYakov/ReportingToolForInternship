@@ -114,22 +114,22 @@
             }
 
             RepresentingReport representingReport = BLLAutomapper.Mapper.Map<RepresentingReport>(report);
-            if (report.InternsId.HasValue)
+            if (report.EngineerId.HasValue)
             {
-                representingReport.InternsFullName = _userDAO.GetById(report.InternsId.Value)?.FullName ?? string.Empty;
+                representingReport.EngineerFullName = _userDAO.GetById(report.EngineerId.Value)?.FullName ?? string.Empty;
             }
             else
             {
-                representingReport.InternsFullName = "";
+                representingReport.EngineerFullName = "";
             }
 
-            if (report.MentorsId.HasValue)
+            if (report.ManagerId.HasValue)
             {
-                representingReport.MentorsFullName = _userDAO.GetById(report.MentorsId.Value)?.FullName ?? string.Empty;
+                representingReport.ManagerFullName = _userDAO.GetById(report.ManagerId.Value)?.FullName ?? string.Empty;
             }
             else
             {
-                representingReport.MentorsFullName = "";
+                representingReport.ManagerFullName = "";
             }
 
             return representingReport;

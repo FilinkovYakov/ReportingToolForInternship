@@ -10,12 +10,12 @@
 
     class ReportProvider
     {
-        public static Report GetCorrectInternsReport()
+        public static Report GetCorrectEngineerReport()
         {
             return new Report()
             {
                 Id = new Guid(),
-                InternsId = 1,
+                EngineerId = 1,
                 Date = DateTime.Now,
                 TypeOccuring = "Daily",
                 IsDraft = false,
@@ -39,19 +39,19 @@
             };
         }
 
-        public static Report GetCorrectMentorsReport()
+        public static Report GetCorrectManagerReport()
         {
-            Report report = GetCorrectInternsReport();
-            report.MentorsId = 2;
+            Report report = GetCorrectEngineerReport();
+            report.ManagerId = 2;
             return report;
         }
 
-        public static ReportVM GetCorrectInternsReportVM()
+        public static ReportVM GetCorrectEngineerReportVM()
         {
             return new ReportVM()
             {
                 Id = new Guid(),
-                InternsId = 1,
+                EngineerId = 1,
                 Date = DateTime.Now,
                 TypeOccuring = "Daily",
                 IsDraft = false,
@@ -75,10 +75,10 @@
             };
         }
 
-        public static ReportVM GetCorrectMentorsReportVM()
+        public static ReportVM GetCorrectManagerReportVM()
         {
-            ReportVM report = GetCorrectInternsReportVM();
-            report.MentorsId = 2;
+            ReportVM report = GetCorrectEngineerReportVM();
+            report.ManagerId = 2;
             return report;
         }
     }

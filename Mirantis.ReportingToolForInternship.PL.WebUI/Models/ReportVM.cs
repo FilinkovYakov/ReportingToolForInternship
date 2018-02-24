@@ -14,11 +14,11 @@
         [Key]
         public Guid? Id { get; set; }
 
-        [Display(Name = "Mentor :")]
-        public int? MentorsId { get; set; }
+        [Display(Name = "Manager :")]
+        public int? ManagerId { get; set; }
 
-        [Display(Name = "Intern :")]
-        public int? InternsId { get; set; }
+        [Display(Name = "Engineer :")]
+        public int? EngineerId { get; set; }
 
         [Required(ErrorMessage = "Field 'Title' is required")]
         [MaxLength(300, ErrorMessage = "Title should consist at maximum 300 characters")]

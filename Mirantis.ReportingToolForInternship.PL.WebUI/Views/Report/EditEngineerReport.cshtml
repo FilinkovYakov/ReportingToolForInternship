@@ -2,10 +2,10 @@
 @model Mirantis.ReportingTool.PL.WebUI.Models.ReportVM
 
 @{
-    ViewBag.Title = "Edit mentor's Report";
+    ViewBag.Title = "Edit engineer's Report";
 }
 
-<h2>Edit mentor's report</h2>
+<h2>Edit engineer's report</h2>
 
 <form class="form-horizontal">
     <hr />
@@ -18,7 +18,7 @@
     </div>
 
     <input type="hidden" value="@Model.Id" id="ReportId">
-    <input type="hidden" value="@Model.MentorsId" id="MentorsId">
+    <input type="hidden" value="@Model.EngineerId" id="EngineerId">
 
     <div class="form-group">
         @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-xs-2" })
@@ -36,30 +36,6 @@
                 }
             })
             @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.InternsId, htmlAttributes: new { @class = "control-label col-xs-2" })
-        <div class="col-xs-10">
-            <select name="InternsId" id="InternsId" class="selectpicker" data-live-search="true" data-size="5">
-                @foreach (var user in UserLogicProvider.UserLogic.GetUsersByRole("Intern"))
-                {
-                    if (Model.InternsId == user.Id)
-                    {
-                        <option value="@user.Id" selected>
-                            @string.Format("{0} - {1}", user.FullName, user.Login)
-                        </option>
-                    }
-                    else
-                    {
-                        <option value="@user.Id">
-                            @string.Format("{0} - {1}", user.FullName, user.Login)
-                        </option>
-                    }
-                }
-            </select>
-            @Html.ValidationMessageFor(model => model.InternsId, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -105,7 +81,7 @@
             <strong>Activities :</strong>
         </div>
         <div class="col-xs-6 col-md-5">
-            <strong>Evaluations :</strong>
+            <strong>Questions about activities :</strong>
         </div>
     </div>
 
@@ -132,17 +108,37 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-5">
-                @if (activity.Evaluation == null)
+            <div class="col-xs-6 col-md-5 composition">
+                @if (activity.Questions.Any())
                 {
-                    <input type="text" class="form-control text-box single-line input-evaluation"
-                           data-toggle="tooltip" data-placement="bottom" />
+                    foreach (var question in activity.Questions)
+                    {
+                        <div class="form-group">
+                            <div class="col-xs-7 col-sm-8 col-lg-9">
+                                <input type="hidden" value="@question.Id" class="questionId">
+                                <input type="text" class="form-control text-box single-line input-question"
+                                       data-toggle="tooltip" data-placement="bottom"
+                                       title="@question.Description" value="@question.Description" />
+                            </div>
+                            <div class="col-xs-5 col-sm-4 col-lg-3">
+                                <input type="button" value="–" class="btn btn-default pull-right btn-remover" />
+                                <input type="button" value="+" class="btn btn-default pull-right btn-adder" />
+                            </div>
+                        </div>
+                    }
                 }
                 else
                 {
-                    <input type="text" class="form-control text-box single-line input-evaluation"
-                           data-toggle="tooltip" data-placement="bottom"
-                           title="@activity.Evaluation" value="@activity.Evaluation" />
+                    <div class="form-group">
+                        <div class="col-xs-7 col-sm-8 col-lg-9">
+                            <input type="text" class="form-control text-box single-line input-question"
+                                   data-toggle="tooltip" data-placement="bottom" />
+                        </div>
+                        <div class="col-xs-5 col-sm-4 col-lg-3">
+                            <input type="button" value="–" class="btn btn-default pull-right btn-remover" />
+                            <input type="button" value="+" class="btn btn-default pull-right btn-adder" />
+                        </div>
+                    </div>
                 }
             </div>
             <div class="col-xs-10 col-md-offset-2">
@@ -218,7 +214,7 @@
     <script src="~/Scripts/Custom/disableInputs.js"></script>
     <script src="~/Scripts/Custom/changeRulesValidation.js"></script>
     <script src="~/Scripts/Custom/validationActivities.js"></script>
-    <script src="~/Scripts/Custom/validationMentorsActivities.js"></script>
+    <script src="~/Scripts/Custom/validationEngineerActivities.js"></script>
     <script src="~/Scripts/Custom/validationFuturePlans.js"></script>
     <script src="~/Scripts/Custom/actionsAfterFail.js"></script>
     <script src="~/Scripts/Custom/actionsAfterSuccessfullChangeReport.js"></script>
@@ -229,6 +225,6 @@
     <script src="~/Scripts/Custom/constructors.js"></script>
     <script src="~/Scripts/Custom/constructReportBeforeSending.js"></script>
     <script src="~/Scripts/Custom/sendReport.js"></script>
-    <script src="~/Scripts/Custom/sendMentorsReportForEditing.js"></script>
+    <script src="~/Scripts/Custom/sendEngineerReportForEditing.js"></script>
     <script src="~/Scripts/Custom/setSettingsDatePickerOnEditingReportForm.js"></script>
 }

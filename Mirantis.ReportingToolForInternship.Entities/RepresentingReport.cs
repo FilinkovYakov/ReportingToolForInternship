@@ -14,9 +14,9 @@
 
         public string Title { get; set; }
 
-        public string MentorsFullName { get; set; }
+        public string ManagerFullName { get; set; }
 
-        public string InternsFullName { get; set; }
+        public string EngineerFullName { get; set; }
 
         public string TypeOccuring { get; set; }
 

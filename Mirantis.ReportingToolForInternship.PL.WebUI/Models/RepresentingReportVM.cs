@@ -15,11 +15,11 @@
         [Display(Name = "Title :")]
         public string Title { get; set; }
 
-        [Display(Name = "Intern :")]
-        public string InternsFullName { get; set; }
+        [Display(Name = "Engineer :")]
+        public string EngineerFullName { get; set; }
 
-        [Display(Name = "Mentor :")]
-        public string MentorsFullName { get; set; }
+        [Display(Name = "Manager :")]
+        public string ManagerFullName { get; set; }
 
         [Display(Name = "Type occurring :")]
         public string TypeOccuring { get; set; }
@@ -43,9 +43,9 @@
         [FuturePlansValidator]
         public List<FuturePlanVM> FuturePlans { get; set; }
 
-        public bool IsInternsReport()
+        public bool IsEngineerReport()
         {
-            return string.IsNullOrEmpty(MentorsFullName);
+            return string.IsNullOrEmpty(ManagerFullName);
         }
     }
 }

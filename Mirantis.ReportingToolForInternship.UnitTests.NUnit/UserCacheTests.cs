@@ -59,7 +59,7 @@
         [Test]
         public void GetByRoleGotDataFromCache()
         {
-            const string usersRole = "Mentor";
+            const string usersRole = "Manager";
             Mock<IUserCache> userCacheMock = new Mock<IUserCache>();
             userCacheMock.Setup(x => x.GetUsersByRole(usersRole))
                 .Returns(new List<User> {
@@ -81,7 +81,7 @@
         [Test]
         public void GetByRoleGotDataFromDao()
         {
-            const string usersRole = "Mentor";
+            const string usersRole = "Manager";
             IList<User> users = new List<User>();
             Mock<IUserDAO> userDaoMock = new Mock<IUserDAO>();
             Mock<IUserCache> userCacheMock = new Mock<IUserCache>();

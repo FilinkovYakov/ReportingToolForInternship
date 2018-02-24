@@ -9,7 +9,7 @@
 /// <reference path="actionsAfterSuccessfullChangeReport.js" />
 /// <reference path="changeRulesValidation.js" />
 /// <reference path="validationActivities.js" />
-/// <reference path="validationMentorsActivities.js" />
+/// <reference path="validationEngineerActivities.js" />
 /// <reference path="validationFuturePlans.js" />
 /// <reference path="validationRecord.js" />
 /// <reference path="constructReportBeforeSending.js" />
@@ -19,7 +19,6 @@
 $(document).ready(function () {
     var $submitButton = $("#SubmitButton"),
         $saveAsDraftButton = $("#SaveAsDraftButton"),
-        $internsIdInput = $("#InternsId"),
         $titleInput = $("#Title"),
         $typeInput = $("#TypeOccuring"),
         $dateInput = $("#Date"),
@@ -63,18 +62,16 @@ $(document).ready(function () {
     function isModelValidate() {
         var isValidForm = true;
         isValidForm = $titleInput.valid() && isValidForm;
-        isValidForm = $internsIdInput.valid() && isValidForm;
         isValidForm = $typeInput.valid() && isValidForm;
         isValidForm = $dateInput.valid() && isValidForm;
-        isValidForm = validationActivitiesFromMentorsReport() && isValidForm;
+		isValidForm = validationActivitiesFromEngineerReport() && isValidForm;
         isValidForm = validationFuturePlans() && isValidForm;
-
         return isValidForm;
     }
 
     function assignEventToAdderNewReportButton() {
         $("#AddReport").click(function () {
-            window.location.replace("/Report/AddMentorsReport");
+			window.location.replace("/Report/AddEngineerReport");
         });
     }
 

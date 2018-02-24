@@ -9,7 +9,7 @@
 /// <reference path="actionsAfterSuccessfullChangeReport.js" />
 /// <reference path="changeRulesValidation.js" />
 /// <reference path="validationActivities.js" />
-/// <reference path="validationMentorsActivities.js" />
+/// <reference path="validationManagerActivities.js" />
 /// <reference path="validationFuturePlans.js" />
 /// <reference path="validationRecord.js" />
 /// <reference path="constructReportBeforeSending.js" />
@@ -17,21 +17,23 @@
 /// <reference path="sendReport.js" />
 
 $(document).ready(function () {
+	"use strict";
+
     var $submitButton = $("#SubmitButton"),
         $saveAsDraftButton = $("#SaveAsDraftButton"),
-        $internsIdInput = $("#InternsId"),
+		$engineerIdInput = $("#EngineerId"),
         $titleInput = $("#Title"),
         $typeInput = $("#TypeOccuring"),
         $dateInput = $("#Date"),
         ajaxSettingsSaveReport = {
             type: "POST",
-            url: "/Report/SaveReportAsDraftAfterAddition",
+            url: "/Report/SaveReportAsDraftAfterEditing",
             contentType: 'application/json; charset=utf-8',
             dataType: 'html',
             success: function (result) {
                 hideLoadingIcon();
                 alertAboutSuccessfullChange(result);
-                assignEventToAdderNewReportButton();
+                assignEventToReworkReportButton();
             },
             error: function (result) {
                 alertAboutFail(result);
@@ -39,7 +41,7 @@ $(document).ready(function () {
         },
         ajaxSettingsSubmitReport = {
             type: "POST",
-            url: "/Report/SubmitReportAfterAddition",
+            url: "/Report/SubmitReportAfterEditing",
             contentType: 'application/json; charset=utf-8',
             dataType: 'html',
             success: function (result) {
@@ -50,8 +52,7 @@ $(document).ready(function () {
             error: function (result) {
                 alertAboutFail(result);
             }
-        }
-
+        };
 
     $submitButton.click(function () {
         sendReport(isModelValidate, ajaxSettingsSubmitReport);
@@ -64,17 +65,25 @@ $(document).ready(function () {
     function isModelValidate() {
         var isValidForm = true;
         isValidForm = $titleInput.valid() && isValidForm;
-        isValidForm = $internsIdInput.valid() && isValidForm;
+		isValidForm = $engineerIdInput.valid() && isValidForm;
         isValidForm = $typeInput.valid() && isValidForm;
         isValidForm = $dateInput.valid() && isValidForm;
-        isValidForm = validationActivitiesFromMentorsReport() && isValidForm;
+        isValidForm = validationActivitiesFromManagerReport() && isValidForm;
         isValidForm = validationFuturePlans() && isValidForm;
+
         return isValidForm;
     }
 
     function assignEventToAdderNewReportButton() {
         $("#AddReport").click(function () {
-            window.location.replace("/Report/AddMentorsReport");
+            window.location.replace("/Report/AddManagerReport");
+        });
+    }
+
+    function assignEventToReworkReportButton() {
+        $("#ReworkReport").click(function () {
+            unlockAllFunctions();
+            location.reload();
         });
     }
 });

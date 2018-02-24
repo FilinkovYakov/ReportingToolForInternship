@@ -9,32 +9,20 @@
 /// <reference path="actionsAfterSuccessfullChangeReport.js" />
 /// <reference path="changeRulesValidation.js" />
 /// <reference path="validationActivities.js" />
-/// <reference path="validationInternsActivities.js" />
+/// <reference path="validationManagerActivities.js" />
 /// <reference path="validationFuturePlans.js" />
 /// <reference path="validationRecord.js" />
 /// <reference path="constructReportBeforeSending.js" />
+/// <reference path="changeStatusLoadingIcon.js" />
 /// <reference path="sendReport.js" />
 
 $(document).ready(function () {
     var $submitButton = $("#SubmitButton"),
         $saveAsDraftButton = $("#SaveAsDraftButton"),
+		$engineerIdInput = $("#EngineerId"),
         $titleInput = $("#Title"),
         $typeInput = $("#TypeOccuring"),
         $dateInput = $("#Date"),
-        ajaxSettingsSubmitReport = {
-            type: "POST",
-            url: "/Report/SubmitReportAfterAddition",
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'html',
-            success: function (result) {
-                hideLoadingIcon();
-                alertAboutSuccessfullChange(result);
-                assignEventToAdderNewReportButton();
-            },
-            error: function (result) {
-                alertAboutFail(result);
-            }
-        },
         ajaxSettingsSaveReport = {
             type: "POST",
             url: "/Report/SaveReportAsDraftAfterAddition",
@@ -48,7 +36,22 @@ $(document).ready(function () {
             error: function (result) {
                 alertAboutFail(result);
             }
-        };
+        },
+        ajaxSettingsSubmitReport = {
+            type: "POST",
+            url: "/Report/SubmitReportAfterAddition",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'html',
+            success: function (result) {
+                hideLoadingIcon();
+                alertAboutSuccessfullChange(result);
+                assignEventToAdderNewReportButton();
+            },
+            error: function (result) {
+                alertAboutFail(result);
+            }
+        }
+
 
     $submitButton.click(function () {
         sendReport(isModelValidate, ajaxSettingsSubmitReport);
@@ -61,16 +64,17 @@ $(document).ready(function () {
     function isModelValidate() {
         var isValidForm = true;
         isValidForm = $titleInput.valid() && isValidForm;
+		isValidForm = $engineerIdInput.valid() && isValidForm;
         isValidForm = $typeInput.valid() && isValidForm;
         isValidForm = $dateInput.valid() && isValidForm;
-        isValidForm = validationActivitiesFromInternsReport() && isValidForm;
+        isValidForm = validationActivitiesFromManagerReport() && isValidForm;
         isValidForm = validationFuturePlans() && isValidForm;
         return isValidForm;
     }
 
     function assignEventToAdderNewReportButton() {
         $("#AddReport").click(function () {
-            window.location.replace("/Report/AddInternsReport");
+            window.location.replace("/Report/AddManagerReport");
         });
     }
 });

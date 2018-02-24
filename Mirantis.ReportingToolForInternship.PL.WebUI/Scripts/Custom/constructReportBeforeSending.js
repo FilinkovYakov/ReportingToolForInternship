@@ -1,7 +1,7 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
 /// <reference path="constructors.js" />
 /// <reference path="validationActivities.js" />
-/// <reference path="validationMentorsActivities.js" />
+/// <reference path="validationManagerActivities.js" />
 /// <reference path="validationFuturePlans.js" />
 /// <reference path="validationRecord.js" />
 
@@ -33,13 +33,13 @@ function constructIdByInput(input, classOfWrapperWithId) {
 function constructReportVM() {
     var id = constructRecordByJquery($("#ReportId")),
         title = constructRecordByJquery($("#Title")),
-        mentorsId = constructRecordByJquery($("#MentorsId")),
-        internsId = constructRecordByJquery($("#InternsId")),
+        managerId = constructRecordByJquery($("#ManagerId")),
+		engineerId = constructRecordByJquery($("#EngineerId")),
         typeOccuring = constructRecordByJquery($("#TypeOccuring")),
         date = constructRecordByJquery($("#Date")),
         activities = constructActivities(),
         futurePlans = constructFuturePlans();
-    return new ReportVM(id, title, mentorsId, internsId, typeOccuring, date, activities, futurePlans);
+	return new ReportVM(id, title, managerId, engineerId, typeOccuring, date, activities, futurePlans);
 }
 
 function constructFuturePlans() {

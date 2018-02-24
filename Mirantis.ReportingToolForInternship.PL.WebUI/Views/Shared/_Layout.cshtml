@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Mirantis.ReportingTool.PL.WebUI.Constants
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reporting Tool for Internship</title>
+    <title>Reporting Tool</title>
     <link href="~/Content/libs/reset.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-select.min.css" rel="stylesheet" />
@@ -19,13 +20,13 @@
                     <ul class="nav navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            if (User.IsInRole("Intern"))
+                            if (User.IsInRole(AppRoles.Engineer))
                             {
-                                <li>@Html.ActionLink("Add intern's report", "AddInternsReport", "Report")</li>
+                                <li>@Html.ActionLink("Add engineer's report", "AddEngineerReport", "Report")</li>
                             }
-                            if (User.IsInRole("Mentor"))
+                            if (User.IsInRole(AppRoles.Manager))
                             {
-                                <li>@Html.ActionLink("Add mentor's report", "AddMentorsReport", "Report")</li>
+                                <li>@Html.ActionLink("Add manager's report", "AddManagerReport", "Report")</li>
                             }
                             <li>@Html.ActionLink("Search", "Search", "Report")</li>
                         }

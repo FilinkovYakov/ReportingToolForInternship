@@ -44,7 +44,7 @@
                             new IndexAttribute("Idx_ReportTitle", 1) { IsUnique = true }
                         }));
             modelBuilder.Entity<Report>()
-                .Property(e => e.MentorsId)
+                .Property(e => e.ManagerId)
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(new[]
@@ -52,7 +52,7 @@
                             new IndexAttribute("Idx_ReportTitle", 2) { IsUnique = true }
                         }));
             modelBuilder.Entity<Report>()
-                .Property(e => e.InternsId)
+                .Property(e => e.EngineerId)
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(new[]

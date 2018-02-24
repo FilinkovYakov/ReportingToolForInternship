@@ -9,11 +9,10 @@
 /// <reference path="actionsAfterSuccessfullChangeReport.js" />
 /// <reference path="changeRulesValidation.js" />
 /// <reference path="validationActivities.js" />
-/// <reference path="validationInternsActivities.js" />
+/// <reference path="validationEngineerActivities.js" />
 /// <reference path="validationFuturePlans.js" />
 /// <reference path="validationRecord.js" />
 /// <reference path="constructReportBeforeSending.js" />
-/// <reference path="changeStatusLoadingIcon.js" />
 /// <reference path="sendReport.js" />
 
 $(document).ready(function () {
@@ -22,23 +21,23 @@ $(document).ready(function () {
         $titleInput = $("#Title"),
         $typeInput = $("#TypeOccuring"),
         $dateInput = $("#Date"),
-        ajaxSettingsSaveReport = {
+        ajaxSettingsSubmitReport = {
             type: "POST",
-            url: "/Report/SaveReportAsDraftAfterEditing",
+            url: "/Report/SubmitReportAfterAddition",
             contentType: 'application/json; charset=utf-8',
             dataType: 'html',
             success: function (result) {
                 hideLoadingIcon();
                 alertAboutSuccessfullChange(result);
-                assignEventToReworkReportButton();
+                assignEventToAdderNewReportButton();
             },
             error: function (result) {
                 alertAboutFail(result);
             }
         },
-        ajaxSettingsSubmitReport = {
+        ajaxSettingsSaveReport = {
             type: "POST",
-            url: "/Report/SubmitReportAfterEditing",
+            url: "/Report/SaveReportAsDraftAfterAddition",
             contentType: 'application/json; charset=utf-8',
             dataType: 'html',
             success: function (result) {
@@ -64,21 +63,14 @@ $(document).ready(function () {
         isValidForm = $titleInput.valid() && isValidForm;
         isValidForm = $typeInput.valid() && isValidForm;
         isValidForm = $dateInput.valid() && isValidForm;
-        isValidForm = validationActivitiesFromInternsReport() && isValidForm;
+		isValidForm = validationActivitiesFromEngineerReport() && isValidForm;
         isValidForm = validationFuturePlans() && isValidForm;
         return isValidForm;
     }
 
     function assignEventToAdderNewReportButton() {
         $("#AddReport").click(function () {
-            window.location.replace("/Report/AddInternsReport");
-        });
-    }
-
-    function assignEventToReworkReportButton() {
-        $("#ReworkReport").click(function () {
-            unlockAllFunctions();
-            location.reload();
+			window.location.replace("/Report/AddEngineerReport");
         });
     }
 });

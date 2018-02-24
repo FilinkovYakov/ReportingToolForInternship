@@ -24,8 +24,8 @@
                 Title = reportVM.Title,
                 DateTo = reportVM.Date,
                 DateFrom = reportVM.Date,
-                InternsId = reportVM.InternsId,
-                MentorsId = reportVM.MentorsId
+                EngineerId = reportVM.EngineerId,
+                ManagerId = reportVM.ManagerId
             };
 
             return _reportLogic.SearchForValidation(searchVM).Where(report => report.Id != reportVM.Id).Any();

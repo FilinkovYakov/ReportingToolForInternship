@@ -14,11 +14,11 @@
         [Display(Name = "Title :")]
         public string Title { get; set; }
 
-        [Display(Name = "Intern :")]
-        public int? InternsId { get; set; }
+        [Display(Name = "Engineer :")]
+        public int? EngineerId { get; set; }
 
-        [Display(Name = "Mentor :")]
-        public int? MentorsId { get; set; }
+        [Display(Name = "Manager :")]
+        public int? ManagerId { get; set; }
 
         [Display(Name = "Type occurring :")]
         public string TypeOccuring { get; set; }

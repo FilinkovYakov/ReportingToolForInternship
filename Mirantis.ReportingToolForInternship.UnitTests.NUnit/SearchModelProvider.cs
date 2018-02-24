@@ -14,8 +14,8 @@
         {
             return new SearchModel()
             {
-                InternsId = -1,
-                MentorsId = -1,
+                EngineerId = -1,
+                ManagerId = -1,
                 DateFrom = null,
                 DateTo = null,
                 TypeOccuring = "All",
@@ -27,8 +27,8 @@
         {
             return new SearchVM()
             {
-                InternsId = -1,
-                MentorsId = -1,
+                EngineerId = -1,
+                ManagerId = -1,
                 DateFrom = null,
                 DateTo = null,
                 TypeOccuring = "All",

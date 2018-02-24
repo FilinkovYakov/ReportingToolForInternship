@@ -33,21 +33,21 @@
         public void UserLogic_GetUsersByRole_ReturnListUsers()
         {
 
-            string role = "Mentor";
-            IList<User> mentors = new List<User>
+            string role = "Manager";
+            IList<User> managers = new List<User>
             {
                     new User() { Id = 1 },
                     new User() { Id = 2 }
             };
 
             Mock<IUserDAO> userDAO = new Mock<IUserDAO>();
-            userDAO.Setup(t => t.GetUsersByRole(role)).Returns(mentors).Verifiable();
+            userDAO.Setup(t => t.GetUsersByRole(role)).Returns(managers).Verifiable();
 
             UserLogic userLogic = new UserLogic(userDAO.Object, Mock.Of<ICustomLogger>());
 
             IList<User> resultUsers = userLogic.GetUsersByRole(role);
 
-            Assert.AreEqual(resultUsers, mentors);
+            Assert.AreEqual(resultUsers, managers);
             userDAO.VerifyAll();
         }
     }

@@ -79,30 +79,30 @@
                     query = query.Where(report => report.TypeOccuring == searchModel.TypeOccuring);
                 }
 
-                if (searchModel.InternsId != null)
+                if (searchModel.EngineerId != null)
                 {
-                    query = query.Where(report => report.InternsId == searchModel.InternsId);
+                    query = query.Where(report => report.EngineerId == searchModel.EngineerId);
                 }
 
-                if (searchModel.MentorsId != null)
+                if (searchModel.ManagerId != null)
                 {
-                    query = query.Where(report => report.MentorsId == searchModel.MentorsId);
+                    query = query.Where(report => report.ManagerId == searchModel.ManagerId);
                 }
 
-                if (searchModel.TypeOrigin == "Mentor's")
+                if (searchModel.TypeOrigin == "Manager's")
                 {
-                    query = query.Where(report => report.MentorsId != null);
+                    query = query.Where(report => report.ManagerId != null);
                 }
-                else if (searchModel.TypeOrigin == "Intern's")
+                else if (searchModel.TypeOrigin == "Engineer's")
                 {
-                    query = query.Where(report => report.MentorsId == null);
+                    query = query.Where(report => report.ManagerId == null);
                 }
 
                 if (searchModel.RequesterUserId != null)
                 {
                     query = query.Where(report => !report.IsDraft 
-                || report.IsDraft && report.MentorsId == null && report.InternsId == searchModel.RequesterUserId
-                || report.IsDraft && report.MentorsId != null && report.MentorsId == searchModel.RequesterUserId);
+                || report.IsDraft && report.ManagerId == null && report.EngineerId == searchModel.RequesterUserId
+                || report.IsDraft && report.ManagerId != null && report.ManagerId == searchModel.RequesterUserId);
                 }
                 else
                 {
@@ -244,14 +244,14 @@
                     query = query.Where(report => report.Title == searchModel.Title);
                 }
 
-                if (searchModel.InternsId != null)
+                if (searchModel.EngineerId != null)
                 {
-                    query = query.Where(report => report.InternsId == searchModel.InternsId);
+                    query = query.Where(report => report.EngineerId == searchModel.EngineerId);
                 }
 
-                if (searchModel.MentorsId != null)
+                if (searchModel.ManagerId != null)
                 {
-                    query = query.Where(report => report.MentorsId == searchModel.MentorsId);
+                    query = query.Where(report => report.ManagerId == searchModel.ManagerId);
                 }
 
                 return query.Include(report => report.Activities
