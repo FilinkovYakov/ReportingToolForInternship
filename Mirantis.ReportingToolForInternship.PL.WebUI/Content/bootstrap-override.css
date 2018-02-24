@@ -109,3 +109,7 @@ input[readonly].input-grey {
 .btn.pull-left {
     margin-right: 3px;
 }
+
+textarea {
+	resize: none;
+}

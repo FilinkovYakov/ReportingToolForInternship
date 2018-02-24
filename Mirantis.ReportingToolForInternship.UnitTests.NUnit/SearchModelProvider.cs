@@ -10,28 +10,26 @@
 
     public class SearchModelProvider
     {
-        public static SearchModel GetSearchModel()
+        public static SearchReportModel GetSearchModel()
         {
-            return new SearchModel()
+            return new SearchReportModel()
             {
                 EngineerId = -1,
                 ManagerId = -1,
                 DateFrom = null,
                 DateTo = null,
-                TypeOccuring = "All",
                 TypeOrigin = "All"
             };
         }
 
-        public static SearchVM GetSearchVM()
+        public static SearchReportVM GetSearchVM()
         {
-            return new SearchVM()
+            return new SearchReportVM()
             {
                 EngineerId = -1,
                 ManagerId = -1,
                 DateFrom = null,
                 DateTo = null,
-                TypeOccuring = "All",
                 TypeOrigin = "All"
             };
         }

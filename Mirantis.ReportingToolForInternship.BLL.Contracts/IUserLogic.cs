@@ -7,5 +7,6 @@
     {
         User GetById(int? id);
         IList<User> GetUsersByRole(string role);
+		IList<User> GetAll();
     }
 }

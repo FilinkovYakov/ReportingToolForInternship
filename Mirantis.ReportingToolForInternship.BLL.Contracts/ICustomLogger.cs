@@ -1,13 +1,10 @@
 ﻿namespace Mirantis.ReportingTool.BLL.Contracts
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+	using System;
 
-    public interface ICustomLogger
+	public interface ICustomLogger
     {
         void RecordError(Exception e);
+		void RecordInfo(string info);
     }
 }

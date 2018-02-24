@@ -20,7 +20,7 @@
 
         public static bool IsExistWithSameTitleAndSameDate(ReportVM reportVM)
         {
-            SearchModel searchVM = new SearchModel()
+            SearchReportModel searchVM = new SearchReportModel()
             {
                 Title = reportVM.Title,
                 DateTo = reportVM.Date,

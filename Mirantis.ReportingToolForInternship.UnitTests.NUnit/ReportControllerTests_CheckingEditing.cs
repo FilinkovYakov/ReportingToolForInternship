@@ -1,6 +1,7 @@
 ﻿namespace Mirantis.ReportingTool.UnitTests.NUnit
 {
-    using BLL.Contracts;
+	using AutoMapper;
+	using BLL.Contracts;
     using Entities;
     using global::NUnit.Framework;
     using Moq;
@@ -25,7 +26,7 @@
             mockReportLogic.Setup(t => t.GetById(It.IsAny<Guid>()))
                 .Returns(new Report() { EngineerId = userId, IsDraft = true }).Verifiable();
 
-            ReportController reportCrtl = new ReportController(mockReportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
+            ReportController reportCrtl = new ReportController(mockReportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             reportCrtl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, usersRoles).Object;
             ActionResult result = reportCrtl.EditEngineerReport(reportId);
 
@@ -46,7 +47,7 @@
             mockReportLogic.Setup(t => t.GetById(It.IsAny<Guid>()))
                 .Returns(new Report() { ManagerId = userId, IsDraft = true }).Verifiable();
 
-            ReportController reportCrtl = new ReportController(mockReportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
+            ReportController reportCrtl = new ReportController(mockReportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             reportCrtl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, usersRoles).Object;
             ActionResult result = reportCrtl.EditManagerReport(reportId);
 
@@ -66,7 +67,7 @@
             mockLogger.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
             ReportVM engineerReportVM = ReportProvider.GetCorrectEngineerReportVM();
-            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), mockLogger.Object);
+            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), mockLogger.Object);
 
             ActionResult result = reportCrtl.SaveReportAsDraftAfterEditing(engineerReportVM);
 
@@ -86,7 +87,7 @@
             mockLogger.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
             ReportVM engineerReportVM = ReportProvider.GetCorrectEngineerReportVM();
-            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), mockLogger.Object);
+            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), mockLogger.Object);
 
             ActionResult result = reportCrtl.SubmitReportAfterEditing(engineerReportVM);
 

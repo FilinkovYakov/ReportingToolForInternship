@@ -1,12 +1,9 @@
 ﻿namespace Mirantis.ReportingTool.DAL.DataAccessService
 {
-    using Contracts;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using AuthenticationService;
+	using Contracts;
+	using AuthenticationService;
 
-    class AuthenticationUserDAO : IAuthenticationUserDAO
+	class AuthenticationUserDAO : IAuthenticationUserDAO
     {
         public Entities.User TryAuthentication(string login, string password)
         {

@@ -54,7 +54,7 @@
             }
         }
 
-        public IList<Report> SearchForUser(SearchModel searchModel)
+        public IList<Report> SearchForUser(SearchReportModel searchModel)
         {
             using (var dbContext = new CustomDBContext(connectionString))
             {
@@ -72,11 +72,6 @@
                 if (!string.IsNullOrEmpty(searchModel.Title))
                 {
                     query = query.Where(report => report.Title.Contains(searchModel.Title));
-                }
-
-                if (searchModel.TypeOccuring != "All")
-                {
-                    query = query.Where(report => report.TypeOccuring == searchModel.TypeOccuring);
                 }
 
                 if (searchModel.EngineerId != null)
@@ -224,7 +219,7 @@
             }
         }
 
-        public IList<Report> SearchForValidation(SearchModel searchModel)
+        public IList<Report> SearchForValidation(SearchReportModel searchModel)
         {
             using (var dbContext = new CustomDBContext(connectionString))
             {

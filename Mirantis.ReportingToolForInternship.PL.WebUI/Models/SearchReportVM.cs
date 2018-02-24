@@ -1,13 +1,9 @@
 ﻿namespace Mirantis.ReportingTool.PL.WebUI.Models
 {
-    using Entities;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web;
+	using System;
+	using System.ComponentModel.DataAnnotations;
 
-    public class SearchVM
+	public class SearchReportVM
     {
         public int? RequesterUserId { get; set; }
 
@@ -19,9 +15,6 @@
 
         [Display(Name = "Manager :")]
         public int? ManagerId { get; set; }
-
-        [Display(Name = "Type occurring :")]
-        public string TypeOccuring { get; set; }
 
         [Display(Name = "Type origin :")]
         public string TypeOrigin { get; set; }

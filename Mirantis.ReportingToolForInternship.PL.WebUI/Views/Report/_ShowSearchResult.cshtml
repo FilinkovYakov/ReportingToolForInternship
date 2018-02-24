@@ -17,7 +17,6 @@
             <th>@Html.DisplayNameFor(model => model.Title)</th>
             <th>@Html.DisplayNameFor(model => model.ManagerFullName)</th>
             <th>@Html.DisplayNameFor(model => model.EngineerFullName)</th>
-            <th>Type :</th>
             <th>@Html.DisplayNameFor(model => model.Date)</th>
             <th>Actions :</th>
         </tr>
@@ -28,7 +27,6 @@
                 <td>@Html.DisplayFor(modelItem => item.Title)</td>
                 <td>@Html.DisplayFor(modelItem => item.ManagerFullName)</td>
                 <td>@Html.DisplayFor(modelItem => item.EngineerFullName)</td>
-                <td>@Html.DisplayFor(modelItem => item.TypeOccuring)</td>
                 <td>@Html.DisplayFor(modelItem => item.Date)</td>
                 <td>
                     @if (item.IsEngineerReport())

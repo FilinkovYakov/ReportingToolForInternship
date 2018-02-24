@@ -1,13 +1,9 @@
 ﻿namespace Mirantis.ReportingTool.PL.WebUI.Models
 {
-    using Entities;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web;
+	using System;
+	using System.ComponentModel.DataAnnotations;
 
-    [Serializable]
+	[Serializable]
     public class AuthenticationUserVM
     {
         [Required]

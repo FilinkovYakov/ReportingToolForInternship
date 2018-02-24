@@ -1,6 +1,7 @@
 ﻿namespace Mirantis.ReportingTool.UnitTests.NUnit
 {
-    using BLL.Contracts;
+	using AutoMapper;
+	using BLL.Contracts;
     using Entities;
     using global::NUnit.Framework;
     using Moq;
@@ -26,7 +27,7 @@
             Mock<IAuthenticationUserLogic> authLogic = new Mock<IAuthenticationUserLogic>();
             authLogic.Setup(t => t.TryAuthentication(login, password)).Verifiable();
 
-            AuthenticationUserController authController = new AuthenticationUserController(authLogic.Object, Mock.Of<ICustomLogger>());
+            AuthenticationUserController authController = new AuthenticationUserController(authLogic.Object, Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             ActionResult result = authController.SignIn(authUser);
 
             Assert.IsAssignableFrom<ViewResult>(result);

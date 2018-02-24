@@ -1,6 +1,9 @@
 using System.Linq;
 using System.Web.Mvc;
+using AutoMapper;
+using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Mvc;
+using Mirantis.ReportingTool.PL.WebUI.Automapper;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Mirantis.ReportingTool.PL.WebUI.App_Start.UnityWebActivator), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(Mirantis.ReportingTool.PL.WebUI.App_Start.UnityWebActivator), "Shutdown")]
@@ -14,8 +17,10 @@ namespace Mirantis.ReportingTool.PL.WebUI.App_Start
         public static void Start() 
         {
             var container = UnityConfig.GetConfiguredContainer();
+			var mapper = AutoMapperProfile.InitializeAutoMapper().CreateMapper();
+			container.RegisterInstance(typeof(IMapper), mapper);
 
-            FilterProviders.Providers.Remove(FilterProviders.Providers.OfType<FilterAttributeFilterProvider>().First());
+			FilterProviders.Providers.Remove(FilterProviders.Providers.OfType<FilterAttributeFilterProvider>().First());
             FilterProviders.Providers.Add(new UnityFilterAttributeFilterProvider(container));
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));

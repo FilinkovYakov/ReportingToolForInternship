@@ -24,11 +24,8 @@
         [MaxLength(300, ErrorMessage = "Title should consist at maximum 300 characters")]
         [Display(Name = "Title :")]
         public string Title { get; set; }
-
-        [Display(Name = "Type occurring :")]
-        public string TypeOccuring { get; set; }
         
-        [Required(ErrorMessage = "Field 'From' is required")]
+        [Required(ErrorMessage = "Field 'Date' is required")]
         [Display(Name = "Date :")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]

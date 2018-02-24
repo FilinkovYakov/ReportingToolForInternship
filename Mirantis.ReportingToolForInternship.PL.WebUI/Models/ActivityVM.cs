@@ -1,13 +1,10 @@
 ﻿namespace Mirantis.ReportingTool.PL.WebUI.Models
 {
-    using Entities;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web;
+	using System;
+	using System.Collections.Generic;
+	using System.ComponentModel.DataAnnotations;
 
-    public class ActivityVM
+	public class ActivityVM
     {
         [Key]
         public Guid? Id { get; set; }

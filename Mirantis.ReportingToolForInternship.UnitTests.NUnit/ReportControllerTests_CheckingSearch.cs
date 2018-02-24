@@ -1,6 +1,7 @@
 ﻿namespace Mirantis.ReportingTool.UnitTests.NUnit
 {
-    using BLL.Contracts;
+	using AutoMapper;
+	using BLL.Contracts;
     using Entities;
     using global::NUnit.Framework;
     using Moq;
@@ -18,12 +19,12 @@
             int userId = 0;
 
             Mock<IReportLogic> reportLogic = new Mock<IReportLogic>();
-            reportLogic.Setup(t => t.SearchForUser(It.IsAny<SearchModel>())).Verifiable();
+            reportLogic.Setup(t => t.SearchForUser(It.IsAny<SearchReportModel>())).Verifiable();
 
-            ReportController reportCtrl = new ReportController(reportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
+            ReportController reportCtrl = new ReportController(reportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             reportCtrl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, null).Object;
             
-            SearchVM searhVM = SearchModelProvider.GetSearchVM();
+            SearchReportVM searhVM = SearchModelProvider.GetSearchVM();
 
             ActionResult result = reportCtrl.ShowSearchResult(searhVM);
 
@@ -36,8 +37,8 @@
         {
             AutoMapper.Mapper.Initialize(c =>
             {
-                c.CreateMap<SearchVM, SearchModel>();
-                c.CreateMap<SearchModel, SearchVM>();
+                c.CreateMap<SearchReportVM, SearchReportModel>();
+                c.CreateMap<SearchReportModel, SearchReportVM>();
 
                 c.CreateMap<QuestionVM, Question>();
                 c.CreateMap<Question, QuestionVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));

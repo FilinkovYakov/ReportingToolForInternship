@@ -8,7 +8,7 @@ namespace Mirantis.ReportingTool.PL.WebUI
     {
         public void Configuration(IAppBuilder app)
         {
-            
-        }
+
+		}
     }
 }

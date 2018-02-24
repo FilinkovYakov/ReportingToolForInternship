@@ -17,9 +17,11 @@
 
         public CustomDBContext(string connString) : base(connString)
         {
-
+			
         }
-        
+
+		public DbSet<Project> Projects { get; set; }
+		public DbSet<Task> Tasks { get; set; }
         public DbSet<Activity> Activities { get; set; }
         public DbSet<FuturePlan> FuturePlans { get; set; }
         public DbSet<Question> Questions { get; set; }

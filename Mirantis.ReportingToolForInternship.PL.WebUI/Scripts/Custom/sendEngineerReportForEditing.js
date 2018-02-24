@@ -20,7 +20,6 @@ $(document).ready(function () {
     var $submitButton = $("#SubmitButton"),
         $saveAsDraftButton = $("#SaveAsDraftButton"),
         $titleInput = $("#Title"),
-        $typeInput = $("#TypeOccuring"),
         $dateInput = $("#Date"),
         ajaxSettingsSaveReport = {
             type: "POST",
@@ -62,7 +61,6 @@ $(document).ready(function () {
     function isModelValidate() {
         var isValidForm = true;
         isValidForm = $titleInput.valid() && isValidForm;
-        isValidForm = $typeInput.valid() && isValidForm;
         isValidForm = $dateInput.valid() && isValidForm;
 		isValidForm = validationActivitiesFromEngineerReport() && isValidForm;
         isValidForm = validationFuturePlans() && isValidForm;

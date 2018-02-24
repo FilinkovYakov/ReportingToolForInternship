@@ -1,15 +1,12 @@
 ﻿namespace Mirantis.ReportingTool.DAL.Contracts
 {
-    using Entities;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+	using Entities;
+	using System.Collections.Generic;
 
-    public interface IUserDAO
+	public interface IUserDAO
     {
         User GetById(int id);
         IList<User> GetUsersByRole(string role);
+		IList<User> GetAll();
     }
 }

@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAuthenticationUserDAO.cs" />
+    <Compile Include="IProjectDAO.cs" />
+    <Compile Include="ITaskDAO.cs" />
     <Compile Include="IReportDAO.cs" />
     <Compile Include="IUserCache.cs" />
     <Compile Include="IUserDAO.cs" />

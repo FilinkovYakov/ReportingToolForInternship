@@ -1,33 +1,29 @@
 ﻿namespace Mirantis.ReportingTool.DAL.DataAccess
 {
-    using Mirantis.ReportingTool.DAL.Contracts;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Entities;
+	using Mirantis.ReportingTool.DAL.Contracts;
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using Entities;
 
-    public class CachedUserDAO : IUserDAO
+	public class CachedUserDAO : IUserDAO
     {
         private readonly IUserDAO _userDao;
         private readonly IUserCache _cache;
 
         public CachedUserDAO(IUserDAO userDao, IUserCache cache)
         {
-            if (userDao == null)
-                throw new ArgumentNullException("userDao");
-            if (cache == null)
-                throw new ArgumentNullException("cache");
-
-            _userDao = userDao;
-            _cache = cache;
+			_userDao = userDao ?? throw new ArgumentNullException(nameof(userDao));
+            _cache = cache ?? throw new ArgumentNullException(nameof(cache));
         }
 
-        public User GetById(int id)
+		public IList<User> GetAll()
+		{
+			return _userDao.GetAll();
+		}
+
+		public User GetById(int id)
         {
-            //if (id == null)
-            //    throw new ArgumentNullException("id");
             User user = _cache.GetUserById(id);
             if (user == null)
             {

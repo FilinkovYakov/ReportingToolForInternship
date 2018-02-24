@@ -7,8 +7,8 @@
     public interface IReportDAO
     {
         void Add(Report report);
-        IList<Report> SearchForUser(SearchModel searchModel);
-        IList<Report> SearchForValidation(SearchModel searchModel);
+        IList<Report> SearchForUser(SearchReportModel searchModel);
+        IList<Report> SearchForValidation(SearchReportModel searchModel);
         Report GetById(Guid id);
         void Edit(Report report);
     }

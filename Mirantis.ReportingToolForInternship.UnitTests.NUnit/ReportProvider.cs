@@ -17,7 +17,6 @@
                 Id = new Guid(),
                 EngineerId = 1,
                 Date = DateTime.Now,
-                TypeOccuring = "Daily",
                 IsDraft = false,
                 Activities = new List<Activity>()
                     {
@@ -53,7 +52,6 @@
                 Id = new Guid(),
                 EngineerId = 1,
                 Date = DateTime.Now,
-                TypeOccuring = "Daily",
                 IsDraft = false,
                 Activities = new List<ActivityVM>()
                     {

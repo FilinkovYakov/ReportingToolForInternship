@@ -6,30 +6,33 @@
     using Entities;
     using System.Linq;
     using DAL.Contracts;
+	using AutoMapper;
 
-    public class ReportLogic : IReportLogic
+	public class ReportLogic : IReportLogic
     {
-        private static Guid defaultGuid = new Guid();
         private readonly IReportDAO _reportDAO;
         private readonly ICustomLogger _customLogger;
         private readonly IUserDAO _userDAO;
+		private readonly IMapper _mapper;
 
-        public ReportLogic(IReportDAO reportDAO, IUserDAO userDAO, ICustomLogger customLogger)
+        public ReportLogic(IReportDAO reportDAO, IUserDAO userDAO, IMapper mapper, ICustomLogger customLogger)
         {
-            _reportDAO = reportDAO;
-            _userDAO = userDAO;
-            _customLogger = customLogger;
-        }
+            _reportDAO = reportDAO ?? throw new ArgumentNullException(nameof(reportDAO));
+            _userDAO = userDAO ?? throw new ArgumentNullException(nameof(userDAO));
+            _customLogger = customLogger ?? throw new ArgumentNullException(nameof(customLogger));
+			_mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+		}
 
         public void Add(Report report)
         {
             try
             {
-                report.Id = Guid.NewGuid();
+				_customLogger.RecordInfo("Addition report has started");
                 report.Activities = GetCorrectActivities(report).ToList();
                 report.FuturePlans = GetCorrectFuturePlans(report).ToList();
                 _reportDAO.Add(report);
-            }
+				_customLogger.RecordInfo("Addition report has finished");
+			}
             catch (Exception e)
             {
                 _customLogger.RecordError(e);
@@ -41,10 +44,12 @@
         {
             try
             {
-                report.Activities = GetCorrectActivities(report).ToList();
+				_customLogger.RecordInfo("Editing report has started");
+				report.Activities = GetCorrectActivities(report).ToList();
                 report.FuturePlans = GetCorrectFuturePlans(report).ToList();
                 _reportDAO.Edit(report);
-            }
+				_customLogger.RecordInfo("Editing report has finished");
+			}
             catch (Exception e)
             {
                 _customLogger.RecordError(e);
@@ -56,7 +61,8 @@
         {
             try
             {
-                return _reportDAO.GetById(id);
+				_customLogger.RecordInfo($"Getting report by id {id} has started");
+				return _reportDAO.GetById(id);
             }
             catch (Exception e)
             {
@@ -69,7 +75,8 @@
         {
             try
             {
-                Report report = _reportDAO.GetById(id);
+				_customLogger.RecordInfo($"Getting represent report by id {id} has started");
+				Report report = _reportDAO.GetById(id);
                 return ConstructRepresentingReportByReport(report);
             }
             catch (Exception e)
@@ -79,11 +86,12 @@
             }
         }
 
-        public IList<RepresentingReport> SearchForUser(SearchModel searchModel)
+        public IList<RepresentingReport> SearchForUser(SearchReportModel searchModel)
         {
             try
-            {   
-                IList<Report> reports = _reportDAO.SearchForUser(searchModel);
+            {
+				_customLogger.RecordInfo("Search report has started");
+				IList<Report> reports = _reportDAO.SearchForUser(searchModel);
                 IList<RepresentingReport> represReports = new List<RepresentingReport>();
                 if (reports != null && reports.Any())
                 {
@@ -96,8 +104,9 @@
                         }
                     }
                 }
+				_customLogger.RecordInfo("Search report has finished");
 
-                return represReports;
+				return represReports;
             }
             catch (Exception e)
             {
@@ -113,7 +122,7 @@
                 return null;
             }
 
-            RepresentingReport representingReport = BLLAutomapper.Mapper.Map<RepresentingReport>(report);
+            RepresentingReport representingReport = _mapper.Map<RepresentingReport>(report);
             if (report.EngineerId.HasValue)
             {
                 representingReport.EngineerFullName = _userDAO.GetById(report.EngineerId.Value)?.FullName ?? string.Empty;
@@ -146,11 +155,6 @@
             {
                 if (!string.IsNullOrEmpty(activity.Description))
                 {
-                    if (activity.Id == defaultGuid)
-                    {
-                        activity.Id = Guid.NewGuid();
-                    }
-
                     activity.ReportId = report.Id;
                     activity.Questions = GetCorrectQuestions(activity).ToList();
                     yield return activity;
@@ -166,11 +170,6 @@
                 {
                     if (!string.IsNullOrEmpty(question.Description))
                     {
-                        if (question.Id == defaultGuid)
-                        {
-                            question.Id = Guid.NewGuid();
-                        }
-
                         question.ActivityId = activity.Id;
                         yield return question;
                     }
@@ -189,18 +188,13 @@
             {
                 if (!string.IsNullOrEmpty(futurePlan.Description))
                 {
-                    if (futurePlan.Id == defaultGuid)
-                    {
-                        futurePlan.Id = Guid.NewGuid();
-                    }
-
                     futurePlan.ReportId = report.Id;
                     yield return futurePlan;
                 }
             }
         }
 
-        public IList<Report> SearchForValidation(SearchModel searchModel)
+        public IList<Report> SearchForValidation(SearchReportModel searchModel)
         {
             try
             {

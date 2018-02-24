@@ -1,6 +1,7 @@
 ﻿namespace Mirantis.ReportingTool.UnitTests.NUnit
 {
-    using BLL.Contracts;
+	using AutoMapper;
+	using BLL.Contracts;
     using Entities;
     using global::NUnit.Framework;
     using Moq;
@@ -16,7 +17,7 @@
         [Test]
         public void ReportController_AdditionEngineerReportInController_ReturnViewResult()
         {
-            ReportController reportCrtl = new ReportController(Mock.Of<IReportLogic>(), Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
+            ReportController reportCrtl = new ReportController(Mock.Of<IReportLogic>(), Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             ActionResult result = reportCrtl.AddEngineerReport();
 
             Assert.IsNotNull(result);
@@ -26,7 +27,7 @@
         [Test]
         public void ReportController_AdditionManagerReportInController_ReturnViewResult()
         {
-            ReportController reportCrtl = new ReportController(Mock.Of<IReportLogic>(), Mock.Of<IUserLogic>(), Mock.Of<ICustomLogger>());
+            ReportController reportCrtl = new ReportController(Mock.Of<IReportLogic>(), Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             ActionResult result = reportCrtl.AddManagerReport();
 
             Assert.IsNotNull(result);
@@ -43,7 +44,7 @@
             mockLogger.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
             ReportVM engineerReportVM = ReportProvider.GetCorrectEngineerReportVM();
-            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), mockLogger.Object);
+            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), mockLogger.Object);
 
             ActionResult result = reportCrtl.SaveReportAsDraftAfterAddition(engineerReportVM);
 
@@ -63,7 +64,7 @@
             mockLogger.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
             ReportVM engineerReportVM = ReportProvider.GetCorrectEngineerReportVM();
-            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), mockLogger.Object);
+            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), mockLogger.Object);
 
             ActionResult result = reportCrtl.SubmitReportAfterAddition(engineerReportVM);
 
@@ -78,8 +79,8 @@
         {
             AutoMapper.Mapper.Initialize(c =>
             {
-                c.CreateMap<SearchVM, SearchModel>();
-                c.CreateMap<SearchModel, SearchVM>();
+                c.CreateMap<SearchReportVM, SearchReportModel>();
+                c.CreateMap<SearchReportModel, SearchReportVM>();
 
                 c.CreateMap<QuestionVM, Question>();
                 c.CreateMap<Question, QuestionVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));

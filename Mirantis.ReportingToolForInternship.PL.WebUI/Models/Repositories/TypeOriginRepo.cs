@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Mirantis.ReportingTool.PL.WebUI.Models.Repositories
+﻿namespace Mirantis.ReportingTool.PL.WebUI.Models.Repositories
 {
-    public class TypeOriginRepo
+	using System.Collections.Generic;
+
+	public class TypeOriginRepo
     {
         private static List<string> allTypes;
         private static List<string> reportsTypes;

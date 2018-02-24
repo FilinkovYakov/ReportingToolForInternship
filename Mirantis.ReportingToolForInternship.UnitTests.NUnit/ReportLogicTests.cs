@@ -8,8 +8,9 @@
     using System;
     using BLL.Contracts;
     using System.Collections.Generic;
+	using AutoMapper;
 
-    [TestFixture]
+	[TestFixture]
     public class ReportLogicTests
     {
         [Test]
@@ -18,7 +19,7 @@
             Mock<IReportDAO> mockDAO = new Mock<IReportDAO>();
             mockDAO.Setup(t => t.Add(It.IsAny<Report>())).Verifiable();
 
-            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<ICustomLogger>());
+            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             Report correctReport = ReportProvider.GetCorrectEngineerReport();
 
             logic.Add(correctReport);
@@ -32,7 +33,7 @@
             Mock<IReportDAO> mockDAO = new Mock<IReportDAO>();
             mockDAO.Setup(t => t.Edit(It.IsAny<Report>())).Verifiable();
 
-            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<ICustomLogger>());
+            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             Report correctReport = ReportProvider.GetCorrectEngineerReport();
 
             logic.Edit(correctReport);
@@ -44,10 +45,10 @@
         public void ReportLogic_SearchReport_ReturnEmptyList()
         {
             Mock<IReportDAO> mockDAO = new Mock<IReportDAO>();
-            mockDAO.Setup(t => t.SearchForUser(It.IsAny<SearchModel>())).Verifiable();
+            mockDAO.Setup(t => t.SearchForUser(It.IsAny<SearchReportModel>())).Verifiable();
 
-            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<ICustomLogger>());
-            SearchModel searchModel = SearchModelProvider.GetSearchModel();
+            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
+            SearchReportModel searchModel = SearchModelProvider.GetSearchModel();
 
             IList<RepresentingReport> foundReports = logic.SearchForUser(searchModel);
 
@@ -61,7 +62,7 @@
             Mock<IReportDAO> mockDAO = new Mock<IReportDAO>();
             mockDAO.Setup(t => t.GetById(It.IsAny<Guid>())).Verifiable();
 
-            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<ICustomLogger>());
+            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             Guid idOfReportThatNotExist = new Guid();
 
             Report foundReport = logic.GetById(idOfReportThatNotExist);
@@ -80,7 +81,7 @@
             loggerMock.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
             Report correctReport = ReportProvider.GetCorrectEngineerReport();
-            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), loggerMock.Object);
+            ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<IMapper>(), loggerMock.Object);
 
             Assert.Throws<Exception>(() => logic.Add(correctReport));
 

@@ -18,8 +18,6 @@
 
         public string EngineerFullName { get; set; }
 
-        public string TypeOccuring { get; set; }
-
         public virtual List<Activity> Activities { get; set; }
 
         public virtual List<FuturePlan> FuturePlans { get; set; }

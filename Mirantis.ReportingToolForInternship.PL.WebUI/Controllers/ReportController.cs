@@ -13,20 +13,23 @@
     using Converter;
     using ValidationAttributes;
 	using Mirantis.ReportingTool.PL.WebUI.Constants;
+	using AutoMapper;
 
 	public class ReportController : Controller
     {
         private readonly IReportLogic _reportLogic;
         private readonly ICustomLogger _customLogger;
         private readonly IUserLogic _userLogic;
+		private readonly IMapper _mapper;
 
-        public ReportController(IReportLogic reportLogic, IUserLogic userLogic, ICustomLogger customLogger)
+        public ReportController(IReportLogic reportLogic, IUserLogic userLogic, IMapper mapper, ICustomLogger customLogger)
         {
-			_reportLogic = reportLogic ?? throw new ArgumentNullException("report's logic");
-            _customLogger = customLogger ?? throw new ArgumentNullException("logger");
-            _userLogic = userLogic ?? throw new ArgumentNullException("user's logic");
+			_reportLogic = reportLogic ?? throw new ArgumentNullException(nameof(reportLogic));
+            _customLogger = customLogger ?? throw new ArgumentNullException(nameof(customLogger));
+            _userLogic = userLogic ?? throw new ArgumentNullException(nameof(userLogic));
+			_mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
 
-            UserLogicProvider.UserLogic = userLogic;
+			UserLogicProvider.UserLogic = userLogic;
         }
 
         [CustomAuthorize(Roles = AppRoles.Manager)]
@@ -43,7 +46,7 @@
             }
         }
 
-        [Authorize(Roles = AppRoles.Engineer)]
+        [CustomAuthorize(Roles = AppRoles.Engineer)]
         public ActionResult AddEngineerReport()
         {
             try
@@ -91,7 +94,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    _reportLogic.Add(PLAutomapper.Mapper.Map<Report>(reportVM));
+                    _reportLogic.Add(_mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSaveReportAsDraftAfterAddition");
                 }
 
@@ -138,7 +141,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    _reportLogic.Add(PLAutomapper.Mapper.Map<Report>(reportVM));
+                    _reportLogic.Add(_mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSubmitReport");
                 }
 
@@ -156,7 +159,7 @@
         {
             try
             {
-                ReportVM reportVM = PLAutomapper.Mapper.Map<ReportVM>(_reportLogic.GetById(id));
+                ReportVM reportVM = _mapper.Map<ReportVM>(_reportLogic.GetById(id));
                 if(reportVM.ManagerId.HasValue)
                 {
                     return new HttpStatusCodeResult(403);
@@ -187,7 +190,7 @@
         {
             try
             {
-                ReportVM reportVM = PLAutomapper.Mapper.Map<ReportVM>(_reportLogic.GetById(id));
+                ReportVM reportVM = _mapper.Map<ReportVM>(_reportLogic.GetById(id));
                 if (!reportVM.ManagerId.HasValue)
                 {
                     return new HttpStatusCodeResult(403);
@@ -247,7 +250,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    _reportLogic.Edit(PLAutomapper.Mapper.Map<Report>(reportVM));
+                    _reportLogic.Edit(_mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSaveReportAsDraftAfterEditing");
                 }
 
@@ -294,7 +297,7 @@
 
                 if (ModelState.IsValid)
                 {
-                    _reportLogic.Edit(PLAutomapper.Mapper.Map<Report>(reportVM));
+                    _reportLogic.Edit(_mapper.Map<Report>(reportVM));
                     return PartialView("_SuccessSubmitReport");
                 }
 
@@ -322,7 +325,7 @@
         }
 
         [CustomAuthorize]
-        public ActionResult ShowSearchResult(SearchVM searchVM)
+        public ActionResult ShowSearchResult(SearchReportVM searchVM)
         {
             try
             {
@@ -335,8 +338,8 @@
                     }
 
                     searchVM.RequesterUserId = requesterId;
-                    IList<RepresentingReportVM> reports = _reportLogic.SearchForUser(PLAutomapper.Mapper.Map<SearchModel>(searchVM))
-                        ?.Select(report => PLAutomapper.Mapper.Map<RepresentingReportVM>(report)).ToList();
+                    IList<RepresentingReportVM> reports = _reportLogic.SearchForUser(_mapper.Map<SearchReportModel>(searchVM))
+                        ?.Select(report => _mapper.Map<RepresentingReportVM>(report)).ToList();
                     if (reports != null && reports.Any())
                     {
                         return PartialView("_ShowSearchResult", reports);
@@ -359,7 +362,7 @@
         {
             try
             {
-                RepresentingReportVM reportVM = PLAutomapper.Mapper.Map<RepresentingReportVM>(_reportLogic.GetRepresentReportById(id));
+                RepresentingReportVM reportVM = _mapper.Map<RepresentingReportVM>(_reportLogic.GetRepresentReportById(id));
                 if (!reportVM.IsEngineerReport())
                 {
                     return new HttpStatusCodeResult(403);
@@ -386,7 +389,7 @@
         {
             try
             {
-                RepresentingReportVM reportVM = PLAutomapper.Mapper.Map<RepresentingReportVM>(_reportLogic.GetRepresentReportById(id));
+                RepresentingReportVM reportVM = _mapper.Map<RepresentingReportVM>(_reportLogic.GetRepresentReportById(id));
                 if (reportVM.IsEngineerReport())
                 {
                     return new HttpStatusCodeResult(403);

@@ -1,12 +1,11 @@
 ﻿namespace Mirantis.ReportingTool.BLL.Core
 {
-    using Contracts;
-    using System;
-    using System.Collections.Generic;
-    using Entities;
-    using DAL.Contracts;
+	using Contracts;
+	using System;
+	using Entities;
+	using DAL.Contracts;
 
-    public class AuthenticationUserLogic : IAuthenticationUserLogic
+	public class AuthenticationUserLogic : IAuthenticationUserLogic
     {
         private readonly IAuthenticationUserDAO _authUserDAO;
         private readonly ICustomLogger _customLogger;
@@ -21,7 +20,8 @@
         {
             try
             {
-                return _authUserDAO.TryAuthentication(login, password);
+				_customLogger.RecordInfo($"Authentication user {login} has started");
+				return _authUserDAO.TryAuthentication(login, password);
             }
             catch (Exception e)
             {

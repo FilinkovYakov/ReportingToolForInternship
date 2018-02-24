@@ -1,17 +1,22 @@
 ﻿namespace Mirantis.ReportingTool.DAL.DataAccessService
 {
-    using Contracts;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Mirantis.ReportingTool.Entities;
-    using AuthenticationService;
+	using Contracts;
+	using System.Collections.Generic;
+	using System.Linq;
+	using AuthenticationService;
 
-    public class UserDAO : IUserDAO
+	public class UserDAO : IUserDAO
     {
-        public Entities.User GetById(int id)
+		public IList<Entities.User> GetAll()
+		{
+			using (var client = new AuthenticationServiceClient())
+			{
+				return client.GetAll()
+					.Select(user => ServiceMapper.Mapper.Map<Entities.User>(user)).ToList();
+			}
+		}
+
+		public Entities.User GetById(int id)
         {
             using (var client = new AuthenticationServiceClient())
             {

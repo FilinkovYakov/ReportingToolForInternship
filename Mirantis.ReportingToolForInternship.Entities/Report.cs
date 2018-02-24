@@ -1,15 +1,14 @@
 ﻿namespace Mirantis.ReportingTool.Entities
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+	using System;
+	using System.Collections.Generic;
+	using System.ComponentModel.DataAnnotations;
+	using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Report
+	public class Report
     {
-        [Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		[Key]
         public Guid Id { get; set; }
 
         public int? ManagerId { get; set; }
@@ -18,8 +17,6 @@
 
         [MaxLength(300)]
         public string Title { get; set; }
-
-        public string TypeOccuring { get; set; }
 
         public virtual List<Activity> Activities { get; set; }
 

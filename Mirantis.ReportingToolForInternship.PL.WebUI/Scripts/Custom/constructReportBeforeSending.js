@@ -6,15 +6,15 @@
 /// <reference path="validationRecord.js" />
 
 function constructRecordByJquery(obj) {
-    if ($(obj) == undefined) {
+    if ($(obj) === undefined) {
         return null;
     }
 
-    if ($(obj) == null) {
+    if ($(obj) === null) {
         return null;
     }
 
-    if ($(obj).length == 0) {
+    if ($(obj).length === 0) {
         return null;
     }
 
@@ -35,11 +35,10 @@ function constructReportVM() {
         title = constructRecordByJquery($("#Title")),
         managerId = constructRecordByJquery($("#ManagerId")),
 		engineerId = constructRecordByJquery($("#EngineerId")),
-        typeOccuring = constructRecordByJquery($("#TypeOccuring")),
         date = constructRecordByJquery($("#Date")),
         activities = constructActivities(),
         futurePlans = constructFuturePlans();
-	return new ReportVM(id, title, managerId, engineerId, typeOccuring, date, activities, futurePlans);
+	return new ReportVM(id, title, managerId, engineerId, date, activities, futurePlans);
 }
 
 function constructFuturePlans() {

@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="IAuthenticationUserLogic.cs" />
     <Compile Include="ICustomLogger.cs" />
+    <Compile Include="IProjectLogic.cs" />
     <Compile Include="IReportLogic.cs" />
+    <Compile Include="ITaskLogic.cs" />
     <Compile Include="IUserLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -6,7 +6,7 @@ $(document).ready(function () {
         $managerIdDropdown = $("#ManagerId");
 
     $typeOriginDrodown.change(function () {
-		if ($typeOriginDrodown.val() == "Engineer's") {
+		if ($typeOriginDrodown.val() === "Engineer's") {
 			$managerIdDropdown.val("");
 			$managerIdDropdown.selectpicker("refresh");
 			$managerIdDropdown.prop("disabled", true);

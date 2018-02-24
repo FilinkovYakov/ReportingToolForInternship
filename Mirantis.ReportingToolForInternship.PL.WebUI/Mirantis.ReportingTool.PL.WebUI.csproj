@@ -47,9 +47,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -118,6 +117,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -198,24 +198,30 @@
     <Compile Include="Constants\AppRoles.cs" />
     <Compile Include="Controllers\AuthenticationUserController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\TaskController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Converter\Converter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Automapper\PLAutomapper.cs" />
+    <Compile Include="Automapper\AutoMapperProfile.cs" />
     <Compile Include="Models\ActivityVM.cs" />
     <Compile Include="Models\AuthenticationUserVM.cs" />
     <Compile Include="Models\CookieUser.cs" />
     <Compile Include="Models\ErrorVM.cs" />
     <Compile Include="Models\FuturePlanVM.cs" />
+    <Compile Include="Models\ProjectVM.cs" />
     <Compile Include="Models\QuestionVM.cs" />
     <Compile Include="Models\ReportVM.cs" />
-    <Compile Include="Models\Repositories\TypeOccuringRepo.cs" />
+    <Compile Include="Models\Repositories\StatusRepo.cs" />
     <Compile Include="Models\Repositories\TypeOriginRepo.cs" />
+    <Compile Include="Models\Repositories\ProjectLogicProvider.cs" />
     <Compile Include="Models\Repositories\UserLogicProvider.cs" />
     <Compile Include="Models\RepresentingReportVM.cs" />
-    <Compile Include="Models\SearchVM.cs" />
+    <Compile Include="Models\SearchTaskVM.cs" />
+    <Compile Include="Models\SearchReportVM.cs" />
+    <Compile Include="Models\TaskVM.cs" />
     <Compile Include="Models\UserPrincipal.cs" />
     <Compile Include="Models\UserVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -563,6 +569,15 @@
     <Content Include="Views\Error\_Error500.cshtml" />
     <Content Include="Views\Error\_Error401.cshtml" />
     <Content Include="Views\Report\_ShowValidationErrors.cshtml" />
+    <Content Include="Views\Project\AddProject.cshtml" />
+    <Content Include="Views\Project\EditProject.cshtml" />
+    <Content Include="Views\Project\GetAllProjects.cshtml" />
+    <Content Include="Views\Task\_ShowNullSearchResult.cshtml" />
+    <Content Include="Views\Task\_ShowSearchResult.cshtml" />
+    <Content Include="Views\Task\Search.cshtml" />
+    <Content Include="Views\Task\AddTask.cshtml" />
+    <Content Include="Views\Task\Details.cshtml" />
+    <Content Include="Views\Task\EditTask.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,9 +21,6 @@
         [Display(Name = "Manager :")]
         public string ManagerFullName { get; set; }
 
-        [Display(Name = "Type occurring :")]
-        public string TypeOccuring { get; set; }
-
         [Display(Name = "Type origin :")]
         public string TypeOrigin { get; set; }
 

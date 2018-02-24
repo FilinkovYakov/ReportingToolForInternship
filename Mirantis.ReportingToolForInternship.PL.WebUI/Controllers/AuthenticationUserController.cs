@@ -10,17 +10,20 @@
 	using System.Web.Mvc;
 	using System.Web.Security;
 	using Automapper;
+	using AutoMapper;
 
 	public class AuthenticationUserController : Controller
     {
         private readonly IAuthenticationUserLogic _authUserLogic;
         private readonly ICustomLogger _customLogger;
+		private readonly IMapper _mapper;
 
-        public AuthenticationUserController(IAuthenticationUserLogic authUserLogic, ICustomLogger customLogger)
+        public AuthenticationUserController(IAuthenticationUserLogic authUserLogic, IMapper mapper, ICustomLogger customLogger)
         {
-			_authUserLogic = authUserLogic ?? throw new ArgumentNullException("user's authentication logic");
-            _customLogger = customLogger ?? throw new ArgumentNullException("logger");
-        }
+			_authUserLogic = authUserLogic ?? throw new ArgumentNullException(nameof(authUserLogic));
+            _customLogger = customLogger ?? throw new ArgumentNullException(nameof(customLogger));
+			_mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+		}
 
         [AnonymousOnly]
         public ActionResult SignIn()
@@ -47,7 +50,7 @@
                     User user = _authUserLogic.TryAuthentication(authUserVM.Login, authUserVM.Password);
                     if (user != null)
                     {
-                        CookieUser cookieUser = PLAutomapper.Mapper.Map<CookieUser>(user);
+                        CookieUser cookieUser = _mapper.Map<CookieUser>(user);
 
                         var encTicket = FormsAuthentication.Encrypt(
                                 new FormsAuthenticationTicket(
