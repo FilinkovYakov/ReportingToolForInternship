@@ -32,13 +32,14 @@ function constructIdByInput(input, classOfWrapperWithId) {
 
 function constructReportVM() {
     var id = constructRecordByJquery($("#ReportId")),
-        title = constructRecordByJquery($("#Title")),
+		title = constructRecordByJquery($("#Title")),
+		taskId = constructRecordByJquery($("#TaskId")),
         managerId = constructRecordByJquery($("#ManagerId")),
 		engineerId = constructRecordByJquery($("#EngineerId")),
         date = constructRecordByJquery($("#Date")),
         activities = constructActivities(),
         futurePlans = constructFuturePlans();
-	return new ReportVM(id, title, managerId, engineerId, date, activities, futurePlans);
+	return new ReportVM(id, title, taskId, managerId, engineerId, date, activities, futurePlans);
 }
 
 function constructFuturePlans() {
@@ -48,7 +49,7 @@ function constructFuturePlans() {
     $(".input-future-plan").each(function () {
         var description = $(this).val();
         if (validationRecord(description)) {
-            var id = constructIdByInput($(this), ".futurePlanId");;
+            var id = constructIdByInput($(this), ".futurePlanId");
             futurePlans[indexer] = new FuturePlanVM(id, description);
             indexer += 1;
         }
@@ -64,7 +65,7 @@ function constructActivities() {
     $(".input-activity").each(function () {
         var description = $(this).val();
         if (validationRecord(description)) {
-            var id = constructIdByInput($(this), ".activityId");;
+            var id = constructIdByInput($(this), ".activityId");
             var evaluation = constructEvaluationByInputActivity($(this));
             var questions = constructQuestionsByInputActivity($(this));
             activities[indexer] = new ActivityVM(id, description, evaluation, questions);
@@ -79,16 +80,16 @@ function constructQuestionsByInputActivity(inputActivity) {
     var questions = [],
         indexer = 0;
 
-    $(inputActivity).parent().parent().parent().parent()
-        .find(".input-question")
-        .each(function () {
-            var description = $(this).val();
-            if (validationRecord(description)) {
-                var id = constructIdByInput($(this), ".questionId");;
-                questions[indexer] = new QuestionVM(id, description);
-                indexer += 1;
-            }
-        })
+	$(inputActivity).parent().parent().parent().parent()
+		.find(".input-question")
+		.each(function () {
+			var description = $(this).val();
+			if (validationRecord(description)) {
+				var id = constructIdByInput($(this), ".questionId");
+				questions[indexer] = new QuestionVM(id, description);
+				indexer += 1;
+			}
+		});
 
     return questions;
 }
@@ -97,11 +98,11 @@ function constructEvaluationByInputActivity(inputActivity) {
     var evaluation,
         indexer = 0;
 
-    $(inputActivity).parent().parent().parent().parent()
-        .find(".input-evaluation")
-        .each(function () {
-            evaluation = $(this).val();
-        })
+	$(inputActivity).parent().parent().parent().parent()
+		.find(".input-evaluation")
+		.each(function () {
+			evaluation = $(this).val();
+		});
 
     if (!validationRecord(evaluation)) {
         return null;

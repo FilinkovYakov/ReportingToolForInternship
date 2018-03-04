@@ -48,7 +48,6 @@
     <Compile Include="Question.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepresentingReport.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="SearchTaskModel.cs" />
     <Compile Include="SearchReportModel.cs" />

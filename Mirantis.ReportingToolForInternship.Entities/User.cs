@@ -1,10 +1,11 @@
 ﻿namespace Mirantis.ReportingTool.Entities
 {
+	using System;
 	using System.Collections.Generic;
 
 	public class User
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Login { get; set; }
 

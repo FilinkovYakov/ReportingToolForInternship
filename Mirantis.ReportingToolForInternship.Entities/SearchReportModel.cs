@@ -4,11 +4,13 @@
 
 	public class SearchReportModel
     {
-        public int? RequesterUserId { get; set; }
+        public Guid? RequesterUserId { get; set; }
 
-        public int? EngineerId { get; set; }
+		public Guid? TaskId { get; set; }
 
-        public int? ManagerId { get; set; }
+		public Guid? EngineerId { get; set; }
+
+        public Guid? ManagerId { get; set; }
 
         public string Title { get; set; }
 

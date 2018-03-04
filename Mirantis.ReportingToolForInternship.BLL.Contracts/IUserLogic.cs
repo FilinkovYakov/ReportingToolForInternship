@@ -1,11 +1,12 @@
 ﻿namespace Mirantis.ReportingTool.BLL.Contracts
 {
     using Entities;
-    using System.Collections.Generic;
+	using System;
+	using System.Collections.Generic;
 
     public interface IUserLogic
     {
-        User GetById(int? id);
+        User GetById(Guid? id);
         IList<User> GetUsersByRole(string role);
 		IList<User> GetAll();
     }

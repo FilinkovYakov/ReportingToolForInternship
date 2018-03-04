@@ -22,7 +22,7 @@
 			return _userDao.GetAll();
 		}
 
-		public User GetById(int id)
+		public User GetById(Guid id)
         {
             User user = _cache.GetUserById(id);
             if (user == null)

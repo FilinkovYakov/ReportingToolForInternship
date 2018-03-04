@@ -13,12 +13,12 @@
 		public Guid ProjectId { get; set; }
 		public Project Project { get; set; }
 
-		public int ReporterId { get; set; }
+		public Guid ReporterId { get; set; }
 
 		[NotMapped]
 		public User Reporter { get; set; }
 
-		public int? AssigneeId { get; set; }
+		public Guid? AssigneeId { get; set; }
 
 		[NotMapped]
 		public User Assignee { get; set; }

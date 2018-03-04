@@ -1,14 +1,12 @@
 ﻿namespace Mirantis.ReportingTool.PL.WebUI.Models
 {
-    using Entities;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
+	using Entities;
+	using System;
+	using System.Collections.Generic;
 
-    public class CookieUser
+	public class CookieUser
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public List<Role> Roles { get; set; }
     }
 }

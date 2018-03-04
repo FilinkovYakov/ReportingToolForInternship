@@ -39,9 +39,6 @@
 
 				cfg.CreateMap<Models.ProjectVM, Entities.Project>();
 				cfg.CreateMap<Entities.Project, Models.ProjectVM>().ForMember(x => x.Id, x => x.NullSubstitute(Guid.Empty));
-
-				cfg.CreateMap<Report, RepresentingReport>();
-				cfg.CreateMap<Entities.RepresentingReport, Models.RepresentingReportVM>();
 			});
 
 			return config;

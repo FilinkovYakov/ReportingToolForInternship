@@ -30,13 +30,13 @@
 			}
 		}
 
-		public User GetById(int? id)
+		public User GetById(Guid? id)
         {
             try
             {
                 if (id.HasValue)
                 {
-                    int valueId = id.Value;
+					Guid valueId = id.Value;
                     return _userDAO.GetById(valueId);
                 }
 

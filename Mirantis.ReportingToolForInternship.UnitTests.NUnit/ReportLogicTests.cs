@@ -50,7 +50,7 @@
             ReportLogic logic = new ReportLogic(mockDAO.Object, Mock.Of<IUserDAO>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             SearchReportModel searchModel = SearchModelProvider.GetSearchModel();
 
-            IList<RepresentingReport> foundReports = logic.SearchForUser(searchModel);
+            IList<Report> foundReports = logic.SearchForUser(searchModel);
 
             Assert.AreEqual(foundReports.Count, 0);
             mockDAO.VerifyAll();

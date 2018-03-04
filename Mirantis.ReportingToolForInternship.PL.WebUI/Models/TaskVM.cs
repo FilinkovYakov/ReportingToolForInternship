@@ -14,11 +14,11 @@
 		public ProjectVM Project { get; set; }
 
 		[Display(Name = "Reporter :")]
-		public int? ReporterId { get; set; }
+		public Guid? ReporterId { get; set; }
 		public UserVM Reporter { get; set; }
 
 		[Display(Name = "Assignee :")]
-		public int? AssigneeId { get; set; }
+		public Guid? AssigneeId { get; set; }
 		public UserVM Assignee { get; set; }
 
 		[Display(Name = "Title :")]

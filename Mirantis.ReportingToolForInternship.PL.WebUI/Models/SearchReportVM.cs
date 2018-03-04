@@ -5,16 +5,19 @@
 
 	public class SearchReportVM
     {
-        public int? RequesterUserId { get; set; }
+        public Guid? RequesterUserId { get; set; }
 
-        [Display(Name = "Title :")]
+		[Display(Name = "Task :")]
+		public Guid? TaskId { get; set; }
+
+		[Display(Name = "Title :")]
         public string Title { get; set; }
 
         [Display(Name = "Engineer :")]
-        public int? EngineerId { get; set; }
+        public Guid? EngineerId { get; set; }
 
         [Display(Name = "Manager :")]
-        public int? ManagerId { get; set; }
+        public Guid? ManagerId { get; set; }
 
         [Display(Name = "Type origin :")]
         public string TypeOrigin { get; set; }

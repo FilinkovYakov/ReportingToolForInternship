@@ -1,17 +1,16 @@
 ﻿namespace Mirantis.ReportingTool.PL.WebUI.Controllers
 {
-    using Models.Repositories;
-    using Models;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web.Mvc;
-    using Entities;
-    using BLL.Contracts;
-    using Automapper;
-    using AuthorizeAttributes;
-    using Converter;
-    using ValidationAttributes;
+	using Models.Repositories;
+	using Models;
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Web.Mvc;
+	using Entities;
+	using BLL.Contracts;
+	using AuthorizeAttributes;
+	using Converter;
+	using ValidationAttributes;
 	using Mirantis.ReportingTool.PL.WebUI.Constants;
 	using AutoMapper;
 
@@ -22,7 +21,7 @@
         private readonly IUserLogic _userLogic;
 		private readonly IMapper _mapper;
 
-        public ReportController(IReportLogic reportLogic, IUserLogic userLogic, IMapper mapper, ICustomLogger customLogger)
+        public ReportController(IReportLogic reportLogic, IUserLogic userLogic, ITaskLogic taskLogic, IMapper mapper, ICustomLogger customLogger)
         {
 			_reportLogic = reportLogic ?? throw new ArgumentNullException(nameof(reportLogic));
             _customLogger = customLogger ?? throw new ArgumentNullException(nameof(customLogger));
@@ -30,7 +29,8 @@
 			_mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
 
 			UserLogicProvider.UserLogic = userLogic;
-        }
+			TaskLogicProvider.TaskLogic = taskLogic;
+		}
 
         [CustomAuthorize(Roles = AppRoles.Manager)]
         public ActionResult AddManagerReport()
@@ -73,7 +73,7 @@
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.ManagerId = int.Parse(User.Identity.Name);
+                    reportVM.ManagerId = Guid.Parse(User.Identity.Name);
                 }
                 else
                 {
@@ -82,7 +82,7 @@
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.EngineerId = int.Parse(User.Identity.Name);
+                    reportVM.EngineerId = Guid.Parse(User.Identity.Name);
                 }
 
                 reportVM.IsDraft = true;
@@ -120,7 +120,7 @@
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.ManagerId = int.Parse(User.Identity.Name);
+                    reportVM.ManagerId = Guid.Parse(User.Identity.Name);
                 }
                 else
                 {
@@ -129,7 +129,7 @@
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.EngineerId = int.Parse(User.Identity.Name);
+                    reportVM.EngineerId = Guid.Parse(User.Identity.Name);
                 }
 
                 reportVM.IsDraft = false;
@@ -165,7 +165,7 @@
                     return new HttpStatusCodeResult(403);
                 }
 
-                int requestersId = int.Parse(User.Identity.Name);
+				Guid requestersId = Guid.Parse(User.Identity.Name);
                 if (reportVM.EngineerId != requestersId)
                 {
                     return new HttpStatusCodeResult(403);
@@ -196,7 +196,7 @@
                     return new HttpStatusCodeResult(403);
                 }
 
-                int requestersId = int.Parse(User.Identity.Name);
+				Guid requestersId = Guid.Parse(User.Identity.Name);
                 if (reportVM.ManagerId != requestersId)
                 {
                     return new HttpStatusCodeResult(403);
@@ -229,7 +229,7 @@
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.ManagerId = int.Parse(User.Identity.Name);
+                    reportVM.ManagerId = Guid.Parse(User.Identity.Name);
                 }
                 else
                 {
@@ -238,7 +238,7 @@
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.EngineerId = int.Parse(User.Identity.Name);
+                    reportVM.EngineerId = Guid.Parse(User.Identity.Name);
                 }
 
                 reportVM.IsDraft = true;
@@ -276,7 +276,7 @@
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.ManagerId = int.Parse(User.Identity.Name);
+                    reportVM.ManagerId = Guid.Parse(User.Identity.Name);
                 }
                 else
                 {
@@ -285,7 +285,7 @@
                         return new HttpStatusCodeResult(403);
                     }
 
-                    reportVM.EngineerId = int.Parse(User.Identity.Name);
+                    reportVM.EngineerId = Guid.Parse(User.Identity.Name);
                 }
 
                 reportVM.IsDraft = false;
@@ -331,15 +331,15 @@
             {
                 if (ModelState.IsValid)
                 {
-                    int? requesterId = null;
+                    Guid? requesterId = null;
                     if (!string.IsNullOrEmpty(User.Identity.Name))
                     {
-                        requesterId = int.Parse(User.Identity.Name);
+                        requesterId = Guid.Parse(User.Identity.Name);
                     }
 
                     searchVM.RequesterUserId = requesterId;
-                    IList<RepresentingReportVM> reports = _reportLogic.SearchForUser(_mapper.Map<SearchReportModel>(searchVM))
-                        ?.Select(report => _mapper.Map<RepresentingReportVM>(report)).ToList();
+                    IList<ReportVM> reports = _reportLogic.SearchForUser(_mapper.Map<SearchReportModel>(searchVM))
+                        ?.Select(report => _mapper.Map<ReportVM>(report)).ToList();
                     if (reports != null && reports.Any())
                     {
                         return PartialView("_ShowSearchResult", reports);
@@ -362,15 +362,15 @@
         {
             try
             {
-                RepresentingReportVM reportVM = _mapper.Map<RepresentingReportVM>(_reportLogic.GetRepresentReportById(id));
+                ReportVM reportVM = _mapper.Map<ReportVM>(_reportLogic.GetById(id));
                 if (!reportVM.IsEngineerReport())
                 {
                     return new HttpStatusCodeResult(403);
                 }
 
-                int requesterId = int.Parse(User.Identity.Name);
+				Guid requesterId = Guid.Parse(User.Identity.Name);
                 User requesterUser = _userLogic.GetById(requesterId);
-                if (requesterUser.FullName != reportVM.EngineerFullName && reportVM.IsDraft)
+                if (requesterUser.FullName != reportVM.Engineer.FullName && reportVM.IsDraft)
                 {
                     return new HttpStatusCodeResult(403);
                 }
@@ -389,15 +389,15 @@
         {
             try
             {
-                RepresentingReportVM reportVM = _mapper.Map<RepresentingReportVM>(_reportLogic.GetRepresentReportById(id));
+                ReportVM reportVM = _mapper.Map<ReportVM>(_reportLogic.GetById(id));
                 if (reportVM.IsEngineerReport())
                 {
                     return new HttpStatusCodeResult(403);
                 }
 
-                int requesterId = int.Parse(User.Identity.Name);
+				Guid requesterId = Guid.Parse(User.Identity.Name);
                 User requesterUser = _userLogic.GetById(requesterId);
-                if (requesterUser.FullName != reportVM.ManagerFullName && reportVM.IsDraft)
+                if (requesterUser.FullName != reportVM.Manager.FullName && reportVM.IsDraft)
                 {
                     return new HttpStatusCodeResult(403);
                 }

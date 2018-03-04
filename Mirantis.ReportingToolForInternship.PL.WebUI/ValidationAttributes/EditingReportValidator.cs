@@ -1,16 +1,13 @@
 ﻿namespace Mirantis.ReportingTool.PL.WebUI.ValidationAttributes
 {
-    using App_Start;
-    using BLL.Contracts;
-    using Entities;
-    using Microsoft.Practices.Unity;
-    using Models;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
+	using App_Start;
+	using BLL.Contracts;
+	using Entities;
+	using Microsoft.Practices.Unity;
+	using Models;
+	using System.Linq;
 
-    public class EditingReportValidator
+	public class EditingReportValidator
     {
         private static IReportLogic _reportLogic
         {

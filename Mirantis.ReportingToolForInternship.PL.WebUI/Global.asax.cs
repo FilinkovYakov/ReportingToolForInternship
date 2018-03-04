@@ -16,8 +16,6 @@
 
 	public class MvcApplication : System.Web.HttpApplication
 	{
-		private ICustomLogger logger;
-
 		protected void Application_Start()
 		{
 			AreaRegistration.RegisterAllAreas();

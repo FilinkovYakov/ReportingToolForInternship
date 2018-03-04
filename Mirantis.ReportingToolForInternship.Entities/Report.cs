@@ -11,11 +11,20 @@
 		[Key]
         public Guid Id { get; set; }
 
-        public int? ManagerId { get; set; }
+		public Guid? TaskId { get; set; }
+		public Task Task { get; set; }
 
-        public int? EngineerId { get; set; }
+		public Guid? ManagerId { get; set; }
 
-        [MaxLength(300)]
+		[NotMapped]
+		public User Manager { get; set; }
+
+        public Guid? EngineerId { get; set; }
+
+		[NotMapped]
+		public User Engineer { get; set; }
+
+		[MaxLength(300)]
         public string Title { get; set; }
 
         public virtual List<Activity> Activities { get; set; }

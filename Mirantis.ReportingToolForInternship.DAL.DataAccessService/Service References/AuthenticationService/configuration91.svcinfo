@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="VAx+nAvhTe8Fslv3uiXTddQNPmE=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="XebHd9E13XlYnWMVB3j5NslNIuc=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IAuthenticationService">
       <properties>
@@ -72,8 +72,8 @@
         <property path="/security" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.BasicHttpSecurityElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.BasicHttpSecurityElement</serializedValue>
         </property>
-        <property path="/security/mode" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.BasicHttpSecurityMode, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>None</serializedValue>
+        <property path="/security/mode" isComplexType="false" isExplicitlyDefined="true" clrType="System.ServiceModel.BasicHttpSecurityMode, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>Transport</serializedValue>
         </property>
         <property path="/security/transport" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.HttpTransportSecurityElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.HttpTransportSecurityElement</serializedValue>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IAuthenticationService" contract="AuthenticationService.IAuthenticationService" bindingType="basicHttpBinding" address="http://localhost:49695/AuthenticationService.svc" bindingConfiguration="BasicHttpBinding_IAuthenticationService">
+    <endpoint name="BasicHttpBinding_IAuthenticationService" contract="AuthenticationService.IAuthenticationService" bindingType="basicHttpBinding" address="https://localhost:44300/AuthenticationService.svc" bindingConfiguration="BasicHttpBinding_IAuthenticationService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:49695/AuthenticationService.svc</serializedValue>
+          <serializedValue>https://localhost:44300/AuthenticationService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -14,10 +14,7 @@
 		<tr>
 			<th>@Html.DisplayNameFor(model => model.Name)</th>
 			<th>@Html.DisplayNameFor(model => model.Customer)</th>
-			@if (User.IsInRole(AppRoles.Manager))
-			{
-				<th>Actions :</th>
-			}
+			<th>Actions :</th>
 		</tr>
 
 		@foreach (var item in Model)

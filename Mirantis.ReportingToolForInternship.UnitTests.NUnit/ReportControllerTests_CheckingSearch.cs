@@ -16,12 +16,12 @@
         [Test]
         public void ReportController_ShowSearchReport_ReturnPartialView()
         {
-            int userId = 0;
+            Guid userId = Guid.NewGuid();
 
             Mock<IReportLogic> reportLogic = new Mock<IReportLogic>();
             reportLogic.Setup(t => t.SearchForUser(It.IsAny<SearchReportModel>())).Verifiable();
 
-            ReportController reportCtrl = new ReportController(reportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
+            ReportController reportCtrl = new ReportController(reportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ITaskLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             reportCtrl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, null).Object;
             
             SearchReportVM searhVM = SearchModelProvider.GetSearchVM();

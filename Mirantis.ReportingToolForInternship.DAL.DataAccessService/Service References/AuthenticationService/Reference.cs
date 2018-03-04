@@ -131,7 +131,7 @@ namespace Mirantis.ReportingTool.DAL.DataAccessService.AuthenticationService {
         private string FullNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
+        private System.Guid IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LoginField;
@@ -163,7 +163,7 @@ namespace Mirantis.ReportingTool.DAL.DataAccessService.AuthenticationService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
+        public System.Guid Id {
             get {
                 return this.IdField;
             }

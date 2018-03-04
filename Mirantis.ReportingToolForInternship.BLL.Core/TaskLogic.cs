@@ -65,6 +65,20 @@
 			}
 		}
 
+		public IList<Task> GetByUserId(Guid userId)
+		{
+			try
+			{
+				_customLogger.RecordInfo($"Finding task by user id {userId} has started");
+				return _taskDAO.GetByUserId(userId);
+			}
+			catch (Exception ex)
+			{
+				_customLogger.RecordError(ex);
+				throw;
+			}
+		}
+
 		public IList<Task> Search(SearchTaskModel searchModel)
 		{
 			try

@@ -18,7 +18,7 @@
         [Test]
         public void ReportController_EditingExistingEngineerDraftReportInController_ReturnViewResult()
         {
-            int userId = 0;
+			Guid userId = Guid.NewGuid();
             string[] usersRoles = { "Engineer" };
 
             Guid reportId = new Guid();
@@ -26,7 +26,7 @@
             mockReportLogic.Setup(t => t.GetById(It.IsAny<Guid>()))
                 .Returns(new Report() { EngineerId = userId, IsDraft = true }).Verifiable();
 
-            ReportController reportCrtl = new ReportController(mockReportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
+            ReportController reportCrtl = new ReportController(mockReportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ITaskLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             reportCrtl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, usersRoles).Object;
             ActionResult result = reportCrtl.EditEngineerReport(reportId);
 
@@ -39,7 +39,7 @@
         [Test]
         public void ReportController_EditingExistingManagerDraftReportInController_ReturnViewResult()
         {
-            int userId = 0;
+            Guid userId = Guid.NewGuid();
             string[] usersRoles = { "Manager" };
 
             Guid reportId = Guid.NewGuid();
@@ -47,7 +47,7 @@
             mockReportLogic.Setup(t => t.GetById(It.IsAny<Guid>()))
                 .Returns(new Report() { ManagerId = userId, IsDraft = true }).Verifiable();
 
-            ReportController reportCrtl = new ReportController(mockReportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
+            ReportController reportCrtl = new ReportController(mockReportLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ITaskLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             reportCrtl.ControllerContext = ControllerContextProvider.GetFakeControllerContext(userId, usersRoles).Object;
             ActionResult result = reportCrtl.EditManagerReport(reportId);
 
@@ -67,7 +67,7 @@
             mockLogger.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
             ReportVM engineerReportVM = ReportProvider.GetCorrectEngineerReportVM();
-            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), mockLogger.Object);
+            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ITaskLogic>(), Mock.Of<IMapper>(), mockLogger.Object);
 
             ActionResult result = reportCrtl.SaveReportAsDraftAfterEditing(engineerReportVM);
 
@@ -87,7 +87,7 @@
             mockLogger.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
             ReportVM engineerReportVM = ReportProvider.GetCorrectEngineerReportVM();
-            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), mockLogger.Object);
+            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ITaskLogic>(), Mock.Of<IMapper>(), mockLogger.Object);
 
             ActionResult result = reportCrtl.SubmitReportAfterEditing(engineerReportVM);
 

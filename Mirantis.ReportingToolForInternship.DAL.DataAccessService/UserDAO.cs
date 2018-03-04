@@ -4,6 +4,7 @@
 	using System.Collections.Generic;
 	using System.Linq;
 	using AuthenticationService;
+	using System;
 
 	public class UserDAO : IUserDAO
     {
@@ -16,7 +17,7 @@
 			}
 		}
 
-		public Entities.User GetById(int id)
+		public Entities.User GetById(Guid id)
         {
             using (var client = new AuthenticationServiceClient())
             {

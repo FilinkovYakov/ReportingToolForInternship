@@ -112,6 +112,21 @@
 		</div>
 
 		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				@Html.LabelFor(model => model.TaskId, htmlAttributes: new { @class = "control-label col-xs-4" })
+				<div class="col-xs-8">
+					<select name="TaskId" id="TypeOrigin" class="selectpicker">
+						@foreach (var task in TaskLogicProvider.TaskLogic.GetByUserId(Guid.Parse(User.Identity.Name)))
+						{
+							<option value="@task.Id">@task.Title</option>
+						}
+					</select>
+					@Html.ValidationMessageFor(model => model.TypeOrigin, "", new { @class = "text-danger" })
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
 			<div class="text-center">
 				<input type="submit" value="Search" class="btn btn-default" />
 			</div>

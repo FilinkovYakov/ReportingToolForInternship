@@ -12,8 +12,8 @@
 
     public class UserCache : IUserCache
     {
-        private readonly IDictionary<int, Tuple<User, DateTime>> _userLookup = 
-            new ConcurrentDictionary<int, Tuple<User, DateTime>>();
+        private readonly IDictionary<Guid, Tuple<User, DateTime>> _userLookup = 
+            new ConcurrentDictionary<Guid, Tuple<User, DateTime>>();
         private readonly IDictionary<string, Tuple<ISet<User>, DateTime>> _userByRoleLookup = 
             new ConcurrentDictionary<string, Tuple<ISet<User>, DateTime>>();
         private readonly TimeSpan _timeout;
@@ -23,7 +23,7 @@
             _timeout = ApplicationConfiguration.GetSettingAsTimeSpan("TimeToLiveObjectInCache");
         }
 
-        public User GetUserById(int id)
+        public User GetUserById(Guid id)
         {
             //if (id == null)
             //    throw new ArgumentNullException("id");
@@ -111,7 +111,7 @@
 
             public int GetHashCode(User obj)
             {
-                return obj == null ? 0 : obj.Id;
+                return obj == null ? 0 : obj.Id.GetHashCode();
             }
         }
     }

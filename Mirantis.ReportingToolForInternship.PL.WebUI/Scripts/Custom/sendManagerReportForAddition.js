@@ -17,39 +17,40 @@
 /// <reference path="sendReport.js" />
 
 $(document).ready(function () {
-    var $submitButton = $("#SubmitButton"),
-        $saveAsDraftButton = $("#SaveAsDraftButton"),
+	var $submitButton = $("#SubmitButton"),
+		$saveAsDraftButton = $("#SaveAsDraftButton"),
+		$taskIdInput = $("#TaskId"),
 		$engineerIdInput = $("#EngineerId"),
-        $titleInput = $("#Title"),
-        $dateInput = $("#Date"),
-        ajaxSettingsSaveReport = {
-            type: "POST",
-            url: "/Report/SaveReportAsDraftAfterAddition",
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'html',
-            success: function (result) {
-                hideLoadingIcon();
-                alertAboutSuccessfullChange(result);
-                assignEventToAdderNewReportButton();
-            },
-            error: function (result) {
-                alertAboutFail(result);
-            }
-        },
-        ajaxSettingsSubmitReport = {
-            type: "POST",
-            url: "/Report/SubmitReportAfterAddition",
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'html',
-            success: function (result) {
-                hideLoadingIcon();
-                alertAboutSuccessfullChange(result);
-                assignEventToAdderNewReportButton();
-            },
-            error: function (result) {
-                alertAboutFail(result);
-            }
-        }
+		$titleInput = $("#Title"),
+		$dateInput = $("#Date"),
+		ajaxSettingsSaveReport = {
+			type: "POST",
+			url: "/Report/SaveReportAsDraftAfterAddition",
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'html',
+			success: function (result) {
+				hideLoadingIcon();
+				alertAboutSuccessfullChange(result);
+				assignEventToAdderNewReportButton();
+			},
+			error: function (result) {
+				alertAboutFail(result);
+			}
+		},
+		ajaxSettingsSubmitReport = {
+			type: "POST",
+			url: "/Report/SubmitReportAfterAddition",
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'html',
+			success: function (result) {
+				hideLoadingIcon();
+				alertAboutSuccessfullChange(result);
+				assignEventToAdderNewReportButton();
+			},
+			error: function (result) {
+				alertAboutFail(result);
+			}
+		};
 
 
     $submitButton.click(function () {
@@ -62,7 +63,8 @@ $(document).ready(function () {
 
     function isModelValidate() {
         var isValidForm = true;
-        isValidForm = $titleInput.valid() && isValidForm;
+		isValidForm = $titleInput.valid() && isValidForm;
+		isValidForm = $taskIdInput.valid() && isValidForm;
 		isValidForm = $engineerIdInput.valid() && isValidForm;
         isValidForm = $dateInput.valid() && isValidForm;
         isValidForm = validationActivitiesFromManagerReport() && isValidForm;

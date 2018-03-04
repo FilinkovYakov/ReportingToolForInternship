@@ -14,8 +14,8 @@
         {
             return new SearchReportModel()
             {
-                EngineerId = -1,
-                ManagerId = -1,
+                EngineerId = Guid.NewGuid(),
+                ManagerId = Guid.NewGuid(),
                 DateFrom = null,
                 DateTo = null,
                 TypeOrigin = "All"
@@ -26,8 +26,8 @@
         {
             return new SearchReportVM()
             {
-                EngineerId = -1,
-                ManagerId = -1,
+                EngineerId = Guid.NewGuid(),
+                ManagerId = Guid.NewGuid(),
                 DateFrom = null,
                 DateTo = null,
                 TypeOrigin = "All"

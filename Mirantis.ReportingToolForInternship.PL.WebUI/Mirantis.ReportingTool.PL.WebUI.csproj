@@ -214,11 +214,11 @@
     <Compile Include="Models\ProjectVM.cs" />
     <Compile Include="Models\QuestionVM.cs" />
     <Compile Include="Models\ReportVM.cs" />
+    <Compile Include="Models\Repositories\TaskLogicProvider.cs" />
     <Compile Include="Models\Repositories\StatusRepo.cs" />
     <Compile Include="Models\Repositories\TypeOriginRepo.cs" />
     <Compile Include="Models\Repositories\ProjectLogicProvider.cs" />
     <Compile Include="Models\Repositories\UserLogicProvider.cs" />
-    <Compile Include="Models\RepresentingReportVM.cs" />
     <Compile Include="Models\SearchTaskVM.cs" />
     <Compile Include="Models\SearchReportVM.cs" />
     <Compile Include="Models\TaskVM.cs" />

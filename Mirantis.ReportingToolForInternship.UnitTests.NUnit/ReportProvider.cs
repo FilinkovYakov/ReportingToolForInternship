@@ -14,8 +14,8 @@
         {
             return new Report()
             {
-                Id = new Guid(),
-                EngineerId = 1,
+                Id = Guid.NewGuid(),
+                EngineerId = Guid.NewGuid(),
                 Date = DateTime.Now,
                 IsDraft = false,
                 Activities = new List<Activity>()
@@ -41,7 +41,7 @@
         public static Report GetCorrectManagerReport()
         {
             Report report = GetCorrectEngineerReport();
-            report.ManagerId = 2;
+            report.ManagerId = Guid.NewGuid();
             return report;
         }
 
@@ -49,8 +49,8 @@
         {
             return new ReportVM()
             {
-                Id = new Guid(),
-                EngineerId = 1,
+                Id = Guid.NewGuid(),
+                EngineerId = Guid.NewGuid(),
                 Date = DateTime.Now,
                 IsDraft = false,
                 Activities = new List<ActivityVM>()
@@ -76,7 +76,7 @@
         public static ReportVM GetCorrectManagerReportVM()
         {
             ReportVM report = GetCorrectEngineerReportVM();
-            report.ManagerId = 2;
+            report.ManagerId = Guid.NewGuid();
             return report;
         }
     }

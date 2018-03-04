@@ -16,7 +16,7 @@
         [Test]
         public void GetByIdGotDataFromCache()
         {
-            const int userId = 1;
+            Guid userId = Guid.NewGuid();
             Mock<IUserCache> userCacheMock = new Mock<IUserCache>();
             userCacheMock.Setup(x => x.GetUserById(userId))
                 .Returns(new User())
@@ -36,7 +36,7 @@
         [Test]
         public void GetByIdGotDataFromDao()
         {
-            const int userId = 1;
+            Guid userId = Guid.NewGuid();
             User user = new User();
             Mock<IUserCache> userCacheMock = new Mock<IUserCache>();
             userCacheMock.Setup(x => x.GetUserById(userId))

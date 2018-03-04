@@ -27,6 +27,7 @@
 			{
 				var originalTask = dbContext.Tasks.Find(task.Id);
 				dbContext.Entry(originalTask).CurrentValues.SetValues(task);
+				dbContext.Entry(originalTask).Property(x => x.ReporterId).IsModified = false;
 				dbContext.SaveChanges();
 			}
 		}
@@ -38,6 +39,15 @@
 				return dbContext.Tasks.Where(task => task.Id == id)
 					.Include(task => task.Project)
 					.FirstOrDefault();
+			}
+		}
+
+		public IList<Task> GetByUserId(Guid userId)
+		{
+			using (var dbContext = new CustomDBContext(connectionString))
+			{
+				return dbContext.Tasks
+					.Where(task => task.ReporterId == userId || task.AssigneeId == userId).ToList();
 			}
 		}
 

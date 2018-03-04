@@ -17,7 +17,7 @@
         [Test]
         public void ReportController_AdditionEngineerReportInController_ReturnViewResult()
         {
-            ReportController reportCrtl = new ReportController(Mock.Of<IReportLogic>(), Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
+            ReportController reportCrtl = new ReportController(Mock.Of<IReportLogic>(), Mock.Of<IUserLogic>(), Mock.Of<ITaskLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             ActionResult result = reportCrtl.AddEngineerReport();
 
             Assert.IsNotNull(result);
@@ -27,7 +27,7 @@
         [Test]
         public void ReportController_AdditionManagerReportInController_ReturnViewResult()
         {
-            ReportController reportCrtl = new ReportController(Mock.Of<IReportLogic>(), Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
+            ReportController reportCrtl = new ReportController(Mock.Of<IReportLogic>(), Mock.Of<IUserLogic>(), Mock.Of<ITaskLogic>(), Mock.Of<IMapper>(), Mock.Of<ICustomLogger>());
             ActionResult result = reportCrtl.AddManagerReport();
 
             Assert.IsNotNull(result);
@@ -44,7 +44,7 @@
             mockLogger.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
             ReportVM engineerReportVM = ReportProvider.GetCorrectEngineerReportVM();
-            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), mockLogger.Object);
+            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ITaskLogic>(), Mock.Of<IMapper>(), mockLogger.Object);
 
             ActionResult result = reportCrtl.SaveReportAsDraftAfterAddition(engineerReportVM);
 
@@ -64,7 +64,7 @@
             mockLogger.Setup(t => t.RecordError(It.IsAny<Exception>())).Verifiable();
 
             ReportVM engineerReportVM = ReportProvider.GetCorrectEngineerReportVM();
-            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<IMapper>(), mockLogger.Object);
+            ReportController reportCrtl = new ReportController(mockLogic.Object, Mock.Of<IUserLogic>(), Mock.Of<ITaskLogic>(), Mock.Of<IMapper>(), mockLogger.Object);
 
             ActionResult result = reportCrtl.SubmitReportAfterAddition(engineerReportVM);
 

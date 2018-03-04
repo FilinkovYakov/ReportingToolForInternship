@@ -1,19 +1,18 @@
 ﻿namespace Mirantis.ReportingTool.PL.WebUI.Models
 {
-    using Entities;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Security.Principal;
-    using System.Web;
+	using Entities;
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Security.Principal;
 
-    public class UserPrincipal : IPrincipal
+	public class UserPrincipal : IPrincipal
     {
         private IList<Role> _roles;
-        private int _id;
+        private Guid _id;
         private IIdentity _identity;
 
-        public UserPrincipal(int id, IList<Role> roles)
+        public UserPrincipal(Guid id, IList<Role> roles)
         {
             _id = id;
             _roles = roles;

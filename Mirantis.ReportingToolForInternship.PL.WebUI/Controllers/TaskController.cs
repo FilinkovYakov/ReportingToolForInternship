@@ -85,7 +85,7 @@
 				if (ModelState.IsValid)
 				{
 					var task = _mapper.Map<Task>(taskVM);
-					int reporterId = int.Parse(User.Identity.Name);
+					Guid reporterId = Guid.Parse(User.Identity.Name);
 					task.ReporterId = reporterId;
 					_taskLogic.Add(task);
 					return RedirectToAction("Search");

@@ -18,7 +18,7 @@
         [Test]
         public void UserLogic_GetByIdExistingUser_ReturnUser()
         {
-            int id = 1;
+			Guid id = Guid.NewGuid();
             Mock<IUserDAO> userDAO = new Mock<IUserDAO>();
             userDAO.Setup(t => t.GetById(id)).Returns(new User() { Id = id }).Verifiable();
             UserLogic userLogic = new UserLogic(userDAO.Object, Mock.Of<ICustomLogger>());
@@ -36,8 +36,8 @@
             string role = "Manager";
             IList<User> managers = new List<User>
             {
-                    new User() { Id = 1 },
-                    new User() { Id = 2 }
+                    new User() { Id = Guid.NewGuid() },
+                    new User() { Id = Guid.NewGuid() }
             };
 
             Mock<IUserDAO> userDAO = new Mock<IUserDAO>();

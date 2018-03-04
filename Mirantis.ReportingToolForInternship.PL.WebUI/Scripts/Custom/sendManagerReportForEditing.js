@@ -20,7 +20,8 @@ $(document).ready(function () {
 	"use strict";
 
     var $submitButton = $("#SubmitButton"),
-        $saveAsDraftButton = $("#SaveAsDraftButton"),
+		$saveAsDraftButton = $("#SaveAsDraftButton"),
+		$taskIdInput = $("#TaskId"),
 		$engineerIdInput = $("#EngineerId"),
         $titleInput = $("#Title"),
         $dateInput = $("#Date"),
@@ -63,7 +64,8 @@ $(document).ready(function () {
 
     function isModelValidate() {
         var isValidForm = true;
-        isValidForm = $titleInput.valid() && isValidForm;
+		isValidForm = $titleInput.valid() && isValidForm;
+		isValidForm = $taskIdInput.valid() && isValidForm;
 		isValidForm = $engineerIdInput.valid() && isValidForm;
         isValidForm = $dateInput.valid() && isValidForm;
         isValidForm = validationActivitiesFromManagerReport() && isValidForm;

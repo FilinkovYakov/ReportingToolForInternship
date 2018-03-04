@@ -7,8 +7,9 @@
 	public interface ITaskLogic
 	{
 		void Add(Task task);
+		void Edit(Task task);
+		IList<Task> GetByUserId(Guid userId);
 		IList<Task> Search(SearchTaskModel searchModel);
 		Task GetById(Guid id);
-		void Edit(Task task);
 	}
 }

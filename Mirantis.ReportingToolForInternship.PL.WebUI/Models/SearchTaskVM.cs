@@ -12,10 +12,10 @@
         public string Title { get; set; }
 
         [Display(Name = "Reporter :")]
-        public int? ReporterId { get; set; }
+        public Guid? ReporterId { get; set; }
 
         [Display(Name = "Assignee :")]
-        public int? AssigneeId { get; set; }
+        public Guid? AssigneeId { get; set; }
 
         [Display(Name = "Status :")]
 		public string Status { get; set; }

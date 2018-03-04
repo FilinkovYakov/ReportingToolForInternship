@@ -12,7 +12,7 @@
 
     class ControllerContextProvider
     {
-        public static Mock<ControllerContext> GetFakeControllerContext(int fakeUserId, string [] roles)
+        public static Mock<ControllerContext> GetFakeControllerContext(Guid fakeUserId, string [] roles)
         {
             var fakeHttpContext = new Mock<HttpContextBase>();
             var fakeIdentity = new GenericIdentity(fakeUserId.ToString());
