@@ -7,8 +7,9 @@
     public interface IProjectDAO
     {
         void Add(Project project);
+		void Edit(Project project);
+		void Delete(Guid id);
 		Project GetById(Guid id);
-        void Edit(Project project);
 		IList<Project> GetAll();
 	}
 }

@@ -168,5 +168,22 @@
 				return new HttpStatusCodeResult(500);
 			}
 		}
+
+		[CustomAuthorize(Roles = AppRoles.Manager)]
+		[ValidateAntiForgeryToken]
+		[HttpPost]
+		public ActionResult DeleteTask(Guid id)
+		{
+			try
+			{
+				_taskLogic.Delete(id);
+				return RedirectToAction("Search");
+			}
+			catch (Exception e)
+			{
+				_customLogger.RecordError(e);
+				return new HttpStatusCodeResult(500);
+			}
+		}
 	}
 }

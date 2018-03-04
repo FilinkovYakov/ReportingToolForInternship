@@ -578,6 +578,7 @@
     <Content Include="Views\Task\AddTask.cshtml" />
     <Content Include="Views\Task\Details.cshtml" />
     <Content Include="Views\Task\EditTask.cshtml" />
+    <Content Include="Views\Project\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,6 +11,7 @@
         public Guid Id { get; set; }
 
         public Guid ReportId { get; set; }
+		public Report Report { get; set; }
 
         public string Description { get; set; }
     }

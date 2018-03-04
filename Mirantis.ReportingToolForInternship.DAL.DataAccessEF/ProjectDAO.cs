@@ -20,6 +20,16 @@
 			}
 		}
 
+		public void Delete(Guid id)
+		{
+			using (var dbContext = new CustomDBContext(connectionString))
+			{
+				var originalProject = dbContext.Projects.Find(id);
+				dbContext.Projects.Remove(originalProject);
+				dbContext.SaveChanges();
+			}
+		}
+
 		public void Edit(Project project)
 		{
 			using (var dbContext = new CustomDBContext(connectionString))

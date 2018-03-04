@@ -120,5 +120,42 @@
 				return new HttpStatusCodeResult(500);
 			}
 		}
+
+		[CustomAuthorize]
+		public ActionResult Details(Guid id)
+		{
+			try
+			{
+				ProjectVM projectVM = _mapper.Map<ProjectVM>(_projectLogic.GetById(id));
+				if (projectVM == null)
+				{
+					return new HttpStatusCodeResult(404);
+				}
+
+				return View(projectVM);
+			}
+			catch (Exception e)
+			{
+				_customLogger.RecordError(e);
+				return new HttpStatusCodeResult(500);
+			}
+		}
+
+		[CustomAuthorize(Roles = AppRoles.Manager)]
+		[ValidateAntiForgeryToken]
+		[HttpPost]
+		public ActionResult DeleteProject(Guid id)
+		{
+			try
+			{
+				_projectLogic.Delete(id);
+				return RedirectToAction("GetAllProjects");
+			}
+			catch (Exception e)
+			{
+				_customLogger.RecordError(e);
+				return new HttpStatusCodeResult(500);
+			}
+		}
 	}
 }

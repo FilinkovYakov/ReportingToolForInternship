@@ -8,6 +8,7 @@
 	{
 		void Add(Task task);
 		void Edit(Task task);
+		void Delete(Guid id);
 		IList<Task> GetByUserId(Guid userId);
 		IList<Task> Search(SearchTaskModel searchModel);
 		Task GetById(Guid id);

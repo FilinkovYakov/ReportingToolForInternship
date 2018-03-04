@@ -1,4 +1,6 @@
-﻿@model Mirantis.ReportingTool.PL.WebUI.Models.TaskVM
+﻿@using Mirantis.ReportingTool.PL.WebUI.Constants
+
+@model Mirantis.ReportingTool.PL.WebUI.Models.TaskVM
 
 @{
 	ViewBag.Title = "Details task";
@@ -6,8 +8,11 @@
 
 <h2>Details task</h2>
 
-<div class="form-horizontal">
+@using (Html.BeginForm("DeleteTask", "Task", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+	@Html.AntiForgeryToken()
 	<hr />
+	@Html.HiddenFor(model => model.Id)
 
 	<div class="form-group">
 		@Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-xs-2" })
@@ -75,7 +80,16 @@
 			@Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @type = "text", @readonly = "true", @value = Model.Status } })
 		</div>
 	</div>
-</div>
+
+	if (User.IsInRole(AppRoles.Manager))
+	{
+		<div class="form-group">
+			<div class="col-xs-10 col-md-offset-2">
+				<input type="submit" value="Delete" class="btn btn-default pull-right" id="SubmitButton" />
+			</div>
+		</div>
+	}
+}
 
 @section scripts {
 	<script src="~/Scripts/Custom/setSettingsTooltips.js"></script>

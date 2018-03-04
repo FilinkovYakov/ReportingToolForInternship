@@ -7,8 +7,9 @@
 	public interface IProjectLogic
 	{
 		void Add(Project project);
-		Project GetById(Guid id);
 		void Edit(Project project);
+		void Delete(Guid id);
+		Project GetById(Guid id);
 		IList<Project> GetAll();
 	}
 }

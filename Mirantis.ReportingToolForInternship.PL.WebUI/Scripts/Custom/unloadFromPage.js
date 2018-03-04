@@ -19,41 +19,6 @@ $("input").change(function () {
     isInputChanged = true;
 });
 
-//function isModelContainSomethingElements() {
-//    var isContain = false;
-//    $(".input-activity").each(function () {
-//        if ($(this).val() != "") {
-//             isContain = true;
-//        }
-//    });
-
-//    if (!isContain) {
-//        $(".input-evaluation").each(function () {
-//            if ($(this).val() != "") {
-//                isContain = true;
-//            }
-//        });
-//    }
-
-//    if (!isContain) {
-//        $(".input-question").each(function () {
-//            if ($(this).val() != "") {
-//                isContain = true;
-//            }
-//        });
-//    }
-
-//    if (!isContain) {
-//        $(".input-future-plan").each(function () {
-//            if ($(this).val() != "") {
-//                isContain = true;
-//            }
-//        });
-//    }
-
-//    return isContain;
-//}
-
 function IsHideMessageAboutSuccessOperation() {
     var innerHtml = $("#MessageAboutSuccessOperation").html().trim();
     return innerHtml == "";

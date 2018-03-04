@@ -21,6 +21,16 @@
 			}
 		}
 
+		public void Delete(Guid id)
+		{
+			using (var dbContext = new CustomDBContext(connectionString))
+			{
+				var originalTask = dbContext.Tasks.Find(id);
+				dbContext.Tasks.Remove(originalTask);
+				dbContext.SaveChanges();
+			}
+		}
+
 		public void Edit(Task task)
 		{
 			using (var dbContext = new CustomDBContext(connectionString))

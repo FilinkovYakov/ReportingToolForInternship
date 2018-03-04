@@ -36,6 +36,21 @@
 			}
 		}
 
+		public void Delete(Guid id)
+		{
+			try
+			{
+				_customLogger.RecordInfo("Deletion task has started");
+				_taskDAO.Delete(id);
+				_customLogger.RecordInfo("Deletion task has finished");
+			}
+			catch (Exception ex)
+			{
+				_customLogger.RecordError(ex);
+				throw;
+			}
+		}
+
 		public void Edit(Task task)
 		{
 			try

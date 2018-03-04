@@ -32,6 +32,21 @@
 			}
 		}
 
+		public void Delete(Guid id)
+		{
+			try
+			{
+				_customLogger.RecordInfo("Deletion project has started");
+				_projectDAO.Delete(id);
+				_customLogger.RecordInfo("Deletion project has finished");
+			}
+			catch (Exception ex)
+			{
+				_customLogger.RecordError(ex);
+				throw;
+			}
+		}
+
 		public void Edit(Project project)
 		{
 			try
