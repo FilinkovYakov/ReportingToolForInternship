@@ -88,7 +88,7 @@
 					Guid reporterId = Guid.Parse(User.Identity.Name);
 					task.ReporterId = reporterId;
 					_taskLogic.Add(task);
-					return RedirectToAction("Search");
+					return Json(Url.Action("Search"));
 				}
 
 				return View();
@@ -140,7 +140,7 @@
 
 				task = _mapper.Map<Task>(taskVM);
 				_taskLogic.Edit(task);
-				return RedirectToAction("Search");
+				return Json(Url.Action("Search"));
 			}
 			catch (Exception e)
 			{
@@ -177,7 +177,7 @@
 			try
 			{
 				_taskLogic.Delete(id);
-				return RedirectToAction("Search");
+				return Json(Url.Action("Search"));
 			}
 			catch (Exception e)
 			{

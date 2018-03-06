@@ -16,7 +16,9 @@ function unlockAllFunctions() {
 
 function setConditionReadonlyOnInputs(value) {
     var $inputs = $("input");
-    $inputs.prop("disabled", value);
+	$inputs.prop("disabled", value);
+	var $textAreas = $("textarea");
+	$textAreas.prop("disabled", value);
 
     if (value) {
         $inputs.addClass("input-grey");

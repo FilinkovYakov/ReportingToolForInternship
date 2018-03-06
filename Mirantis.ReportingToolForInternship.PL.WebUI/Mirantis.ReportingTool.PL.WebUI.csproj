@@ -371,6 +371,7 @@
     <Content Include="Scripts\Custom\changeRulesValidation.js" />
     <Content Include="Scripts\Custom\clearInputs.js" />
     <Content Include="Scripts\Custom\constructors.js" />
+    <Content Include="Scripts\Custom\redirect.js" />
     <Content Include="Scripts\Custom\disableInputs.js" />
     <Content Include="Scripts\Custom\disableManagerDropdown.js" />
     <Content Include="Scripts\Custom\setSettingsTooltips.js" />

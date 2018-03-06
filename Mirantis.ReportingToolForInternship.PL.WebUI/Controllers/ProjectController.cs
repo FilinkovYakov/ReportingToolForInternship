@@ -58,7 +58,7 @@
 
 				var project = _mapper.Map<Project>(projectVM);
 				_projectLogic.Add(project);
-				return RedirectToAction("GetAllProjects");
+				return Json(Url.Action("GetAllProjects"));
 			}
 			catch (Exception e)
 			{
@@ -112,7 +112,7 @@
 
 				project = _mapper.Map<Project>(projectVM);
 				_projectLogic.Edit(project);
-				return RedirectToAction("GetAllProjects");
+				return Json(Url.Action("GetAllProjects"));
 			}
 			catch (Exception e)
 			{
@@ -149,7 +149,7 @@
 			try
 			{
 				_projectLogic.Delete(id);
-				return RedirectToAction("GetAllProjects");
+				return Json(Url.Action("GetAllProjects"));
 			}
 			catch (Exception e)
 			{

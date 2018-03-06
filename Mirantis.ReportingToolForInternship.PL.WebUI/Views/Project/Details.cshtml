@@ -4,11 +4,21 @@
 
 @{
 	ViewBag.Title = "Details project";
+	AjaxOptions ajaxOpts = new AjaxOptions
+	{
+		Url = Url.Action("DeleteProject"),
+		HttpMethod = "post",
+		OnSuccess = "redirect",
+		OnBegin = "lockAllFunctions",
+		OnComplete = "unlockAllFunctions",
+		OnFailure = "unlockAllFunctions",
+		Confirm = "Are you sure that you wanna delete this project?"
+	};
 }
 
 <h2>Details project</h2>
 
-@using (Html.BeginForm("DeleteProject", "Project", FormMethod.Post, new { @class = "form-horizontal" }))
+@using (Ajax.BeginForm("DeleteProject", null, ajaxOpts, new { @class = "form-horizontal" }))
 {
 	@Html.AntiForgeryToken()
 	<hr />
@@ -44,4 +54,8 @@
 	<script src="~/Scripts/bootstrap-select.min.js"></script>
 	<script src="~/Scripts/jquery.validate.js"></script>
 	<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+	<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+	<script src="~/Scripts/Custom/disableInputs.js"></script>
+	<script src="~/Scripts/Custom/redirect.js"></script>
 }

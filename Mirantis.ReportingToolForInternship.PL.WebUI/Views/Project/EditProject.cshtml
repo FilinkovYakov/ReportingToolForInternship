@@ -2,11 +2,20 @@
 
 @{
 	ViewBag.Title = "Edit project";
+	AjaxOptions ajaxOpts = new AjaxOptions
+	{
+		Url = Url.Action("EditProject"),
+		HttpMethod = "post",
+		OnSuccess = "redirect",
+		OnBegin = "lockAllFunctions",
+		OnComplete = "unlockAllFunctions",
+		OnFailure = "unlockAllFunctions",
+	};
 }
 
 <h2>Edit project</h2>
 
-@using (Html.BeginForm("EditProject", "Project", FormMethod.Post, new { @class = "form-horizontal" }))
+@using (Ajax.BeginForm("AddProject", null, ajaxOpts, new { @class = "form-horizontal" }))
 {
 	@Html.AntiForgeryToken()
 	<hr />
@@ -41,4 +50,8 @@
 	<script src="~/Scripts/bootstrap-select.min.js"></script>
 	<script src="~/Scripts/jquery.validate.js"></script>
 	<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+	<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+	<script src="~/Scripts/Custom/disableInputs.js"></script>
+	<script src="~/Scripts/Custom/redirect.js"></script>
 }

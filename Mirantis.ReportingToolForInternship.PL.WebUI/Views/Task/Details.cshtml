@@ -4,11 +4,21 @@
 
 @{
 	ViewBag.Title = "Details task";
+	AjaxOptions ajaxOpts = new AjaxOptions
+	{
+		Url = Url.Action("DeleteTask"),
+		HttpMethod = "post",
+		OnSuccess = "redirect",
+		OnBegin = "lockAllFunctions",
+		OnComplete = "unlockAllFunctions",
+		OnFailure = "unlockAllFunctions",
+		Confirm = "Are you sure that you wanna delete this task?"
+	};
 }
 
 <h2>Details task</h2>
 
-@using (Html.BeginForm("DeleteTask", "Task", FormMethod.Post, new { @class = "form-horizontal" }))
+@using (Ajax.BeginForm("DeleteTask", null, ajaxOpts, new { @class = "form-horizontal" }))
 {
 	@Html.AntiForgeryToken()
 	<hr />
@@ -92,5 +102,13 @@
 }
 
 @section scripts {
+	<script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+	<script src="~/Scripts/bootstrap-select.min.js"></script>
+	<script src="~/Scripts/jquery.validate.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+	<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+	<script src="~/Scripts/Custom/disableInputs.js"></script>
+	<script src="~/Scripts/Custom/redirect.js"></script>
 	<script src="~/Scripts/Custom/setSettingsTooltips.js"></script>
 }
