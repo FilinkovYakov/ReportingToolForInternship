@@ -5,6 +5,7 @@
 	using Mirantis.ReportingTool.Entities;
 	using Mirantis.ReportingTool.PL.WebUI.AuthorizeAttributes;
 	using Mirantis.ReportingTool.PL.WebUI.Constants;
+	using Mirantis.ReportingTool.PL.WebUI.Filters;
 	using Mirantis.ReportingTool.PL.WebUI.Models;
 	using Mirantis.ReportingTool.PL.WebUI.Models.Repositories;
 	using System;
@@ -12,6 +13,8 @@
 	using System.Linq;
 	using System.Web.Mvc;
 
+	[LogActionFilter]
+	[ErrorHandler]
 	public class TaskController : Controller
 	{
 		private readonly ITaskLogic _taskLogic;
@@ -31,15 +34,7 @@
 		[CustomAuthorize]
 		public ActionResult Search()
 		{
-			try
-			{
-				return View();
-			}
-			catch (Exception e)
-			{
-				_customLogger.RecordError(e);
-				return new HttpStatusCodeResult(500);
-			}
+			return View();
 		}
 
 		[CustomAuthorize]
@@ -80,44 +75,28 @@
 		[HttpPost]
 		public ActionResult AddTask(TaskVM taskVM)
 		{
-			try
+			if (ModelState.IsValid)
 			{
-				if (ModelState.IsValid)
-				{
-					var task = _mapper.Map<Task>(taskVM);
-					Guid reporterId = Guid.Parse(User.Identity.Name);
-					task.ReporterId = reporterId;
-					_taskLogic.Add(task);
-					return Json(Url.Action("Search"));
-				}
+				var task = _mapper.Map<Task>(taskVM);
+				Guid reporterId = Guid.Parse(User.Identity.Name);
+				task.ReporterId = reporterId;
+				_taskLogic.Add(task);
+				return Json(Url.Action("Search"));
+			}
 
-				return View();
-			}
-			catch (Exception e)
-			{
-				_customLogger.RecordError(e);
-				return new HttpStatusCodeResult(500);
-			}
+			return View();
 		}
 
 		[CustomAuthorize(Roles = AppRoles.Manager)]
 		public ActionResult EditTask(Guid id)
 		{
-			try
+			var task = _taskLogic.GetById(id);
+			if (task == null)
 			{
-				var task = _taskLogic.GetById(id);
-				if (task == null)
-				{
-					return HttpNotFound();
-				}
-				var taskVM = _mapper.Map<TaskVM>(task);
-				return View(taskVM);
+				return HttpNotFound();
 			}
-			catch (Exception e)
-			{
-				_customLogger.RecordError(e);
-				return new HttpStatusCodeResult(500);
-			}
+			var taskVM = _mapper.Map<TaskVM>(task);
+			return View(taskVM);
 		}
 
 		[CustomAuthorize(Roles = AppRoles.Manager)]
@@ -125,48 +104,32 @@
 		[HttpPost]
 		public ActionResult EditTask(TaskVM taskVM)
 		{
-			try
+			if (taskVM.Id == null)
 			{
-				if (taskVM.Id == null)
-				{
-					return HttpNotFound();
-				}
-
-				var task = _taskLogic.GetById(taskVM.Id.Value);
-				if (task == null)
-				{
-					return HttpNotFound();
-				}
-
-				task = _mapper.Map<Task>(taskVM);
-				_taskLogic.Edit(task);
-				return Json(Url.Action("Search"));
+				return HttpNotFound();
 			}
-			catch (Exception e)
+
+			var task = _taskLogic.GetById(taskVM.Id.Value);
+			if (task == null)
 			{
-				_customLogger.RecordError(e);
-				return new HttpStatusCodeResult(500);
+				return HttpNotFound();
 			}
+
+			task = _mapper.Map<Task>(taskVM);
+			_taskLogic.Edit(task);
+			return Json(Url.Action("Search"));
 		}
 
 		[CustomAuthorize]
 		public ActionResult Details(Guid id)
 		{
-			try
+			TaskVM taskVM = _mapper.Map<TaskVM>(_taskLogic.GetById(id));
+			if (taskVM == null)
 			{
-				TaskVM taskVM = _mapper.Map<TaskVM>(_taskLogic.GetById(id));
-				if (taskVM == null)
-				{
-					return new HttpStatusCodeResult(404);
-				}
+				return new HttpStatusCodeResult(404);
+			}
 
-				return View(taskVM);
-			}
-			catch (Exception e)
-			{
-				_customLogger.RecordError(e);
-				return new HttpStatusCodeResult(500);
-			}
+			return View(taskVM);
 		}
 
 		[CustomAuthorize(Roles = AppRoles.Manager)]
@@ -174,16 +137,8 @@
 		[HttpPost]
 		public ActionResult DeleteTask(Guid id)
 		{
-			try
-			{
-				_taskLogic.Delete(id);
-				return Json(Url.Action("Search"));
-			}
-			catch (Exception e)
-			{
-				_customLogger.RecordError(e);
-				return new HttpStatusCodeResult(500);
-			}
+			_taskLogic.Delete(id);
+			return Json(Url.Action("Search"));
 		}
 	}
 }

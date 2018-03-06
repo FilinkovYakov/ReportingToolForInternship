@@ -26,6 +26,11 @@
 			logger.Error($"[{Thread.CurrentThread.ManagedThreadId}]:{e.Message}:{e.StackTrace}");
 		}
 
+		public void RecordError(string message, Exception e)
+		{
+			logger.Error($"[{Thread.CurrentThread.ManagedThreadId}]:{message}:{e.Message}:{e.StackTrace}");
+		}
+
 		public void RecordInfo(string info)
 		{
 			logger.Info($"[{Thread.CurrentThread.ManagedThreadId}]:{info}");

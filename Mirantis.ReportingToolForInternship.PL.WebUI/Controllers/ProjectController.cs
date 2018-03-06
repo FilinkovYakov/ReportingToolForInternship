@@ -5,11 +5,14 @@
 	using Mirantis.ReportingTool.Entities;
 	using Mirantis.ReportingTool.PL.WebUI.AuthorizeAttributes;
 	using Mirantis.ReportingTool.PL.WebUI.Constants;
+	using Mirantis.ReportingTool.PL.WebUI.Filters;
 	using Mirantis.ReportingTool.PL.WebUI.Models;
 	using System;
 	using System.Collections.Generic;
 	using System.Web.Mvc;
 
+	[LogActionFilter]
+	[ErrorHandler]
 	public class ProjectController : Controller
 	{
 		private readonly IProjectLogic _projectLogic;
@@ -49,42 +52,26 @@
 		[HttpPost]
 		public ActionResult AddProject(ProjectVM projectVM)
 		{
-			try
+			if (!ModelState.IsValid)
 			{
-				if (!ModelState.IsValid)
-				{
-					return View(projectVM);
-				}
+				return View(projectVM);
+			}
 
-				var project = _mapper.Map<Project>(projectVM);
-				_projectLogic.Add(project);
-				return Json(Url.Action("GetAllProjects"));
-			}
-			catch (Exception e)
-			{
-				_customLogger.RecordError(e);
-				return new HttpStatusCodeResult(500);
-			}
+			var project = _mapper.Map<Project>(projectVM);
+			_projectLogic.Add(project);
+			return Json(Url.Action("GetAllProjects"));
 		}
 
 		[CustomAuthorize(Roles = AppRoles.Manager)]
 		public ActionResult EditProject(Guid id)
 		{
-			try
+			var project = _projectLogic.GetById(id);
+			if (project == null)
 			{
-				var project = _projectLogic.GetById(id);
-				if (project == null)
-				{
-					return HttpNotFound();
-				}
-				var projectVM = _mapper.Map<ProjectVM>(_projectLogic.GetById(id));
-				return View(projectVM);
+				return HttpNotFound();
 			}
-			catch (Exception e)
-			{
-				_customLogger.RecordError(e);
-				return new HttpStatusCodeResult(500);
-			}
+			var projectVM = _mapper.Map<ProjectVM>(_projectLogic.GetById(id));
+			return View(projectVM);
 		}
 
 		[CustomAuthorize(Roles = AppRoles.Manager)]
@@ -92,53 +79,37 @@
 		[HttpPost]
 		public ActionResult EditProject(ProjectVM projectVM)
 		{
-			try
+			if (!ModelState.IsValid)
 			{
-				if (!ModelState.IsValid)
-				{
-					return View(projectVM);
-				}
-
-				if (projectVM.Id == null)
-				{
-					return HttpNotFound();
-				}
-
-				var project = _projectLogic.GetById(projectVM.Id.Value);
-				if (project == null)
-				{
-					return HttpNotFound();
-				}
-
-				project = _mapper.Map<Project>(projectVM);
-				_projectLogic.Edit(project);
-				return Json(Url.Action("GetAllProjects"));
+				return View(projectVM);
 			}
-			catch (Exception e)
+
+			if (projectVM.Id == null)
 			{
-				_customLogger.RecordError(e);
-				return new HttpStatusCodeResult(500);
+				return HttpNotFound();
 			}
+
+			var project = _projectLogic.GetById(projectVM.Id.Value);
+			if (project == null)
+			{
+				return HttpNotFound();
+			}
+
+			project = _mapper.Map<Project>(projectVM);
+			_projectLogic.Edit(project);
+			return Json(Url.Action("GetAllProjects"));
 		}
 
 		[CustomAuthorize]
 		public ActionResult Details(Guid id)
 		{
-			try
+			ProjectVM projectVM = _mapper.Map<ProjectVM>(_projectLogic.GetById(id));
+			if (projectVM == null)
 			{
-				ProjectVM projectVM = _mapper.Map<ProjectVM>(_projectLogic.GetById(id));
-				if (projectVM == null)
-				{
-					return new HttpStatusCodeResult(404);
-				}
+				return new HttpStatusCodeResult(404);
+			}
 
-				return View(projectVM);
-			}
-			catch (Exception e)
-			{
-				_customLogger.RecordError(e);
-				return new HttpStatusCodeResult(500);
-			}
+			return View(projectVM);
 		}
 
 		[CustomAuthorize(Roles = AppRoles.Manager)]
@@ -146,16 +117,8 @@
 		[HttpPost]
 		public ActionResult DeleteProject(Guid id)
 		{
-			try
-			{
-				_projectLogic.Delete(id);
-				return Json(Url.Action("GetAllProjects"));
-			}
-			catch (Exception e)
-			{
-				_customLogger.RecordError(e);
-				return new HttpStatusCodeResult(500);
-			}
+			_projectLogic.Delete(id);
+			return Json(Url.Action("GetAllProjects"));
 		}
 	}
 }
